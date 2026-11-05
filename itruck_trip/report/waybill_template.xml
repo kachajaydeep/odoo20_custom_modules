@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_waybill" model="report.paperformat">
+        <field name="name">Waybill: A4</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">52</field>
+        <field name="margin_bottom">15</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">0</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">52</field>
+        <field name="dpi">90</field>
+        <field name="css_margins" eval="True" />
+    </record>
+
+    <record id="report_itruck_waybill" model="ir.actions.report">
+        <field name="name">Waybill</field>
+        <field name="model">itruck.trip</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">itruck_trip.report_waybill</field>
+        <field name="report_file">itruck_trip.report_waybill</field>
+        <field name="print_report_name">'%s - %s' % (object.partner_id.name, object.fleet_id.display_name if object.fleet_id else 'No Plate')</field>
+        <field name="binding_model_id" ref="model_itruck_trip"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_waybill"/>
+    </record>
+
+<!--    <template id="report_waybill_template">-->
+<!--        <t t-call="itruck_trip.external_layout_waybill" style="padding-bottom: 25px;">-->
+<!--            <div class="page">-->
+
+<!--&lt;!&ndash;                <div class="text-end">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <h5>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <strong>Trip: </strong> <span t-field="o.name"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </h5>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--                <div class="text-center" style="color: black;background-color: darkgrey;">-->
+<!--                    <h5>-->
+<!--                        <strong>Waybill</strong><br/>-->
+<!--                        بوليصة الشحن-->
+<!--                    </h5>-->
+<!--                </div>-->
+<!--                <div class="container" style="padding-bottom: 14px; padding-top: 10px;">-->
+<!--                    <div class="container">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-4" style="border: 1px solid black;">-->
+<!--                                <strong>Date:</strong>       <span t-field="o.date" t-options='{"widget": "date","format": "dd/MM/yyyy"}'/><br/>-->
+<!--                                التاريخ-->
+<!--                            </div>-->
+<!--                            <div class="col-4" style="border: 1px solid black;">-->
+<!--                                <strong>Loading Point: </strong>       <span t-field="o.loading_point"/><br/>-->
+<!--                                نقطة التحميل-->
+<!--                            </div>-->
+<!--                            <div class="col-4" style="border: 1px solid black;">-->
+<!--                                <strong>Unloading Point: </strong>       <span t-field="o.unloading_point"/><br/>-->
+<!--                                نقطة التنزيل-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="text-center" style="color: black;background-color: darkgrey;">-->
+<!--                    <h5>-->
+<!--                        <strong>Cargo</strong><br/>-->
+<!--                        البضائع-->
+<!--                    </h5>-->
+<!--                </div>-->
+<!--                <div class="container" style="padding-bottom: 14px; padding-top: 10px;">-->
+<!--                    <div class="container">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-6" style="border: 1px solid black;">-->
+<!--                                <strong>Commodity: </strong>       <span t-field="o.product_type_id"/><br/>-->
+<!--                                الحمولة-->
+<!--                            </div>-->
+<!--                            <div class="col-6" style="border: 1px solid black;">-->
+<!--                                <strong>Weight: </strong>       <span t-field="o.weight"/><br/>-->
+<!--                                الوزن-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="text-center" style="color: black;background-color: darkgrey;">-->
+<!--                    <h5>-->
+<!--                        <strong>Shipper</strong><br/>-->
+<!--                        الشاحن-->
+<!--                    </h5>-->
+<!--                </div>-->
+<!--                <div class="container" style="padding-bottom: 10px;">-->
+<!--                    <div class="container">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-6" style="border: 1px solid black;padding-bottom: 15px;">-->
+<!--                                <strong>Shipper </strong> المرسل-->
+<!--                                <div class="container" style="padding-top: 10px;">-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-4" style="border: 1px solid black;">-->
+<!--                                            <strong>Name: </strong><br/>-->
+<!--                                            الاسم-->
+<!--                                        </div>-->
+<!--                                        <div class="col-8" style="border: 1px solid black;">-->
+<!--                                            <span t-field="o.partner_id"/>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-4" style="border: 1px solid black;">-->
+<!--                                            <strong>Address: </strong><br/>-->
+<!--                                            العنوان-->
+<!--                                        </div>-->
+<!--                                        <div class="col-8" style="border: 1px solid black;">-->
+<!--                                            <t t-if="o.partner_id">-->
+<!--                                                <span t-field="o.partner_id.street"/>,  -->
+<!--                                                <span t-field="o.partner_id.street2"/>-->
+<!--                                                <br/>-->
+<!--                                                <span t-field="o.partner_id.country_id"/>,  -->
+<!--                                                <span t-field="o.partner_id.city"/>  -->
+<!--                                                <span t-field="o.partner_id.zip"/>-->
+<!--                                            </t>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-6" style="border: 1px solid black; padding-bottom: 15px;">-->
+<!--                                <strong>Consignee </strong> المستلم-->
+<!--                                <div class="container" style="padding-top: 10px;">-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-4" style="border: 1px solid black;">-->
+<!--                                            <strong>Name: </strong><br/>-->
+<!--                                            الاسم-->
+<!--                                        </div>-->
+<!--                                        <div class="col-8" style="border: 1px solid black;">-->
+<!--                                            <span t-field="o.consignee_id"/>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-4" style="border: 1px solid black;">-->
+<!--                                            <strong>Address: </strong><br/>-->
+<!--                                            العنوان-->
+<!--                                        </div>-->
+<!--                                        <div class="col-8" style="border: 1px solid black;">-->
+<!--                                            <t t-if="o.consignee_id">-->
+<!--                                                <span t-field="o.consignee_id.street"/>,  -->
+<!--                                                <span t-field="o.consignee_id.street2"/>-->
+<!--                                                <br/>-->
+<!--                                                <span t-field="o.consignee_id.country_id"/>,  -->
+<!--                                                <span t-field="o.consignee_id.city"/>  -->
+<!--                                                <span t-field="o.consignee_id.zip"/>-->
+<!--                                            </t>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="text-center" style="color: black;background-color: darkgrey;">-->
+<!--                    <h5>-->
+<!--                        <strong>Carrier</strong><br/>-->
+<!--                        الناقل-->
+<!--                    </h5>-->
+<!--                </div>-->
+<!--                <div class="container" style="padding-bottom: 10px;">-->
+<!--                    <div class="container" style="padding-bottom: 20px;">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-6" style="border: 1px solid black;padding-bottom: 15px;">-->
+<!--                                <strong>Truck </strong> الشاحنة-->
+<!--                                <div class="container" style="padding-top: 10px;">-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-4" style="border: 1px solid black;">-->
+<!--                                            <strong>Type: </strong><br/>-->
+<!--                                            النوع-->
+<!--                                        </div>-->
+<!--                                        <div class="col-8" style="border: 1px solid black;">-->
+<!--                                            <span t-field="o.fleet_type"/>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-4" style="border: 1px solid black;">-->
+<!--                                            <strong>Plate NO.: </strong><br/>-->
+<!--                                            رقم اللوحة-->
+<!--                                        </div>-->
+<!--                                        <div class="col-8" style="border: 1px solid black;">-->
+<!--                                            <span t-field="o.license_plate"/>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-4" style="border: 1px solid black;">-->
+<!--                                            <strong>Owner ID: </strong><br/>-->
+<!--                                            معرف المالك-->
+<!--                                        </div>-->
+<!--                                        <div class="col-8" style="border: 1px solid black;">-->
+<!--                                            <span t-field="o.owner_lic_id"/>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-4" style="border: 1px solid black;">-->
+<!--                                            <strong>Owner Name: </strong><br/>-->
+<!--                                            اسم المالك-->
+<!--                                        </div>-->
+<!--                                        <div class="col-8" style="border: 1px solid black;">-->
+<!--                                            <span t-field="o.owner_id"/>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-6" style="border: 1px solid black; padding-bottom: 15px;">-->
+<!--                                <strong>Driver </strong> السائق-->
+<!--                                <div class="container" style="padding-top: 10px;">-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-4" style="border: 1px solid black;">-->
+<!--                                            <strong>Name: </strong><br/>-->
+<!--                                            الاسم-->
+<!--                                        </div>-->
+<!--                                        <div class="col-8" style="border: 1px solid black;">-->
+<!--                                            <t t-if="o.driver_id">-->
+<!--                                                <span t-field="o.driver_id.name"/>-->
+<!--                                            </t>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-4" style="border: 1px solid black;">-->
+<!--                                            <strong>ID: </strong><br/>-->
+<!--                                            رقم المعرف-->
+<!--                                        </div>-->
+<!--                                        <div class="col-8" style="border: 1px solid black;">-->
+<!--                                            <span t-field="o.driver_lic_id"/>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-4" style="border: 1px solid black;">-->
+<!--                                            <strong>Phone: </strong><br/>-->
+<!--                                            رقم الهاتف-->
+<!--                                        </div>-->
+<!--                                        <div class="col-8" style="border: 1px solid black;">-->
+<!--                                            <span t-field="o.driver_phone"/>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="container" style="border: 1px solid black;">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-2">-->
+<!--                                <strong>Notes:</strong>-->
+<!--                                <br/>-->
+<!--                                <strong>D/N No.:</strong>-->
+
+<!--                            </div>-->
+<!--                            <div class="col-10">-->
+<!--                                <span t-field="o.note"/>-->
+<!--                                <br/>-->
+<!--                                <span t-field="o.dn_number"/>-->
+<!--				                <div class="text-end">-->
+<!--                                	<img src="/itruck_trip/static/src/img/itruck-stamp.png" style="max-height: 130px;" alt="Stamp"/>-->
+<!--                             	</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </t>-->
+<!--    </template>-->
+
+    <template id="report_waybill_template">
+        <t t-call="itruck_trip.external_layout_waybill" style="padding-bottom: 25px;">
+            <div class="page">
+
+                <div class="text-center" style="color: white;background-color: #404040;">
+                    <h5 style="padding-top:7px;padding-bottom:7px;">
+                        <strong>Waybill</strong>       بوليصة الشحن<br/>
+                        <span t-field="o.name"/>
+                    </h5>
+                </div>
+                <br/>
+                <div class="container" style="padding-bottom: 14px; padding-top: 10px;">
+                    <table width="100%" class="table-bordered">
+                        <body>
+                            <tr>
+                                <td width="15%">
+                                    <strong>Trip Date</strong><br/>تاريخ الرحلة
+                                </td>
+                                <td width="18.33%">
+                                    <span t-field="o.date" t-options='{"widget": "date","format": "dd/MM/yyyy"}'/>
+                                </td>
+                                <td width="15%">
+                                    <strong>Loading Point</strong><br/>نقطة التحميل
+                                </td>
+                                <td width="18.33%">
+                                    <span t-field="o.loading_point"/>
+                                </td>
+                                <td width="15%">
+                                    <strong>Unloading Point</strong><br/>نقطة التنزيل
+                                </td>
+                                <td width="18.33%">
+                                    <span t-field="o.unloading_point"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%">
+                                    <strong>Arrival Date</strong><br/>تاريخ الوصول
+                                </td>
+                                <td width="18.33%">
+                                    <span t-field="o.arrival_date" t-options='{"widget": "date","format": "dd/MM/yyyy"}'/>
+                                </td>
+                                <td width="15%">
+                                    <strong>Commodity</strong><br/>الحمولة
+                                </td>
+                                <td width="18.33%">
+                                    <span t-field="o.product_type_id"/>
+                                </td>
+                                <td width="15%">
+                                    <strong>Weight</strong><br/>الوزن
+                                </td>
+                                <td width="18.33%">
+                                    <span t-field="o.weight"/>
+                                </td>
+                            </tr>
+                        </body>
+                    </table>
+                </div>
+
+                <br/>
+                <div class="text-center" style="color: white;background-color: #404040;">
+                    <h5 style="padding-top:7px;padding-bottom:7px;">
+                        <strong>Shipper</strong>       الشاحن
+                    </h5>
+                </div>
+                <br/>
+                <div class="container" style="padding-bottom: 10px;">
+                    <table width="100%" class="table-bordered">
+                        <body>
+                            <tr>
+                                <td width="15%">
+                                    <strong>Shipper</strong><br/>الشاحن
+                                </td>
+                                <td>
+                                    <span t-field="o.partner_id"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%">
+                                    <strong>Consignee</strong><br/>المستلم
+                                </td>
+                                <td>
+                                    <span t-if="o.consignee_id" t-esc="o.consignee_id.name"/>
+                                </td>
+                            </tr>
+<!--                            <tr>-->
+<!--                                <td width="15%">-->
+<!--                                    <strong>Shipper</strong><br/>الشاحن-->
+<!--                                </td>-->
+<!--                                <td width="33.40%">-->
+<!--                                    <span t-field="o.partner_id"/>-->
+<!--                                </td>-->
+<!--                                <td width="15%">-->
+<!--                                    <strong>Address</strong><br/>العنوان-->
+<!--                                </td>-->
+<!--                                <td width="36.60%">-->
+<!--                                    <t t-if="o.partner_id">-->
+<!--                                        <span t-field="o.partner_id.street"/>,  -->
+<!--                                        <span t-field="o.partner_id.street2"/>-->
+<!--                                        <br/>-->
+<!--                                        <span t-field="o.partner_id.country_id"/>,  -->
+<!--                                        <span t-field="o.partner_id.city"/>  -->
+<!--                                        <span t-field="o.partner_id.zip"/>-->
+<!--                                    </t>-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                            <tr>-->
+<!--                                <td width="15%">-->
+<!--                                    <strong>Consignee</strong><br/>المستلم-->
+<!--                                </td>-->
+<!--                                <td width="33.40%">-->
+<!--                                    <span t-if="o.consignee_id" t-esc="o.consignee_id.name"/>-->
+<!--                                </td>-->
+<!--                                <td width="15%">-->
+<!--                                    <strong>Address</strong><br/>العنوان-->
+<!--                                </td>-->
+<!--                                <td width="36.60%">-->
+<!--                                    <t t-if="o.consignee_id">-->
+<!--                                        <span t-field="o.consignee_id.street"/>,  -->
+<!--                                        <span t-field="o.consignee_id.street2"/>-->
+<!--                                        <br/>-->
+<!--                                        <span t-field="o.consignee_id.country_id"/>,  -->
+<!--                                        <span t-field="o.consignee_id.city"/>  -->
+<!--                                        <span t-field="o.consignee_id.zip"/>-->
+<!--                                    </t>-->
+<!--                                </td>-->
+<!--                            </tr>-->
+                        </body>
+                    </table>
+                </div>
+
+                <br/>
+                <div class="text-center" style="color: white;background-color: #404040;">
+                    <h5 style="padding-top:7px;padding-bottom:7px;">
+                        <strong>Carrier</strong>       الناقل
+                    </h5>
+                </div>
+                <br/>
+                <div class="container" style="padding-bottom: 10px;">
+                    <table width="100%" class="table-bordered">
+                        <body>
+                            <tr>
+                                <td width="15%">
+                                    <strong>Truck Type</strong><br/>نوع الشاحنة
+                                </td>
+                                <td width="33.40%">
+                                    <span t-field="o.fleet_type"/>
+                                </td>
+                                <td width="15%">
+                                    <strong>Plate No</strong><br/>رقم اللوحة
+                                </td>
+                                <td width="36.60%">
+                                    <span t-field="o.license_plate"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%">
+                                    <strong>Owner</strong><br/>مالك
+                                </td>
+                                <td width="33.40%">
+                                    <span t-field="o.owner_id"/>
+                                </td>
+                                <td width="15%">
+                                    <strong>Owner ID</strong><br/>معرف المالك
+                                </td>
+                                <td width="36.60%">
+                                    <span t-field="o.owner_lic_id"/>
+                                </td>
+                            </tr>
+                        </body>
+                    </table>
+                    <table width="100%" class="table-bordered">
+                        <body>
+                            <tr>
+                                <td width="15%">
+                                    <strong>Driver</strong><br/>السائق
+                                </td>
+                                <td width="18.33%">
+                                    <t t-if="o.driver_id">
+                                        <span t-field="o.driver_id.name"/>
+                                    </t>
+                                </td>
+                                <td width="15%">
+                                    <strong>Driver ID</strong><br/>معرف السائق
+                                </td>
+                                <td width="18.33%">
+                                    <span t-field="o.driver_lic_id"/>
+                                </td>
+                                <td width="15%">
+                                    <strong>Driver Phone</strong><br/>سائق الهاتف
+                                </td>
+                                <td width="18.33%">
+                                    <span t-field="o.driver_phone"/>
+                                </td>
+                            </tr>
+                        </body>
+                    </table>
+                    <br/>
+                    <div class="container" style="border: 1px solid black;">
+                        <div dir="rtl">
+                            نتعهد نحن "<strong><span t-field="o.vendor_id"/></strong>" بتوصيل بضائعكم سليمة إلى الوجهة المحددة اعلاه ونحن ملتزمون بسداد التعويض الجزئي أو الكلي الناتج عن أي ضرر يلحق بالبضائع على سبيل المثال ليس الحصر، سواء كان ذلك بسبب نقص أو تلف أو سرقة أو حريق وتسديده على الفور لشركة الناقل التقني للخدمات اللوجستية.
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="container" style="border: 1px solid black;">
+<!--                        <t t-if="o.note">-->
+                            <div class="row">
+                                <div class="col-2">
+                                    <strong>Notes</strong>
+                                </div>
+                                <div class="col-10">
+                                    <span t-field="o.note"/>
+                                    <br/>
+                                    <div style="text-align: right !important;">
+                                        <img src="/itruck_trip/static/src/img/itruck-stamp.png" style="max-height: 130px;" alt="Stamp"/>
+                                    </div>
+                                </div>
+                            </div>
+<!--                        </t>-->
+<!--                        <t t-else="">-->
+<!--                            <div style="height: 100px;">-->
+<!--                                <strong>Notes</strong>-->
+<!--                            </div>-->
+<!--                        </t>-->
+                    </div>
+
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_waybill">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="o.partner_id.lang"/>
+                <t t-call="itruck_trip.report_waybill_template" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <template id="external_layout_waybill">-->
+<!--        <t t-if="not company">-->
+<!--            &lt;!&ndash; Multicompany &ndash;&gt;-->
+<!--            <t t-if="company_id">-->
+<!--                <t t-set="company" t-value="company_id"/>-->
+<!--            </t>-->
+<!--            <t t-elif="o and 'company_id' in o and o.company_id.sudo()">-->
+<!--                <t t-set="company" t-value="o.company_id.sudo()"/>-->
+<!--            </t>-->
+<!--            <t t-else="else">-->
+<!--                <t t-set="company" t-value="res_company"/>-->
+<!--            </t>-->
+<!--        </t>-->
+<!--        <t t-set="company" t-value="company.with_context(lang='en_US')"/>-->
+<!--        <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">-->
+<!--            <div class="text-center">-->
+<!--&lt;!&ndash;                <img t-if="company.logo" t-att-src="image_data_uri(company.logo)"&ndash;&gt;-->
+<!--&lt;!&ndash;                     style="max-height: 45px;"&ndash;&gt;-->
+<!--&lt;!&ndash;                     alt="Logo"/>&ndash;&gt;-->
+<!--                <img src="/itruck_trip/static/src/img/itruck_arabic_logo.jfif" style="max-height: 75px;" alt="Logo"/>-->
+<!--                <br/>-->
+<!--                <br/>-->
+<!--                <h5>Waybill: <span t-field="o.name"/></h5>-->
+<!--            </div>-->
+<!--&lt;!&ndash;            <div class="text-end" style="background-color:#FFF">&ndash;&gt;-->
+<!--&lt;!&ndash;                <t t-esc="o.generate_qr_code()"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <img t-att-src="image_data_uri(o.qr_code)" style="width: 100px;max-height: 100px;" alt="QR Code"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--        </div>-->
+
+<!--        <div t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id " t-att-data-oe-lang="o and o.env.context.get('lang')">-->
+<!--            <t t-out="0"/>-->
+<!--        </div>-->
+
+<!--        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">-->
+<!--            <div class="text-center">-->
+<!--                <div style="color: white;background-color: red;">-->
+<!--                    <span t-field="company.website"/>-->
+<!--                </div>-->
+<!--                <span t-field="company.name"/>-->
+<!--                <br/>-->
+<!--                <span t-field="company.street"/> <span t-field="company.street2"/>-->
+<!--                <span t-field="company.country_id"/> <span t-field="company.city"/> <span t-field="company.zip"/>-->
+<!--                <br/>-->
+<!--                <span t-field="company.email"/>      -->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </template>-->
+
+    <template id="external_layout_waybill">
+        <t t-if="not company">
+            <!-- Multicompany -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id"/>
+            </t>
+            <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-else="else">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+        </t>
+        <t t-set="company" t-value="company.with_context(lang='en_US')"/>
+        <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+            <div class="row" style="font-size: 14px;">
+                <div class="col-4" name="company_address">
+<!--                    <div t-field="company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;:[&quot;address&quot;, &quot;name&quot;] , &quot;no_marker&quot;: true}" style="width:300px"/>-->
+                    <p>
+                        <span t-field="company.name"/>
+                        <br/>
+<!--                        <span t-field="company.email"/>-->
+<!--                        <br/>-->
+                        <span t-field="company.country_id"/>, <span t-field="company.city"/> <span t-field="company.zip"/>
+                        <br/>
+                        <t t-if="company.partner_id.vat">
+                            Vat Number: <span t-field="company.partner_id.vat"/>
+                            <br/>
+                        </t>
+<!--                        Website: <a><span t-field="company.website"/></a><br/>-->
+                        C.R: <span t-field="company.company_registry"/><br/>
+                    </p>
+                </div>
+                <div class="col-4 text-center" name="qr_code">
+                    <img src="/itruck_trip/static/src/img/itruck_arabic_logo.png" style="max-height: 75px;" alt="Logo"/>
+                </div>
+                <div class="col-4" name="company_address" dir="rtl">
+                    <t t-set="o_sec" t-value="o.with_context(lang='ar_001')"/>
+                    <p class="text-end">
+                        <span t-field="o_sec.company_id.arabic_name"/>
+                        <br/>
+                        <span t-field="o_sec.company_id.country_id"/>,<span t-field="o_sec.company_id.arabic_city"/> <span t-field="company.zip"/>
+
+                        <br/>
+                        <t class="text-end" t-if="o_sec.company_id.partner_id.vat">
+                            الرقم الضريبي:
+                            <span t-field="o_sec.company_id.partner_id.vat"/>
+                            <br/>
+                        </t>
+                        رقم السجل التجاري:
+                        <span t-field="o.company_id.company_registry"/>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id " t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <t t-out="0"/>
+        </div>
+
+        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+            <div class="text-center">
+                <div style="color: white;background-color: #404040;">
+                    <span t-field="company.website"/>
+                </div>
+<!--                <span t-field="company.name"/>-->
+<!--                <br/>-->
+<!--                <span t-field="company.street"/> <span t-field="company.street2"/>-->
+<!--                <span t-field="company.country_id"/> <span t-field="company.city"/> <span t-field="company.zip"/>-->
+<!--                <br/>-->
+<!--                <span t-field="company.email"/>      -->
+
+            </div>
+        </div>
+    </template>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id='nf_pos_check_availibility' model='ir.ui.view'>
+        <field name='name'>nf.pos.stock.availibility.settings.form</field>
+        <field name='model'>res.config.settings</field>
+        <field name='inherit_id' ref="point_of_sale.res_config_settings_view_form" />
+        <field name='arch' type='xml'>
+            <block id="pos_interface_section" position="inside" >
+                <setting>
+                    <field name="nf_check_stock"></field>
+                    <div id="pos_order_restriction_days" invisible="not nf_check_stock" >
+                        <field name="nf_allow_to_sale"></field>
+                        <label for="nf_allow_to_sale" class="col-lg-3 o_light_label"/>
+                    </div>
+                </setting> 
+            </block>
+        </field>
+    </record>
+</odoo>

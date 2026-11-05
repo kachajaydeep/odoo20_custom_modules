@@ -1,0 +1,1442 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* itruck_trip
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-24 14:45+0000\n"
+"PO-Revision-Date: 2024-04-24 14:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: itruck_trip
+#: model:ir.actions.report,print_report_name:itruck_trip.report_itruck_waybill
+msgid ""
+"'%s - %s' % (object.partner_id.name, object.driver_id.name if "
+"object.driver_id else 'No Driver')"
+msgstr "'%s - %s' % (object.partner_id.name, object.driver_id.name if object.driver_id else 'لا سائق')"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid ""
+"<br/>\n"
+"                                التاريخ"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid ""
+"<br/>\n"
+"                                الحمولة"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid ""
+"<br/>\n"
+"                                الوزن"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid ""
+"<br/>\n"
+"                                نقطة التحميل"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid ""
+"<br/>\n"
+"                                نقطة التنزيل"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid ""
+"<strong>Address: </strong><br/>\n"
+"                                            العنوان"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid ""
+"<strong>Cargo</strong><br/>\n"
+"                        البضائع"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid ""
+"<strong>Carrier</strong><br/>\n"
+"                        الناقل"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid "<strong>Commodity: </strong>"
+msgstr "<strong>السلعة: </strong>"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid "<strong>Consignee </strong> المستلم"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid "<strong>Date:</strong>"
+msgstr "<strong>تاريخ:</strong>"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid "<strong>Driver </strong> السائق"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid ""
+"<strong>ID: </strong><br/>\n"
+"                                            رقم المعرف"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid "<strong>Loading Point: </strong>"
+msgstr "<strong>نقطة تحميل: </strong>"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid ""
+"<strong>Name: </strong><br/>\n"
+"                                            الاسم"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid "<strong>Notes:</strong>"
+msgstr "<strong>ملحوظات:</strong>"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid ""
+"<strong>Owner ID: </strong><br/>\n"
+"                                            معرف المالك"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid ""
+"<strong>Owner Name: </strong><br/>\n"
+"                                            اسم المالك"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid ""
+"<strong>Phone: </strong><br/>\n"
+"                                            رقم الهاتف"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid ""
+"<strong>Plate NO.: </strong><br/>\n"
+"                                            رقم اللوحة"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid "<strong>Shipper </strong> المرسل"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid ""
+"<strong>Shipper</strong><br/>\n"
+"                        الشاحن"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid "<strong>Truck </strong> الشاحنة"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid ""
+"<strong>Type: </strong><br/>\n"
+"                                            النوع"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid "<strong>Unloading Point: </strong>"
+msgstr "<strong>نقطة التفريغ: </strong>"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid ""
+"<strong>Waybill</strong><br/>\n"
+"                        بوليصة الشحن"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid "<strong>Weight: </strong>"
+msgstr "<strong>وزن: </strong>"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "Accounting"
+msgstr "محاسبة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__accrued_entry
+msgid "Accrued Entry"
+msgstr "الدخول المستحق"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__message_needaction
+msgid "Action Needed"
+msgstr "الإجراءات اللازمة"
+
+#. module: itruck_trip
+#: model:res.groups,name:itruck_trip.group_trip_manager
+msgid "Administrator"
+msgstr "مدير"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__active
+msgid "Archive"
+msgstr "أرشيف"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.view_itruck_trip_search
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__account_id
+msgid "Bank Account"
+msgstr "حساب البنك"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__bill_id
+#: model:ir.model.fields.selection,name:itruck_trip.selection__trip_account_move__move_type__in_invoice
+msgid "Bill"
+msgstr "فاتورة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_fleet_vehicle__blacklisted
+#: model:ir.model.fields,field_description:itruck_trip.field_res_partner__blacklisted
+#: model:ir.model.fields,field_description:itruck_trip.field_res_users__blacklisted
+msgid "Blacklisted?"
+msgstr "مدرج في القائمة السوداء؟"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__state__confirm
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "Booked"
+msgstr "حجز"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/trip.py:0
+#, python-format
+msgid "Can't update the Trip status because the Carrier Price empty!!!"
+msgstr "لا يمكن تحديث حالة الرحلة لأن سعر شركة النقل فارغ!!!"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.duplicate_trip_from_view
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_account_move_from_view
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "Cancel"
+msgstr "يلغي"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__state__cancel
+msgid "Cancelled"
+msgstr "ألغيت"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/account_move.py:0
+#, python-format
+msgid ""
+"Cannot create unbalanced journal entry. Ids: %s\n"
+"Differences debit - credit: %s"
+msgstr ""
+"لا يمكن إنشاء إدخال دفتر يومية غير متوازن. المعرفات: %s\n"
+"فروق الخصم - الائتمان: %s"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__vendor_id
+#: model:ir.model.fields.selection,name:itruck_trip.selection__res_partner__user_type__carrier
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "Carrier"
+msgstr "الناقل"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__carrier_amount
+msgid "Carrier Price"
+msgstr "سعر الناقل"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__vendor_user_id
+#: model_terms:ir.ui.view,arch_db:itruck_trip.view_itruck_trip_search
+msgid "Carrier Salesperson"
+msgstr "مندوب مبيعات الناقل"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__carrier_type
+msgid "Carrier Type"
+msgstr "نوع الناقل"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_res_partner__carrier_shipper_code
+#: model:ir.model.fields,field_description:itruck_trip.field_res_users__carrier_shipper_code
+msgid "Carrier/Shipper Code"
+msgstr "رمز الناقل/الشاحن"
+
+#. module: itruck_trip
+#: model:ir.ui.menu,name:itruck_trip.menu_trip_fleet_vehicle
+msgid "Carriers"
+msgstr "شركات النقل"
+
+#. module: itruck_trip
+#: model:ir.ui.menu,name:itruck_trip.menu_trip_city
+msgid "City"
+msgstr "مدينة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_city__code
+msgid "City Code"
+msgstr "رمز المدينة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_city__name
+#: model_terms:ir.ui.view,arch_db:itruck_trip.trip_city_from_view
+msgid "City Name"
+msgstr "اسم المدينة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,help:itruck_trip.field_itruck_trip__tag_ids
+msgid "Classify and analyze your Trip categories like: Training, Service"
+msgstr "تصنيف وتحليل فئات رحلتك مثل: التدريب، الخدمة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_tag__color
+msgid "Color"
+msgstr "لون"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__company_id
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__carrier_type__company
+msgid "Company"
+msgstr "شركة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_res_partner__company_registry
+#: model:ir.model.fields,field_description:itruck_trip.field_res_users__company_registry
+msgid "Company Registry"
+msgstr "سجل الشركة"
+
+#. module: itruck_trip
+#: model:ir.ui.menu,name:itruck_trip.menu_trip_management_configuration
+msgid "Configuration"
+msgstr "إعدادات"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__consignee_id
+msgid "Consignee"
+msgstr "المرسل إليه"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__consignee_phone
+msgid "Consignee Phone"
+msgstr "هاتف المرسل إليه"
+
+#. module: itruck_trip
+#: model:ir.model,name:itruck_trip.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: itruck_trip
+#: model:res.groups,name:itruck_trip.group_all_team_contacts
+msgid "Contact: All Team Contacts"
+msgstr "جهة الاتصال: جميع جهات اتصال الفريق"
+
+#. module: itruck_trip
+#: model:res.groups,name:itruck_trip.group_contact_access_salesteam
+msgid "Contact: Allow to change Salesperson and Sales Team "
+msgstr "جهة الاتصال: السماح بتغيير مندوب المبيعات وفريق المبيعات"
+
+#. module: itruck_trip
+#: model:res.groups,name:itruck_trip.group_personal_contact
+msgid "Contact: Own Contacts Only"
+msgstr "جهة الاتصال: جهات الاتصال الخاصة فقط"
+
+#. module: itruck_trip
+#: model:ir.module.category,name:itruck_trip.module_category_trip_team_contacts
+#: model:ir.ui.menu,name:itruck_trip.menu_trip_contacts
+msgid "Contacts"
+msgstr "جهات الاتصال"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__employee_id
+msgid "Covered By"
+msgstr "تغطيها"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_account_move_from_view
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "Create Bill"
+msgstr "إنشاء بيل"
+
+#. module: itruck_trip
+#: model:ir.actions.server,name:itruck_trip.model_iturck_trip_action_create_invoice
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_account_move_from_view
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "Create Invoice"
+msgstr "إنشاء فاتورة"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/trip.py:0
+#, python-format
+msgid "Create Invoice/Bills"
+msgstr "إنشاء فاتورة / فواتير"
+
+#. module: itruck_trip
+#: model_terms:ir.actions.act_window,help:itruck_trip.action_trip_tags
+msgid "Create Trip Tags"
+msgstr "إنشاء علامات الرحلة"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.duplicate_trip_from_view
+msgid "Create Trips"
+msgstr "إنشاء رحلات"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_duplicate_trip__create_uid
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__create_uid
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_account_move__create_uid
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_city__create_uid
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_pricelist__create_uid
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_product_type__create_uid
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_tag__create_uid
+msgid "Created by"
+msgstr "انشأ من قبل"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_duplicate_trip__create_date
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__create_date
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_account_move__create_date
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_city__create_date
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_pricelist__create_date
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_product_type__create_date
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_tag__create_date
+msgid "Created on"
+msgstr "تم إنشاؤها على"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__fleet_vehicle__fleet_type__curtain_truck
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__shipper_fleet_type__curtain_truck
+msgid "Curtain Truck"
+msgstr "ستارة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_account_move_line__dn_number
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__dn_number
+msgid "D/N No."
+msgstr "رقم د/ن"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__dor
+msgid "DOR"
+msgstr "دور"
+
+#. module: itruck_trip
+#: model:ir.model.fields,help:itruck_trip.field_itruck_trip__dor
+msgid "Date of Receiving Delivery"
+msgstr "تاريخ استلام التسليم"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__state__completed
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "Delivered"
+msgstr "تم التوصيل"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__delivery_note
+msgid "Delivery Note"
+msgstr "مذكرة تسليم"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__received_status
+msgid "Delivery Note Status"
+msgstr "حالة مذكرة التسليم"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_duplicate_trip__display_name
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__display_name
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_account_move__display_name
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_city__display_name
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_pricelist__display_name
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_product_type__display_name
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_tag__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__state__done
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "Done"
+msgstr "منتهي"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_fleet_vehicle__driver_id
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__driver_id
+msgid "Driver"
+msgstr "السائق"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_fleet_vehicle__driver_lic_id
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__driver_lic_id
+#: model:ir.model.fields,field_description:itruck_trip.field_res_partner__driver_lic_id
+#: model:ir.model.fields,field_description:itruck_trip.field_res_users__driver_lic_id
+msgid "Driver ID"
+msgstr "معرف السائق"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__driver_phone
+msgid "Driver Phone"
+msgstr "هاتف السائق"
+
+#. module: itruck_trip
+#: model:ir.model.fields,help:itruck_trip.field_fleet_vehicle__driver_id
+msgid "Driver address of the vehicle"
+msgstr "عنوان السائق للمركبة "
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__dropoff_address_id
+msgid "Drop-off Address"
+msgstr "عنوان التسليم"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__dropoff_comment
+msgid "Drop-off Notes"
+msgstr "ملاحظات الإنزال"
+
+#. module: itruck_trip
+#: model:ir.actions.server,name:itruck_trip.model_iturck_trip_action_duplicate
+msgid "Duplicate Trip"
+msgstr "رحلة مكررة"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/trip.py:0
+#, python-format
+msgid "Duplicate Trips"
+msgstr "الرحلات المكررة"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/wizard/duplicate_trip.py:0
+#, python-format
+msgid "Duplicated Trips"
+msgstr "الرحلات المكررة"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__fleet_vehicle__fleet_type__dyna
+msgid "Dyna"
+msgstr "دينا"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__fleet_vehicle__fleet_type__jwanib
+msgid "Jwanib"
+msgstr "جوانب"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__fleet_vehicle__fleet_type__tipper_truck
+msgid "Tipper Truck"
+msgstr "قلاب"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__fleet_vehicle__fleet_type__flatbed_truck
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__shipper_fleet_type__flatbed_truck
+msgid "Flatbed Truck"
+msgstr "سطحه"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__message_follower_ids
+msgid "Followers"
+msgstr "متابعون"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__carrier_type__individual
+msgid "Freelancer"
+msgstr "مستقل"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__individual_entry
+msgid "Freelancer Entry"
+msgstr "دخول لحسابهم الخاص"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__has_message
+msgid "Has Message"
+msgstr "لديه رسالة"
+
+#. module: itruck_trip
+#: model:ir.module.category,description:itruck_trip.module_category_trip_team_contacts
+msgid "Helps you handle your Contacts."
+msgstr "يساعدك على التعامل مع جهات الاتصال الخاصة بك."
+
+#. module: itruck_trip
+#: model:ir.module.category,description:itruck_trip.module_category_trips
+msgid "Helps you handle your Trips."
+msgstr "يساعدك على التعامل مع الرحلات الخاصة بك."
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__fleet_vehicle__fleet_type__highsidea_truck
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__shipper_fleet_type__highsidea_truck
+msgid "High Sides Truck"
+msgstr "عالية جوانب"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_duplicate_trip__id
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__id
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_account_move__id
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_city__id
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_pricelist__id
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_product_type__id
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_tag__id
+#: model_terms:ir.ui.view,arch_db:itruck_trip.view_partner_form_inherit_driver
+msgid "ID"
+msgstr "بطاقة تعريفl"
+
+#. module: itruck_trip
+#: model:ir.model.fields,help:itruck_trip.field_itruck_trip__message_needaction
+#: model:ir.model.fields,help:itruck_trip.field_itruck_trip__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "إذا تم تحديدها، فإن الرسائل الجديدة تتطلب انتباهك."
+
+#. module: itruck_trip
+#: model:ir.model.fields,help:itruck_trip.field_itruck_trip__message_has_error
+#: model:ir.model.fields,help:itruck_trip.field_itruck_trip__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا تم تحديده، فإن بعض الرسائل تحتوي على خطأ في التسليم."
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "In Invoice"
+msgstr "في الفاتورة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__invoice_id
+#: model:ir.model.fields.selection,name:itruck_trip.selection__trip_account_move__move_type__out_invoice
+msgid "Invoice"
+msgstr "فاتورة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_account_move__move_id
+msgid "Invoice/Bill"
+msgstr "فاتورة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__message_is_follower
+msgid "Is Follower"
+msgstr "هو تابع"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__journal_id
+msgid "Journal"
+msgstr "مجلة"
+
+#. module: itruck_trip
+#: model:ir.model,name:itruck_trip.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: itruck_trip
+#: model:ir.model,name:itruck_trip.model_account_move_line
+msgid "Journal Item"
+msgstr "عنصر اليومية"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_duplicate_trip____last_update
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip____last_update
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_account_move____last_update
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_city____last_update
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_pricelist____last_update
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_product_type____last_update
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_tag____last_update
+msgid "Last Modified on"
+msgstr "تاريخ آخر تعديل"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_duplicate_trip__write_uid
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__write_uid
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_account_move__write_uid
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_city__write_uid
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_pricelist__write_uid
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_product_type__write_uid
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_tag__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_duplicate_trip__write_date
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__write_date
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_account_move__write_date
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_city__write_date
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_pricelist__write_date
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_product_type__write_date
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_tag__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث بتاريخ"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__license_plate
+msgid "License Plate"
+msgstr "لوحة الترخيص"
+
+#. module: itruck_trip
+#: model:ir.model.fields,help:itruck_trip.field_itruck_trip__license_plate
+msgid "License plate number of the vehicle (i = plate number for a car)"
+msgstr "رقم لوحة ترخيص السيارة (i = رقم لوحة السيارة)"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__loading_point
+#: model:ir.model.fields,field_description:itruck_trip.field_product_product__loading_point
+#: model_terms:ir.ui.view,arch_db:itruck_trip.product_search_form_view_trip
+msgid "Loading Point"
+msgstr "نقطة تحميل"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "Loading location"
+msgstr "جارٍ التحميل"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.external_layout_waybill
+msgid "Logo"
+msgstr "شعار"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__fleet_vehicle__fleet_type__lorry
+msgid "Lorry"
+msgstr "شاحنة"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__fleet_vehicle__fleet_type__lowsides_truck
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__shipper_fleet_type__lowsides_truck
+msgid "Low Sides Truck"
+msgstr "منخفضة جوانب"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__fleet_vehicle__fleet_type__lowbed_truck
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__shipper_fleet_type__lowbed_truck
+msgid "Lowbed Truck"
+msgstr "لوبد"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__fleet_vehicle__fleet_type__lorry
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__shipper_fleet_type__lorry
+msgid "Lorry"
+msgstr "لوري"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__fleet_vehicle__fleet_type__dyna
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__shipper_fleet_type__dyna
+msgid "Dyna"
+msgstr "دينا"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__fleet_vehicle__fleet_type__jwanib
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__shipper_fleet_type__jwanib
+msgid "Jwanib"
+msgstr "جوانب"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__fleet_vehicle__fleet_type__tipper_truck
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__shipper_fleet_type__tipper_truck
+msgid "Tipper Truck"
+msgstr "قالب"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "المرفق الرئيسي"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسالة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__message_ids
+msgid "Messages"
+msgstr "رسائل"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__state__missed
+msgid "Missed"
+msgstr "مٌفتَقد"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_fleet_vehicle__model_id
+msgid "Model"
+msgstr "الموديل "
+
+#. module: itruck_trip
+#: model:ir.model.fields,help:itruck_trip.field_fleet_vehicle__model_id
+msgid "Model of the vehicle"
+msgstr "موديل المركبة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_account_move__move_type
+msgid "Move Type"
+msgstr "نقل النوع"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_product_product__name
+#: model:ir.model.fields,field_description:itruck_trip.field_product_template__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/trip.py:0
+#: code:addons/itruck_trip/models/trip.py:0
+#, python-format
+msgid "New"
+msgstr "جديد"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/fleet.py:0
+#, python-format
+msgid "No Plate"
+msgstr "لا لوحة"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__received_status__no
+msgid "Not Received"
+msgstr "لم يتم الاستلام"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__note
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "Note"
+msgstr "ملحوظة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_duplicate_trip__number_of_duplication
+msgid "Number of Duplications"
+msgstr "عدد التكرارات"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: itruck_trip
+#: model:ir.model.fields,help:itruck_trip.field_itruck_trip__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "عدد الرسائل التي تتطلب اتخاذ إجراء"
+
+#. module: itruck_trip
+#: model:ir.model.fields,help:itruck_trip.field_itruck_trip__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي بها خطأ في التسليم"
+
+#. module: itruck_trip
+#: model:ir.model.fields,help:itruck_trip.field_itruck_trip__message_unread_counter
+msgid "Number of unread messages"
+msgstr "عدد الرسائل غير المقروءة"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__state__in_process
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "Ongoing"
+msgstr "جاري التنفيذ"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "Operation"
+msgstr "عملية"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_fleet_vehicle__owner_id
+#: model_terms:ir.ui.view,arch_db:itruck_trip.fleet_vehicle_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:itruck_trip.fleet_vehicle_view_search_inherit
+msgid "Owner"
+msgstr "مالك"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_fleet_vehicle__owner_lic_id
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__owner_lic_id
+msgid "Owner ID"
+msgstr "بطاقة هوية المالك"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__owner_id
+msgid "Owner Name"
+msgstr "اسم المالك"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__account_payment_status__paid
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__payment_status__paid
+msgid "Paid"
+msgstr "مدفوع"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_account_move__partner_id
+msgid "Partner"
+msgstr "شريك"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__payment_amount
+msgid "Payment Amount"
+msgstr "مبلغ الدفع"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__payment_date
+msgid "Payment Date"
+msgstr "تاريخ الدفع"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__account_payment_status
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__payment_status
+msgid "Payment Status"
+msgstr "حالة السداد"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__state__draft
+msgid "Pending"
+msgstr "قيد الانتظار"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_fleet_vehicle__driver_phone
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "Phone"
+msgstr "هاتف"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__partner_shipping_id
+msgid "Pickup Address"
+msgstr "عنوان الاستلام"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__shipping_comment
+msgid "Pickup Notes"
+msgstr "ملاحظات الالتقاط"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_account_move_line__fleet_id
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__fleet_id
+msgid "Plate No."
+msgstr "لوحة لا."
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/trip.py:0
+#, python-format
+msgid "Please select only one carrier Trips!!!"
+msgstr "برجاء اختيار رحلات ناقلة واحدة فقط !!!"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/trip.py:0
+#, python-format
+msgid "Please select only one shipper Trips!!!"
+msgstr "يرجى اختيار رحلات شاحن واحدة فقط !!!"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/trip.py:0
+#, python-format
+msgid "Please set the Carrier Type!!!"
+msgstr "يرجى ضبط نوع الناقل!!!"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/trip.py:0
+#, python-format
+msgid "Please set the Carrier!!!"
+msgstr "يرجى ضبط الناقل!!!"
+
+#. module: itruck_trip
+#: model:ir.model,name:itruck_trip.model_product_product
+msgid "Product"
+msgstr "المنتج"
+
+#. module: itruck_trip
+#: model:ir.model,name:itruck_trip.model_product_template
+msgid "Product Template"
+msgstr "قالب المنتج"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__product_type_id
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_product_type__name
+#: model:ir.ui.menu,name:itruck_trip.menu_trip_product_type
+msgid "Product Type"
+msgstr "نوع المنتج"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__state__in_invoice
+msgid "Ready to Invoice"
+msgstr "جاهز للفاتورة"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__received_status__yes
+msgid "Received"
+msgstr "تلقى"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__receiver_id
+msgid "Receiver"
+msgstr "المتلقي"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "Requested Truck"
+msgstr "الشاحنة المطلوبة"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "Reset to Draft"
+msgstr "إعادة التعيين إلى المسودة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسائل القصيرة"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "Sales"
+msgstr "مبيعات"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__team_id
+msgid "Sales Team"
+msgstr "فريق المبيعات"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__user_id
+msgid "Salesperson"
+msgstr "مندوب مبيعات"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__partner_id
+#: model:ir.model.fields,field_description:itruck_trip.field_product_product__shipper_ids
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_pricelist__partner_id
+#: model:ir.model.fields.selection,name:itruck_trip.selection__res_partner__user_type__shipper
+#: model_terms:ir.ui.view,arch_db:itruck_trip.product_search_form_view_trip
+msgid "Shipper"
+msgstr "الشاحن"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__amount
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_pricelist__amount
+msgid "Shipper Price"
+msgstr "سعر الشاحن"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.view_itruck_trip_search
+msgid "Show Today Trips"
+msgstr "عرض رحلات اليوم"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.report_waybill_template
+msgid "Stamp"
+msgstr "ختم"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__state
+msgid "Status"
+msgstr "حالة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_tag__name
+msgid "Tag Name"
+msgstr "اسم العلامة"
+
+#. module: itruck_trip
+#: model:ir.model.constraint,message:itruck_trip.constraint_trip_tag_name_uniq
+msgid "Tag name already exists !"
+msgstr "اسم العلامة موجود بالفعل!"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__tag_ids
+#: model_terms:ir.ui.view,arch_db:itruck_trip.trip_tag_view_form
+#: model_terms:ir.ui.view,arch_db:itruck_trip.trip_tag_view_tree
+#: model_terms:ir.ui.view,arch_db:itruck_trip.view_itruck_trip_search
+msgid "Tags"
+msgstr "العلامات"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__target_amount
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_pricelist__target_amount
+msgid "Target Price"
+msgstr "السعر المستهدف"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/fleet.py:0
+#: code:addons/itruck_trip/models/trip.py:0
+#, python-format
+msgid "The Driver %s is Blacklisted!"
+msgstr "برنامج التشغيل %s مدرج في القائمة السوداء!"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/res_partner.py:0
+#, python-format
+msgid "The ID must be unique!"
+msgstr "يجب أن يكون المعرف فريدًا!"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/trip.py:0
+#, python-format
+msgid ""
+"The Payment is already has been created, \n"
+" if you want to cancel the trip, Cancel the Payment of the Bill first!"
+msgstr "لقد تم بالفعل إنشاء الدفعة، \n"
+"إذا كنت ترغب في إلغاء الرحلة، قم بإلغاء دفع الفاتورة أولاً!"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/trip.py:0
+#, python-format
+msgid ""
+"The Payment is already has been created, \n"
+" if you want to cancel the trip, Cancel the Payment of the Invoice first!"
+msgstr ""
+"لقد تم بالفعل إنشاء الدفعة، \n"
+" إذا كنت ترغب في إلغاء الرحلة، قم بإلغاء دفع الفاتورة أولاً!"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/trip.py:0
+#, python-format
+msgid "The Plate No./Carrier %s is Blacklisted!"
+msgstr "رقم اللوحة/الناقل %s مدرج في القائمة السوداء!"
+
+#. module: itruck_trip
+#: model:ir.model.fields,help:itruck_trip.field_itruck_trip__vendor_user_id
+msgid "The internal user in charge of this contact."
+msgstr "المستخدم الداخلي المسؤول عن جهة الاتصال هذه."
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.view_itruck_trip_search
+msgid "Today Trips"
+msgstr "رحلات اليوم"
+
+#. module: itruck_trip
+#: model:ir.actions.act_window,name:itruck_trip.action_itruck_trip
+#: model:ir.model,name:itruck_trip.model_itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_account_move_line__trip_id
+#: model:ir.model.fields,field_description:itruck_trip.field_duplicate_trip__trip_id
+msgid "Trip"
+msgstr "رحلة"
+
+#. module: itruck_trip
+#: model:ir.actions.act_window,name:itruck_trip.action_trip_city
+#: model:ir.model,name:itruck_trip.model_trip_city
+msgid "Trip City"
+msgstr "مدينة الرحلة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_res_partner__trip_count
+#: model:ir.model.fields,field_description:itruck_trip.field_res_users__trip_count
+msgid "Trip Count"
+msgstr "عدد الرحلات"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_account_move_line__trip_date
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__date
+msgid "Trip Date"
+msgstr "تاريخ الرحلة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__product_id
+msgid "Trip Details"
+msgstr "تفاصيل الرحلة"
+
+#. module: itruck_trip
+#: model:ir.ui.menu,name:itruck_trip.menu_trip_management_root
+msgid "Trip Management"
+msgstr "إدارة الرحلة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__name
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "Trip Number"
+msgstr "رقم الرحلة"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/res_partner.py:0
+#: model:ir.actions.act_window,name:itruck_trip.action_trip_pricelist
+#: model:ir.model,name:itruck_trip.model_trip_pricelist
+#: model:ir.ui.menu,name:itruck_trip.menu_trip_pricelist
+#: model_terms:ir.ui.view,arch_db:itruck_trip.view_product_form_inherit_cities
+#, python-format
+msgid "Trip Pricelist"
+msgstr "قائمة أسعار الرحلة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_res_partner__trip_pricelist_count
+#: model:ir.model.fields,field_description:itruck_trip.field_res_users__trip_pricelist_count
+msgid "Trip Pricelist Count"
+msgstr "عدد قائمة أسعار الرحلة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_product_product__trip_pricelist_ids
+#: model:ir.model.fields,field_description:itruck_trip.field_res_partner__trip_pricelist_ids
+#: model:ir.model.fields,field_description:itruck_trip.field_res_users__trip_pricelist_ids
+#: model_terms:ir.ui.view,arch_db:itruck_trip.view_partner_form_inherit_driver
+msgid "Trip Pricelists"
+msgstr "قائمة أسعار الرحلة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_pricelist__product_id
+msgid "Trip Product"
+msgstr "منتج الرحلة"
+
+#. module: itruck_trip
+#: model:ir.actions.act_window,name:itruck_trip.action_trip_product_type
+#: model:ir.model,name:itruck_trip.model_trip_product_type
+msgid "Trip Product Type"
+msgstr "نوع منتج الرحلة"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/product.py:0
+#, python-format
+msgid "Trip Product is already exist!!!"
+msgstr "منتج الرحلة موجود بالفعل!!!"
+
+#. module: itruck_trip
+#: model:ir.actions.act_window,name:itruck_trip.action_trip_products
+#: model:ir.ui.menu,name:itruck_trip.menu_trip_products
+msgid "Trip Products"
+msgstr "منتجات الرحلة"
+
+#. module: itruck_trip
+#: model:ir.model,name:itruck_trip.model_trip_tag
+msgid "Trip Tag"
+msgstr "علامة الرحلة"
+
+#. module: itruck_trip
+#: model:ir.actions.act_window,name:itruck_trip.action_trip_tags
+#: model:ir.ui.menu,name:itruck_trip.menu_trip_tags
+msgid "Trip Tags"
+msgstr "علامات الرحلة"
+
+#. module: itruck_trip
+#: model:ir.actions.server,name:itruck_trip.ir_cron_auto_create_accrued_entry_ir_actions_server
+#: model:ir.cron,cron_name:itruck_trip.ir_cron_auto_create_accrued_entry
+#: model:ir.cron,name:itruck_trip.ir_cron_auto_create_accrued_entry
+msgid "Trip: Create Accrued Journal Entry for Freelancers & Missed trips"
+msgstr "الرحلة: إنشاء إدخال دفتر يومية مستحق للعاملين المستقلين والرحلات الفائتة"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/res_partner.py:0
+#: model:ir.model.fields,field_description:itruck_trip.field_fleet_vehicle__trip_ids
+#: model:ir.model.fields,field_description:itruck_trip.field_trip_account_move__trip_ids
+#: model:ir.module.category,name:itruck_trip.module_category_trips
+#: model:ir.ui.menu,name:itruck_trip.menu_trip_management_trip_main
+#: model:ir.ui.menu,name:itruck_trip.menu_trip_management_trip_sub
+#: model_terms:ir.ui.view,arch_db:itruck_trip.fleet_vehicle_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:itruck_trip.view_partner_form_inherit_driver
+#, python-format
+msgid "Trips"
+msgstr "رحلات"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_fleet_vehicle__fleet_type
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__fleet_type
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__shipper_fleet_type
+msgid "Truck Type"
+msgstr "نوع الشاحنة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__uom_id
+msgid "Unit of Measure"
+msgstr "وحدة القياس"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__unloading_point
+#: model:ir.model.fields,field_description:itruck_trip.field_product_product__unloading_point
+#: model_terms:ir.ui.view,arch_db:itruck_trip.product_search_form_view_trip
+msgid "Unloading Point"
+msgstr "نقطة التفريغ"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "Unloading location"
+msgstr "موقع التفريغ"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__account_payment_status__unpaid
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__payment_status__unpaid
+msgid "Unpaid"
+msgstr "غير مدفوعة الأجر"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__message_unread
+msgid "Unread Messages"
+msgstr "رسائل غير مقروءة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "عداد الرسائل غير المقروءة"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_res_users__sale_team_leader_ids
+msgid "User Sales Leader Team"
+msgstr "فريق قائد مبيعات المستخدم"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_res_partner__user_type
+#: model:ir.model.fields,field_description:itruck_trip.field_res_users__user_type
+msgid "User Type"
+msgstr "نوع المستخدم"
+
+#. module: itruck_trip
+#: model:res.groups,name:itruck_trip.group_all_team_trips
+msgid "User: All Team Trips"
+msgstr "المستخدم: جميع رحلات الفريق"
+
+#. module: itruck_trip
+#: model:res.groups,name:itruck_trip.group_personal_trips
+msgid "User: Own Trips Only"
+msgstr "المستخدم: الرحلات الخاصة فقط"
+
+#. module: itruck_trip
+#: model:ir.model,name:itruck_trip.model_res_users
+msgid "Users"
+msgstr "المستخدمون"
+
+#. module: itruck_trip
+#: model:ir.model,name:itruck_trip.model_fleet_vehicle
+msgid "Vehicle"
+msgstr "المركبة"
+
+#. module: itruck_trip
+#: model:ir.actions.report,name:itruck_trip.report_itruck_waybill
+msgid "Waybill"
+msgstr "بيان الشحنة"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.external_layout_waybill
+msgid "Waybill:"
+msgstr "بيان الشحنة:"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الموقع"
+
+#. module: itruck_trip
+#: model:ir.model.fields,help:itruck_trip.field_itruck_trip__website_message_ids
+msgid "Website communication history"
+msgstr "تاريخ اتصالات الموقع"
+
+#. module: itruck_trip
+#: model:ir.model.fields,field_description:itruck_trip.field_itruck_trip__weight
+msgid "Weight"
+msgstr "وزن"
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.itruck_trip_from_view
+msgid "Write here any other information related to this trip"
+msgstr "اكتب هنا أي معلومات أخرى تتعلق بهذه الرحلة"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/res_partner.py:0
+#, python-format
+msgid "You can't add more than 10 characters in CR(Company Registry)!"
+msgstr "لا يمكنك إضافة أكثر من 10 أحرف في CR (سجل الشركة)!"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/res_partner.py:0
+#, python-format
+msgid "You can't add more than 10 characters in ID!"
+msgstr "لا يمكنك إضافة أكثر من 10 أحرف في المعرف!"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/res_partner.py:0
+#, python-format
+msgid "You can't add more than 10 characters in Mobile!"
+msgstr "لا يمكنك إضافة أكثر من 10 أحرف في الجوال!"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/res_partner.py:0
+#, python-format
+msgid "You can't add more than 10 characters in Phone!"
+msgstr "لا يمكنك إضافة أكثر من 10 أحرف في الهاتف!"
+
+#. module: itruck_trip
+#: code:addons/itruck_trip/models/res_partner.py:0
+#, python-format
+msgid "You can't add more than 15 characters in Tax ID!"
+msgstr "لا يمكنك إضافة أكثر من 15 حرفًا في المعرّف الضريبي!"
+
+#. module: itruck_trip
+#: model:ir.model,name:itruck_trip.model_duplicate_trip
+msgid "duplicate.trip"
+msgstr ""
+
+#. module: itruck_trip
+#: model_terms:ir.ui.view,arch_db:itruck_trip.trip_tag_view_form
+msgid "e.g. Services"
+msgstr "على سبيل المثال خدمات"
+
+#. module: itruck_trip
+#: model:ir.model.fields.selection,name:itruck_trip.selection__itruck_trip__state__invoiced
+msgid "invoiced"
+msgstr "مفوترة"
+
+#. module: itruck_trip
+#: model:res.groups,comment:itruck_trip.group_all_team_contacts
+msgid "the salesperson will have access to all Team Contacts of every member."
+msgstr "سيتمكن مندوب المبيعات من الوصول إلى جميع جهات اتصال الفريق لكل عضو."
+
+#. module: itruck_trip
+#: model:res.groups,comment:itruck_trip.group_personal_contact
+msgid "the salesperson will have access to his own contacts data."
+msgstr "سيتمكن مندوب المبيعات من الوصول إلى بيانات جهات الاتصال الخاصة به."
+
+#. module: itruck_trip
+#: model:res.groups,comment:itruck_trip.group_trip_manager
+msgid "the user will have access to Trips."
+msgstr "سيتمكن المستخدم من الوصول إلى الرحلات."
+
+#. module: itruck_trip
+#: model:res.groups,comment:itruck_trip.group_all_team_trips
+msgid ""
+"the user will have access to all Team Trips of every members in the Trip "
+"application."
+msgstr "سيتمكن المستخدم من الوصول إلى جميع رحلات الفريق لكل الأعضاء في تطبيق الرحلة."
+
+#. module: itruck_trip
+#: model:res.groups,comment:itruck_trip.group_personal_trips
+msgid ""
+"the user will have access to his own trips data in the Trip application."
+msgstr "سيتمكن المستخدم من الوصول إلى بيانات الرحلات الخاصة به في تطبيق الرحلة."
+
+#. module: itruck_trip
+#: model:ir.model,name:itruck_trip.model_trip_account_move
+msgid "trip.account.move"
+msgstr ""

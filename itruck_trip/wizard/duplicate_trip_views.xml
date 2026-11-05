@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="duplicate_trip_from_view" model="ir.ui.view">
+            <field name="name">duplicate.trip.form</field>
+            <field name="model">duplicate.trip</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="trip_id" invisible="1"/>
+                                <field name="number_of_duplication"/>
+                            </group>
+                        </group>
+                        <footer>
+                            <button string="Create Trips" name="action_create_duplicate_trips" type="object"
+                                    class="oe_highlight"/>
+                            <button string="Cancel" class="btn btn-secondary" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_trip_product_type,trip.product.type,model_trip_product_type,,1,1,1,1
+access_itruck_trip,itruck.trip,model_itruck_trip,,1,1,1,0
+access_trip_account_move,trip.account.move,model_trip_account_move,,1,1,1,1
+access_trip_city,trip.city,model_trip_city,,1,1,1,1
+access_trip_pricelist,trip.pricelist,model_trip_pricelist,,1,1,1,1
+access_duplicate_trip,duplicate.trip,model_duplicate_trip,,1,1,1,1
+access_trip_tag,trip.tag,model_trip_tag,,1,1,1,1
+access_trip_cancel_by,trip.cancel.by,model_trip_cancel_by,,1,1,1,1
+access_partner_license,partner.license,model_partner_license,,1,1,1,1

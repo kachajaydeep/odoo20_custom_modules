@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_product_form_inherit_cities" model="ir.ui.view">
+            <field name="name">product.product.form.inherit.cities</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <notebook position="before">
+                    <group>
+                        <group>
+<!--                            <field name="loading_point" attrs="{'required': [('unloading_point', '!=', False)]}"/>-->
+                            <field name="loading_point" required="not unloading_point"/>
+                        </group>
+                        <group>
+<!--                            <field name="unloading_point" attrs="{'required': [('loading_point', '!=', False)]}"/>-->
+                            <field name="unloading_point" required="not loading_point"/>
+                        </group>
+                    </group>
+                </notebook>
+                <page name="general_information" position="before">
+                    <page name="trip_pricelist" string="Trip Pricelist">
+                        <field name="trip_pricelist_ids">
+                            <list editable="bottom">
+                                <field name="partner_id" options="{'no_create': True}"/>
+                                <field name="fleet_type"/>
+                                <field name="amount"/>
+                                <field name="target_amount"/>
+                                <field name="product_id" invisible="1"/>
+                            </list>
+                        </field>
+                    </page>
+                    <page name="carrier_history" string="Carrier History">
+                        <field name="trip_ids">
+                            <list>
+                                <field name="vendor_id"/>
+                                <field name="driver_id"/>
+                                <field name="driver_phone"/>
+                                <field name="state"/>
+                            </list>
+                        </field>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record id="product_search_form_view_trip" model="ir.ui.view">
+            <field name="name">product.search.trip.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_search_form_view"/>
+            <field name="arch" type="xml">
+                <filter name="type" position="before">
+                    <filter string="Shipper" name="shipper_ids" context="{'group_by':'shipper_ids'}"/>
+                    <filter string="Loading Point" name="loading_point" context="{'group_by':'loading_point'}"/>
+                    <filter string="Unloading Point" name="unloading_point" context="{'group_by':'unloading_point'}"/>
+                </filter>
+            </field>
+        </record>
+
+        <record id="action_trip_products" model="ir.actions.act_window">
+            <field name="name">Trip Products</field>
+            <field name="res_model">product.product</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('loading_point','!=',False)]</field>
+            <field name="context">{'search_default_shipper_ids': 1}</field>
+        </record>
+
+        <menuitem id="menu_trip_products" name="Trip Products"
+                  action="action_trip_products"
+                  parent="menu_trip_management_configuration" sequence="5"/>
+
+        <record id="trip_pricelist_list_view" model="ir.ui.view">
+            <field name="name">trip.pricelist.list</field>
+            <field name="model">trip.pricelist</field>
+            <field name="arch" type="xml">
+                <list editable="top">
+                    <field name="product_id" domain="[('loading_point','!=',False)]" options="{'no_create': True}"/>
+                    <field name="partner_id"/>
+                    <field name="amount"/>
+                    <field name="target_amount"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_trip_pricelist" model="ir.actions.act_window">
+            <field name="name">Trip Pricelist</field>
+            <field name="res_model">trip.pricelist</field>
+            <field name="view_mode">list</field>
+        </record>
+
+        <menuitem id="menu_trip_pricelist" name="Trip Pricelist"
+                  action="action_trip_pricelist"
+                  parent="menu_trip_management_configuration" sequence="6"/>
+
+    </data>
+</odoo>

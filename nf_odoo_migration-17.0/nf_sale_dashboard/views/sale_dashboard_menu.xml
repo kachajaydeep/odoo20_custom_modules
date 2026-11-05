@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Menu item for Sale Dashboard -->
+    <menuitem id="nf_menu_sale_dashboard"
+            name="Sale Dashboard"
+            parent="sale.sale_menu_root"
+            action="nf_sale_dashboard.nf_action_sale_dashboard"
+            sequence="10"/>
+</odoo>

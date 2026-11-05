@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <!-- Adding icon to the pos systray -->
+    <t t-name="PosSystray" owl='1'>
+        <div class="ticket-button" id="pos_systray_chatter_icon" t-on-click="onClick">
+            <i class="fa fa-comments"/>
+        </div>
+    </t>
+    <!-- Inherit point_of_sale.Chrome View to Modify it -->
+    <!-- <t t-name="Chrome" t-inherit="point_of_sale.Chrome" t-inherit-mode="extension" owl="1">
+         <xpath expr="//div[hasclass('status-buttons')]" position="inside">
+            <PosSystray isTicketScreenShown="isTicketScreenShown"/>
+        </xpath>
+    </t> -->
+
+    <t t-name="ChatMsgView" >
+        <div id="pos_chat_view" style="position:fixed;width:325px;background:#fff;bottom:5px;right:5px;height:500px;border-radius:10px;" t-ref="root">
+            <div style="width=100%;background:#875A7B;height:36px;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                <div style="padding: 10px;display:flex;">
+                    <i style="margin-left:10px;color: white;width:30px;" class="fa fa-lock" />
+                    <span style="margin-left:5px;color: white;width:225px;" t-esc="state.name" />
+                    <i style="color: white;width:30px;cursor: pointer;text-align: center;" t-on-click="close_window" class="fa fa-times close_card" />
+                </div>
+                <div id="msg_content" style="height:400px;background-color: white;overflow-y: scroll;">
+                    <t t-foreach="state.data" t-as="data" t-key="state.id">
+                        <t t-if="data['flag'] == 0">
+                            <p style="text-align:left;margin-left: 10px;"><small style="color:#9c9a97;" t-esc="data['author']" />
+                                <br />
+                                <t t-raw="data['body']" />
+                            </p>
+                        </t>
+                        <t t-else="">
+                            <p style="text-align:right;margin-right: 10px;"><small style="color:#9c9a97;"> You </small>
+                                <br />
+                                <t t-esc="data['body']" />
+                            </p>
+                        </t>
+                    </t>
+                </div>
+                <hr />
+                <div>
+                    <input id="message_to_send" type="text" style="border:none;width: 265px;margin-left: 17px;outline:none;height: 25px;" placeholder="Message" t-on-keypress="keyEnter" />
+                    <i style="margin-left:7px;cursor: pointer;" id="button_send" class="fa fa-paper-plane send_message" t-att-value="state.id" t-on-click="_onClickMessageSend" />
+                </div>
+            </div>
+        </div>
+    </t>
+    
+    <t t-name="MessageWidget">
+        <div class="message-box">
+            <div class="message">
+                <p class="title">
+                    <!-- <a class="pos-selected pos-filter">All</a> -->
+                    <a class="pos-filter" data-filter='chat'>Chat</a>
+                    <!-- <a class="pos-filter" data-filter='channels'>Channels</a>
+                    <a class="pos-new_message">New message</a> -->
+                </p>
+                <div class='o_mail_navbar_dropdown_channels selection scrollable-y touch-scrollable'>
+                    <t t-foreach="widget.list || []" t-as="channel">
+                        <div t-attf-class="o_mail_channel_preview #{channel.unread_counter ? 'o_channel_unread' : ''}"
+                            t-att-data-channel_id="channel.id">
+                            <img class="o_channel_image" t-att-src="channel.image_src"/>
+                            <div class="o_channel_info">
+                                <div class="o_channel_title">
+                                    <span class="o_channel_name">
+                                    <t t-if="channel.status" t-call="mail.chat.UserStatus">
+                                        <t t-set="status" t-value="channel.status"/>
+                                    </t>
+                                    <t t-esc="channel.name"/>
+                                    <t t-if="channel.unread_counter">(<t t-esc="channel.unread_counter"/>)</t>
+                                    </span>
+                                    <span class="o_last_message_date"> <t t-esc="channel.last_message_date"/> </span>
+                                </div>
+
+                                <div class="o_last_message_preview">
+                                    <t t-esc="channel.last_message.displayed_author"/>:
+                                    <t t-raw="channel.last_message_preview"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+
+            </div>
+        </div>
+    </t>
+
+    <t t-extend="portal.Composer">
+        <t t-jquery=".o_portal_chatter_attachment_btn" t-operation="after">
+            <a title="abc"  href="#" >
+                <t t-call="MessageWidget" ></t>
+            </a>
+        </t>
+    </t>
+</templates>

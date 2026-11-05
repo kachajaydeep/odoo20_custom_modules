@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="nf_sale_dashboard_template">
+    <!-- Sale Dashboard Template -->
+    <div t-name="nf_sale_dashboard_template" name="Sale Dashboard">
+        <!-- <t t-call="web.basic_layout"> -->
+        <section id="dashboard_counter" style="background-color: #f2f7ff; min-width: 85% !important; width: 100% !important;">
+            <div class="NfTemp">
+                <span class="nf-times-title"> Product Sales </span>
+                <i class="nf-times fa fa-times-circle-o" />
+                <div class="nf-product-data">
+                    <table class="product-data-table" style="width: 98%; margin-left: 20px;">
+                        <thead>
+                            <th style='padding: 10px;'>#</th>
+                            <th style='padding: 10px;'> Product Name </th>
+                            <th style='padding: 10px;'> Quantity </th>
+                            <th style='padding: 10px;'> Amount </th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <div class="container" style="width: 100% !important; max-width: 85% !important;">
+            <section id="nf_header_section">
+                <div class="row">
+                    <div class="col-12 col-lg-9">
+                        <div class="row">
+                            <div class="col-6 col-lg-3 col-md-6 p-1">
+                                <div class="nf-card">
+                                    <div class="card-body nf-card-body ">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon red">
+                                                    <i class="fa fa-eye"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Active POS Session</h6>
+                                                <h6 class="font-extrabold mb-0">
+                                                    <span id="nf-pos-active-sessions" />
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6 p-1">
+                                <div class="nf-card">
+                                    <div class="card-body nf-card-body ">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon purple">
+                                                    <i class="fa fa-shopping-bag"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Today Order</h6>
+                                                <h6 class="font-extrabold mb-0">
+                                                    <span id="nf-today-orders" />
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6 p-1">
+                                <div class="card-body nf-card-body ">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="stats-icon yellow">
+                                                <i class="fa fa-line-chart"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h6 class="text-muted font-semibold">Today Sales</h6>
+                                            <h6 class="font-extrabold mb-0">
+                                                <span id="nf-today-total-sales" />
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6 p-1">
+                                <div class="card-body Click_product_sold nf-card-body ">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="stats-icon green">
+                                                <i class="fa fa-cart-arrow-down"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h6 class="text-muted font-semibold ">Today Product Sold</h6>
+                                            <h6 class="font-extrabold mb-0">
+                                                <span id="nf-today-product-sales" />
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-12 col-lg-3'>
+                        <div class="card-body nf-card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar avatar-xl">
+                                    <img class="rounded-circle o_user_avatar" style="width: 50px; height: 50px" t-att-src="this.get_user_avtar()" alt="User" />
+                                </div>
+                                <div class="ms-3 nf-user-name" t-if="user">
+                                    <h5 class="font-bold">
+                                        <span t-out='user.display_name' />
+                                    </h5>
+                                    <h6 class="text-muted mb-0">
+                                        <span t-out="user.email" />
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</template>

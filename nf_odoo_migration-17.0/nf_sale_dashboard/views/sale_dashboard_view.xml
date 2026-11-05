@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Sale Dashboard Action -->
+    <record id="nf_action_sale_dashboard" model="ir.actions.client">
+        <field name="name">Sale Dashboard</field>
+        <field name="tag">nfsaledashboardtemplate</field>
+    </record>
+
+    <!-- Sale Dashboard Template -->
+    <template id="nf_sale_dashboard_template" name="Sale Dashboard">
+        <t t-call="web.basic_layout">
+            <div class="oe_title">
+                <h1>Sale Dashboard</h1>
+            </div>
+            <!-- <div class="oe_dashboard">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="o_graph">
+                            <t t-foreach="sale_orders" t-as="order">
+                                <t t-set="total_sales" t-value="order.amount_total"/>
+                                <t t-set="total_orders" t-value="order.id"/>
+                            </t>
+                            <t t-esc="total_sales"/> Total Sales
+                            <t t-esc="total_orders"/> Total Orders
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <t t-call="sale_dashboard_graph"/>
+                    </div>
+                </div>
+            </div> -->
+        </t>
+    </template>
+
+    <!-- Sale Dashboard Graph Template -->
+    <template id="nf_sale_dashboard_graph" name="Sale Dashboard Graph">
+        <t t-call="web.graph">
+            <graph string="Sales by Month" type="bar">
+                <field name="date_order" interval="month"/>
+                <field name="amount_total" type="measure"/>
+            </graph>
+        </t>
+    </template>
+</odoo>

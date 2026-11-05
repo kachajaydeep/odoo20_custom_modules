@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_partner_form_inherit_driver" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit.driver</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='sales_purchases']//field[@name='user_id']" position="after">
+                    <field name="team_id" groups="base.group_no_one" kanban_view_ref="%(sales_team.crm_team_view_kanban)s"/>
+                </xpath>
+                <field name="parent_id" position="after">
+                    <field name="parent_company" invisible="not is_company"/>
+                </field>
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button" type="object" name="action_view_trips"
+                            invisible="trip_count == 0" icon="fa-truck">
+                        <field string="Trips" name="trip_count" widget="statinfo"/>
+                    </button>
+                    <button class="oe_stat_button" type="object" name="action_view_trip_pricelist"
+                            invisible="trip_pricelist_count == 0" icon="fa-list">
+                        <field string="Trip Pricelists" name="trip_pricelist_count" widget="statinfo"/>
+                    </button>
+                </div>
+                <span name="address_name" position="before">
+                    <field name="user_type" invisible="company_type != 'company'"/>
+                    <field name="check_unpaid_trips" invisible="user_type != 'shipper'"
+                           groups="itruck_trip.group_contact_access_salesteam"/>
+                    <field name="carrier_shipper_code" invisible="company_type != 'company'"/>
+                </span>
+                <field name="function" position="after">
+<!--                    <field name="license_ids" widget="many2many_tags" options="{'no_create_edit': True}"-->
+<!--                           context="{'default_partner_id': active_id}" string="IDs"/>-->
+                    <field name="license_ids" widget="many2many_tags" options="{'no_create_edit': True}"
+                           context="{'default_partner_id': id}" string="IDs"
+                           domain="[('partner_id', 'in', [id, False])]"/>
+                    <field name="driver_lic_id" invisible="1"/>
+                    <field name="driver_dob"/>
+                    <field name="license_expiry_date"/>
+                </field>
+                <field name="category_id" position="after">
+                    <field name="blacklisted"/>
+                </field>
+                <page name="internal_notes" position="after">
+                    <page name="trip_pricelists" string="Trip Pricelists">
+                        <field name="trip_pricelist_ids" nolabel="1">
+                            <list editable="bottom">
+                                <field name="partner_id" invisible="1"/>
+                                <field name="product_id"
+                                       domain="[('loading_point','!=',False)]" options="{'no_create': True}"/>
+                                <field name="fleet_type"/>
+                                <field name="amount"/>
+                                <field name="target_amount"/>
+                            </list>
+                        </field>
+                    </page>
+                </page>
+                <button name="action_view_sale_order" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </button>
+                <button name="%(purchase.act_res_partner_2_purchase_order)d" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </button>
+            </field>
+        </record>
+
+        <record id="view_partner_inherit_partner_list" model="ir.ui.view">
+            <field name="name">res.partner.inherit.list</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <field name="complete_name" position="after">
+                    <field name="carrier_shipper_code" optional="hide"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_partner_property_form_inherit" model="ir.ui.view">
+            <field name="name">res.partner.property.inherit.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='bank_ids']/list/field[@name='acc_holder_name']" position="attributes">
+                    <attribute name="invisible">0</attribute>
+                </xpath>
+                <xpath expr="//field[@name='bank_ids']/list/field[@name='acc_holder_name']" position="after">
+                    <field name="document_id" widget="binary"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_partner_bank_form_inherit" model="ir.ui.view">
+            <field name="name">res.partner.bank.inherit.form</field>
+            <field name="model">res.partner.bank</field>
+            <field name="inherit_id" ref="base.view_partner_bank_form"/>
+            <field name="arch" type="xml">
+                <field name="allow_out_payment" position="after">
+                    <field name="iban"/>
+                    <field name="document_id" widget="binary"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_partner_bank_list_inherit" model="ir.ui.view">
+            <field name="name">res.partner.bank.inherit.list</field>
+            <field name="model">res.partner.bank</field>
+            <field name="inherit_id" ref="base.view_partner_bank_tree"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="iban"/>
+                    <field name="document_id" widget="binary"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

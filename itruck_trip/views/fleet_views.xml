@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="fleet_vehicle_view_search_inherit" model="ir.ui.view">
+            <field name="name">fleet.vehicle.search.inherit</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_view_search"/>
+            <field name="arch" type="xml">
+                <filter name="groupby_status" position="before">
+                    <filter string="Owner" name="groupby_owner" context="{'group_by': 'owner_id'}"/>
+                </filter>
+            </field>
+        </record>
+
+        <record id="fleet_vehicle_view_form_inherit" model="ir.ui.view">
+            <field name="name">fleet.vehicle.form.inherit</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+            <field name="arch" type="xml">
+                <div class="oe_title" position="after">
+                    <label for="fleet_type"/>
+                    <field name="fleet_type"/>
+                    <group name="owner" string="Owner">
+                        <field name="owner_id" context="{'search_by_lic': True, 'default_is_company': True}"/>
+                        <field name="owner_license_id"
+                               string="Owner License ID" context="{'default_partner_id': owner_id}"
+                               invisible="1"/>
+                        <field name="owner_lic_id"/>
+                        <field name="operating_card_expiry"/>
+                    </group>
+                </div>
+<!--                <field name="driver_id" position="attributes">-->
+<!--                    <attribute name="domain">['|', ('company_id', '=', False ), ('company_id', '=', company_id), ('parent_id', '!=', False)]</attribute>-->
+<!--                </field>-->
+                <field name="future_driver_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="next_assignation_date" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="driver_id" position="attributes">
+                    <attribute name="context">{'search_by_lic': True, 'default_parent_id': owner_id}</attribute>
+                </field>
+                <field name="driver_id" position="after">
+                    <field name="driver_license_id"
+                            string="Driver ID" context="{'default_partner_id': driver_id}"/>
+                    <field name="driver_lic_id" invisible="1"/>
+                    <field name="driver_dob"/>
+                    <field name="driver_phone"/>
+                    <field name="blacklisted"/>
+                    <field name="monthly_rent"/>
+                    <field name="driver_lic_expiry_date"/>
+                </field>
+
+                <label for="tag_ids" position="replace"/>
+                <field name="tag_ids" position="replace"/>
+                <label for="license_plate" position="before">
+                    <label for="sequence_number"/>
+                    <field name="sequence_number"/>
+                    <br/>
+                </label>
+                <field name="next_assignation_date" position="after">
+                    <field name="tag_ids" widget="many2many_tags"
+                           options="{'color_field': 'color', 'no_create_edit': True}"/>
+                </field>
+
+                <xpath expr="//group/group[2]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[1]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[2]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[1]" position="before">
+                    <page name="trips" string="Trips">
+                        <field name="trip_ids"/>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id='fleet.fleet_vehicle_action' model='ir.actions.act_window'>
+            <field name="context">{"search_default_groupby_owner" : True}</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="module_trip_fields" model="ir.module.category">
+        <field name="name">Trip Fields</field>
+        <field name="sequence">500</field>
+    </record>
+
+<!--    <record id="itruck_trip.group_can_view_shipper" model="res.groups">-->
+<!--        <field name="name">Can view Shipper?</field>-->
+<!--        <field name="category_id" ref="module_trip_fields"/>-->
+<!--        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>-->
+<!--    </record>-->
+    <record id="itruck_trip.group_can_view_shipper_price" model="res.groups">
+        <field name="name">Can view Shipper Price?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_view_carrier_price" model="res.groups">
+        <field name="name">Can view Carrier Price?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_view_target_price" model="res.groups">
+        <field name="name">Can view Target Price?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_view_carrier_page" model="res.groups">
+        <field name="name">Can view Carrier Page?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_view_accounting_page" model="res.groups">
+        <field name="name">Can view Accounting Page?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_carrier_booking_details" model="res.groups">
+        <field name="name">Can edit carrier booking details?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_view_journal_id" model="res.groups">
+        <field name="name">Can view Accounting Journal?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_view_account_id" model="res.groups">
+        <field name="name">Can view Bank Account?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_view_invoice_payment_status" model="res.groups">
+        <field name="name">Can view Collect Status?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_view_collected_by_cash" model="res.groups">
+        <field name="name">Can view Collect By Cash?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_view_received_by" model="res.groups">
+        <field name="name">Can view Received By?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_view_account_payment_status" model="res.groups">
+        <field name="name">Can view Account Payment Status?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_edit_employee_id" model="res.groups">
+        <field name="name">Can edit Covered By?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_view_payment_date" model="res.groups">
+        <field name="name">Can view Payment Date?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_view_invoice_id" model="res.groups">
+        <field name="name">Can view Invoice?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_view_bill_id" model="res.groups">
+        <field name="name">Can view Bill?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_view_individual_entry" model="res.groups">
+        <field name="name">Can view Freelancer Entry?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_cancel_trip" model="res.groups">
+        <field name="name">Can cancel the Trip?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_approve_trip" model="res.groups">
+        <field name="name">Can approve the Trip?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_edit_contact" model="res.groups">
+        <field name="name">Can edit Contact?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="itruck_trip.group_can_edit_collection_date" model="res.groups">
+        <field name="name">Can edit Collection Date?</field>
+        <field name="category_id" ref="module_trip_fields"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('base.user_admin'))]"/>
+    </record>
+
+</odoo>

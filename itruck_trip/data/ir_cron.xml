@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_cron_auto_create_accrued_entry" model="ir.cron">
+        <field name="name">Trip: Create Accrued Journal Entry for Freelancers &amp; Missed trips</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+<!--        <field name="numbercall">-1</field>-->
+        <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 01:00:00')" />
+<!--        <field name="doall" eval="False"/>-->
+        <field name="model_id" ref="model_itruck_trip"/>
+        <field name="code">model._cron_create_accrued_entries_missed_trip()</field>
+        <field name="state">code</field>
+    </record>
+    <record id="ir_cron_check_trip_received_status" model="ir.cron">
+        <field name="name">Trip: Check DN Status</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+<!--        <field name="numbercall">-1</field>-->
+        <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 01:00:00')" />
+<!--        <field name="doall" eval="False"/>-->
+        <field name="model_id" ref="model_itruck_trip"/>
+        <field name="code">model._cron_check_trip_received_status()</field>
+        <field name="state">code</field>
+    </record>
+
+</odoo>

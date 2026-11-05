@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="trip_product_type_list_view" model="ir.ui.view">
+            <field name="name">trip.product.type.list</field>
+            <field name="model">trip.product.type</field>
+            <field name="arch" type="xml">
+                <list editable="bottom">
+                    <field name="name"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_trip_product_type" model="ir.actions.act_window">
+            <field name="name">Trip Product Type</field>
+            <field name="res_model">trip.product.type</field>
+            <field name="view_mode">list</field>
+        </record>
+
+        <record id="itruck_trip_list_view" model="ir.ui.view">
+            <field name="name">itruck.trip.list</field>
+            <field name="model">itruck.trip</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name" optional="hide"/>
+                    <field name="partner_id"/>
+                    <field name="invoice_id" optional="hide"/>
+                    <field name="vendor_id" optional="hide"/>
+                    <field name="bill_id" optional="hide"/>
+                    <field name="product_id" optional="hide"/>
+                    <field name="date" optional="hide"/>
+                    <field name="loading_point"/>
+                    <field name="unloading_point"/>
+                    <field name="product_type_id" optional="hide"/>
+                    <field name="shipper_fleet_type" optional="hide"/>
+                    <field name="user_id" optional="hide"/>
+                    <field name="employee_id" optional="hide"/>
+                    <field name="vendor_user_id" optional="hide"/>
+                    <field name="fleet_id" optional="hide"/>
+                    <field name="owner_lic_id" optional="hide"/>
+                    <field name="driver_id" optional="hide"/>
+                    <field name="driver_license_id" options="{'no_create': True, 'no_open': True}"
+                           string="Driver ID" optional="hide"/>
+                    <field name="driver_phone" optional="hide"/>
+                    <field name="received_status" optional="hide"/>
+                    <field name="account_payment_status" optional="hide" widget="badge"
+                           decoration-success="account_payment_status == 'paid'"
+                           decoration-danger="account_payment_status == 'unpaid'"
+                           groups="itruck_trip.group_can_view_account_payment_status"/>
+                    <field name="invoice_payment_status" optional="hide" widget="badge"
+                           decoration-success="invoice_payment_status == 'paid'"
+                           decoration-danger="invoice_payment_status == 'unpaid'"
+                           groups="itruck_trip.group_can_view_invoice_payment_status"/>
+                    <field name="dn_number" optional="hide"/>
+                    <field name="payment_date" optional="hide" groups="itruck_trip.group_can_view_payment_date"/>
+                    <field name="tag_ids" widget="many2many_tags" optional="hide"
+                           options="{'color_field': 'color', 'no_create_edit': True}"/>
+                    <field name="bank_id" optional="hide"/>
+                    <field name="acc_holder_name" optional="hide"/>
+                    <field name="partner_bank_ids" widget="many2many_tags" optional="hide"
+                           options="{'no_create_edit': True}"/>
+                    <field name="carrier_amount" optional="hide" groups="itruck_trip.group_can_view_carrier_price"/>
+                    <field name="amount" optional="hide" groups="itruck_trip.group_can_view_shipper_price"/>
+                    <field name="target_amount" optional="hide" groups="itruck_trip.group_can_view_target_price"/>
+                    <field name="state" widget="badge"
+                           decoration-success="state in ['done', 'confirm', 'completed']"
+                           decoration-danger="state == 'cancel'"
+                           decoration-warning="state == 'in_invoice'"
+                           decoration-info="state == 'draft'"
+                           decoration-primary="state == 'invoiced'"
+                           decoration-muted="state == 'missed'"
+                    />
+                </list>
+            </field>
+        </record>
+
+        <record id="itruck_trip_from_view" model="ir.ui.view">
+            <field name="name">itruck.trip.form</field>
+            <field name="model">itruck.trip</field>
+            <field name="arch" type="xml">
+                <form duplicate="0">
+                    <field name="profit" invisible="1"/>
+                    <field name="margin" invisible="1"/>
+                    <header>
+                        <button name="action_confirm" string="Booked" type="object" class="oe_highlight"
+                                invisible="state != 'draft'"/>
+
+                        <button name="action_in_process" string="Ongoing" type="object" class="oe_highlight"
+                                invisible="state != 'confirm'"/>
+
+                        <button name="action_completed" string="Delivered" type="object" class="oe_highlight"
+                                invisible="state != 'in_process'"/>
+
+                        <button name="action_in_invoice" string="In Invoice" type="object" class="oe_highlight"
+                                invisible="state != 'completed'"/>
+
+                        <button name="action_done" string="Done" type="object" class="oe_highlight"
+                                invisible="(state not in ('in_invoice', 'invoiced')) or (carrier_type == 'company')"/>
+
+                        <button name="action_trip_account_move" string="Create Invoice"
+                                context="{'move_type': 'out_invoice', 'create_from_form': True}"
+                                type="object" class="oe_highlight" invisible="state != 'in_invoice'"/>
+                        <button name="action_trip_account_move" string="Create Bill" context="{'move_type': 'in_invoice'}"
+                                type="object" class="oe_highlight" invisible="state not in ('in_invoice', 'invoiced')"/>
+                        <button name="action_cancel" string="Cancel" type="object"
+                                invisible="state == 'cancel'"
+                                groups="itruck_trip.group_can_cancel_trip"/>
+
+                        <button name="action_draft" string="Reset to Draft" type="object"
+                                invisible="state in ('in_review', 'draft')"/>
+                        <button name="action_draft" string="Approve" type="object"
+                                 invisible="state != 'in_review'"
+                                 groups="itruck_trip.group_can_approve_trip"/>
+
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,confirm,in_process,completed,in_invoice,done"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Trip Number"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="partner_id" context="{'search_by_shipper': True}"
+                                       options="{'no_create': True}"/>
+                                <field name="product_id" options="{'no_create': True}"/>
+                                <field name="date"/>
+                                <field name="product_type_id" options="{'no_create': True}"/>
+                                <field name="weight"/>
+                                <field name="arrival_date"/>
+                            </group>
+                            <group>
+                                <field name="shipper_fleet_type" string="Requested Truck"/>
+                                <field name="partner_shipping_id" string="Loading location"
+                                       options="{'no_create': True}" context="{'display_street': True}"/>
+                                <field name="shipping_comment"
+                                       invisible="not partner_shipping_id"/>
+                                <field name="dropoff_address_id" string="Unloading location"
+                                       options="{'no_create': True}" context="{'display_street': True}"/>
+                                <field name="dropoff_comment"
+                                       invisible="not dropoff_address_id"/>
+                                <field name="consignee_id" context="{'default_parent_id': partner_id}"/>
+                                <field name="consignee_phone" string="Phone"/>
+                                <field name="tag_ids" widget="many2many_tags"
+                                       options="{'color_field': 'color', 'no_create_edit': True}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="details" string="Sales">
+                                <group>
+                                    <group>
+                                        <field name="company_id" invisible="1"/>
+                                        <field name="user_id" options="{'no_create': True}" force_save="1" readonly="1"/>
+                                        <field name="team_id" options="{'no_create': True}"/>
+                                        <field name="loading_point" invisible="1"/>
+                                    </group>
+                                    <group>
+                                        <field name="employee_id" options="{'no_create': True}"
+                                               readonly="state not in ('in_review', 'draft')"/>
+                                        <field name="vendor_user_id"/>
+                                        <field name="unloading_point" invisible="1"/>
+                                        <field name="amount" groups="itruck_trip.group_can_view_shipper_price"/>
+                                        <field name="carrier_amount" groups="itruck_trip.group_can_view_carrier_price"/>
+                                        <field name="readonly_target_amount" invisible="1"/>
+                                        <field name="target_amount" force_save="1"
+                                               groups="itruck_trip.group_can_view_target_price"
+                                               readonly="readonly_target_amount"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="carrier_details" string="Carrier"
+                                  groups="itruck_trip.group_can_view_carrier_page">
+                                <group>
+                                    <group name="driver">
+                                        <field name="carrier_type2" widget="radio" options="{'horizontal': true}"
+                                               readonly="1"/>
+                                        <field name="driver_id" readonly="1"/>
+                                        <field name="driver_dob"/>
+                                        <field name="driver_license_id"
+                                               options="{'no_create': True, 'no_open': True}"
+                                               readonly="1" force_save="1"/>
+                                        <field name="driver_lic_id" invisible="1"/>
+                                        <field name="driver_phone"/>
+                                        <field name="transport_document"/>
+                                    </group>
+                                    <group>
+                                        <field name="vendor_id" context="{'search_by_lic': True}" readonly="1"/>
+                                        <field name="fleet_id" readonly="1" context="{'default_driver_id': driver_id,
+                                                                                    'default_owner_id': vendor_id}"/>
+                                        <field name="sequence_number"/>
+                                        <field name="fleet_type"/>
+                                        <field name="license_plate" invisible="1"/>
+                                        <field name="owner_id"/>
+                                        <field name="owner_lic_id" invisible="1"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Note">
+                                <field name="note" nolabel="1"
+                                       placeholder="Write here any other information related to this trip"/>
+                            </page>
+                            <page string="Accounting" groups="itruck_trip.group_can_view_accounting_page">
+                                <group>
+                                    <group>
+                                        <field name="monthly_rent" invisible="1"/>
+                                        <field name="journal_id" options="{'no_create': True}"
+                                               groups="itruck_trip.group_can_view_journal_id"
+                                               invisible="(carrier_type != 'individual') or (monthly_rent == True)"/>
+                                        <field name="account_id" options="{'no_create': True}"
+                                               groups="itruck_trip.group_can_view_account_id"
+                                               invisible="(carrier_type != 'individual') or (monthly_rent == True)"/>
+                                        <field name="invoice_payment_status"
+                                               groups="itruck_trip.group_can_view_invoice_payment_status"/>
+                                        <field name="collected_by_cash"
+                                               groups="itruck_trip.group_can_view_collected_by_cash"/>
+                                        <field name="collection_date" required="collected_by_cash"
+                                               invisible="not collected_by_cash"/>
+                                        <field name="received_by" groups="itruck_trip.group_can_view_received_by"
+                                               required="collected_by_cash"/>
+                                        <field name="account_payment_status"
+                                               groups="itruck_trip.group_can_view_account_payment_status"/>
+                                        <field name="payment_date"
+                                               groups="itruck_trip.group_can_view_payment_date"/>
+                                    </group>
+                                    <group>
+                                        <field name="invoice_id"
+                                               groups="itruck_trip.group_can_view_invoice_id"
+                                               context="{'default_partner_id': partner_id, 'default_move_type': 'out_invoice'}"/>
+                                        <field name="bill_id"
+                                               groups="itruck_trip.group_can_view_bill_id"
+                                               context="{'default_partner_id': vendor_id,
+                                                         'default_move_type': 'in_invoice',
+                                                         'default_date': date}"
+                                               invisible="carrier_type != 'company'"/>
+                                        <field name="individual_entry"
+                                               groups="itruck_trip.group_can_view_individual_entry"
+                                               context="{'default_journal_id': journal_id, 'default_move_type': 'entry'}"
+                                               domain="[('move_type', '=', 'entry')]"
+                                               invisible="(carrier_type != 'individual') or (monthly_rent == True)"/>
+                                        <field name="accrued_entry" force_save="1" readonly="1" invisible="1"/>
+                                        <field name="bank_partner_id"
+                                               invisible="monthly_rent == True"/>
+                                    </group>
+                                    <group string="Bank Accounts" name="banks"
+                                           groups="account.group_account_invoice,account.group_account_readonly"
+                                           invisible="monthly_rent == True">
+                                        <field name="partner_bank_ids" nolabel="1" force_save="1"
+                                               context="{'default_partner_id': bank_partner_id}">
+                                            <list editable="bottom">
+                                                <field name="sequence" widget="handle"/>
+                                                <field name="bank_id"/>
+                                                <field name="acc_number"/>
+                                                <field name="acc_holder_name"/>
+                                                <field name="document_id" widget="binary"/>
+                                            </list>
+                                        </field>
+<!--                                        <button type="action" class="btn-link"-->
+<!--                                            name="%(base.action_res_partner_bank_account_form)d"-->
+<!--                                            context="{'search_default_partner_id': active_id, 'default_partner_id': active_id, 'form_view_ref': 'account.view_company_partner_bank_form'}"-->
+<!--                                            string="View accounts detail"-->
+<!--                                            colspan="2"-->
+<!--                                        />-->
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Operation">
+                                <group>
+                                    <group>
+                                        <field name="carrier_type" widget="radio" options="{'horizontal': true}"/>
+                                        <field name="received_status" widget="radio"/>
+                                        <field name="receiver_id" force_save="1"/>
+                                        <field name="dor" force_save="1"/>
+                                    </group>
+                                    <group>
+                                        <field name="dn_number" required="received_status == 'yes'"/>
+                                        <field name="delivery_note"
+                                               required="received_status == 'yes'"/>
+                                        <field name="payment_status" widget="radio"
+                                               required="received_status == 'yes'"/>
+                                        <field name="payment_amount" invisible="payment_status != 'paid'"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_itruck_trip_search" model="ir.ui.view">
+            <field name="name">itruck.trip.search</field>
+            <field name="model">itruck.trip</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="fleet_id"/>
+                    <field name="vendor_user_id"/>
+                    <field name="date"/>
+                    <field name="driver_phone"/>
+                    <filter name="today_trips" string="Today Trips"
+                            domain="[('create_date', '&gt;=', datetime.datetime.now().strftime('%Y-%m-%d 00:00:00')), ('create_date', '&lt;=',datetime.datetime.now().strftime('%Y-%m-%d 23:23:59'))]"
+                            help="Show Today Trips"/>
+                    <filter string="My Trips" name="my_trips"
+                            domain="['|', ('user_id', '=', uid), ('employee_id.user_id', '=', uid)]"/>
+                    <filter string="Claim Trips" name="claim_tag_trips" domain="[('tag_ids.name', '=', 'Claim')]"/>
+                    <filter string="Non-Invoiced Trips" name="non_invoiced_trips"
+                            domain="['&amp;', ('account_payment_status', '=', 'paid'), ('invoice_id', '=', False)]"/>
+                    <filter string="To Be Paid" name="to_be_paid"
+                            domain="['&amp;', ('account_payment_status', 'in', ['unpaid', 'partial']),
+                                              ('delivery_note', '!=', False)]"/>
+                    <filter string="To Be Collected" name="to_be_collected"
+                            domain="['&amp;', ('invoice_payment_status', 'in', ['not_paid', 'partial']),
+                                              ('delivery_note', '!=', False)]"/>
+                    <separator/>
+                    <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+                    <separator/>
+                    <filter name="vendor_user_id" string="Carrier Salesperson" domain="[]"
+                            context="{'group_by' : 'vendor_user_id'}"/>
+                    <filter name="tag_ids" string="Tags" domain="[]"
+                            context="{'group_by' : 'tag_ids'}"/>
+                    <filter name="owner_lic_id" string="Owner ID" domain="[]"
+                            context="{'group_by' : 'owner_lic_id'}"/>
+                    <filter name="team_id" string="Sales Team" domain="[]"
+                            context="{'group_by' : 'team_id'}"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_itruck_trip" model="ir.actions.act_window">
+            <field name="name">Trips</field>
+            <field name="res_model">itruck.trip</field>
+            <field name="view_mode">list,form</field>
+            <field name='view_id' ref='itruck_trip_list_view'/>
+            <field name="search_view_id" ref="view_itruck_trip_search"/>
+            <field name="context">{'search_default_today_trips': 1}</field>
+        </record>
+
+        <record id="itruck_confirmed_trip_list_view" model="ir.ui.view">
+            <field name="name">itruck.confirmed.trip.list</field>
+            <field name="model">itruck.trip</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="partner_id"/>
+                    <field name="vendor_id"/>
+                    <field name="state" widget="badge"
+                           decoration-success="state in ['done', 'confirm', 'completed']"
+                           decoration-danger="state == 'cancel'"
+                           decoration-warning="state == 'in_invoice'"
+                           decoration-info="state == 'draft'"
+                           decoration-primary="state == 'invoiced'"
+                           decoration-muted="state == 'missed'"
+                    />
+                    <field name="carrier_amount" string="Cost" groups="itruck_trip.group_can_view_carrier_price"/>
+                    <field name="amount" string="Revenue" groups="itruck_trip.group_can_view_shipper_price"/>
+                    <field name="profit"/>
+                    <field name="margin"/>
+
+                    <field name="date" optional="hide"/>
+                    <field name="loading_point" optional="hide"/>
+                    <field name="unloading_point" optional="hide"/>
+                    <field name="name" optional="hide"/>
+                    <field name="bill_id" optional="hide"/>
+                    <field name="invoice_id" optional="hide"/>
+                    <field name="product_type_id" optional="hide"/>
+                    <field name="shipper_fleet_type" optional="hide"/>
+                    <field name="user_id" optional="hide"/>
+                    <field name="vendor_user_id" optional="hide"/>
+                    <field name="received_status" optional="hide"/>
+                    <field name="driver_id" optional="hide"/>
+                    <field name="fleet_id" optional="hide"/>
+                    <field name="employee_id" optional="hide"/>
+                    <field name="driver_phone" optional="hide"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_itruck_confirmed_trip" model="ir.actions.act_window">
+            <field name="name">Confirmed Trips</field>
+            <field name="res_model">itruck.trip</field>
+            <field name="view_mode">list,form</field>
+            <field name='view_id' ref='itruck_confirmed_trip_list_view'/>
+            <field name="search_view_id" ref="view_itruck_trip_search"/>
+            <field name="context">{'search_default_today_trips': 1}</field>
+            <field name="domain">[('state', 'in', ['confirm', 'in_process', 'completed', 'in_invoice', 'invoiced', 'done'])]</field>
+        </record>
+        <record id="action_itruck_my_trip" model="ir.actions.act_window">
+            <field name="name">My Trips</field>
+            <field name="res_model">itruck.trip</field>
+            <field name="view_mode">list,form</field>
+            <field name='view_id' ref='itruck_trip_list_view'/>
+            <field name="search_view_id" ref="view_itruck_trip_search"/>
+            <field name="context">{'search_default_my_trips': 1}</field>
+        </record>
+        <record id="action_itruck_claim_trip" model="ir.actions.act_window">
+            <field name="name">Claim Trips</field>
+            <field name="res_model">itruck.trip</field>
+            <field name="view_mode">list,form</field>
+            <field name='view_id' ref='itruck_trip_list_view'/>
+            <field name="search_view_id" ref="view_itruck_trip_search"/>
+            <field name="context">{'search_default_claim_tag_trips': 1}</field>
+        </record>
+        <record id="action_itruck_non_invoiced_trip" model="ir.actions.act_window">
+            <field name="name">Non-Invoiced Trips</field>
+            <field name="res_model">itruck.trip</field>
+            <field name="view_mode">list,form</field>
+            <field name='view_id' ref='itruck_trip_list_view'/>
+            <field name="search_view_id" ref="view_itruck_trip_search"/>
+            <field name="context">{'search_default_non_invoiced_trips': 1}</field>
+        </record>
+        <record id="action_itruck_to_be_paid_trip" model="ir.actions.act_window">
+            <field name="name">To Be Paid Trips</field>
+            <field name="res_model">itruck.trip</field>
+            <field name="view_mode">list,form</field>
+            <field name='view_id' ref='itruck_trip_list_view'/>
+            <field name="search_view_id" ref="view_itruck_trip_search"/>
+            <field name="context">{'search_default_to_be_paid': 1}</field>
+        </record>
+        <record id="action_itruck_to_be_collected_trip" model="ir.actions.act_window">
+            <field name="name">To Be Collected Trip</field>
+            <field name="res_model">itruck.trip</field>
+            <field name="view_mode">list,form</field>
+            <field name='view_id' ref='itruck_trip_list_view'/>
+            <field name="search_view_id" ref="view_itruck_trip_search"/>
+            <field name="context">{'search_default_to_be_collected': 1}</field>
+        </record>
+<!--        <record id="action_itruck_trip_dashboard" model="ir.actions.act_window">-->
+<!--            <field name="name">Dashboard</field>-->
+<!--            <field name="res_model">itruck.trip</field>-->
+<!--            <field name="view_mode">list,form</field>-->
+<!--            <field name="search_view_id" ref="view_itruck_trip_search"/>-->
+<!--            <field name="context">{'search_default_today_trips': 1}</field>-->
+<!--        </record>-->
+
+        <record id="model_iturck_trip_action_duplicate" model="ir.actions.server">
+            <field name="name">Duplicate Trip</field>
+            <field name="model_id" ref="itruck_trip.model_itruck_trip"/>
+            <field name="binding_model_id" ref="itruck_trip.model_itruck_trip"/>
+            <field name="binding_view_types">form</field>
+            <field name="state">code</field>
+            <field name="code">action = records.action_duplicate_trips()</field>
+        </record>
+
+        <record id="model_iturck_trip_action_create_invoice" model="ir.actions.server">
+            <field name="name">Create Invoice</field>
+            <field name="model_id" ref="itruck_trip.model_itruck_trip"/>
+            <field name="binding_model_id" ref="itruck_trip.model_itruck_trip"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code">
+                action = records.with_context(move_type='out_invoice').action_trip_account_move()
+            </field>
+        </record>
+
+        <record id="model_iturck_trip_action_cancel_trip" model="ir.actions.server">
+            <field name="name">Cancel Trips</field>
+            <field name="model_id" ref="itruck_trip.model_itruck_trip"/>
+            <field name="binding_model_id" ref="itruck_trip.model_itruck_trip"/>
+            <field name="binding_view_types">list</field>
+            <field name="groups_id"  eval="[(4, ref('itruck_trip.group_can_cancel_trip'))]"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = records.action_cancel()
+            </field>
+        </record>
+
+        <record id="res_partner_view_search" model="ir.ui.view">
+            <field name="name">res.partner.search.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='inactive']" position="before">
+                   <filter string="Fulfilment" name="carrier_user_type" domain="[('user_type','=', 'carrier')]"/>
+                   <separator/>
+                </xpath>
+            </field>
+        </record>
+        <record id="action_carrier_contacts" model="ir.actions.act_window">
+            <field name="name">Carriers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,list,form,activity</field>
+            <field name="search_view_id" ref="base.view_res_partner_filter"/>
+            <field name="context">{'search_default_carrier_user_type': 1, 'default_user_type': 'carrier',
+                'default_is_company': True}</field>
+            <field name="domain">['|', ('category_id.name','=','Carrier'), ('user_type','=','carrier')]</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a Carrier in your address book
+              </p><p>
+                Odoo helps you track all activities related to your contacts.
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_trip_management_root" name="Trip Management" sequence="10"/>
+
+<!--        <menuitem id="menu_trip_management_trip_main" name="Dashboard" action="action_itruck_trip_dashboard"-->
+<!--                  parent="menu_trip_management_root" sequence="5"/>-->
+
+        <menuitem id="menu_trip_management_trip_main" name="Trips"
+                  parent="menu_trip_management_root" sequence="10"/>
+
+        <menuitem id="menu_trip_management_carriers" name="Carriers"
+                  parent="menu_trip_management_root" sequence="15"
+                  action="action_carrier_contacts"/>
+
+        <menuitem id="menu_trip_management_trip_sub" name="Trips"
+                  action="action_itruck_trip"
+                  parent="menu_trip_management_trip_main" sequence="10"/>
+        <menuitem id="menu_trip_management_confirmed_trip_sub" name="Confirm Trips"
+                  action="action_itruck_confirmed_trip"
+                  parent="menu_trip_management_trip_main" sequence="10"
+                  groups="itruck_trip.group_can_view_accounting_page"/>
+        <menuitem id="menu_trip_management_my_trip" name="My Trips"
+                  action="action_itruck_my_trip"
+                  parent="menu_trip_management_trip_main" sequence="20"/>
+        <menuitem id="menu_trip_management_claim_trip" name="Claim Trips"
+                  action="action_itruck_claim_trip"
+                  parent="menu_trip_management_trip_main" sequence="30"/>
+        <menuitem id="menu_trip_management_non_invoiced_trip" name="Non-Invoiced Trips"
+                  action="action_itruck_non_invoiced_trip"
+                  parent="menu_trip_management_trip_main" sequence="40"/>
+        <menuitem id="menu_trip_management_to_be_paid_trip" name="To Be Paid Trips"
+                  action="action_itruck_to_be_paid_trip"
+                  parent="menu_trip_management_trip_main" sequence="50"/>
+        <menuitem id="menu_trip_management_to_be_collected_trip" name="To Be Collected Trips"
+                  action="action_itruck_to_be_collected_trip"
+                  parent="menu_trip_management_trip_main" sequence="60"/>
+<!--        <menuitem id="menu_trip_fleet_vehicle" name="Carriers"-->
+<!--                  action="fleet.fleet_vehicle_action"-->
+<!--                  parent="menu_trip_management_trip_main" sequence="20"/>-->
+<!--        <menuitem id="menu_trip_contacts" name="Contacts"-->
+<!--                  action="contacts.action_contacts"-->
+<!--                  parent="menu_trip_management_trip_main" sequence="30"/>-->
+
+        <menuitem id="menu_trip_management_configuration" name="Configuration"
+                  parent="menu_trip_management_root" sequence="99"/>
+        <menuitem id="menu_trip_product_type" name="Product Type"
+                  action="action_trip_product_type"
+                  parent="menu_trip_management_configuration" sequence="10"/>
+    </data>
+</odoo>
