@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="pos_commission_rule_tree_view" model="ir.ui.view">
+        <field name="name">pos.commission.rule.list</field>
+        <field name="model">pos.commission.rules</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="employee_ids" widget="many2many_tags" />
+                <field name="product_ids" widget="many2many_tags" />
+                <field name="commission_type" />
+                <field name="amount" />
+                <field name="active" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="pos_commission_rule_form_view" model="ir.ui.view">
+        <field name="name">pos.commission.rule.form</field>
+        <field name="model">pos.commission.rules</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <div class="oe_title mb-4">
+                        <h1>
+                            <field name="name" required="1"></field>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="employee_ids" widget="many2many_tags" />
+                            <field name="product_ids" widget="many2many_tags" />
+                        </group>
+                        <group>
+                            <field name="amount" />
+                            <field name="commission_type" />
+                            <field name="active" invisible="True"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="pos_commission_rule_action" model="ir.actions.act_window">
+        <field name="name">Commission Rules</field>
+        <field name="res_model">pos.commission.rules</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="nf_pos_commission_rule_menu" action="nf_pos_salesperson_commission.pos_commission_rule_action" parent="nf_pos_salesperson_commission_main_menu" sequence="2" groups="nf_pos_salesperson_commission.nf_commission_manager"/>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_product_attribute_form_view" model="ir.ui.view">
+        <field name="name">Hide Product Attribute Price</field>
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="product.product_attribute_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='default_extra_price']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+         
+        </field>
+    </record>
+</odoo>

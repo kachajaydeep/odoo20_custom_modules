@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates>
+    <t t-name="nf_pos_tailor_management.DeliveryDate">
+        <Dialog contentClass="'nf_delivery_date_dialog'">
+            <div>
+                <t t-set-slot="header">
+                    <h2>Delivery Date</h2>
+                    <button type="button" class="btn-close" t-on-click="() => this.closePopup()" aria-label="Close"></button>
+                </t>
+
+                <div class="mb-3">
+                    <label for="deliverydate" class="form-label">Delivery Date :</label>
+                    <input type="date" id="deliverydate" class="form-control" t-model.proxy = "this.state.deliveryDate" t-att-value="this.state.deliveryDate"/>
+                </div>
+
+                <t t-set-slot="footer">
+                    <t t-set-slot="footer">
+                        <button class="btn btn-primary border-1"
+                            t-on-click="() => this.saveDeliveryDate()">
+                            Save
+                        </button>
+                        <button class="btn btn-secondary border-1"
+                            t-on-click="() => this.closePopup()">
+                            close
+                        </button>
+                    </t>
+                </t>
+            </div>
+        </Dialog>
+    </t>
+</templates>

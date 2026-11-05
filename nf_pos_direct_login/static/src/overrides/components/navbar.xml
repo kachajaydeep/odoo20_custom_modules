@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve">
+    <t t-name="nf_pos_direct_login.Navbar" t-inherit="point_of_sale.Navbar" t-inherit-mode="extension">
+        <xpath expr="//DropdownItem/i[@data-icon='chevron_left']/.." position="replace">
+            <DropdownItem t-if="this.pos.cashier.pos_only_user" onSelected="() => this.pos.logOutUser()">
+                <i class="oi oi-fw fa fa-sign-out" aria-hidden="true" /> Log out
+            </DropdownItem>
+            <DropdownItem t-else="" onSelected="() => this.pos.closePos()">
+                <i class="oi oi-fw" data-icon="chevron_left" aria-hidden="true" /> Backend
+            </DropdownItem>
+        </xpath>
+    </t>
+</template>

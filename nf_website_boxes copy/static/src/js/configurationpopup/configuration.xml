@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-inherit="sale.QuantityButtons" t-inherit-mode="extension">
+        <button name="sale_quantity_button_minus" position="attributes" >
+            <attribute name="t-attf-class" add="{{this.props.nf_is_disabled ? 'disabled' : ''}}" separator=" "/>
+        </button>
+        <button name="sale_quantity_button_plus" position="attributes" >
+            <attribute name="t-attf-class" add="{{this.props.nf_is_disabled ? 'disabled' : ''}}" separator=" "/>
+        </button>
+    </t>
+    <t t-inherit="sale.Product" t-inherit-mode="extension">
+        <button name="sale_product_configurator_add_button" position="attributes">
+            <attribute name="t-attf-class" add="{{this.env.nf_optional_product_limit() ? 'disabled' : ''}}" separator=" "/>
+        </button>
+        <xpath expr="//QuantityButtons" position="attributes">
+            <attribute name="nf_is_disabled" add="this.env.nf_optional_product_limit()" separator=" "/>
+        </xpath>
+    </t>
+</templates>

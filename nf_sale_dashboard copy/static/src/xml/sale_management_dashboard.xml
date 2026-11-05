@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<template id="nf_sale_dashboard_template">
+    <t t-name="nf_sale_dashboard.SaleManagement">
+        <div class="nf-main-content mt-4">
+            <div class="container-fluid">
+                <div class="row mx-0">
+                    <div class="col-12 col-lg-8">
+                        <div class="card nf-user-details-card">
+                            <div class="card-content">
+                                <div class="card-body d-flex flex-column row-gap-5">
+                                    <div class="d-flex column-gap-3 align-items-center">
+                                        <div class="avatar avatar-lg avatar-md avatar-sm">
+                                            <img t-att-src="this.user_img" class="card-img" alt="" />
+                                        </div>
+
+                                        <h4 class="card-title m-0 p-0 user-name">
+                                            <span t-out="this.wish"></span>, <span
+                                                t-out="this.user_name"></span>! </h4>
+                                    </div>
+
+                                    <p class="card-text store-detail">
+                                        Here's What's happening with your store today.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="input-group mb-4">
+                                        <span class="input-group-text">Start Date</span>
+                                        <input class="form-control" type="date" t-model.proxy="this.state.start_date"
+                                            t-on-change="() => this.onchangeStartDate()" />
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-text">End Date</span>
+                                        <input class="form-control" type="date" t-on-change="() => this.onchangeEndDate()" t-model.proxy="this.state.end_date"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <div class="card  nf-sale-details-card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="stats-icon yellow mb-2">
+                                            <i class="fa fa-clock-o"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-9 mt-1">
+                                        <h6
+                                            class="text-muted font-semibold text-formated text-nowrap nf-card-sale-detail-text nf-card-sale-detail-text">
+                                            <strong>
+                                                Today Top Sale
+                                            </strong>
+                                        </h6>
+                                        <h6 class="font-extrabold mb-0 text-nowrap nf-card-sale-detail-amount">
+                                            <span
+                                                t-out="this.today_highest_sale_amount_with_currnecy"></span>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <div class="card  nf-sale-details-card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="stats-icon purple mb-2">
+                                            <i class="fa fa-line-chart"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-9 mt-1">
+                                        <h6
+                                            class="text-muted font-semibold text-formated text-nowrap nf-card-sale-detail-text nf-card-sale-detail-text">
+                                            <strong>
+                                                Month Highest Sale
+                                            </strong>
+                                        </h6>
+                                        <h6 class="font-extrabold mb-0 text-nowrap nf-card-sale-detail-amount">
+                                            <span
+                                                t-out="this.months_heighest_sale_amount_with_currency"></span>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <div class="card  nf-sale-details-card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="stats-icon red mb-2">
+                                            <i class="fa fa-usd"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-9 mt-1">
+                                        <h6
+                                            class="text-muted font-semibold text-formated text-nowrap nf-card-sale-detail-text nf-card-sale-detail-text">
+                                            <strong>
+                                                Average Selling Price
+                                            </strong>
+                                        </h6>
+                                        <h6 class="font-extrabold mb-0 text-nowrap nf-card-sale-detail-amount">
+                                            <span
+                                                t-out="this.avg_amount_with_currency"></span>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <div class="card  nf-sale-details-card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="stats-icon blue mb-2">
+                                            <i class="fa fa-shopping-bag"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-9 mt-1">
+                                        <h6
+                                            class="text-muted font-semibold text-formated text-nowrap nf-card-sale-detail-text nf-card-sale-detail-text">
+                                            <strong>
+                                                Month Total Sale
+                                            </strong>
+                                        </h6>
+                                        <h6 class="font-extrabold mb-0 text-nowrap nf-card-sale-detail-amount">
+                                            <span
+                                                t-out="this.month_total_sale"></span> <!-- issue over
+                                            the count here -->
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-header nf-card-body">
+                                    <h4>Month Sales</h4>
+                                    <div style="float: right; margin-top: -25px; width: 15%;">
+                                        <select class="form-control" id='NfSaleFilter'
+                                            t-model.proxy="this.state.sales_chart"
+                                            t-on-change="(event) => this.onChangeSalesDetails(event)">
+                                            <option value="today">Today</option>
+                                            <option value="month" selected="selected">This Month</option>
+                                            <option value="year">This Year</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="card-body nf-card-body">
+                                    <div id="nf-sale-monthly-record-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="card sale_table_card">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                    <div class="card-header sale_table">
+                                        <h4 class="card-title pb-4">Top Sales Orders</h4>
+                                        <div class="table-container">
+                                            <table class="table table-hover">
+                                                <thead class="bg-dark position-sticky top-0 nf-thead-top-sales-orders">
+                                                    <tr>
+                                                        <!-- <th class="d-none d-md-block" style="border-bottom:0 !important;">
+                                                            <div></div>
+                                                        </th> -->
+                                                        <th class="table-header text-white">SO Number</th>
+                                                        <th class="table-header text-white">Customer</th>
+                                                        <th class="table-header text-white">Salesperson</th>
+                                                        <th class="table-header text-white">Revenue</th>
+                                                    </tr>
+                                                </thead>
+    
+                                                <tbody class="bg-white nf-tbody-top-sales-orders">
+                                                    <t t-foreach="this.state.top_sale_order_record" t-as="top_order" t-key="top_order.id">
+                                                        <tr>
+                                                            <td class="table-data"><span t-out="top_order.sale_order_number"></span></td>
+                                                            <td class="table-data"><span t-out="top_order.sale_order_customer"></span></td>
+                                                            <td class="table-data"><span  t-out="top_order.sales_person"></span></td>
+                                                            <td class="table-data"><span t-out="this.display_amount_with_currency(top_order.Total)"></span></td>
+                                                        </tr>
+                                                    </t>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                    <div class="card-header sale_table">
+                                        <h4 class="card-title pb-4">Top Customers</h4>
+                                        <div class="table-container">
+                                            <table class="table table-hover">
+                                                <thead class="bg-dark nf-thead-top-customers position-sticky top-0">
+                                                    <tr>
+                                                        <th class="table-header text-white">Customer Name</th>
+                                                        <th class="table-header text-white">Product Count</th>
+                                                        <th class="table-header text-white">Amount</th>
+                                                    </tr>
+                                                </thead>
+    
+                                                <tbody class="bg-white nf-tbody-top-customers">
+                                                    <t t-foreach="this.state.top_sale_order_record" t-as="top_customers" t-key="top_customers.id">
+                                                        <tr>
+                                                            <td class="table-data"><span t-out="top_customers.sale_order_customer"></span></td>
+                                                            <td class="table-data"><span t-out="top_customers.product_quantity"></span></td>
+                                                            <td class="table-data"><span t-out="this.display_amount_with_currency(top_customers.Total)"></span></td>
+                                                        </tr>
+                                                    </t>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="card sale_table_card">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                    <div class="card-header sale_table">
+                                        <h4 class="card-title ps-3 pb-4">Top Products</h4>
+                                        <div class="table-container">
+                                            <table class="table table-hover">
+                                                <thead class="bg-dark position-sticky top-0 nf-thead-top-sales-orders">
+                                                    <tr>
+                                                        <th class="table-header text-white">Product Name</th>
+                                                        <th class="table-header text-white">Sale Qty</th>
+                                                        <th class="table-header text-white">Total</th>
+                                                    </tr>
+                                                </thead>
+    
+                                                <tbody class="bg-white nf-tbody-top-sales-orders">
+                                                    <t t-foreach="this.state.top_selling_products" t-as="top_products" t-key="top_products_index">
+                                                        <tr>
+                                                            <td class="table-data"><span t-out="top_products.product_name"></span></td>
+                                                            <td class="table-data"><span t-out="top_products.sale_qty"></span></td>
+                                                            <td class="table-data"><span  t-out="this.display_amount_with_currency(top_products.total)"></span></td>
+                                                        </tr>
+                                                    </t>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                    <div class="card-header sale_table">
+                                        <h4 class="card-title ps-3 pb-4">Invoice due</h4>
+                                        <div class="table-container">
+                                            <table class="table table-hover">
+                                                <thead class="bg-dark position-sticky top-0 nf-thead-top-sales-orders">
+                                                    <tr>
+                                                        <th class="table-header text-white">Invoice Number</th>
+                                                        <th class="table-header text-white">Amount</th>
+                                                        <th class="table-header text-white">Amount Due</th>
+                                                    </tr>
+                                                </thead>
+    
+                                                <tbody class="bg-white nf-tbody-top-sales-orders">
+                                                    <t t-foreach="this.state.invoice_due_record" t-as="invoice_due" t-key="invoice_due_index">
+                                                        <tr>
+                                                            <td class="table-data"><span t-out="invoice_due.invoice_number"></span></td>
+                                                            <td class="table-data"><span t-out="invoice_due.amount"></span></td>
+                                                            <td class="table-data"><span  t-out="this.display_amount_with_currency(invoice_due.amount_due)"></span></td>
+                                                        </tr>
+                                                    </t>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="card sale_table_card">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                    <div class="card-header sale_table">
+                                        <h4 class="card-title ps-3 pb-4">Running Order List</h4>
+                                        <div class="table-container">
+                                            <table class="table table-hover">
+                                                <thead class="bg-dark position-sticky top-0 nf-thead-top-sales-orders">
+                                                    <tr>
+                                                        <th class="table-header text-white">Order Name</th>
+                                                        <th class="table-header text-white">Customer</th>
+                                                        <th class="table-header text-white">Date</th>
+                                                        <th class="table-header text-white">Order Date</th>
+                                                    </tr>
+                                                </thead>
+    
+                                                <tbody class="bg-white nf-tbody-top-sales-orders">
+                                                    <t t-foreach="this.state.running_sale_order_record" t-as="running_order" t-key="running_order.id">
+                                                        <tr>
+                                                            <td class="table-data"><span t-out="running_order.order_name"></span></td>
+                                                            <td class="table-data"><span t-out="running_order.partner_name"></span></td>
+                                                            <td class="table-data"><span  t-out="running_order.create_date"></span></td>
+                                                            <td class="table-data"><span  t-out="running_order.order_date"></span></td>
+                                                        </tr>
+                                                    </t>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                    <div class="card-header sale_table">
+                                        <h4 class="card-title ps-3 pb-4">Pending Delivery Orders</h4>
+                                        <div class="table-container">
+                                            <table class="table table-hover">
+                                                <thead class="bg-dark position-sticky top-0 nf-thead-top-sales-orders">
+                                                    <tr>
+                                                        <th class="table-header text-white">Delivery Name</th>
+                                                        <th class="table-header text-white">Scheduled Date</th>
+                                                        <th class="table-header text-white">State</th>
+                                                        <!-- <th class="table-header text-white">Order Date</th> -->
+                                                    </tr>
+                                                </thead>
+    
+                                                <tbody class="bg-white nf-tbody-top-sales-orders">
+                                                    <t t-foreach="this.state.pending_delivery_orders" t-as="pending_order" t-key="pending_order_index">
+                                                        <tr>
+                                                            <td class="table-data"><span t-out="pending_order.name"></span></td>
+                                                            <td class="table-data"><span t-out="pending_order.scheduled_date"></span></td>
+                                                            <td class="table-data"><span  t-out="pending_order.state"></span></td>
+                                                        </tr>
+                                                    </t>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12">
+                        <div class="card sale_table_card">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                    <h4 class="card-title ps-3 pt-4">Top Selling Product By Quantity</h4>
+                                    <div class="card-body nf-card-body" >
+                                        <div id="nf-sale-product-by-qty-record-chart"></div>
+                                    </div>
+                                </div>
+            
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                    <h4 class="card-title ps-3 pt-4">Top Customers By Revenue</h4>
+                                    <div class="card-body nf-card-body">
+                                        <div id="nf-premium-customer-chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</template>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_generated_product_catalog_form" model="ir.ui.view">
+        <field name="name">generated.product.catalog.view.form</field>
+        <field name="model">nf.generated.product.catalog</field>
+        <field name="arch" type="xml">
+            <form string="Product Catalog" create="False">
+                <header>
+                    <button string="Send By Email" name="send_email" type="object" class="oe_highlight bg-primary" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                    <button string="Print PDF" name="generate_pdf_report" type="object" class="oe_highlight bg-primary" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                    <button string="Print XLS" name="download_xls_report" type="object" class="oe_highlight bg-primary" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                </header>
+                <sheet>
+                    <h1>
+                        <div class="row">
+                            <div class="col col-md-8">
+                                <label for="catalog_name" string="Name"/>
+                                <div>
+                                    <field name="catalog_name" placeholder="e.g. Office Furniture" style="width:80% !important;" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                                    <field name="catalog_name" placeholder="e.g. Office Furniture" style="width:80% !important;" readonly="1" groups="!nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                                </div>
+                            </div>
+                        </div>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="create_date" widget="date" string="Created On"/>
+                            <field name="category_id" invisible="catalog_type != 'category'" readonly="1" groups="!nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                            
+                            <field name="currency_id" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                            <field name="style" widget="radio" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                            <field name="pricelist" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                            <field name="price_decimal" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                            <field name="image" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                            <field name="image_height" invisible="image != True" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                            <field name="image_width" invisible="image != True" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                            <field name="print_category" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                            <field name="description" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                            <field name="price" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                            <field name="product_link" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                            <field name="inter_ref" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                            <field name="print_uom" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                        </group>
+                        <group>
+                            <field name="catalog_type" />
+                            <field name="category_id" invisible="catalog_type != 'category'" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                            <field name="product_id" widget="many2many_tags" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                            <field name="product_id" widget="many2many_tags" readonly="1" groups="!nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                            <field name="break_page" invisible="style == 'style1'" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                            <field name="break_after_product" invisible="style == 'style1' or not break_page" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                            <field name="printbox_per_row" widget="radio" invisible="style != 'style2'" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_generated_product_catalog_list" model="ir.ui.view">
+        <field name="name">generated.product.catalog.list.view</field>
+        <field name="model">nf.generated.product.catalog</field>
+        <field name="arch" type="xml">
+            <list name="Generated Product Catalog" create="False">
+                <field name="catalog_name" />
+                <field name="create_date" string="Created On"/>
+                <button string="Print PDF" name="generate_pdf_report" type="object" class="oe_highlight bg-primary" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+                <button string="Print XLS" name="download_xls_report" type="object" class="oe_highlight bg-primary" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+            </list>
+        </field>
+    </record>
+
+    <menuitem id="root_product_catalog_menu" name="Product Catalog" sequence="1"
+        groups="nf_product_catalog_generator.nf_group_product_catalog_users" />
+
+    <menuitem id="product_catalog_menu" name="Product Catalog" action="action_product_catalog" parent="root_product_catalog_menu" sequence="1"/>
+    <menuitem id="product_catalog_sub_menu" name="Product Catalog" action="action_product_catalog" parent="product_catalog_menu" sequence="10"/>
+</odoo>

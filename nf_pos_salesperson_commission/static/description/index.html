@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pos Salesperson Commission</title>
+    <meta name="title" content="Odoo Salesperson Commission Module – Automate POS Commissions">
+    <meta name="description"
+        content="Automate and manage salesperson commissions in Odoo. Supports percentage and fixed commission, POS integration, product-based rules, expense generation, and role-based access control.">
+    <meta name="keywords"
+        content="salesperson commission odoo commission module pos commission sales commission management commission rules product-based commission percentage commission fixed commission odoo pos integration sales incentives commission tracking commission automation expense integration role-based access control odoo apps salesperson performance commission calculation pos order commission multi-user support business automation point of sale commission commission rule commission cashier commission admin commission manager commission employee commission pos commission">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <section class="nf_m_header">
+        <div class="container-fluid px-5 pb-3 text-center text-lg-start"
+            style="background-color:#f8f9fa; border-radius:10px;">
+            <div class="row align-items-center">
+                <!-- Module Info -->
+                <div class="col-12 col-lg-6 my-4 my-lg-0">
+                    <h1 class="fw-bolder" style="font-size:calc(1.8rem + 1.5vw); color:#212529; margin-bottom:15px;">
+                        Pos Salesperson Commission
+                    </h1>
+
+                    <p style="font-size:17px; color:#6c757d; line-height:1.7;">
+                        The <strong>Pos Salesperson Commission module</strong> in Odoo provides a
+                        <strong>comprehensive</strong> and <strong>flexible solution</strong> for managing
+                        <strong>sales-based incentives</strong>. It supports both <strong>percentage-based</strong> and
+                        <strong>fixed commission</strong> structures, allowing businesses to define rules based on
+                        <strong>products</strong> or <strong>product variants</strong> for <strong>precise
+                            calculation</strong>. The module integrates seamlessly with the <strong>Point of Sale
+                            (POS)</strong>, automatically generating <strong>commission records</strong> in <strong>real
+                            time</strong> as orders are validated. It also enables <strong>salesperson assignment at the
+                            order line level</strong>, ensuring <strong>accurate tracking</strong> of individual
+                        performance. With <strong>role-based access control</strong>, organizations can differentiate
+                        between <strong>Commission Managers</strong> and <strong>Commission Users</strong>, maintaining
+                        both <strong>flexibility</strong> and <strong>data security</strong>.
+                    </p>
+                    <!-- Dependency Badge -->
+                    <div style="margin-top:20px;" class="text-start">
+                        <p class="fw-bold" style="font-size:16px; color:#212529; margin-bottom:10px;">Platform Support
+                        </p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span
+                                style="background-color:#714B67; color:#fff; padding:6px 14px; border-radius:20px; font-size:14px;">Community</span>
+                            <span
+                                style="background-color:#714B67; color:#fff; padding:6px 14px; border-radius:20px; font-size:14px;">Enterprise</span>
+                            <span
+                                style="background-color:#714B67; color:#fff; padding:6px 14px; border-radius:20px; font-size:14px;">Odoo.sh</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hero Image -->
+                <div class="col-12 col-lg-6 text-center">
+                    <img src="partner_img.png" class="img-fluid" style="max-width:65%; border-radius:8px;"
+                        alt="Pos Order Type Module" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VIDEO + DESCRIPTION ===== -->
+    <section class="nft_header pb-4">
+        <div class="container-fluid px-5 pt-4 text-center text-lg-start">
+            <div class="row ">
+                <!-- Video -->
+                <div class="col-12 col-lg-6">
+                    <div class="text-center w-100"
+                        style="position:relative;  height:auto; overflow:hidden; border-radius:8px;">
+                        <div class="position-relative" style="width:100%; height:0; padding-bottom:56.25%;">
+                            <a href="https://youtu.be/GwIOKoCZKjA" target="_blank"
+                                class="position-absolute top-0 start-0 d-block" style="width:100%; height:100%;">
+                                <img src="video.gif" alt="YouTube Video Thumbnail"
+                                    style="width:78%; height:100%; object-fit:cover;" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Text -->
+                <div class="col-12 col-lg-6 my-4 my-lg-0">
+                    <div class="p-4">
+                        <p
+                            style="font-size:18px; font-family:'Poppins', sans-serif; color:#6c757d; line-height:1.7; margin:0;">
+                            In addition to automation, the module offers a complete commission lifecycle, from creation
+                            to payment and expense generation. Commissions can be marked as paid and instantly converted
+                            into expense records, simplifying financial tracking and reducing manual work. The system
+                            ensures that users can only access their own records, while administrators retain full
+                            visibility for oversight and reporting. With its user-friendly interface, seamless backend
+                            and POS synchronization, and scalable design, this module enhances operational efficiency,
+                            minimizes errors, and provides clear, audit-friendly records—making it a powerful tool for
+                            managing salesperson incentives in any business environment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HOT FEATURES ===== -->
+    <section id="nf_hot_feature">
+        <div class="container-fluid d-flex flex-column align-items-center"
+            style="padding:60px 20px 0; background-color:#f8f9fa; border-radius:10px; font-family:Arial, sans-serif;">
+            <div class="text-center mb-3">
+                <h2>
+                    Hot Features
+                </h2>
+            </div>
+
+            <div class="container-fluid mt-3">
+                <div class="row">
+                    <!-- Feature Cards -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card p-4 border-0 shadow-sm text-start"
+                            style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold" style="color:#212529;">Role-Based Commission Control</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                    Managers have full access, while users can only view their own records.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card p-4 border-0 shadow-sm text-start"
+                            style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold" style="color:#212529;">Flexible Commission Types</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                    Supports both Percentage-based and Fixed commissions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card p-4 border-0 shadow-sm text-start"
+                            style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold" style="color:#212529;">Product-Based Commission Rules
+                                </h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                    Define commissions based on specific products or product variants
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card p-4 border-0 shadow-sm text-start"
+                            style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold" style="color:#212529;">Real-Time Commission Calculation
+                                </h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                    Commission is calculated instantly based on product price and defined rules.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card p-4 border-0 shadow-sm text-start"
+                            style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold" style="color:#212529;">Salesperson Assignment per Order
+                                    Line</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                    Assign different salespersons to each order line.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card p-4 border-0 shadow-sm text-start"
+                            style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold" style="color:#212529;">Automatic Commission Record
+                                    Creation</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                    Commission entries are automatically generated after order validation
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SUPPORT SECTION ===== -->
+    <section class="nft_support text-center">
+        <div class="container-fluid mt-5 px-4">
+            <div class="row">
+                <!-- Address -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card text-start shadow-sm" style="border-radius:12px; padding:30px; height:100%;">
+                        <div class="d-flex">
+                            <div class="w-75">
+                                <h5 class="card-title fw-bold">Quick Support</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.6;">
+                                    <strong>WhatsApp</strong><br />
+                                    210, Skymall, Nr. Mercedez-Benz Showroom, Gondal Road,<br />Rajkot (360004),
+                                    Gujarat, India
+                                </p>
+                                <div>
+                                    <span class="fa fa-whatsapp text-success"></span>
+                                    <strong> +91 73832 03034 </strong>
+                                </div>
+                            </div>
+                            <div class="w-25">
+                                <img src="support/whatsapp.png" width="100%" atl="Whatsapp" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Support Center -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+
+                    <div class="card text-start shadow-sm" style="border-radius:12px; padding:30px; height:100%;">
+                        <div class="d-flex">
+                            <div class="w-75">
+                                <h5 class="card-title fw-semibold">Electronic Support</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.6;">
+                                    Please feel free to write an email to us or use our electronic ticketing system.
+                                </p>
+                                <p style="color:#333; font-size:14px; line-height:1.6;">
+                                    <strong>Email :</strong>
+                                    <a href="mailto:support@nextflow.in"
+                                        style="color:#1D4ED8; text-decoration:none;">support@nextflow.in</a> |
+                                    <a href="mailto:nextfloit@gmail.com"
+                                        style="color:#1D4ED8; text-decoration:none;">nextfloit@gmail.com</a>
+                                </p>
+                            </div>
+                            <div class="w-25">
+                                <img src="support/email.png" width="100%" atl="Whatsapp" />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Electronic Support -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card text-start shadow-sm" style="border-radius:12px; padding:30px; height:100%;">
+                        <div class="d-flex">
+                            <div class="w-75">
+                                <h5 class="card-title fw-semibold">Support Center</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.6;">
+                                    Our dedicated Support team is available to assist you with any questions, concerns,
+                                    or support you may need.
+                                </p>
+                                <p style="color:#333; font-size:14px; line-height:1.6;">
+                                    <strong>Phone :</strong>
+                                    <a href="tel:+917383203034" style="color:#1D4ED8; text-decoration:none;"> +91 73832
+                                        03034</a>
+                                </p>
+                            </div>
+                            <div class="w-25">
+                                <img src="support/contact.png" width="100%" atl="Whatsapp" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TABS: Features / Screenshots / FAQs / Releases ===== -->
+    <section id="nf-menus">
+        <div class="main-div px-4">
+            <div class="position-relative">
+                <ul class="nav nav-pills nav-fill gap-3">
+                    <li class="nav-item"
+                        style="border:1px solid #ddd;border-radius: 10px; background-color:#DBEAFE; margin:0 3px;">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#Features"
+                            style="padding:13px 20px;border-radius: 10px;">
+                            <i class="fa fa-fw fa-gear"></i> Features
+                        </a>
+                    </li>
+                    <li class="nav-item"
+                        style="border:1px solid #ddd;border-radius: 10px; background-color:#DBEAFE; font-weight:600; font-size:14px; margin:0 3px;">
+                        <a class="nav-link" data-bs-toggle="tab" href="#Setup"
+                            style="padding:13px 20px;border-radius: 10px;">
+                            <i class="fa fa-fw fa-desktop"></i> Screenshots
+                        </a>
+                    </li>
+                    <li class="nav-item"
+                        style="border:1px solid #ddd;border-radius: 10px; background-color:#DBEAFE; font-weight:600; font-size:14px; margin:0 3px;">
+                        <a class="nav-link" data-bs-toggle="tab" href="#FAQs"
+                            style="padding:13px 20px;border-radius: 10px;">
+                            <i class="fa fa-fw fa-gear"></i> FAQs
+                        </a>
+                    </li>
+                    <li class="nav-item"
+                        style="border:1px solid #ddd;border-radius: 10px; background-color:#DBEAFE; font-weight:600; font-size:14px; margin:0 3px;">
+                        <a class="nav-link" data-bs-toggle="tab" href="#Releases"
+                            style="padding:13px 20px;border-radius: 10px;">
+                            <i class="fa fa-fw fa-send"></i> Releases
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tab Panes -->
+            <div class="tab-content">
+
+                <!-- FEATURES TAB -->
+                <div id="Features" class="tab-pane active">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="p-4 d-flex" style="width:100%;">
+                            <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                <h5><b>Expense Integration</b></h5>
+                                <ul>
+                                    <li>Converts commissions into expense records.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-4 d-flex" style="width:100%;">
+                            <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                <h5><b>Secure Data Access</b></h5>
+                                <ul>
+                                    <li>Users can only view their own commission records.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-4 d-flex" style="width:100%;">
+                            <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                <h5><b>Multi-Rule Commission Support</b></h5>
+                                <ul>
+                                    <li>Create multiple commission rules for different products, users, or scenarios.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-4 d-flex" style="width:100%;">
+                            <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                <h5><b>User-Specific Commission Configuration</b></h5>
+                                <ul>
+                                    <li>Assign different commission structures to different salespersons.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-4 d-flex" style="width:100%;">
+                            <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                <h5><b>Variant-Level Commission Handling</b></h5>
+                                <ul>
+                                    <li>Apply commissions at the product variant level.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-4 d-flex" style="width:100%;">
+                            <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                <h5><b>Commission Visibility in Receipts</b></h5>
+                                <ul>
+                                    <li>Salesperson details are displayed on POS receipts.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQs TAB -->
+                <div id="FAQs" class="tab-pane fade">
+                    <br />
+                    <div class="container-fluid" style="width: 98%;">
+                        <div class="mt-3 mb-3 shadow-lg d-flex" style="padding:15px 30px; border-radius:10px;width:98%">
+                            <span class="fa fa-hand-o-right"
+                                style="color:#4c84ff; font-size:30px; vertical-align:middle; border-radius:100%;"></span>
+                            <div style="font-size:20px; font-weight:500; vertical-align:middle;">
+                                <div class="ps-1">
+                                    <p><b class="ps-1">How can we take support Or Customization Request?</b></p>
+                                    <p><span class="fa fa-arrow-right"></span> Please Contact us at <a
+                                            href="mailto:support@nextflow.in">support@nextflow.in</a> for
+                                        Support/Customization.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid" style="width: 98%;">
+                        <div class="mt-3 mb-3 shadow-lg d-flex" style="padding:15px 30px; border-radius:10px;width:98%">
+                            <span class="fa fa-hand-o-right"
+                                style="color:#4c84ff; font-size:30px; vertical-align:middle; border-radius:100%;"></span>
+                            <div style="font-size:20px; font-weight:500; vertical-align:middle;">
+                                <div class="ps-1">
+                                    <p><b class="ps-1">Can we get Free support?</b></p>
+                                    <p><span class="fa fa-arrow-right"></span> <b>Yes</b>, You can get free support for
+                                        90 Day's.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid" style="width: 98%;">
+                        <div class="mt-3 mb-3 shadow-lg d-flex" style="padding:15px 30px; border-radius:10px;width:98%">
+                            <span class="fa fa-hand-o-right"
+                                style="color:#4c84ff; font-size:30px; vertical-align:middle; border-radius:100%;"></span>
+                            <div style="font-size:20px; font-weight:500; vertical-align:middle;">
+                                <div class="ps-1">
+                                    <p><b class="ps-1">What is the Salesperson Commission module used for?</b></p>
+                                    <p><span class="fa fa-arrow-right"></span>It is used to manage and automate
+                                        salesperson commissions based on POS orders, products, and defined rules.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid" style="width: 98%;">
+                        <div class="mt-3 mb-3 shadow-lg d-flex" style="padding:15px 30px; border-radius:10px;width:98%">
+                            <span class="fa fa-hand-o-right"
+                                style="color:#4c84ff; font-size:30px; vertical-align:middle; border-radius:100%;"></span>
+                            <div style="font-size:20px; font-weight:500; vertical-align:middle;">
+                                <div class="ps-1">
+                                    <p><b class="ps-1">What types of commission are supported?</b></p>
+                                    <p><span class="fa fa-arrow-right"></span> The module supports both Percentage-based
+                                        and Fixed commission types.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid" style="width: 98%;">
+                        <div class="mt-3 mb-3 shadow-lg d-flex" style="padding:15px 30px; border-radius:10px;width:98%">
+                            <span class="fa fa-hand-o-right"
+                                style="color:#4c84ff; font-size:30px; vertical-align:middle; border-radius:100%;"></span>
+                            <div style="font-size:20px; font-weight:500; vertical-align:middle;">
+                                <div class="ps-1">
+                                    <p><b class="ps-1">Is the module integrated with Point of Sale (POS)?</b></p>
+                                    <p><span class="fa fa-arrow-right"></span> <b>Yes</b>, it is fully integrated with
+                                        the POS module, and commissions are generated automatically when orders are
+                                        validated.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCREENSHOTS TAB -->
+                <div id="Setup" class="tab-pane fade">
+                    <div class="container my-4">
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <div class="nav flex-column nav-pills bg-light p-2 rounded shadow-sm sticky-top">
+                                    <a class="nav-link active text-center mb-2" data-bs-toggle="tab"
+                                        href="#configuration">
+                                        Configuration
+                                    </a>
+
+                                    <a class="nav-link text-center mb-2" data-bs-toggle="tab"
+                                        href="#percentage_commission">
+                                        Percentage Base Commission
+                                    </a>
+
+                                    <a class="nav-link text-center mb-2" data-bs-toggle="tab"
+                                        href="#fixed_amount_base_commission">
+                                        Fixed Amount Base Commission
+                                    </a>
+
+                                    <a class="nav-link text-center mb-2" data-bs-toggle="tab"
+                                        href="#expense_generation">
+                                        Expenses Generation
+                                    </a>
+
+                                    <a class="nav-link text-center mb-2" data-bs-toggle="tab"
+                                        href="#cashier_role_base_commission_configuration">
+                                        Cashier Role Base Commission Configuration
+                                    </a>
+
+                                    <a class="nav-link text-center mb-2" data-bs-toggle="tab"
+                                        href="#commission_report_download">
+                                        Commission Report
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="col-md-9">
+                                <div class="tab-content bg-white p-3 rounded shadow-sm">
+                                    <!-- configuration commission -->
+                                    <div class="tab-pane fade show active" id="configuration">
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Go to Settings.</b></p>
+                                                <img src="ss/configuration_1.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>To configure the salesperson commission in Odoo, navigate to
+                                                        Users & Companies, then click on Users.</b></p>
+                                                <img src="ss/configuration_2.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Select the desired user from the list.</b></p>
+                                                <img src="ss/configuration_3.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Navigate to the Salesperson Commission section, choose the POS
+                                                        Commission Management Rights, set it to Commission Manager, and
+                                                        then click Save.</b></p>
+                                                <img src="ss/configuration_4.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now go to the Point of Sale module.</b></p>
+                                                <img src="ss/1.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Click Configuration, then click Settings.</b></p>
+                                                <img src="ss/2.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Navigate to the Salesperson Commission section, enable Apply
+                                                        Commission, select the Commission Employee, and click Save.</b>
+                                                </p>
+                                                <img src="ss/3.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Apply percentage base commission -->
+                                    <div class="tab-pane fade" id="percentage_commission">
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Go to Commissions, click on Commission Rules, and configure the
+                                                        commission rules.</b></p>
+                                                <img src="ss/4.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Click the New button to create a Commission Rule.</b></p>
+                                                <img src="ss/4-1.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Set the Salespersons and Products, choose the Commission Type as
+                                                        Percentage, and enter the desired commission amount.</b></p>
+                                                <img src="ss/5.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>The commission rule Rule-00001 has been created. Now, navigate to
+                                                        the Point of Sale module.</b></p>
+                                                <img src="ss/6.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Click on “Open Register” to start a new POS session.</b></p>
+                                                <img src="ss/7.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Next, choose the product that was previously specified in the
+                                                        Commission Rule.</b></p>
+                                                <img src="ss/8.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, click on the three dots (⋮).</b></p>
+                                                <img src="ss/9.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, click on the Salesperson button.</b></p>
+                                                <img src="ss/10.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, select the salesperson who was previously chosen in the
+                                                        Commission Rules.</b></p>
+                                                <img src="ss/11.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>At this point, the salesperson is assigned to the order line.
+                                                        Now, click on the Payment button.</b></p>
+                                                <img src="ss/12.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, click on the Validate button to confirm the order.</b></p>
+                                                <img src="ss/13.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, the salesperson is shown on the receipt. Next, go to the
+                                                        backend by clicking the Backend button.</b></p>
+                                                <img src="ss/14.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Go to Commissions, click on Commissions.</b></p>
+                                                <img src="ss/15.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, you can see that the salesperson commission has been created
+                                                        successfully. Next, click on the commission line that was
+                                                        recently created.</b></p>
+                                                <img src="ss/16.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Fixed Amount Base Commission -->
+                                    <div class="tab-pane fade" id="fixed_amount_base_commission">
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, you can see the details you selected: Salesperson, Product,
+                                                        and the Amount, which has been calculated based on the
+                                                        commission, commission type, and product price. Next, click on
+                                                        Commissions, then click on Commission Rules.</b></p>
+                                                <img src="ss/17.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Click on the commission rule record that was previously
+                                                        created.</b></p>
+                                                <img src="ss/18.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, set the Commission Type to Fixed, enter your desired
+                                                        commission amount, click the Save button to save the form, and
+                                                        then go to the Point of Sale module.</b></p>
+                                                <img src="ss/19.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Click on “Continue Selling” to resume sales in the POS.</b></p>
+                                                <img src="ss/20.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Next, choose the product that was previously specified in the
+                                                        Commission Rule.</b></p>
+                                                <img src="ss/8.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, click on the three dots (⋮).</b></p>
+                                                <img src="ss/9.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, click on the Salesperson button.</b></p>
+                                                <img src="ss/10.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, select the salesperson who was previously chosen in the
+                                                        Commission Rules.</b></p>
+                                                <img src="ss/11.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>At this point, the salesperson is assigned to the order line.
+                                                        Now, click on the Payment button.</b></p>
+                                                <img src="ss/12.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Next, choose another product variant that was previously
+                                                        specified in the Commission Rule.</b></p>
+                                                <img src="ss/21.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>After assigning the salesperson to all the order lines, click the
+                                                        Payment button to proceed with the payment.</b></p>
+                                                <img src="ss/22.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, click on the Validate button to confirm the order.</b></p>
+                                                <img src="ss/23.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, the salesperson is shown on the receipt. Next, go to the
+                                                        backend by clicking the Backend button.</b></p>
+                                                <img src="ss/24.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Go to Commissions, click on Commissions.</b></p>
+                                                <img src="ss/37.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, you can see that the commission has been created based on
+                                                        the POS order.</b></p>
+                                                <img src="ss/25.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Expenses generation -->
+                                    <div class="tab-pane fade" id="expense_generation">
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Next, open any commission record to view its details and click on
+                                                        the Paid button.</b></p>
+                                                <img src="ss/26.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>You can now see that the Expense button is visible.</b></p>
+                                                <img src="ss/27.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Click on the Expense button to open the Expense form view.</b>
+                                                </p>
+                                                <img src="ss/28.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, click on the Expenses button.</b></p>
+                                                <img src="ss/29.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>You can see that your commission expense has been created in the
+                                                        expense list.</b></p>
+                                                <img src="ss/30.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Cashier Role Base Commission Configuration -->
+                                    <div class="tab-pane fade" id="cashier_role_base_commission_configuration">
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, click on the Settings button to navigate to the
+                                                        Settings.</b></p>
+                                                <img src="ss/31.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Next, navigate to Users & Companies and click on Users.</b></p>
+                                                <img src="ss/32.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Next, select the user record of your choice.</b></p>
+                                                <img src="ss/33.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, inside the product, select Create and Point of Sale
+                                                        Administrator. In the Salesperson Commission section, set the
+                                                        POS Commission Management Rights to Commission User, click Save,
+                                                        and then log out.</b></p>
+                                                <img src="ss/34.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, log in with the previously configured user.</b></p>
+                                                <img src="ss/35.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now go to the Point of Sale module.</b></p>
+                                                <img src="ss/36.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Go to Commissions, click on Commissions.</b></p>
+                                                <img src="ss/37.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>You can see that the user can only view the records they created
+                                                        themselves. Now, click on Point of Sale to navigate to the Point
+                                                        of Sale module.</b></p>
+                                                <img src="ss/38.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Click on “Open Register” to start a new POS session.</b></p>
+                                                <img src="ss/39.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, select the product that was configured in the Commission
+                                                        Rules, and click the Add button.</b></p>
+                                                <img src="ss/40.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, click on the three dots (⋮).</b></p>
+                                                <img src="ss/41.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, click on the Salesperson button.</b></p>
+                                                <img src="ss/42.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, select the salesperson who was previously chosen in the
+                                                        Commission Rules.</b></p>
+                                                <img src="ss/43.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, click on the Payment button.</b></p>
+                                                <img src="ss/44.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, click on the Validate button to confirm the order.</b></p>
+                                                <img src="ss/45.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, the salesperson is shown on the receipt. Next, go to the
+                                                        backend by clicking the Backend button.</b></p>
+                                                <img src="ss/46.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Go to Commissions, click on Commissions.</b></p>
+                                                <img src="ss/47.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, you can see that the salesperson commission has been created
+                                                        successfully. Next, click on the commission line that was
+                                                        recently created.</b></p>
+                                                <img src="ss/48.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, you can see the details you selected: Salesperson, Product,
+                                                        and the Amount, which has been calculated based on the
+                                                        commission, commission type, and product price.Next, click on
+                                                        Commissions, then click on Commission Rules.</b></p>
+                                                <img src="ss/49.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, click on the Log out button to log out of the session.</b>
+                                                </p>
+                                                <img src="ss/50.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, log in as the administrator by entering the username and
+                                                        password, then click the Login button.</b></p>
+                                                <img src="ss/51.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now go to the Point of Sale module.</b></p>
+                                                <img src="ss/52.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Go to Commissions, click on Commissions.</b></p>
+                                                <img src="ss/53.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now, you can see that the administrator can view all records
+                                                        created by the user.</b></p>
+                                                <img src="ss/54.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- commission_report_download -->
+                                    <div class="tab-pane fade" id="commission_report_download">
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Click on Reporting, then click on Commission Report.</b></p>
+                                                <img src="ss/55.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>In the popup, select the start datetime, end datetime, and
+                                                        employee, then click on ‘Generate Report’.</b></p>
+                                                <img src="ss/56.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center"
+                                                    style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">
+                                                    <b>Now you can see that all commissions for the selected employee
+                                                        are shown in the PDF according to the start and end
+                                                        datetime.</b></p>
+                                                <img src="ss/57.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RELEASES TAB -->
+                <div id="Releases" class="tab-pane fade">
+                    <br />
+                    <div class="mt-3 mb-3 sh_content shadow rounded bg-white" style="padding:20px; width:98%;">
+                        <span class="fa fa-hand-o-right"
+                            style="color:#4c84ff; font-size:35px; vertical-align:middle; margin-right:20px;"></span>
+                        <span style="font-size:20px; font-weight:500; vertical-align:middle;">Releases on
+                            28<sup>th</sup> March 2026</span>
+                        <br />
+                        <p style="padding:20px; padding-bottom:0;">
+                            <span class="badge bg-success fw-bold me-2"
+                                style="padding:5px 15px; border-radius:3px; color:#fff; font-size:9px; text-transform:uppercase;">Initial</span>
+                            <span style="font-size:17px; font-weight:500; vertical-align:middle;">Version 19.0.1 |
+                                Initial Released.</span>
+                        </p>
+                    </div>
+                </div>
+
+            </div><!-- /tab-content -->
+        </div>
+    </section>
+
+    <!-- ===== MULTI LANGUAGE ===== -->
+    <section class="nf-multi-language text-center pt-5">
+        <h3 class="mb-4">Multi Language</h3>
+        <div class="row justify-content-evenly align-items-center gx-0 text-center">
+            <img class="rounded col-auto" src="eng.png" title="English" alt="english"
+                style="border-radius:0.25rem !important; height:90px; width:90px;" />
+            <img class="rounded col-auto" src="ger.png" title="Germany" alt="germany"
+                style="border-radius:0.25rem !important; height:90px; width:90px;" />
+            <img class="rounded col-auto" src="arb.png" title="Arab" alt="arab"
+                style="border-radius:0.25rem !important; height:90px; width:90px;" />
+            <img class="rounded col-auto" src="chi.png" title="Chinese" alt="Chinese"
+                style="border-radius:0.25rem !important; height:110px; width:115px;" />
+            <img class="rounded col-auto" src="fre.png" title="French" alt="French"
+                style="border-radius:0.25rem !important; height:110px; width:115px;" />
+        </div>
+    </section>
+
+    <!-- ===== OUR SERVICES ===== -->
+    <section id="nf_services" class="mt-5">
+        <div class="container-fluid d-flex flex-column align-items-center"
+            style="padding:60px 20px 0; border-radius:10px; font-family:Arial, sans-serif; background-color:#f8f9fa;">
+            <div class="text-center mb-3">
+                <h4 class="mb-1" style="color:#f74780;">Our Service</h4>
+                <h1 class="display-5 mb-4">What We Can Do For You</h1>
+                <p style="color:#6c757d; font-size:16px; max-width:750px; margin:0 auto; line-height:1.6;">
+                    <!-- Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. -->
+                </p>
+            </div>
+
+            <div class="container-fluid py-3">
+                <div class="row justify-content-center">
+                    <!-- Service Card 1 -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card text-center p-4 border-0 shadow-sm"
+                            style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                            <div class="d-flex justify-content-center mb-3">
+                                <div class="d-flex justify-content-center align-items-center"
+                                    style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                    <i class="fa fa-2x fa-cogs"></i>
+                                </div>
+                            </div>
+                            <h5 class="card-title fw-bold" style="color:#212529;">Odoo Implementation</h5>
+                            <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">We specialize
+                                in Odoo Integration Services, creating robust connections between Odoo and your other
+                                critical software systems, e-commerce platforms, payment gateways, shipping carriers,
+                                and more.</p>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 2 -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card text-center p-4 border-0 shadow-sm"
+                            style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                            <div class="d-flex justify-content-center mb-3">
+                                <div class="d-flex justify-content-center align-items-center"
+                                    style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                    <i class="fa fa-2x fa-wrench"></i>
+                                </div>
+                            </div>
+                            <h5 class="card-title fw-bold" style="color:#212529;">Odoo Customization</h5>
+                            <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">We can modify
+                                existing Odoo modules, such as CRM, Sales, Inventory, and Accounting, to better fit your
+                                company's operations. This includes adding new fields, changing workflows, and creating
+                                custom business rules. </p>
+
+                        </div>
+                    </div>
+
+                    <!-- Service Card 3 -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card text-center p-4 border-0 shadow-sm"
+                            style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                            <div class="d-flex justify-content-center mb-3">
+                                <div class="d-flex justify-content-center align-items-center"
+                                    style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                    <i class="fa fa-2x fa-user"></i>
+                                </div>
+                            </div>
+                            <h5 class="card-title fw-bold" style="color:#212529;">Web Development in Odoo</h5>
+                            <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">We build more
+                                than just beautiful websites; we build powerful business tools. Our web development
+                                services create professional, user-friendly sites that are fully integrated with your
+                                Odoo system.</p>
+
+                        </div>
+                    </div>
+
+
+                    <!-- Service Card 4 -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card text-center p-4 border-0 shadow-sm"
+                            style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                            <div class="d-flex justify-content-center mb-3">
+                                <div class="d-flex justify-content-center align-items-center"
+                                    style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                    <i class="fa fa-2x fa-globe"></i>
+                                </div>
+                            </div>
+                            <h5 class="card-title fw-bold" style="color:#212529;">Odoo Support and Maintenance</h5>
+                            <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">Odoo Support
+                                and Maintenance Our Odoo Support and Maintenance plans provide you with expert technical
+                                assistance, proactive security updates, performance monitoring, and help with user
+                                questions to ensure your system remains a reliable and effective asset.</p>
+                        </div>
+                    </div>
+
+
+                    <!-- Service Card 5 -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card text-center p-4 border-0 shadow-sm"
+                            style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                            <div class="d-flex justify-content-center mb-3">
+                                <div class="d-flex justify-content-center align-items-center"
+                                    style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                    <i class="fa fa-2x fa-users"></i>
+                                </div>
+                            </div>
+                            <h5 class="card-title fw-bold" style="color:#212529;">Odoo Training</h5>
+                            <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">We provide
+                                comprehensive functional and technical Odoo training to help teams understand,
+                                implement, and effectively use Odoo for their business operations.</p>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 6 -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card text-center p-4 border-0 shadow-sm"
+                            style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                            <div class="d-flex justify-content-center mb-3">
+                                <div class="d-flex justify-content-center align-items-center"
+                                    style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                    <i class="fa fa-2x fa-refresh"></i>
+                                </div>
+                            </div>
+                            <h5 class="card-title fw-bold" style="color:#212529;">Odoo Migration</h5>
+                            <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">Odoo Database
+                                migration and module migraion. migrating a odoo setup version older to new. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RELATED APPS ===== -->
+    <section id="sh_most_demanded_apps" style="background-color:transparent;">
+        <div class="container-fluid px-4">
+            <div class="nf-related text-center">
+                <h3 class="display-5"
+                    style="font-family:Verdana, Geneva, Tahoma, sans-serif; text-transform:capitalize; font-weight:500;">
+                    Apps for you</h3>
+            </div>
+            <div class="row" style="margin-top:1rem;">
+                <div class="col-md-4 mb-3">
+                    <div class="sh_content shadow rounded text-center">
+                        <div class="sh_img">
+                            <a href="https://apps.odoo.com/apps/modules/19.0/nf_pos_order_list" target="_blank">
+                                <img class="rounded" src="pos_order_list.gif" width="100%" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="sh_content shadow rounded text-center">
+                        <div class="sh_img">
+                            <a href="https://apps.odoo.com/apps/modules/19.0/nf_pos_discounted_product" target="_blank">
+                                <img class="rounded" src="pos_display_discount_price.gif" width="100%" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="sh_content shadow rounded text-center">
+                        <div class="sh_img">
+                            <a href="https://apps.odoo.com/apps/modules/17.0/nf_pos_create_saleorder" target="_blank">
+                                <img class="rounded" src="create_sale_order_from_pos.gif" width="100%" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="service-item shadow rounded py-3 px-4 mb-2 text-center btn d-flex justify-content-center align-items-center fw-bold"
+                target="_blank"
+                style="text-decoration:none; font-size:20px; width:100%; border-radius:0.25rem !important; border:1px solid black;color: #000;"
+                href="https://apps.odoo.com/apps/modules/browse?author=NextFlowIT">
+                Explore Our Leading Apps List
+            </a>
+        </div>
+    </section>
+</body>
+
+
+</html>

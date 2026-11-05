@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_discount.ControlButtons" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='this.props.showRemainingButtons']/div" position="inside">
+            <t t-if="this.pos.config.nf_enable_stock_request">
+                <button class="btn btn-secondary btn-lg py-5" t-on-click="() => this.requestProductQuotation()">Request</button>
+                <button class="btn btn-secondary btn-lg py-5" t-on-click="() => this.requestHistoryQuotation()">My Requests</button>
+            </t>
+        </xpath>
+    </t>
+</templates>

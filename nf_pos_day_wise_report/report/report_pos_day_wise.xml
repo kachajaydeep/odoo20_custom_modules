@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <template id="nf_day_wise_doc">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure" />
+                    <div class="row pt-2">
+                        <div class="col-12 mx-auto">
+                            <div class="text-center">
+                                <b>
+                                    <h4>POS Day Wise Report</h4>
+                                </b>
+                                <b>
+                                    <span t-out="date_start" t-options="{'widget': 'date'}" />
+                                </b>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <t t-if="order_dic_by_orders">
+                        <t t-foreach="order_dic_by_orders.keys()" t-as="product">
+                            <center>
+                                <b>
+                                    <span t-out="product" />
+                                </b>
+                            </center>
+                            <table class="table table-sm o_main_table table-bordered" style="table-layout: fixed; border: 1px solid black;" id="">
+                                <thead style="display: table-row-group;" class="thead-light">
+                                    <tr style="border: 1px solid black;">
+                                        <th style="border: 1px solid black;">Order</th>
+                                        <th style="border: 1px solid black;">Product</th>
+                                        <th style="border: 1px solid black;">Price</th>
+                                        <th style="border: 1px solid black;">Quantity</th>
+                                        <th style="border: 1px solid black;">Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="sale_tbody">
+                                    <t t-set="total_subtotal" t-value="0.0" />
+                                    <t t-foreach="order_dic_by_orders[product]" t-as="order">
+                                        <t t-set="currency" t-value="request.env['res.currency'].sudo().browse(order.get('purchase_currency_id',False))" />
+                                        <tr>
+                                            <td style="border: 1px solid black;">
+                                                <span t-out="order.get('order_number','')" />
+                                            </td>
+                                            <td style="border: 1px solid black;">
+                                                <span t-out="order.get('product_name','')" />
+                                            </td>
+                                            <td style="border: 1px solid black;">
+                                                <span t-out="order.get('price',0.0)" t-options='{"widget": "monetary", "display_currency": currency}' />
+                                            </td>
+                                            <td style="border: 1px solid black;">
+                                                <span t-out="order.get('qty',0.0)" />
+                                            </td>
+                                            <td style="border: 1px solid black;">
+                                                <span t-out="order.get('subtotal',0.0)" t-options='{"widget": "monetary", "display_currency": currency}' />
+                                            </td>
+                                        </tr>
+                                        <t t-set="total_subtotal" t-value="total_subtotal + order.get('subtotal',0.0)" />
+                                    </t>
+                                    <tr>
+                                        <td style="border: 1px solid black;"></td>
+                                        <td style="border: 1px solid black;"></td>
+                                        <td style="border: 1px solid black;"></td>
+                                        <td style="border: 1px solid black;">
+                                            <b>Total</b>
+                                        </td>
+                                        <td style="border: 1px solid black;">
+                                            <span t-out="'%.2f'%(total_subtotal)" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
+                    </t>
+                    <t t-if="order_dic_by_orders_hr">
+                        <t t-foreach="order_dic_by_orders_hr.keys()" t-as="product">
+                            <center>
+                                <b>
+                                    <span t-out="product" />
+                                </b>
+                            </center>
+                            <table class="table table-sm o_main_table table-bordered" style="table-layout: fixed; border: 1px solid black;" id="">
+                                <thead style="display: table-row-group;" class="thead-light">
+                                    <tr style="border: 1px solid black;">
+                                        <th style="border: 1px solid black;">Number</th>
+                                        <th style="border: 1px solid black;">Product</th>
+                                        <th style="border: 1px solid black;">Price</th>
+                                        <th style="border: 1px solid black;">Quantity</th>
+                                        <th style="border: 1px solid black;">Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="sale_tbody">
+                                    <t t-set="total_subtotal" t-value="0.0" />
+                                    <t t-foreach="order_dic_by_orders_hr[product]" t-as="order">
+                                        <t t-set="currency" t-value="request.env['res.currency'].sudo().browse(order.get('purchase_currency_id',False))" />
+                                        <tr>
+                                            <td style="border: 1px solid black;">
+                                                <span t-out="order.get('order_number','')" />
+                                            </td>
+                                            <td style="border: 1px solid black;">
+                                                <span t-out="order.get('product_name','')" />
+                                            </td>
+                                            <td style="border: 1px solid black;">
+                                                <span t-out="order.get('price',0.0)" t-options='{"widget": "monetary", "display_currency": currency}' />
+                                            </td>
+                                            <td style="border: 1px solid black;">
+                                                <span t-out="order.get('qty',0.0)" />
+                                            </td>
+                                            <td style="border: 1px solid black;">
+                                                <span t-out="order.get('subtotal',0.0)" t-options='{"widget": "monetary", "display_currency": currency}' />
+                                            </td>
+                                        </tr>
+                                        <t t-set="total_subtotal" t-value="total_subtotal + order.get('subtotal',0.0)" />
+                                    </t>
+                                    <tr>
+                                        <td style="border: 1px solid black;"></td>
+                                        <td style="border: 1px solid black;"></td>
+                                        <td style="border: 1px solid black;"></td>
+                                        <td style="border: 1px solid black;">
+                                            <b>Total</b>
+                                        </td>
+                                        <td style="border: 1px solid black;">
+                                            <span t-out="'%.2f'%(total_subtotal)" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+
+
+    <record id="nf_pos_day_wise_action" model="ir.actions.report">
+        <field name="name">Pos Day Wise Report</field>
+        <field name="model">report.nf_pos_day_wise_report.nf_day_wise_doc</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">nf_pos_day_wise_report.nf_day_wise_doc</field>
+        <field name="print_report_name">'Pos Day Wise Report'</field>
+    </record>
+
+</odoo>

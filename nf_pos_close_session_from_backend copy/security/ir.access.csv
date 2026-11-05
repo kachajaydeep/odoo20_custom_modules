@@ -1,0 +1,2 @@
+id,name,model_id,group_id/id,operation,domain
+nf_pos_close_session_from_backend.access_pos_session_closing_balance_user,nf_pos_close_session_from_backend.pos_session_closing_balance,pos.session.closing.balence,base.group_user,crud

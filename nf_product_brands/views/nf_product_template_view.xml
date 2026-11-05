@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="nf_view_product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.form.view</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            
+            <field name="default_code" position="after">
+                <field name="nf_product_template_brand_enable" invisible="1"/>
+                <field name="nf_product_brand_id" domain="[('active','=',True)]" invisible="nf_product_template_brand_enable == False"/>
+            </field>
+            
+        </field>
+    </record>
+
+    <record id="nf_view_product_template_list_view" model="ir.ui.view">
+        <field name="name">product.template.list.view</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+
+            <field name="name" position="after">
+                <field name="nf_product_template_brand_enable" column_invisible="1"/>
+                <field name="nf_product_brand_id"
+                    invisible="nf_product_template_brand_enable == False"
+                    optional="hide"/>
+            </field>
+
+        </field>
+    </record>
+
+    <record id="nf_product_template_search_view_filter_brand" model="ir.ui.view">
+        <field name="name">product.template.search.filter.brand</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+
+            <filter name="group_by_product_properties" position="after">
+                <filter string="Brand"
+                        name="group_by_brand"
+                        context="{'group_by':'nf_product_brand_id'}"/>
+            </filter>
+
+        </field>
+    </record>
+    
+</odoo>

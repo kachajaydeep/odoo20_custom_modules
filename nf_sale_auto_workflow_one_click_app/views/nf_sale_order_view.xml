@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="nf_sale_order_form_view_inherit" model="ir.ui.view">
+        <field name="name">nf.sale.order.form.view.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <field name="nf_enable_one_click_sale" invisible="1"/>
+                <field name="nf_pay_invoice" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//header/button[@name='action_cancel']" position="before">
+                <button name="action_one_click_sale" type="object" string="One Click Sale" invisible="state in ['cancel'] or nf_enable_one_click_sale == False" class="btn-primary"/>
+            </xpath>
+            
+            <field name="note" position="after">
+                <field name="nf_journal_id" invisible="nf_pay_invoice == False"/>
+                <field name="nf_payment_amount" invisible="nf_pay_invoice == False"/>
+                <field name="nf_remaining_amount" invisible="nf_pay_invoice == False"/>
+            </field>
+        </field>
+    </record>
+</odoo>

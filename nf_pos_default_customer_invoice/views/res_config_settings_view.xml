@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id='nf_pos_default_customer_invoice_config_view_inherit' model='ir.ui.view'>
+        <field name="name">nf.po.default.customer.invoice.config.view.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name='arch' type='xml'>
+            <block id="pos_bills_and_receipts_section" position="inside">
+                <setting name="nf_default_print_invoice" help="Allow this feature to print Invoice Automatially for customers which has 'Auto Print' checked.">
+                    <field name="nf_direct_print_invoice" />
+                </setting>
+            </block>
+        </field>
+    </record>
+</odoo>

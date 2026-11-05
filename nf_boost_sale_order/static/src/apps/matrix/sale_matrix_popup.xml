@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_boost_sale_order.matrix" t-inherit="product_matrix.matrix" t-inherit-mode="extension">
+         <xpath expr="//table" position="before">
+            <input type="text" name="set_product_variant_qty" class="form-control" placeholder="Paste quantities"  t-model.proxy="this.state.variant_qties" t-on-change="this._onChangeQty"/>
+        </xpath>
+    </t>
+</templates>

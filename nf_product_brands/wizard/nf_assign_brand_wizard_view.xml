@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_nf_assign_brand_wizard_form" model="ir.ui.view">
+        <field name="name">nf.assign.brand.wizard.form</field>
+        <field name="model">nf.assign.brand.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Assign Brand">
+                <group>
+                    <field name="nf_product_brand_id" domain="[('active', '=', True)]"/>
+                </group>
+                <footer>
+                    <button name="action_assign_brand" string="Assign Brand" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Product Template -->
+    <record id="action_nf_assign_brand_template" model="ir.actions.act_window">
+        <field name="name">Assign Brand</field>
+        <field name="res_model">nf.assign.brand.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_nf_assign_brand_wizard_form"/>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="product.model_product_template"/>
+        <field name="binding_view_types">list,form</field>
+    </record>
+
+    <!-- Action for Product Variant -->
+    <record id="action_nf_assign_brand_product" model="ir.actions.act_window">
+        <field name="name">Assign Brand</field>
+        <field name="res_model">nf.assign.brand.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_nf_assign_brand_wizard_form"/>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="product.model_product_product"/>
+        <field name="binding_view_types">list,form</field>
+    </record>
+</odoo>

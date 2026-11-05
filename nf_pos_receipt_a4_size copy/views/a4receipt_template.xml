@@ -1,0 +1,457 @@
+<?xms version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="a4_size_receipt_layout">
+        <t t-call="web.basic_layout">
+            <div class="page nf_a4_size_receipt" style="width: 100%;">
+                
+                <t t-foreach="docs" t-as="order">
+                        <div class="ng_a4_size_receipt_header" style="font-size: 12px;">
+                        <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                            <div class="sh-company-lodo d-flex align-items-baseline" width="50%">
+                                <div class="sh_logo_name " style="width: 42%;">
+                                    <img class="img" t-attf-src="/web/binary/company_logo" alt="Logo" width="170" height="70" />
+                                </div>
+
+                                <div class="company-details" style="width: 35%;padding-left: 15px;">
+                                    <div>
+                                        <t t-out="order.company_id.name"></t>
+                                    </div>
+
+                                    <div class="sh_company_address">
+                                        <div>
+                                            <t t-out="order.company_id.street"></t>
+                                            <t t-out="order.company_id.street2"></t>
+                                            <t t-if="order.company_id.city">
+                                                <t t-out="order.company_id.city"></t>
+                                            </t>
+                                        </div>
+                                    </div>
+                                    <div t-if="order.company_id.phone">
+                                        <t t-out="order.company_id.phone"></t>
+                                    </div>
+                                    <div t-if="order.company_id.vat">
+                                        <div>Vat Number</div>
+                                        <t t-out="order.company_id.vat"></t>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sh_qr_code_image" style="text-align:right;width:120px;height:120px;">
+                                <img style="height: auto; width: 100%; object-fit: cover;padding:3px !important;border:1px solid purple;border-radius:5px;" t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s'%('QR', order.qr_code_img, 150, 150)" />
+                                    <!-- <img t-attf-src="/report/barcode/?barcode_type=Code128&amp;value={{order.qr_code_img}}&amp;width=168&amp;height=100&amp;humanreadable=1&amp;quiet=0" alt=""/> -->
+                            </div>
+                        </div>
+
+            
+                        <div class="text-center">
+                            <h6><t t-out="order.config_id.receipt_header"></t></h6>
+                        </div>
+
+                        <div class="invoice-title" style="text-align: center; font-size: 13px; border-bottom: 1px solid black;">
+                            Sale Invoice
+                            <t t-if="order.company_id._nf_show_arabic_labels">/ فاتورة </t>
+                        </div>
+                        <div class="sh-invoice-detail ms-1" style="font-size: 10px;">
+                            <div style="margin: 3px 5px 3px 0px; width: 49%; border: 1px solid black; padding: 4px 5px; float: left;">
+                                <t t-if="order.company_id._nf_show_arabic_labels">
+                                    <center>
+                                        <span class="float-left ms-1">Order No. :</span>
+                                        <span class="float-center">
+                                            <t t-out="order.name" />
+                                        </span>
+                                        <span class="float-right"> رقم الطلب </span>
+                                    </center>
+                                </t>
+                                <t t-else="">
+                                    <span class="float-left">Order No. : </span>
+                                    <span class="float-right me-3">
+                                        <t t-out="order.name"></t>
+                                    </span>
+                                </t>
+                            </div>
+                            <div style="margin: 3px 0px 3px 0px; width: 49.9%; border: 1px solid black; padding: 4px 0px; float: left;">
+                                <t t-if="order.company_id._nf_show_arabic_labels">
+                                    <center>
+                                        <span class="float-left ms-1">Invoice Date: </span>
+                                        <span class="float-center">
+                                            <t t-out="order.date_order" t-options='{"widget": "date"}' />
+                                        </span>
+                                        <span class="float-right me-1">فاتورة التاريخ</span>
+                                    </center>
+                                </t>
+                                <t t-else="">
+                                    <span class="float-left ms-2">Invoice Date : </span>
+                                    <span class="float-right me-3">
+                                        <t t-out="order.date_order" t-options='{"widget": "date"}' />
+                                    </span>
+                                </t>
+                            </div>
+                            <div style="margin: 3px 5px 3px 0px; width: 49%; border: 1px solid black; padding: 4px 5px; float: left;">
+                                <t t-if="order.company_id._nf_show_arabic_labels">
+                                    <center>
+                                        <span class="float-left">Customer Name : </span>
+                                        <span class="float-center">
+                                            <t t-if="order.partner_id">
+                                                <t t-out="order.partner_id.name" />
+                                            </t>
+                                            <t t-else=""> - </t>
+                                        </span>
+                                        <span class="float-right">اسم العميل</span>
+                                    </center>
+                                </t>
+                                <t t-else="">
+                                    <span class="float-left">Customer Name :</span>
+                                    <span class="float-right me-3">
+                                        <t t-if="order.partner_id">
+                                            <t t-out="order.partner_id.name" />
+                                        </t>
+                                        <t t-else=""> - </t>
+                                    </span>
+                                </t>
+                            </div>
+                            <div style="margin: 3px 0px 3px 0px; width: 49.9%; border: 1px solid black; padding: 4px 5px; float: left;">
+                                <t t-if="order.company_id._nf_show_arabic_labels">
+                                    <center>
+                                        <span class="float-left">Invoice no.:</span>
+                                        <span class="float-center">
+                                            <!-- <t t-out="order.pos_reference.split(' ')[1]"></t> -->
+                                            <t t-if="order.pos_reference and len(order.pos_reference.split(' ')) > 1" t-out="order.pos_reference.split(' ')[1]"/>
+                                            <t t-else="" t-out="order.pos_reference"/>
+                                        </span>
+                                        <span class="float-right">رقم الفاتورة</span>
+                                    </center>
+                                </t>
+                                <t t-else="">
+                                    <span class="float-left ms-1">Invoice No. : </span>
+                                    <span class="float-right me-2">
+                                        <!-- <t t-out="order.pos_reference.split(' ')[1]"></t> -->
+                                        <t t-if="order.pos_reference and len(order.pos_reference.split(' ')) > 1"
+                                            t-out="order.pos_reference.split(' ')[1]"/>
+                                        <t t-else=""
+                                            t-out="order.pos_reference"/>
+                                    </span>
+                                </t>
+                            </div>
+                            <!-- <div style="margin: 3px 5px 3px 0px; width: 49%; border: 1px solid black; padding: 4px 5px; float: left;">
+                                <t t-if="order.company_id._nf_show_arabic_labels">
+                                    <center>
+                                        <span class="float-left">Mobile No. : </span>
+                                        <span class="float-center">
+                                            <t t-if="order.partner_id">
+                                                <t t-out="order.partner_id.mobile" />
+                                            </t>
+                                            <t t-else=""> - </t>
+                                        </span>
+                                        <span class="float-right"> رقم الموبايل </span>
+                                    </center>
+                                </t>
+                                <t t-else="">
+                                    <span class="float-left">Mobile No. : </span>
+                                    <span class="float-right me-3">
+                                        <t t-if="order.partner_id">
+                                            <t t-out="order.partner_id.mobile" />
+                                        </t>
+                                        <t t-else=""> - </t>
+                                    </span>
+                                </t>
+                            </div> -->
+                            <div style="margin: 3px 0px 3px 0px; width: 49%; border: 1px solid black; padding: 4px 5px; float: left;">
+                                <t t-if="order.company_id._nf_show_arabic_labels">
+                                    <center>
+                                        <span class="float-left">Phone No. :</span>
+                                        <span class="float-center">
+                                            <t t-if="order.partner_id">
+                                                <t t-out="order.partner_id.phone" />
+                                            </t>
+                                            <t t-else=""> - </t>
+                                        </span>
+                                        <span class="float-right"> رقم الهاتف </span>
+                                    </center>
+                                </t>
+                                <t t-else="">
+                                    <span class="float-left">Phone No. : </span>
+                                    <span class="float-right me-2">
+                                        <t t-if="order.partner_id">
+                                            <t t-out="order.partner_id.phone" />
+                                        </t>
+                                        <t t-else=""> - </t>
+                                    </span>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-line-detail" style="font-size: 10px;">
+                        <t t-if="order.company_id._nf_show_arabic_labels">
+                            <table class="table table-borderless" style="border: 0px;">
+                                <thead>
+                                    <tr>
+                                        <th style="border: 1px solid black; padding: 5px 8px; text-align: center;">
+                                            <span t-if="order.company_id._nf_show_arabic_labels"> المبلغ </span>
+                                            <br />
+                                            <span>Amount</span>
+                                        </th>
+                                        <th style="border: 1px solid black; padding: 5px 8px; text-align: center;">
+                                            <span t-if="order.company_id._nf_show_arabic_labels"> سعر الوحدة </span>
+                                            <br />
+                                            <span> Unit Price </span>
+                                        </th>
+                                        <th style="border: 1px solid black; padding: 5px 8px; text-align: center;">
+                                            <span t-if="order.company_id._nf_show_arabic_labels"> الكمية </span>
+                                            <br />
+                                            <span>Qty</span>
+                                        </th>
+                                        <th style="border: 1px solid black; padding: 5px 8px; text-align: center;">
+                                            <span t-if="order.company_id._nf_show_arabic_labels"> وحدة </span>
+                                            <br />
+                                            <span>Unit</span>
+                                        </th>
+                                        <th style="border: 1px solid black; padding: 5px 8px; text-align: center;">
+                                            <span t-if="order.company_id._nf_show_arabic_labels"> وصف </span>
+                                            <br />
+                                            <span>Description</span>
+                                        </th>
+                                        <th style="border: 1px solid black; padding: 5px 8px; text-align: center;">
+                                            <span t-if="order.company_id._nf_show_arabic_labels"> لا الصنف </span>
+                                            <br />
+                                            <span>Item No.</span>
+                                        </th>
+                                        <th style="border: 1px solid black; padding: 5px 8px; text-align: center;">
+                                            <span t-if="order.company_id._nf_show_arabic_labels"> لا </span>
+                                            <br />
+                                            <span>No.</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody style="border-bottom: 1px solid black;">
+                                    <t t-set="count" t-value="0"></t>
+                                    <t t-set="blank_line" t-value="22"></t>
+                                    <tr t-foreach="order.lines" t-as="line">
+                                        <t t-set="count" t-value="count + 1"></t>
+                                        <td style="border-left: 1px solid black; border-right: 1px solid black; border-bottom: 0px; padding: 5px 8px; text-align: right;">
+                                            <!-- <t t-out='line.price_subtotal_incl' /> -->
+                                            <t t-out="'%.2f'%(line.price_subtotal_incl)" />
+                                        </td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px; text-align: right;">
+                                            <t t-out="line.price_unit" />
+                                        </td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px; text-align: right;">
+                                            <t t-out="line.qty" />
+                                        </td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px;">
+                                            <div style="text-align: right;" t-if="order.company_id._nf_show_arabic_labels">
+                                                <t t-out="line.product_uom_id.name" />
+                                            </div>
+                                            <div t-else="" style="text-align: left;">
+                                                <t t-out="line.product_uom_id.name" />
+                                            </div>
+                                        </td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px; text-align: right;">
+                                            <div style="text-align: right;" t-if="order.company_id._nf_show_arabic_labels">
+                                                <t t-out="line.product_id.name" />
+                                            </div>
+                                            <div t-else="" style="text-align: left;">
+                                                <t t-out="line.product_id.name" />
+                                            </div>
+                                        </td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px; text-align: right;">
+                                            <div style="text-align: right;" t-if="order.company_id._nf_show_arabic_labels">
+                                                <t t-out="line.product_id.default_code" />
+                                            </div>
+                                            <div t-else="" style="text-align: left !important;">
+                                                <t t-out="line.product_id.default_code" />
+                                            </div>
+                                        </td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px; text-align: right;">
+                                            <t t-out="count" />
+                                        </td>
+                                    </tr>
+                                    <!-- <tr t-foreach="blank_line-count" t-as="blank">
+                                        <td style="border-left: 1px solid black; border-right: 1px solid black; border-bottom: 0px;"></td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px;"></td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px;"></td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px;"></td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px;"></td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px;"></td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px;"></td>
+                                    </tr> -->
+                                    <tr>
+                                        <td style="border: 1px solid black; padding: 5px 8px;">
+                                            <!-- <t t-out='order.amount_total-order.amount_tax' ></t> -->
+                                            <t t-out="'%.2f'%(order.amount_total-order.amount_tax)" />
+                                        </td>
+                                        <td style="border: 1px solid black; padding: 5px 8px;" colspan="3">
+                                            <span>Grand Total</span>
+                                            <span t-if="order.company_id._nf_show_arabic_labels" style="float: right;"> المبلغ الإجمالي </span>
+                                        </td>
+                                        <td colspan="3" style="border-right: 1px solid black; border-top: 1px solid black; padding: 5px 8px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <t t-set="discount" t-value="0"></t>
+                                        <t t-foreach="order.lines" t-as="order_line">
+                                            <t t-if="order_line.discount">
+                                                <t t-set="discount" t-value="discount + (order_line.price_unit * order_line.qty) * order_line.discount/100"></t>
+                                            </t>
+                                        </t>
+                                        <td style="border: 1px solid black; padding: 5px 8px;">
+                                            <t t-out="'%.2f'%(discount)" />
+                                        </td>
+                                        <td style="border: 1px solid black; padding: 5px 8px;" colspan="3">
+                                            <span> Discount </span>
+                                            <span t-if="order.company_id._nf_show_arabic_labels" style="float: right;"> الخصم </span>
+                                        </td>
+                                        <td colspan="3" style="border-right: 1px solid black; padding: 5px 8px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black; padding: 5px 8px;">
+                                            <t t-out="'%.2f'%(order.amount_tax)" />
+                                        </td>
+                                        <td style="border: 1px solid black; padding: 5px 8px;" colspan="3">
+                                            <span>Total Vat </span>
+                                            <span t-if="order.company_id._nf_show_arabic_labels" style="float: right;"> إجمالي ضريبة القيمة المضافة </span>
+                                        </td>
+                                        <td colspan="3" style="border-right: 1px solid black; padding: 5px 8px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black; padding: 5px 8px;">
+                                            <!-- <t t-out='order.amount_total'></t> -->
+                                            <t t-out="'%.2f'%(order.amount_total)" />
+                                        </td>
+                                        <td style="border: 1px solid black; padding: 5px 8px;" colspan="3">
+                                            <span>Total</span>
+                                            <span t-if="order.company_id._nf_show_arabic_labels" style="float: right;"> الخصم </span>
+                                        </td>
+                                        <td colspan="3" style="border: 1px solid black; border-left: 1px solid black; padding: 5px 8px;">
+                                            <center>Thank You</center>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
+                        <t t-else="">
+                            <table class="table table-borderless" style="border: 0px;">
+                                <thead>
+                                    <tr>
+                                        <th style="border: 1px solid black; padding: 5px 8px; text-align: right;">
+                                            <span>No.</span>
+                                        </th>
+                                        <th style="border: 1px solid black; padding: 5px 8px; text-align: left;">
+                                            <span>Product Name</span>
+                                        </th>
+                                        <th style="border: 1px solid black; padding: 5px 8px; text-align: left;">
+                                            <span>Item No.</span>
+                                        </th>
+
+                                        <th style="border: 1px solid black; padding: 5px 8px; text-align: left;">
+                                            <span>Unit</span>
+                                        </th>
+                                        <th style="border: 1px solid black; padding: 5px 8px; text-align: right;">
+                                            <span>Qty</span>
+                                        </th>
+                                        <th style="border: 1px solid black; padding: 5px 8px; text-align: right;">
+                                            <span> Unit Price </span>
+                                        </th>
+                                        <th style="border: 1px solid black; padding: 5px 8px; text-align: right;">
+                                            <span>Amount</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody style="border-bottom: 1px solid black;">
+                                    <t t-set="count" t-value="0"></t>
+                                    <t t-set="blank_line" t-value="22"></t>
+                                    <tr t-foreach="order.lines" t-as="line">
+                                        <t t-set="count" t-value="count + 1"></t>
+                                        <td style="border-left: 1px solid black; border-right: 1px solid black; padding: 5px 8px; text-align: right;">
+                                            <t t-out="count" />
+                                        </td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px;">
+                                            <div>
+                                                <t t-out="line.product_id.name" />
+                                            </div>
+                                        </td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px;">
+                                            <div>
+                                                <t t-out="line.product_id.default_code" />
+                                            </div>
+                                        </td>
+                              
+                                        <td style="border-right: 1px solid black; padding: 5px 8px;">
+                                            <div>
+                                                <t t-out="line.product_uom_id.name" />
+                                            </div>
+                                        </td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px; text-align: right;">
+                                            <t t-out="line.qty" />
+                                        </td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px; text-align: right;">
+                                            <t t-out="round(line.price_unit,2)" />
+                                        </td>
+                                        <td style="border-right: 1px solid black; border-bottom: 0px; padding: 5px 8px; text-align: right;">
+                                            <t t-out="'%.2f'%(line.price_subtotal_incl)" />
+                                        </td>
+                                    </tr>
+                                    <!-- <tr t-foreach="blank_line-count" t-as="blank">
+                                        <td style="border-left: 1px solid black; border-right: 1px solid black; border-bottom: 0px;"></td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px;"></td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px;"></td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px;"></td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px;"></td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px;"></td>
+                                        <td style="border-right: 1px solid black; padding: 5px 8px;"></td>
+                                    </tr> -->
+                                    <tr>
+                                        <td colspan="3" style="border-left: 1px solid black; border-top: 1px solid black; padding: 5px 8px;"></td>
+                                        <td colspan="3" style="border: 1px solid black; padding: 5px 8px;">
+                                            <span>Grand Total</span>
+                                        </td>
+                                        <td style="border: 1px solid black; padding: 5px 8px;">
+                                            <t t-out="'%.2f'%(order.amount_total-order.amount_tax)" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="border-left: 1px solid black; padding: 5px 8px;"></td>
+                                        <t t-set="discount" t-value="0"></t>
+                                        <t t-foreach="order.lines" t-as="order_line">
+                                            <t t-if="order_line.discount">
+                                                <t t-set="discount" t-value="discount + (order_line.price_unit * order_line.qty) * order_line.discount/100"></t>
+                                            </t>
+                                        </t>
+                                        <td colspan="3" style="border: 1px solid black; padding: 5px 8px;">
+                                            <span> Discount </span>
+                                        </td>
+                                        <td style="border: 1px solid black; padding: 5px 8px;">
+                                            <t t-out="'%.2f'%(discount)" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="border-left: 1px solid black; padding: 5px 8px;"></td>
+                                        <td colspan="3" style="border: 1px solid black; padding: 5px 8px;">
+                                            <span>Total Vat </span>
+                                        </td>
+                                        <td style="border: 1px solid black; padding: 5px 8px;">
+                                            <t t-out="'%.2f'%(order.amount_tax)" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="border: 1px solid black; border-left: 1px solid black; padding: 5px 8px;">
+                                            <center>Thank You</center>
+                                        </td>
+                                        <td colspan="3" style="border: 1px solid black; padding: 5px 8px;">
+                                            <span>Total</span>
+                                        </td>
+                                        <td style="border: 1px solid black; padding: 5px 8px;">
+                                            <t t-out="'%.2f'%(order.amount_total)" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
+                    </div>
+                </t>
+
+                <div class="nf-footer" style="font-size: 10px; margin-top: 10px; text-align: left;">
+                    <b><t t-out="docs.config_id.receipt_footer"></t></b>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

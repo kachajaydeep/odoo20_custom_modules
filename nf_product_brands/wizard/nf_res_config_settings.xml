@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">nf.res.config.settings.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <block name="catalog_setting_container" position="after">
+                <block title="Product Brand" name="product_brands" class="oe_settings_block">
+
+                    <setting id="enable_brands_view" string="Product Brand on Views" help="When enabled, the product brand will be displayed on product, product variant, sale order lines and invoice lines.">
+                        <field name="nf_product_brand_on_view_enable"/>
+                    </setting>
+
+                    <setting id="enable_brands_report"  string="Product Brand on Reports" help="When enabled, the product brand will be printed on sale order and invoice PDF reports.">
+                        <field name="nf_product_brand_report_enable"/>
+                    </setting>
+
+                </block>
+            </block>
+        </field>
+    </record>
+</odoo> 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="barcode_rule_receipt" model="barcode.rule">
+        <field name="name">Order Receipt Barcodes</field>
+        <field name="barcode_nomenclature_id" ref="barcodes.default_barcode_nomenclature"/>
+        <field name="sequence">45</field>
+        <field name="type">nf_order</field>
+        <field name="encoding">any</field>
+        <field name="pattern">NF</field>
+    </record>
+</odoo>

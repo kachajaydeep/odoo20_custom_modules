@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_pos_purchase_order.CreatePurchaseOrderButton" t-inherit="point_of_sale.ControlButtons"
+       t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='this.props.showRemainingButtons']/div/t[@name='o_pricelist_button']"
+                position="after">
+            <button t-if="this.pos.config.create_po and this.pos.getOrder().lines.length > 0" class="control-button btn btn-lg o_pricelist_button btn-secondary d-inline-flex flex-md-column justify-content-md-center gap-1 overflow-hidden"
+                    t-on-click="() => this.OnPurchaseOrderPopupClick()">
+                <i role="img" aria-hidden="true" class="fa-solid fa-cart-plus oi undefined oi-2x oi-fw align-self-center opacity-50" data-icon="view_list"></i>
+                Create RFQ/PO
+            </button>
+        </xpath>
+    </t>
+</templates>

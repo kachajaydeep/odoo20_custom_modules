@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id='template' xml:space='preserve'>
+    <t t-name="nf_pos_theme_app.PaymentScreenDue" t-inherit="point_of_sale.PaymentScreenDue" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('total')]" position="after" >
+            <div class="nf-order-total px-2 py-lg-3 text-success" style="font-size: 20px !important;">
+                Order Total :  <t t-esc="this.env.utils.formatCurrency(currentOrder.totalDue)" />
+            </div>
+            <div class="amount align-self-end pt-2 px-2  pb-2" style="font-size: 20px !important;"  t-attf-class=" {{ this.currentOrder.totalDue > 0 ? '  text-danger' : '  text-success'}}">
+                <span class="pe-2">Remaining :</span>
+                <t t-esc="this.env.utils.formatCurrency(this.currentOrder.totalDue)" />
+            </div>
+            <div class="amount align-self-end px-2  pb-2 pt-2" style="font-size: 20px !important;">
+                <span class="pe-2">Total paid :</span>
+                <t t-esc="this.env.utils.formatCurrency(this.currentOrder.amountPaid)" />
+            </div>
+        </xpath>
+    </t>
+    <t t-name="nf_pos_theme_app.PaymentScreen" t-inherit="point_of_sale.PaymentScreen" t-inherit-mode="extension">
+       <xpath expr="//div[hasclass('payment-summary')]" position="replace">
+        <div class="nf-payment-summary">
+            <PaymentScreenPaymentLines
+                paymentLines="paymentLines"
+                deleteLine.bind="deletePaymentLine"
+                sendForceDone.bind="sendForceDone"
+                sendPaymentReverse.bind="sendPaymentReverse"
+                sendPaymentCancel.bind="sendPaymentCancel"
+                sendPaymentRequest.bind="sendPaymentRequest"
+                selectLine.bind="selectPaymentLine"
+                updateSelectedPaymentline.bind="updateSelectedPaymentline"
+                isRefundOrder="isRefundOrder" />
+            <PaymentScreenStatus order="currentOrder" />
+        </div>
+        <div class="nf-payment-card" >
+            <t t-foreach="this.pos.getOrder().getOrderlines()" t-as="line" t-key="line.id">
+            <Orderline line="line" showTaxGroup="showTaxGroupLabels" mode="'receipt'" basic_receipt="props.basic_receipt" />
+            </t>
+        </div>
+       </xpath>
+    </t>
+    <t t-name="nf_pos_theme_app.ControlButtons" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//button[contains(@class, 'more-btn')]" position="attributes">
+            <attribute name="class" add="nf-hide-actions" separator=" "/>
+        </xpath>
+    </t>
+</templates>

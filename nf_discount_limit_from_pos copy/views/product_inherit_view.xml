@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="nf_product_template_pos_inherit_view" model="ir.ui.view">
+        <field name="name">nf.product.template.inherited.form.view</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='pos']/group/group[@name='public_description']" position="inside">
+                <field name="nf_discount_type" string="Discount Type"></field>
+                <field name="nf_discount_limit" string="Discount Limit"></field>
+            </xpath>
+        </field>
+    </record>
+</odoo>

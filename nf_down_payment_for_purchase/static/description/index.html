@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Down Payment For Purchase</title>
+        <meta name="title" content="Down Payment For Purchase">
+        <meta name="description" content="Create vendor bills with down payments directly from purchase orders. Support for percentage or fixed amount down payments with validation and automatic purchase order down payment line creation.">
+        <meta name="keywords" content="odoo purchase down payment purchase advance payment vendor bill down payment purchase order down payment odoo purchase advance bill  purchase down payment percentage  purchase down payment fixed amount  vendor advance payment odoo purchase billing wizard odoo purchase bill automation  supplier advance payment odoo  purchase payment management odoo purchase customization down payment create bill vendor bill payment bill percentage fixed amount invoice purchase bill create purchase customer/vendor bill">
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    </head>
+
+    <body>
+        <section class="nf_m_header">
+            <div class="container-fluid px-5 pb-3 text-center text-md-start" style="background-color:#f8f9fa; border-radius:10px;">
+                <div class="row align-items-center">
+                    <!-- Module Info -->
+                    <div class="col-12 col-lg-6 my-4 my-lg-0 text-center">
+                        <h1 class="fw-bolder" style="font-size:calc(1.8rem + 1.5vw); color:#212529; margin-bottom:15px;">
+                            Down Payment For Purchase
+                        </h1>
+
+                        <p style="font-size:17px; color:#6c757d; line-height:1.7;">
+                            <b>Down Payment For Purchase</b> allows users to easily create <b> vendor bills with down payments directly from the Purchase Order.</b> When clicking <b>Create Bill,</b> a wizard appears allowing the user to select between <b>Regular Bill, Down Payment (Percentage),</b> or <b> Down Payment (Fixed Amount).</b>
+                        </p>
+                        <!-- Dependency Badge -->
+                        <div style="margin-top:20px;" class="text-start">
+                            <p class="fw-bold" style="font-size:16px; color:#212529; margin-bottom:10px;">Platform Support</p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span style="background-color:#714B67; color:#fff; padding:6px 14px; border-radius:20px; font-size:14px;">Community</span>
+                                <span style="background-color:#714B67; color:#fff; padding:6px 14px; border-radius:20px; font-size:14px;">Enterprise</span>
+                                <span style="background-color:#714B67; color:#fff; padding:6px 14px; border-radius:20px; font-size:14px;">Odoo.sh</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Hero Image -->
+                    <div class="col-12 col-lg-6 text-center">
+                        <img src="partner_img.png" class="img-fluid" style="max-width:65%; border-radius:8px;" alt="Pos Order Type Module" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== VIDEO + DESCRIPTION ===== -->
+        <section class="nft_header pb-4">
+            <div class="container-fluid px-5 pt-4 text-center text-md-start">
+                <div class="row ">
+                    <!-- Video -->
+                    <div class="col-12 col-lg-6">
+                        <div class="text-center w-100" style="position:relative;  height:auto; overflow:hidden; border-radius:8px;">
+                            <div class="position-relative" style="width:100%; height:0; padding-bottom:56.25%;">
+                                <a href="https://youtu.be/WfHw9MQ4BdY" target="_blank"
+                                    class="position-absolute top-0 start-0 d-block" style="width:100%; height:100%;">
+                                    <img src="video.gif" alt="YouTube Video Thumbnail" style="width:78%; height:100%; object-fit:cover;" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Text -->
+                    <div class="col-12 col-lg-6 my-4 my-lg-0">
+                        <div class="p-4">
+                            <p style="font-size:18px; font-family:'Poppins', sans-serif; color:#6c757d; line-height:1.7; margin:0;">
+                                The module automatically generates the vendor bill and creates a Purchase Down Payment line in the purchase order lines after bill creation. It also includes validations to ensure the down payment amount is within valid limits.
+                                This module simplifies the purchase billing workflow and improves financial control when paying suppliers in advance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOT FEATURES ===== -->
+        <section id="nf_hot_feature">
+            <div class="container-fluid d-flex flex-column align-items-center" style="padding:60px 20px 0; background-color:#f8f9fa; border-radius:10px; font-family:Arial, sans-serif;">
+                <div class="text-center mb-3">
+                    <h2>
+                        Hot Features
+                    </h2>
+                </div>
+
+                <div class="container-fluid mt-3">
+                    <div class="row">
+                        <!-- Feature Cards -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="color:#212529;">Create Bill Wizard</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        When clicking Create Bill on a purchase order, a wizard form opens.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="color:#212529;">Multiple Billing Options</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        Regular Bill, Down Payment (Percentage), Down Payment (Fixed Amount)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                            style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                            <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="color:#212529;">Fixed Amount Down Payment</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        Create vendor bills with a custom fixed amount regardless of order total.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                            style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                            <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="color:#212529;">Percentage Based Down Payment</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        Create vendor bills based on a percentage of the purchase order total amount.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="color:#212529;">Vendor Bill Creation</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        Vendor bill is created.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                            style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold" style="color:#212529;">Validation System</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        Down payment cannot be zero
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SUPPORT SECTION ===== -->
+        <section class="nft_support text-center">
+            <div class="container-fluid mt-5 px-4">
+                <div class="row">
+                    <!-- Address -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card text-start shadow-sm" style="border-radius:12px; padding:30px; height:100%;">
+                            <div class="d-flex" >
+                                <div class="w-75">
+                                    <h5 class="card-title fw-bold">Quick Support</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.6;">
+                                        <strong>WhatsApp</strong><br/>
+                                        210, Skymall, Nr. Mercedez-Benz Showroom, Gondal Road,<br />Rajkot (360004), Gujarat, India
+                                    </p>
+                                    <div>
+                                        <span class="fa fa-whatsapp text-success" ></span>
+                                        <strong> +91 73832 03034 </strong>    
+                                    </div>
+                                </div>
+                                <div class="w-25">
+                                    <img src="support/whatsapp.png" width="100%" atl="Whatsapp" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Support Center -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                       
+                        <div class="card text-start shadow-sm" style="border-radius:12px; padding:30px; height:100%;">
+                            <div class="d-flex" >
+                                <div class="w-75" >
+                                    <h5 class="card-title fw-semibold">Electronic Support</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.6;">
+                                        Please feel free to write an email to us or use our electronic ticketing system.
+                                    </p>
+                                    <p style="color:#333; font-size:14px; line-height:1.6;">
+                                        <strong>Email :</strong>
+                                        <a href="mailto:support@nextflow.in" style="color:#1D4ED8; text-decoration:none;">support@nextflow.in</a> |
+                                        <a href="mailto:nextfloit@gmail.com" style="color:#1D4ED8; text-decoration:none;">nextfloit@gmail.com</a>
+                                    </p>
+                                </div>
+                                <div class="w-25" >
+                                    <img src="support/email.png" width="100%" atl="Whatsapp" />
+                                                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Electronic Support -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                         <div class="card text-start shadow-sm" style="border-radius:12px; padding:30px; height:100%;">
+                            <div class="d-flex">
+                                <div class="w-75" >
+                                    <h5 class="card-title fw-semibold">Support Center</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.6;">
+                                        Our dedicated Support team is available to assist you with any questions, concerns, or support you may need.
+                                    </p>
+                                    <p style="color:#333; font-size:14px; line-height:1.6;">
+                                        <strong>Phone :</strong>
+                                        <a href="tel:+917383203034" style="color:#1D4ED8; text-decoration:none;"> +91 73832 03034</a>
+                                    </p>
+                                </div>
+                                <div class="w-25" >  
+                                    <img src="support/contact.png" width="100%" atl="Whatsapp" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TABS: Features / Screenshots / FAQs / Releases ===== -->
+        <section id="nf-menus">
+            <div class="main-div px-4">
+                <div class="position-relative">
+                    <ul class="nav nav-pills nav-fill gap-3">
+                        <li class="nav-item" style="border:1px solid #ddd;border-radius: 10px; background-color:#DBEAFE; margin:0 3px;">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#Features"
+                                style="padding:13px 20px;border-radius: 10px;">
+                                <i class="fa fa-fw fa-gear"></i> Features
+                            </a>
+                        </li>
+                        <li class="nav-item" style="border:1px solid #ddd;border-radius: 10px; background-color:#DBEAFE; font-weight:600; font-size:14px; margin:0 3px;">
+                            <a class="nav-link" data-bs-toggle="tab" href="#Setup"
+                                style="padding:13px 20px;border-radius: 10px;">
+                                <i class="fa fa-fw fa-desktop"></i> Screenshots
+                            </a>
+                        </li>
+                        <li class="nav-item" style="border:1px solid #ddd;border-radius: 10px; background-color:#DBEAFE; font-weight:600; font-size:14px; margin:0 3px;">
+                            <a class="nav-link" data-bs-toggle="tab" href="#FAQs"
+                                style="padding:13px 20px;border-radius: 10px;">
+                                <i class="fa fa-fw fa-gear"></i> FAQs
+                            </a>
+                        </li>
+                        <li class="nav-item" style="border:1px solid #ddd;border-radius: 10px; background-color:#DBEAFE; font-weight:600; font-size:14px; margin:0 3px;">
+                            <a class="nav-link" data-bs-toggle="tab" href="#Releases"
+                                style="padding:13px 20px;border-radius: 10px;">
+                                <i class="fa fa-fw fa-send"></i> Releases
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tab Panes -->
+                <div class="tab-content">
+
+                    <!-- FEATURES TAB -->
+                    <div id="Features" class="tab-pane active">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Multiple Billing Options</b></h5>
+                                    <ul>
+                                        <li>Users can choose between:</li>
+                                        <ul>
+                                            <li>Regular Bill</li>
+                                            <li>Down Payment (Percentage)</li>
+                                            <li>Down Payment (Fixed Amount)</li>
+                                        </ul>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Create Bill Wizard</b></h5>
+                                    <ul>
+                                        <li>When clicking Create Bill on a purchase order, a wizard form opens.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Vendor Bill Creation</b></h5>
+                                    <ul>
+                                        <li>After selecting the option and submitting the wizard:</li>
+                                        <ul>
+                                            <li>Vendor bill is created.</li>
+                                            <li>Down payment amount is calculated based on the selected method.</li>
+                                        </ul>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Purchase Order Down Payment Line</b></h5>
+                                    <ul>
+                                        <li>After bill creation:</li>
+                                        <ul>
+                                            <li>A Down Payment line is automatically added to the Purchase Order Lines.</li>
+                                            <li>The line reflects the selected method:</li>
+                                            <ul>
+                                                <li>Down Payment (Percentage)</li>
+                                                <li>Down Payment (Fixed Amount)</li>
+                                            </ul>
+                                        </ul>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Percentage Based Down Payment</b></h5>
+                                    <ul>
+                                        <li>Create vendor bills based on a percentage of the purchase order total amount.</li>
+                                        <li>Example:</li>
+                                        <li>Purchase Order Total: 10,000</li>
+                                        <li>Down Payment: 20%</li>
+                                        <li>Generated Bill: 2,000</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Fixed Amount Down Payment</b></h5>
+                                    <ul>
+                                        <li>Create vendor bills with a custom fixed amount regardless of order total.</li>
+                                        <li>Example:</li>
+                                        <li>Purchase Order Total: 10,000</li>
+                                        <li>Down Payment: 1,500</li>
+                                        <li>Generated Bill: 1,500</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Validation System</b></h5>
+                                    <ul>
+                                        <li>The module includes validation checks:</li>
+                                        <ul>
+                                            <li>Create vendor bills with a custom fixed amount regardless of order total.</li>
+                                            <li>Down payment cannot be zero</li>
+                                            <li>Amount cannot exceed purchase order total</li>
+                                            <li>Percentage must be within valid range</li>
+                                        </ul>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQs TAB -->
+                    <div id="FAQs" class="tab-pane fade">
+                        <br />
+                        <div class="container-fluid" style="width: 98%;">
+                            <div class="mt-3 mb-3 shadow-lg d-flex" style="padding:15px 30px; border-radius:10px;width:98%">
+                                <span class="fa fa-hand-o-right" style="color:#4c84ff; font-size:30px; vertical-align:middle; border-radius:100%;"></span>
+                                <div style="font-size:20px; font-weight:500; vertical-align:middle;">
+                                    <div class="ps-1">
+                                        <p><b class="ps-1">How can we take support Or Customization Request?</b></p>
+                                        <p><span class="fa fa-arrow-right"></span> Please Contact us at <a href="mailto:support@nextflow.in">support@nextflow.in</a> for Support/Customization.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid" style="width: 98%;">
+                            <div class="mt-3 mb-3 shadow-lg d-flex" style="padding:15px 30px; border-radius:10px;width:98%">
+                                <span class="fa fa-hand-o-right" style="color:#4c84ff; font-size:30px; vertical-align:middle; border-radius:100%;"></span>
+                                <div style="font-size:20px; font-weight:500; vertical-align:middle;">
+                                    <div class="ps-1">
+                                        <p><b class="ps-1">Can we get Free support?</b></p>
+                                        <p><span class="fa fa-arrow-right"></span> <b>Yes</b>, You can get free support for 90 Day's.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid" style="width: 98%;">
+                            <div class="mt-3 mb-3 shadow-lg d-flex" style="padding:15px 30px; border-radius:10px;width:98%">
+                                <span class="fa fa-hand-o-right" style="color:#4c84ff; font-size:30px; vertical-align:middle; border-radius:100%;"></span>
+                                <div style="font-size:20px; font-weight:500; vertical-align:middle;">
+                                    <div class="ps-1">
+                                        <p><b class="ps-1">This app is working with Odoo Community and Enterprise?</b></p>
+                                        <p><span class="fa fa-arrow-right"></span> <b>Yes</b>, can use with Community and Enterprise both.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SCREENSHOTS TAB -->
+                    <div id="Setup" class="tab-pane fade">
+                        <div class="tab-content">
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <div class="text-center"><h1>It shows the down payment for purchase workflow.</h1></div>
+                                    <div class="text-center"><h4>Create Bill : Regular Bills</h4></div>
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Main Menu => click "Purchase" (open the purchase order list view)</b></p>
+                                    <img src="ss/img.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Open purchase order list view</b></p>
+                                    <img src="ss/img_1.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Purchase order form view open / add details / click "Confirm Order" </b></p>
+                                    <img src="ss/img_2.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Purchase order status is "Purchase Order" / click "Upload Bill" ("Create Bill")</b></p>
+                                    <img src="ss/img_3.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Open the view and select the create bill (Regular Bill) and click "Create Bill"</b></p>
+                                    <img src="ss/img_4.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Invalid Operation : read</b></p>
+                                    <img src="ss/img_5.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Purchase Order in order line in Received qty add</b></p>
+                                    <img src="ss/img_6.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Open the view and select the create bill (Regular Bill) and click "Create Bill"</b></p>
+                                    <img src="ss/img_4.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Create Vendor Bill / form view open</b></p>
+                                    <img src="ss/img_7.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Purchase Order form in show Vendor Bills</b></p>
+                                    <img src="ss/img_8.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <div class="text-center"><h4>Create Bill : Down Payment (Percentage)</h4></div>
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Purchase order form view open / add details / click "Confirm Order" </b></p>
+                                    <img src="ss/img_9.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Purchase order status is "Purchase Order" / click "Upload Bill" ("Create Bill")</b></p>
+                                    <img src="ss/img_10.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Open view and select "Down Payment (Percentage)" / add Percentage / click "Create Bill" </b></p>
+                                    <img src="ss/img_11.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Create Vendor Bill / form view open</b></p>
+                                    <img src="ss/img_12.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>After Vendor Bill Create and Purchase Order in order line show down payment line and vendor bill status is draft</b></p>
+                                    <img src="ss/img_13.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>click "Upload Bill" ("Create Bill")</b></p>
+                                    <img src="ss/img_10.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Open view and select "Down Payment (Percentage)" / add Percentage / show already bill amount / click "Create Bill"</b></p>
+                                    <img src="ss/img_14.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Create Vendor Bill / form view open / vendor bill status is posted</b></p>
+                                    <img src="ss/img_15.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>After creating the vendor bill and purchase order, the down payment line is shown in the order line, and the vendor bill status is posted.</b></p>
+                                    <img src="ss/img_16.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <div class="text-center"><h4>Create Bill : Down Payment (Fixed Amount)</h4></div>
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Purchase order form view open / add details / click "Confirm Order" </b></p>
+                                    <img src="ss/img_17.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Purchase order status is "Purchase Order" / click "Upload Bill" ("Create Bill")</b></p>
+                                    <img src="ss/img_18.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Open view and select "Down Payment (Percentage)" / add Percentage / click "Create Bill" </b></p>
+                                    <img src="ss/img_19.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Create Vendor Bill / form view open</b></p>
+                                    <img src="ss/img_20.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>After Vendor Bill Create and Purchase Order in order line show down payment line and vendor bill status is posted</b></p>
+                                    <img src="ss/img_21.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Open view and select "Down Payment (Fixed Amount)" / add Fixed Amount / show already bill amount / click "Create Bill"</b></p>
+                                    <img src="ss/img_22.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Create Vendor Bill / form view open</b></p>
+                                    <img src="ss/img_23.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>After Vendor Bill Create and Purchase Order in order line show down payment line and vendor bill status is draft</b></p>
+                                    <img src="ss/img_24.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Purchase order status is "Purchase Order" / click "Upload Bill" ("Create Bill")</b></p>
+                                    <img src="ss/img_25.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Open view and select "Down Payment (Percentage)" / add Percentage  / click "Create Bill"</b></p>
+                                    <img src="ss/img_28.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Create Vendor Bill / form view open</b></p>
+                                    <img src="ss/img_29.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>form view open / vendor bill cancel / click "Cancel"</b></p>
+                                    <img src="ss/img_30.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Vendor Bill status is Cancelled</b></p>
+                                    <img src="ss/img_31.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>After Vendor Bill Create and Purchase Order in order line show down payment line and vendor bill status is cancelled</b></p>
+                                    <img src="ss/img_32.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <div class="text-center"><h4>Invalid Operation</h4></div>
+                                    <img src="ss/img_5.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <img src="ss/img_26.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                    <img src="ss/img_27.png" class="img-fluid mt-3 mb-3" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RELEASES TAB -->
+                    <div id="Releases" class="tab-pane fade">
+                        <br />
+                        <div class="mt-3 mb-3 sh_content shadow rounded bg-white" style="padding:20px; width:98%;">
+                            <span class="fa fa-hand-o-right" style="color:#4c84ff; font-size:35px; vertical-align:middle; margin-right:20px;"></span>
+                            <span style="font-size:20px; font-weight:500; vertical-align:middle;">Releases on 30<sup>th</sup> September 2026</span>
+                            <br />
+                            <p style="padding:20px; padding-bottom:0;">
+                                <span class="badge bg-success fw-bold me-2" style="padding:5px 15px; border-radius:3px; color:#fff; font-size:9px; text-transform:uppercase;">Initial</span>
+                                <span style="font-size:17px; font-weight:500; vertical-align:middle;">Version 20.0.1 | Initial Released.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                </div><!-- /tab-content -->
+            </div>
+        </section>
+
+        <!-- ===== MULTI LANGUAGE ===== -->
+        <section class="nf-multi-language text-center pt-5">
+            <h3 class="mb-4">Multi Language</h3>
+            <div class="row justify-content-evenly align-items-center gx-0 text-center">
+                <img class="rounded col-auto" src="eng.png" title="English" alt="english" style="border-radius:0.25rem !important; height:90px; width:90px;" />
+                <img class="rounded col-auto" src="ger.png" title="Germany" alt="germany" style="border-radius:0.25rem !important; height:90px; width:90px;" />
+                <img class="rounded col-auto" src="arb.png" title="Arab" alt="arab" style="border-radius:0.25rem !important; height:90px; width:90px;" />
+                <img class="rounded col-auto" src="chi.png" title="Chinese" alt="Chinese" style="border-radius:0.25rem !important; height:110px; width:115px;" />
+                <img class="rounded col-auto" src="fre.png" title="French" alt="French" style="border-radius:0.25rem !important; height:110px; width:115px;" />
+            </div>
+        </section>
+
+        <!-- ===== OUR SERVICES ===== -->
+        <section id="nf_services" class="mt-5">
+            <div class="container-fluid d-flex flex-column align-items-center" style="padding:60px 20px 0; border-radius:10px; font-family:Arial, sans-serif; background-color:#f8f9fa;">
+                <div class="text-center mb-3">
+                    <h4 class="mb-1" style="color:#f74780;">Our Service</h4>
+                    <h1 class="display-5 mb-4">What We Can Do For You</h1>
+                    <p style="color:#6c757d; font-size:16px; max-width:750px; margin:0 auto; line-height:1.6;">
+                        <!-- Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. -->
+                    </p>
+                </div>
+
+                <div class="container-fluid py-3">
+                    <div class="row justify-content-center">
+
+                        <!-- Service Card 1 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card text-center p-4 border-0 shadow-sm"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <div class="d-flex justify-content-center align-items-center" style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                        <i class="fa fa-2x fa-refresh" ></i>
+                                    </div>
+                                </div>
+                                <h5 class="card-title fw-bold" style="color:#212529;">Odoo Migration</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">Odoo Database migration and module migraion. migrating a odoo setup version older to new. </p>
+                            </div>
+                        </div>
+
+                        <!-- Service Card 2 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card text-center p-4 border-0 shadow-sm"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <div class="d-flex justify-content-center align-items-center" style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                        <i class="fa fa-2x fa-wrench" ></i>
+                                    </div>
+                                </div>
+                                <h5 class="card-title fw-bold" style="color:#212529;">Odoo Customization</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">We can modify existing Odoo modules, such as CRM, Sales, Inventory, and Accounting, to better fit your company's operations. This includes adding new fields, changing workflows, and creating custom business rules. </p>
+                                
+                            </div>
+                        </div>
+
+                        <!-- Service Card 3 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card text-center p-4 border-0 shadow-sm"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <div class="d-flex justify-content-center align-items-center" style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                        <i class="fa fa-2x fa-user" ></i>
+                                    </div>
+                                </div>
+                                <h5 class="card-title fw-bold" style="color:#212529;">Web Development in Odoo</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">We build more than just beautiful websites; we build powerful business tools. Our web development services create professional, user-friendly sites that are fully integrated with your Odoo system.</p>
+                                
+                            </div>
+                        </div>
+
+                        <!-- Service Card 4 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card text-center p-4 border-0 shadow-sm"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <div class="d-flex justify-content-center align-items-center" style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                       <i class="fa fa-2x fa-cogs" ></i>
+                                    </div>
+                                </div>
+                                <h5 class="card-title fw-bold" style="color:#212529;">Odoo Implementation</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">We specialize in Odoo Integration Services, creating robust connections between Odoo and your other critical software systems, e-commerce platforms, payment gateways, shipping carriers, and more.</p>
+                            </div>
+                        </div>
+
+                        <!-- Service Card 5 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card text-center p-4 border-0 shadow-sm"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <div class="d-flex justify-content-center align-items-center" style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                       <i class="fa fa-2x fa-globe" ></i>
+                                    </div>
+                                </div>
+                                <h5 class="card-title fw-bold" style="color:#212529;">Odoo Support and Maintenance</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">Odoo Support and Maintenance Our Odoo Support and Maintenance plans provide you with expert technical assistance, proactive security updates, performance monitoring, and help with user questions to ensure your system remains a reliable and effective asset.</p>
+                            </div>
+                        </div>
+
+                        <!-- Service Card 6 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card text-center p-4 border-0 shadow-sm"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <div class="d-flex justify-content-center align-items-center" style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                        <i class="fa fa-2x fa-users" ></i>
+                                    </div>
+                                </div>
+                                <h5 class="card-title fw-bold" style="color:#212529;">Odoo Training</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">We provide comprehensive functional and technical Odoo training to help teams understand, implement, and effectively use Odoo for their business operations.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== RELATED APPS ===== -->
+        <section id="sh_most_demanded_apps" style="background-color:transparent;">
+            <div class="container-fluid px-4">
+                <div class="nf-related text-center">
+                    <h3 class="display-5" style="font-family:Verdana, Geneva, Tahoma, sans-serif; text-transform:capitalize; font-weight:500;">Apps for you</h3>
+                </div>
+               <div class="row" style="margin-top:1rem;">
+                    <div class="col-md-4 mb-3">
+                        <div class="sh_content shadow rounded text-center">
+                            <div class="sh_img">
+                                <a href="https://apps.odoo.com/apps/modules/19.0/nf_pos_purchase_order" target="_blank">
+                                    <img class="rounded" src="create_purchase_order_pos.gif" width="100%" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="sh_content shadow rounded text-center">
+                            <div class="sh_img">
+                                <a href="https://apps.odoo.com/apps/modules/19.0/nf_purchase_order_line_sequence" target="_blank">
+                                    <img class="rounded" src="purchase_order_line.gif" width="100%" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="sh_content shadow rounded text-center" style="height: 90%;">
+                            <div class="sh_img" style="height: 100%;">
+                                <a href="https://apps.odoo.com/apps/modules/19.0/nf_merge_purchase_order" target="_blank">
+                                    <img class="rounded" src="merge_purchase_order.gif" width="100%" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="service-item shadow rounded py-3 px-4 mb-2 text-center btn d-flex justify-content-center align-items-center fw-bold"
+                    target="_blank"
+                    style="text-decoration:none; font-size:20px; width:100%; border-radius:0.25rem !important; border:1px solid black;color: #000;"
+                    href="https://apps.odoo.com/apps/modules/browse?author=NextFlowIT">
+                    Explore Our Leading Apps List
+                </a>
+            </div>
+        </section>
+    </body>
+</html>

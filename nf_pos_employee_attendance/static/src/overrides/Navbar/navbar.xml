@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="nf_pos_employee_attendance.Navbar" t-inherit="point_of_sale.Navbar" t-inherit-mode="extension">
+         <xpath expr="//Dropdown//div[contains(@class, 'pos-burger-menu-items')]" position="inside">
+            <t t-if="this.pos.config.module_pos_hr and this.pos.config.nf_enbale_check_in_out">
+                <DropdownItem onSelected="() => this.showLoginScreenwitt_break()">
+                    Start Break
+                </DropdownItem>
+                <DropdownItem onSelected="() => this.showLoginScreen()">
+                    Check-out
+                </DropdownItem>
+            </t>
+        </xpath>
+    </t>
+
+</templates>

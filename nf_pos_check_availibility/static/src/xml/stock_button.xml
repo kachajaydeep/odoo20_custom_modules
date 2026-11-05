@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_pos_check_availability.NfStockButton" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('control-buttons')]" position="inside">
+            <t t-if="this.pos.config.nf_check_stock" t-call="point_of_sale.controlButton"
+                icon="'factory'"
+                iconClasses="'oi-filled'"
+                btnText.translate="Check Availability"
+                btnClasses="'btn-secondary '"
+                onClick="() => this.checkStock()"
+                disabled="this.pos.getOrder().isEmpty()">
+            </t>
+        </xpath>
+    </t>
+</templates>

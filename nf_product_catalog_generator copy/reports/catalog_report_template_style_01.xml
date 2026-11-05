@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_product_catalog_style1_document">
+        <t t-call="web.external_layout">
+            <t t-set="o" t-value="o.with_context()"/>
+            <div class="page" id="style1_design">
+                <div class="oe_structure"/>
+
+                <table class="o_has_total_table table o_main_table table-borderless">
+                    <h2 class="m-3"><span t-field="o.catalog_name"/></h2>
+                    <thead style="display: table-row-group; align-item: center; justify-content: space-evenly">
+                        <tr>
+                            <th class="text-start">
+                                <strong>Sr No.</strong>
+                            </th>
+                            <t t-if="o.image">
+                                <th class="text-start">
+                                    <strong>Image</strong>
+                                </th>
+                            </t>
+                            <t t-if="o.inter_ref">
+                                <th class="text-start">
+                                    <strong>Internal Reference</strong>
+                                </th>
+                            </t>
+                            <th class="text-start">
+                                <strong>Product Name</strong>
+                            </th>
+                            <t t-if="o.print_category">
+                                <th class="text-start">
+                                    <strong>Category Name</strong>
+                                </th>
+                            </t>
+                            <t t-if="o.print_uom">
+                                <th class="text-start">
+                                    <strong>UOM</strong>
+                                </th>
+                            </t>
+                            <t t-if="o.price">
+                                <th class="text-end">
+                                    <strong>Price</strong>
+                                </th>
+                            </t>
+                            <t t-if="o.description">
+                                <th class="text-start">
+                                    <strong>Description</strong>
+                                </th>
+                            </t>
+                        </tr>
+                    </thead>
+                    <tbody style="align-item: center">
+                        <t t-if="o.product_id">
+                            <t t-foreach="o.product_id" t-as="line">
+                                <tr>
+                                    <td class="text-start">
+                                        <span t-out="line_index + 1"/>
+                                    </td>
+                                    <t t-if="o.image">
+                                        <td class="text-start">
+                                            <t t-if="line.image_1920">
+                                                <span t-field="line.image_1920" t-attf-style="width:{{ o.image_width or 100 }}px; height:{{ o.image_height or 100 }}px; object-fit:contain; display:block;" t-options="{'widget': 'image'}"/>
+                                            </t>
+                                            <t t-else="">
+                                                <span style="font-size:11px; color:#aaa;">No Image</span>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="o.inter_ref">
+                                        <td class="text-start">
+                                            <span t-field="line.default_code"/>
+                                        </td>
+                                    </t>
+                                    <td class="text-start">
+                                        <t t-if="o.product_link">
+                                            <a t-attf-href="/web#id={{ line.id }}&amp;model=product.product&amp;view_type=form" style="color:#0d6efd; text-decoration:none;">
+                                                <span t-out="line.display_name"/>
+                                            </a>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-out="line.display_name"/>
+                                        </t>
+                                    </td>
+                                    <t t-if="o.print_category">
+                                        <td class="text-start">
+                                            <span t-field="line.categ_id"/>
+                                        </td>
+                                    </t>
+                                    <t t-if="o.print_uom">
+                                        <td class="text-start">
+                                            <span t-field="line.uom_id"/>
+                                        </td>
+                                    </t>
+                                    <t t-if="o.price">
+                                        <td class="text-end">
+                                            <span t-field="line.lst_price" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                                        </td>
+                                    </t>
+                                    <t t-if="o.description">
+                                        <td class="text-start">
+                                            <span t-field="line.description"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </t>   
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+    <!-- ################################################################ -->
+
+    <template id="report_product_catalog_style1">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="nf_product_catalog_generator.report_product_catalog_style1_document"/>
+            </t>
+        </t>
+    </template>
+</odoo>

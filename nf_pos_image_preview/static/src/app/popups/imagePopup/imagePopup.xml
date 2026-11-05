@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template id="template.ImagePopup" xml:space="preserve">
+    <t t-name="nf_pos_image_preview.ImagePopup">
+        <Dialog title="'Image Preview'">
+            <div class="img-fluid d-flex justify-content-center">
+                <img  
+                    t-att-src="'/web/image/product.template/'+this.props.product.id+'/image_1920'" 
+                    class="rounded h-50 w-50 img-fluid"/>
+            </div>
+        </Dialog>
+    </t>
+</template>

@@ -1,0 +1,54 @@
+.nf-main-content{
+    .user {
+      font-family: "Stack Sans Headline", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 700;
+      // font-style: normal;
+    }
+    .table-header {
+        color: #fff !important;
+    }
+    .table-header,.table-data{
+        height: 50px !important;
+    }
+    
+    .table-data{
+        color: #000 !important;
+    }
+    
+    .text-container{
+        background-color: #A9A9A9 !important;
+    }
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    .nf-desktop-mini-header-font{
+        font-size: 20px !important;
+    }
+    
+    
+    @media screen and (max-width:768px) {
+        .table-header,.table-data,.table-data > span,.table-data > a > span{
+        font-size: 0.7rem;
+        }
+        .text-formated{
+            font-size: 1rem;
+        }
+    }
+    
+    @media screen and (max-width:556px) {
+        .table-header,.table-data, .table-data > span ,.table-data > a > span{
+            font-size: 0.5rem;
+        }
+    }
+    
+    @media screen and (max-width:1026px) {
+     .nf-main-content .text-formated{
+        font-size: 0.9rem !important;
+     }
+    
+    .nf-main-content .nf-desktop-mini-header-font{
+        font-size: 15px !important;
+    }
+    }
+}

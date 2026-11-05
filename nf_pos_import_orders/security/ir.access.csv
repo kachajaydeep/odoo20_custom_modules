@@ -1,0 +1,3 @@
+id,name,model_id,group_id/id,operation,domain
+access_nf_pos_import_wizard_user,nf_pos_import_wizard,nf.pos.import.wizard,base.group_user,r,
+access_nf_pos_import_wizard_manager,nf_pos_import_wizard,nf.pos.import.wizard,point_of_sale.group_pos_manager,crud,

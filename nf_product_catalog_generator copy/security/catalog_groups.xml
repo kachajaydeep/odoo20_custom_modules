@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="res.groups.privilege" id="res_groups_privilege_product_catalog">
+        <field name="name">Product Catalog</field>
+        <field name="category_id" ref="base.module_category_master_data"/>
+    </record>
+
+    <record id="nf_group_product_catalog_users" model="res.groups">
+        <field name="name">Product Catalog User</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="privilege_id" ref="res_groups_privilege_product_catalog"/>
+    </record>
+
+    <record id="nf_group_product_catalog_managers" model="res.groups">
+        <field name="name">Product Catalog Manager</field>
+        <field name="implied_ids" eval="[(4, ref('nf_product_catalog_generator.nf_group_product_catalog_users'))]"/>
+        <field name="privilege_id" ref="res_groups_privilege_product_catalog"/>
+    </record>
+</odoo>

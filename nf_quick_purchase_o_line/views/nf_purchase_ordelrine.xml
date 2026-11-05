@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id='nf_purchase_order_lineInherit' model='ir.ui.view'>
+        <field name='name'>nf.purchase.order.line.inheri.form.view</field>
+        <field name='model'>purchase.order</field>
+        <field name='inherit_id' ref='purchase.purchase_order_form' />
+        <field name='arch' type='xml'>
+            <field name='order_line' position='before'>
+                <div style="margin: 2px 8px 3px 2px; width: 25%; background-color: #eeeeee; border-radius: 5px">
+                    <field name='nf_enable_quick_pol' invisible='True' />
+                    <field name='nf_product_id' style='margin: 5px 11px 5px 7px; width: 94%;' placeholder="Product" invisible="not nf_enable_quick_pol" />
+                </div>
+            </field>
+        </field>
+    </record>
+    <record id='nf_purchase_res_company_view_Inherit' model='ir.ui.view'>
+        <field name='name'>nf.res.config.view.inheri.form.view</field>
+        <field name='model'>res.config.settings</field>
+        <field name='inherit_id' ref='purchase.res_config_settings_view_form_purchase' />
+        <field name='arch' type='xml'>
+            <block name="purchase_setting_container" position="inside">
+                <div class="col-12 col-lg-12 o_setting_box" id="_nf_enable_quick_purchase_orderline">
+                    <div class="o_setting_left_pane">
+                        <field name="_nf_enable_quick_purchase_orderline" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="_nf_enable_quick_purchase_orderline"/>
+                        <div class="text-muted">
+                            Add Quick order lines in purchase order
+                        </div>
+                    </div>
+                </div>
+            </block>
+        </field>
+    </record>
+</odoo>

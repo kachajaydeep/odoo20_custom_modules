@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_pos_employee_access_rights.Navbar" t-inherit="point_of_sale.Navbar" t-inherit-mode="extension">
+        <xpath expr="//DropdownItem[@onSelected='() => this.pos.cashMove()']" position="attributes">
+            <attribute name="t-if" separator=" and " add="this.pos.getCashier() and !this.pos.getCashier().nf_hide_cash_in_out_pos_button"></attribute>
+        </xpath>
+        <xpath expr="//DropdownItem[@onSelected='() => this.pos.closeSession()']" position="attributes">
+            <attribute name="t-if">this.pos.getCashier() and !this.pos.getCashier().nf_hide_close_pos_button</attribute>
+        </xpath>
+        <xpath expr="//DropdownItem[@onSelected='() => this.pos.closePos()']" position="attributes">
+            <attribute name="t-if">this.pos.getCashier() and !this.pos.getCashier().nf_hide_backend_pos_button</attribute>
+        </xpath>
+    </t>
+</templates>

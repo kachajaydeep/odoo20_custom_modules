@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xml:space="preserve">
+    <t t-name="nf_pos_barcode_return_exchange.ReturnOrderDialog">
+        <Dialog title="this.props.title" size="'xl'">
+            <div class="return-dialog">
+
+                <!-- HEADER -->
+                <div class="dialog-header-card">
+                    <div class="header-top">
+                        <div>
+                            <h2 class="dialog-title">Return / Exchange Order</h2>
+                            <div class="dialog-subtitle">Process returned items and exchange quantities</div>
+                        </div>
+                        <div class="receipt-badge">
+                            <span>#</span>
+                            <t t-out="this.props.order.pos_reference"/>
+                        </div>
+                    </div>
+
+                    <!-- ORDER INFO -->
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <div class="info-label">Customer</div>
+                            <div class="info-value">
+                                <t t-out="this.props.order.partner_id ? (this.props.order.partner_id[1] || this.props.order.partner_id.name) : 'Walk-in Customer'"/>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-label">Order Date</div>
+                            <div class="info-value">
+                                <t t-out="this.formatDate(this.props.order.date_order)"/>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-label">Total Amount</div>
+                            <div class="info-value">
+                                <t t-out="this.formatCurrency(this.props.order.amount_total)"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MODE SELECTION -->
+                    <div class="return-type-wrapper">
+                        <div class="return-type-title">Return Order Type</div>
+                        <div class="return-options">
+                            <label class="modern-radio-card">
+                                <input type="radio" name="return_action" t-att-checked="this.state.mode === 'refund'" t-on-change="() => this.onModeChange(this, 'refund')" />
+                                <span class="radio-label">Refund</span>
+                            </label>
+                            <label class="modern-radio-card">
+                                <input type="radio" name="return_action" t-att-checked="this.state.mode === 'exchange'" t-on-change="() => this.onModeChange(this, 'exchange')" />
+                                <span class="radio-label">Exchange</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- EXCHANGE TYPE — only show when exchange mode selected -->
+                    <t t-if="this.state.mode === 'exchange'">
+                        <div class="return-type-wrapper mt-2">
+                            <div class="return-type-title">Exchange Type</div>
+                            <div class="return-options">
+                                <label class="modern-radio-card">
+                                    <input type="radio" name="exchange_type" t-att-checked="this.state.exchangeType === 'same'" t-on-change="() => this.onExchangeTypeChange(this, 'same')" />
+                                    <span class="radio-label">Same Product</span>
+                                </label>
+                                <label class="modern-radio-card">
+                                    <input type="radio" name="exchange_type" t-att-checked="this.state.exchangeType === 'other'" t-on-change="() => this.onExchangeTypeChange(this, 'other')" />
+                                    <span class="radio-label">Other Product</span>
+                                </label>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+
+                <!-- TABLE -->
+                <div class="table-wrapper">
+                    <table class="table return-table align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Product</th>
+                                <th>UoM</th>
+                                <th>Unit Price</th>
+                                <th>Ordered</th>
+                                <th>Refunded</th>
+                                <t t-if="this.state.mode === 'refund'">
+                                    <th>Refund Qty</th>
+                                </t>
+                                <t t-if="this.state.mode === 'exchange'">
+                                    <th>Exchange Qty</th>
+                                </t>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="this.state.lines" t-as="line" t-key="line.id">
+                                <tr t-att-class="line.lineSelected ? 'selected-row' : ''">
+
+                                    <!-- CHECKBOX -->
+                                    <td>
+                                        <input type="checkbox" class="form-check-input modern-checkbox" t-att-checked="line.lineSelected" t-on-change="(e) => this.onLineSelect(line, e)" />
+                                    </td>
+
+                                    <!-- PRODUCT -->
+                                    <td>
+                                        <div class="product-name">
+                                            <t t-out="line.product_id ? line.product_id.name : ''"/>
+                                        </div>
+                                    </td>
+
+                                    <!-- UOM -->
+                                    <td>
+                                        <span class="uom-pill">
+                                            <t t-out="line.product_id.uom_id ? line.product_id.uom_id.name : 'Units'"/>
+                                        </span>
+                                    </td>
+
+                                    <!-- PRICE -->
+                                    <td class="price-text">
+                                        <t t-out="this.formatCurrency(line.price_unit)"/>
+                                    </td>
+
+                                    <!-- ORDERED -->
+                                    <td>
+                                        <span class="qty-badge">
+                                            <t t-out="line.qty"/>
+                                        </span>
+                                    </td>
+
+                                    <!-- REFUNDED -->
+                                    <td>
+                                        <span class="refund-badge">
+                                            <t t-out="line.refunded_qty"/>
+                                        </span>
+                                    </td>
+
+                                    <!-- REFUND QTY INPUT -->
+                                    <t t-if="this.state.mode === 'refund'">
+                                        <td>
+                                            <t t-if="line.qty - line.refunded_qty != 0">
+                                                <input type="number" class="form-control qty-input" t-att-value="line.refund_qty" t-att-max="line.qty - line.refunded_qty" min="0" t-att-disabled="!line.lineSelected or line.qty &lt; 0" t-on-change="(e) => this.onRefundQtyChange(line, e)" />
+                                            </t>
+                                            <t t-else="">
+                                                <span class="fully-refunded">Fully Refunded</span>
+                                            </t>
+                                        </td>
+                                    </t>
+
+                                    <!-- EXCHANGE QTY INPUT -->
+                                    <t t-if="this.state.mode === 'exchange'">
+                                        <td>
+                                            <t t-if="line.qty - line.refunded_qty != 0">
+                                                <input type="number" class="form-control qty-input" t-att-value="line.exchange_qty" t-att-max="line.qty - line.refunded_qty" min="0" t-att-disabled="!line.lineSelected or line.qty &lt; 0" t-on-change="(e) => this.onExchangeQtyChange(line, e)" />
+                                            </t>
+                                            <t t-else="">
+                                                <span class="fully-refunded">Fully Refunded</span>
+                                            </t>
+                                        </td>
+                                    </t>
+
+                                    <!-- SUBTOTAL -->
+                                    <td class="subtotal-text">
+                                        <t t-out="this.formatCurrency(
+                                        (this.state.mode === 'refund' ? line.refund_qty : line.exchange_qty)
+                                        * line.price_unit
+                                        * (1 - ((line.discount || 0) / 100))
+                                    )"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SUMMARY -->
+            <div class="summary-footer">
+                <div class="summary-item">
+                    <span class="summary-label">Selected Lines</span>
+                    <span class="summary-value">
+                        <t t-out="this.state.lines.filter(l => l.lineSelected).length"/>
+                    </span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">
+                        <t t-if="this.state.mode === 'refund'">Total Refund</t>
+                        <t t-if="this.state.mode === 'exchange'">Total Exchange</t>
+                    </span>
+                    <span class="summary-value">
+                        <t t-out="this.formatCurrency(this.totalAmount)"/>
+                    </span>
+                </div>
+            </div>
+
+            <div class="note-wrapper mt-3 px-3">
+                <label class="form-label fw-bold text-muted">
+                    Return Reason (Optional)
+                </label>
+                <textarea class="form-control" rows="2" placeholder="Enter reason for return/exchange..." t-on-change="(e) => this.onNoteChange(e)" style="border-radius: 12px; border: 1px solid #dfe6ff;" />
+            </div>
+
+            <!-- FOOTER -->
+            <t t-set-slot="footer">
+                <div class="dialog-footer-actions">
+                    <button class="btn confirm-btn" t-on-click="this.onConfirm">
+                        <t t-if="this.state.mode === 'refund'">Confirm Refund</t>
+                        <t t-if="this.state.mode === 'exchange'">Confirm Exchange</t>
+                    </button>
+                    <button class="btn cancel-btn" t-on-click="this.onCancel">
+                    Cancel
+                    </button>
+                </div>
+            </t>
+        </Dialog>
+    </t>
+</template>

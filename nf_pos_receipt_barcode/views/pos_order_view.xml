@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_pos_form_school_form" model="ir.ui.view">
+        <field name="name">pos.from.school.view.form.inherit</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="nf_barcode_id" readonly="1" options="{ 'no_open':True }" invisible="not nf_enable_receipt_barcode or is_refund or is_exchange"/>
+            </xpath>
+            <xpath expr="//page[@name='notes']" position="after">
+                <page name="return_exchange_reason" string="Return/Exchange Reason" invisible="not is_refund and not is_exchange">
+                    <field name="nf_return_exchange_reason" readonly="1"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

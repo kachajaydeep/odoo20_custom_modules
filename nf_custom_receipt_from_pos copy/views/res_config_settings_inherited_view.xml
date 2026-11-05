@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id='nf_pos_custom_receipt_config_view_inherit' model='ir.ui.view'>
+        <field name='name'>nf.pos.custom.receipt.config.view.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name='arch' type='xml'>
+            <block id='pos_bills_and_receipts_section' position='inside'>
+                <setting id="nf_stock_info_config" help="Pos allows users to change the receipt layout by selecting a preferred design from the receipt screen">
+                    <field name='nf_custom_receipt_template' />
+                    <field name='nf_receipt_template_id' invisible="not nf_custom_receipt_template" required="nf_custom_receipt_template == 1"/>
+                </setting>
+            </block>
+        </field>
+    </record>
+</odoo>

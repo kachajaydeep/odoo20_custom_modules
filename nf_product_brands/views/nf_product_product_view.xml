@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="nf_product_product_list_inherit_brands" model="ir.ui.view">
+        <field name="name">product.product.list.brands</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_product_tree_view"/>
+        <field name="arch" type="xml">
+
+            <field name="name" position="after">
+                <field name="nf_product_template_brand_enable" column_invisible="1"/>
+                <field name="nf_product_brand_id" invisible="nf_product_template_brand_enable == False" optional="hide" />
+            </field>
+
+        </field>
+    </record>
+
+    <record id="nf_product_product_form_inherit_brands" model="ir.ui.view">
+        <field name="name">product.product.form.brands</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+
+            <field name="default_code" position="after">
+                <field name="nf_product_template_brand_enable" invisible="1"/>
+                <field name="nf_product_brand_id" readonly="1" invisible="nf_product_template_brand_enable == False" />
+            </field>
+
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_product_brand_list_view" model="ir.ui.view">
+        <field name="name">nf.product.brand.list.view</field>
+        <field name="model">product.brands</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="nf_name"/>
+                <field name="nf_sequence"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="nf_product_brand_form_view" model="ir.ui.view">
+        <field name="name">nf.product.brand.form.view</field>
+        <field name="model">product.brands</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <!-- Inactive Ribbon -->
+                    <widget name="web_ribbon"
+                        title="Archived"
+                        bg_color="text-bg-danger"
+                        invisible="active"/>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="nf_name" placeholder="E.g Name"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="nf_sequence"/>
+                        </group>
+                        <group>
+                            <field name="nf_image"
+                                widget="image"
+                                class="oe_avatar"
+                                nolabel="1"/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <notebook>
+                            <page name="nf_producttemplate" string="Products">
+                                <field name="nf_product_ids"/>
+                            </page>
+                            <page name="nf_descriptions" string="Description">
+                                <field name="nf_description"/>
+                            </page>
+                        </notebook>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="nf_product_brand_search_views" model="ir.ui.view">
+        <field name="name">nf.product.brand.search.view</field>
+        <field name="model">product.brands</field>
+        <field name="arch" type="xml">
+            <search>
+
+                <!-- Search Fields -->
+                <field name="nf_name"/>
+                <field name="nf_sequence"/>
+
+                <!-- Filters -->
+                <filter name="filter_active"
+                        string="Active"
+                        domain="[('active','=',True)]"/>
+
+                <filter name="filter_inactive"
+                        string="Inactive"
+                        domain="[('active','=',False)]"/>
+
+                <!-- Group By -->
+                <group>
+                    <filter name="nf_sequence"
+                            context="{'group_by':'nf_sequence'}"
+                            string="Sequence"/>
+
+                    <filter name="active"
+                            context="{'group_by':'active'}"
+                            string="Active"/>
+                </group>
+
+            </search>
+        </field>
+    </record>
+
+    <record id="nf_product_brand_kanban_view" model="ir.ui.view">
+        <field name="name">nf.product.brand.kanban.view</field>
+        <field name="model">product.brands</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="nf_name"/>
+                <field name="nf_image"/>
+                <field name="active"/>
+
+                <templates>
+                    <t t-name="card">
+                        <div class="d-flex justify-content-between align-items-center">
+
+                            <!-- LEFT SIDE -->
+                            <div class="o_kanban_details">
+                                <strong>
+                                    <field name="nf_name"/>
+                                </strong>
+
+                                <div>
+                                    <t t-if="record.active.raw_value">
+                                        <span class="badge bg-success">Active</span>
+                                    </t>
+                                    <t t-else="">
+                                        <span class="badge bg-danger">Inactive</span>
+                                    </t>
+                                </div>
+                            </div>
+
+                            <!-- RIGHT SIDE IMAGE -->
+                            <div>
+                                <field name="nf_image"
+                                    widget="image"
+                                    class="oe_avatar"
+                                    options="{'size': [64, 64]}"/>
+                            </div>
+
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="nf_product_brand_action" model="ir.actions.act_window">
+        <field name="name">Product Brands</field>
+        <field name="res_model">product.brands</field>
+        <field name="view_mode">list,form,kanban</field>
+        <field name="context">{'search_default_filter_active': 1}</field>
+    </record>
+</odoo>

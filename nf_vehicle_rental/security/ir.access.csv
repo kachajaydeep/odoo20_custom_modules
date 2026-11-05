@@ -1,0 +1,14 @@
+id,name,model_id,group_id/id,operation,domain
+nf_vehicle_rental.access_fleet_rent_line_officer,access_fleet_rent_line,fleet.rent.line,nf_vehicle_rental.vehicle_rental_officer_access,cru,
+nf_vehicle_rental.access_rental_location_officer,access_rental_location,rental.location,nf_vehicle_rental.vehicle_rental_officer_access,cru,
+nf_vehicle_rental.access_fleet_rent_officer,access_fleet_rent,fleet.rent,nf_vehicle_rental.vehicle_rental_officer_access,cru,"[('company_id', 'in', company_ids)]"
+nf_vehicle_rental.access_fleet_rent_advance_payment_officer,access_fleet_rent_advance_payment,fleet.rent.advance.payment,nf_vehicle_rental.vehicle_rental_officer_access,cru,
+
+nf_vehicle_rental.access_fleet_rent_line,access_fleet_rent_line,fleet.rent.line,nf_vehicle_rental.vehicle_rental_manager_access,crud,
+nf_vehicle_rental.access_rental_location,access_rental_location,rental.location,nf_vehicle_rental.vehicle_rental_manager_access,crud,
+nf_vehicle_rental.access_fleet_rent,access_fleet_rent,fleet.rent,nf_vehicle_rental.vehicle_rental_manager_access,crud,
+nf_vehicle_rental.access_fleet_rent_advance_payment,access_fleet_rent_advance_payment,fleet.rent.advance.payment,nf_vehicle_rental.vehicle_rental_manager_access,crud,
+
+nf_vehicle_rental.vehicle_rental_multi_company,vehicle_rental_multi_company,fleet.rent,nf_vehicle_rental.vehicle_rental_officer_access,r,"[('company_id', 'in', company_ids)]"
+nf_vehicle_rental.vehicle_rental_see_all,vehicle_rental_see_all,fleet.rent,nf_vehicle_rental.vehicle_rental_manager_access,r,"[(1, '=', 1)]"
+nf_vehicle_rental.vehicle_rental_own,vehicle_rental_own,fleet.rent,nf_vehicle_rental.vehicle_rental_officer_access,r,"['|', ('user_id', '=', user.id), ('user_id', '=', False)]"

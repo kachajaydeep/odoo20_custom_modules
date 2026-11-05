@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>ZATCA Phase 2 E-Invoicing Integration</title>
+        <meta name="description" content="Easily comply with Saudi Arabia's ZATCA (Zakat, Tax and Customs Authority) Phase 2 e-invoicing (FATOORAH) regulations with our seamless ZATCA integration module for Odoo. This app enables businesses in KSA to generate, validate, and automatically send VAT-compliant e-invoices directly from Odoo while meeting all ZATCA Phase 2 clearance and reporting requirements." />
+          <meta name="keywords" content="E-Invoicing, Universal Business Language, Zatca, Saudi Arabia, EDI, CII, UBL, Fatoora, Zatka, ZATCA, E-Invoice,EDI Format, Electronic Invoice, Saudi Arabia E-Invoice,,E-invoice implementation for Saudi Arabia; Integration with ZATCA,,Zatka integratoin, Zatca E-invoice, Zatca E-invoicing, Zatca UBL, Zatca CII, Zatca Fatoora,,Zatca EDI, Zatca Electronic Invoice, Zatca Saudi Arabia E-Invoice,,Fatoora integratoin, Fatoora E-invoice, Fatoora E-invoicing, Fatoora UBL, Fatoora CII, Fatoora Zatca,,Fatoora EDI, Fatoora Electronic Invoice, Fatoora Saudi Arabia E-Invoice,,UBL integratoin, UBL E-invoice, UBL E-invoicing, UBL Zatca, UBL CII, UBL Fatoora,,UBL EDI, UBL Electronic Invoice, UBL Saudi Arabia E-Invoice,,Fatoora Portal, EGS (Electronic Generation System), QR codes, unique invoice identifiers, Real-time validation, Digital signatures, Credit/Debit Notes, B2B/B2C invoicing, and Cloud solutions,,KSA, KSA ZATCA, KSA Fatoora, KSA UBL, KSA CII, KSA EDI, KSA Electronic Invoice, KSA E-invoice, KSA E-invoicing,KSA VAT, KSA VAT Compliance, KSA Tax Authority, KSA E-invoicing regulations,KSA E-invoicing solution, KSA E-invoicing software, KSA E-invoicing system,KSA E-invoicing integration, KSA E-invoicing module, KSA E-invoicing Odoo,KSA E-invoicing app, KSA E-invoicing implementation,KSA E-invoicing automation, KSA E-invoicing management,KSA E-invoicing reporting, KSA E-invoicing tracking,KSA E-invoicing compliance, KSA E-invoicing requirements,KSA E-invoicing standards, KSA E-invoicing guidelines,KSA E-invoicing best practices, KSA E-invoicing tips,KSA E-invoicing tricks, KSA E-invoicing hacks,KSA E-invoicing resources, KSA E-invoicing tools,KSA E-invoicing services, KSA E-invoicing support,KSA E-invoicing consulting, KSA E-invoicing training,KSA E-invoicing certification, KSA E-invoicing accreditation,KSA E-invoicing partnership, KSA E-invoicing collaboration,KSA E-invoicing community, KSA E-invoicing forum,KSA E-invoicing blog, KSA E-invoicing news,KSA E-invoicing updates, KSA E-invoicing trends,KSA E-invoicing insights, KSA E-invoicing analysis,,KSA Fatoorah, KSA Fatoorah integration, KSA Fatoorah module, KSA Fatoorah app,KSA Fatoorah implementation, KSA Fatoorah automation, KSA Fatoorah management,KSA Fatoorah reporting, KSA Fatoorah tracking, KSA Fatoorah compliance,KSA Fatoorah requirements, KSA Fatoorah standards, KSA Fatoorah guidelines,KSA Fatoorah best practices, KSA Fatoorah tips, KSA Fatoorah tricks,KSA Fatoorah hacks, KSA Fatoorah resources,KSA Fatoorah tools, KSA Fatoorah services, KSA Fatoorah support,KSA Fatoorah consulting, KSA Fatoorah training, KSA Fatoorah certification,KSA Fatoorah accreditation, KSA Fatoorah partnership,KSA Fatoorah collaboration, KSA Fatoorah community,KSA Fatoorah forum, KSA Fatoorah blog,,,KSA e-invoicing,,KSA ZATCA compliance,,ZATCA Phase 2,,ZATCA Phase 2 integration,,Fatoora system KSA,,Fatoora compliance Saudi Arabia,,Fatoora solution provider,,Fatoorah Saudi e-invoice,,Fatoorah ZATCA KSA,,الفاتورة الإلكترونية السعودية,,نظام فاتورة هيئة الزكاة,,فاتورة المرحلة الثانية ZATCA,,الفاتورة الإلكترونية ZATCA,,الفاتوره في السعودية,,فاتورة المرحلة الثانية,,ZATCA Phase 2 integration in Odoo 18,Odoo Saudi Arabia e-invoicing compliance,ZATCA e-invoicing Odoo 18 module,FATOORAH Odoo integration,Odoo 18 VAT compliance Saudi Arabia,ZATCA Phase 2 electronic invoicing solution,E-invoice integration Odoo KSA,,Fatoorah compliance Odoo,Odoo ZATCA certification,ZATCA e-invoice automation Odoo,Odoo ZATCA Phase 2 module">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    </head>
+
+    <body>
+        <section id='nf_header'>
+            <div class=" p-1 ">
+                <div class="nf-text-center text-center" style='margin: 2rem 0;'>
+                    <div class="row" style="align-items: center;">
+                        <div
+                            class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+                            <div>
+                                <img class="img-fluid" src="name_logo.png" />
+                            </div>
+                        </div>
+                        <div
+                            class="col-xl-8 mr-auto col-lg-8 col-md-8 col-sm-12 col-12">
+                            <div class="mt-4 d-flex flex-row-reverse">
+                                <div style="display:flex">
+                                    <div class="btn btn-lg btn-info"
+                                        style="padding: 10px 30px; background-color: #4c84ff; color: #fff; border-top-left-radius: 25px; border-bottom-right-radius: 25px; margin-right: 10px; text-transform: capitalize;">
+                                        Community
+                                    </div>
+                                    <div class="btn btn-lg btn-info"
+                                        style="padding: 10px 30px; background-color: #4c84ff; color: #fff; border-top-left-radius: 25px; border-bottom-right-radius: 25px; margin-right: 10px; text-transform: capitalize;">
+                                        Enterprise
+                                    </div>
+                                    <div class="btn btn-lg btn-info"
+                                        style="padding: 10px 30px; background-color: #4c84ff; color: #fff; border-top-left-radius: 25px; border-bottom-right-radius: 25px; margin-right: 10px; text-transform: capitalize;">
+                                        Odoo.Sh
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <hr />
+            </div>
+        </section>
+        <section class='nft_header'>
+            <div class='row'>
+                <div class='col-12 col-mg-12 col-lg-12 col-xl-12'>
+                    <div class='text-center'>
+                        <h3 style="color: #330066;">ZATCA Phase 2 E-Invoicing Integration</h3>
+                        <img src="title.png" style="width: 45%; height: 30px;" />
+                        <p style="margin: 15px; font-size: 30px;">
+                            Easily comply with <b>Saudi Arabia's ZATCA (Zakat, Tax and Customs Authority) Phase 2 e-invoicing (FATOORAH) regulations</b> with our seamless <b>ZATCA integration module for Odoo</b>. This app enables businesses in KSA to generate, validate, and automatically send <b>VAT-compliant e-invoices</b> directly from Odoo while meeting all ZATCA Phase 2 clearance and reporting requirements.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!--            <div style="text-align: center;">-->
+<!--                <img src="Days Free Support.png" style="width: 56%; height: 95%; margin-top: 50px; ">-->
+<!--            </div>-->
+        <section id='nf_video'>
+                <div class>
+                    <div class="nf-video"
+                        style="margin-top:100px; margin-bottom: 50px;">
+                        <div class="text-center"
+                            style="font-size: 40px; font-weight: 600; border-bottom: 6px double #222; width: fit-content; margin: 0px auto; margin-bottom: 70px;">
+                            Related Video</div>
+                        <div class="row">
+                            <div class="col-4 col-md-4 col-lg-4 col-12"></div>
+                            <div class="col-4 col-md-4 col-lg-4 col-12">
+                                <div
+                                    style="border-radius: 15px; border: 3px solid red;padding: 5px">
+                                    <a href="https://youtu.be/VajRQuUsahc"
+                                        target="_blank">
+                                        <img
+                                            style="width: 30.7%; z-index: 0;height: 56%;border-radius: 15px;"
+                                            class="position-absolute"
+                                            src='NextFlow.png' />
+                                        <img
+                                            style=" width: 22%;margin: 12% 39%;z-index: 1;"
+                                            class="position-relative"
+                                            src="youtube.png" />
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-4 col-md-4 col-lg-4 col-12"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <section id='nf_hot_feature'>
+        <div>
+            <div class="nf-hot-feature" style="margin-top:100px; margin-bottom: 50px;">
+                <div class="text-center"
+                    style="font-size: 40px; font-weight: 600; border-bottom: 6px double #222; width: fit-content; margin: 0px auto; margin-bottom: 50px;">
+                    Hot Features
+                </div>
+                <div class="shadow-lg">
+                    <div class="row">
+                        <div class="col-md-12 mt-2 mb-2 col-12">
+                            <div style="line-height: 25px;" class="pl-3 pb-2 border-bottom">
+                                <span class="fa fa-location-arrow"
+                                    style="color: #4c84ff; transform: rotate(50deg); font-size: 50px; vertical-align: middle; margin-right: 30px; border-radius: 100%;"></span>
+                                <span
+                                    style="font-size: 20px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">
+                                 Streamlined onboarding, renewal, and compliance certificate management</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-2 mb-2 col-12">
+                            <div style="line-height: 25px;" class="pl-3 pb-2 border-bottom">
+                                <span class="fa fa-location-arrow" style="color: #4c84ff; transform: rotate(50deg); font-size: 50px; vertical-align: middle; margin-right: 30px; border-radius: 100%;"></span>
+                                <span style="font-size: 20px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">
+                                    Configure multiple sales journals with ZATCA compliance directly on company</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-2 mb-2 col-12">
+                            <div style="line-height: 25px;" class="pl-3 pb-2 border-bottom">
+                                <span class="fa fa-location-arrow"
+                                    style="color: #4c84ff; transform: rotate(50deg); font-size: 50px; vertical-align: middle; margin-right: 30px; border-radius: 100%;"></span>
+                                <span
+                                    style="font-size: 20px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">
+                                 ZATCA VAT E-Invoice</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-2 mb-2 col-12">
+                            <div style="line-height: 25px;" class="pl-3 pb-2 border-bottom">
+                                <span class="fa fa-location-arrow"
+                                    style="color: #4c84ff; transform: rotate(50deg); font-size: 50px; vertical-align: middle; margin-right: 30px; border-radius: 100%;"></span>
+                                <span
+                                    style="font-size: 20px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">
+                                 Automatically send invoices to ZATCA upon confirmation</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-2 mb-2 col-12">
+                            <div style="line-height: 25px;" class="pl-3 pb-2 border-bottom">
+                                <span class="fa fa-location-arrow"
+                                    style="color: #4c84ff; transform: rotate(50deg); font-size: 50px; vertical-align: middle; margin-right: 30px; border-radius: 100%;"></span>
+                                <span
+                                    style="font-size: 20px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">
+                                 Supports Standard & Simplified Tax Invoices</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-2 mb-2 col-12">
+                            <div style="line-height: 25px;" class="pl-3 pb-2 border-bottom">
+                                <span class="fa fa-location-arrow"
+                                    style="color: #4c84ff; transform: rotate(50deg); font-size: 50px; vertical-align: middle; margin-right: 30px; border-radius: 100%;"></span>
+                                <span
+                                    style="font-size: 20px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">
+                                 Stay 100% compliant with Saudi Arabia VAT law</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-2 mb-2 col-12">
+                            <div style="line-height: 25px;" class="pl-3 pb-2 border-bottom">
+                                <span class="fa fa-location-arrow"
+                                    style="color: #4c84ff; transform: rotate(50deg); font-size: 50px; vertical-align: middle; margin-right: 30px; border-radius: 100%;"></span>
+                                <span
+                                    style="font-size: 20px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">
+                                 Save time with automation of ZATCA clearance</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <section id="nf-menus">
+            <!-- Nav pills -->
+            <div class="main-div">
+                <div class="sticky-top">
+                    <div>
+                        <ul class="nav nav-tabs justify-content-center"  data-tabs="tabs" role="tablist" style="background-color: #fff; padding-top: 10px;">
+                            <li class="nav-item" style="border-top-right-radius: 10px; border: 1px solid #ddd; border-top-left-radius: 10px; background-color: #e6ccff; font-weight: 600; font-size: 14px; margin: 0 3px;">
+                                <a class="nav-link active" onMouseOver="this.style.color='blue'" onMouseOut="this.style.color='#333'" data-bs-toggle="tab"  href="#Features" style="color: #333; padding: 13px 20px; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                                    <i class="fa fa-fw fa-gear"></i> Features
+                                </a>
+                            </li>
+                            <li class="nav-item" style=" border-top-right-radius: 10px; border-top-left-radius: 10px; border: 1px solid #ddd; background-color: #e6ccff; font-weight: 600; font-size: 14px; margin: 0 3px;">
+                                <a class="nav-link " onMouseOver="this.style.color='blue'" onMouseOut="this.style.color='#333'" data-bs-toggle="tab"  href="#Setup" style="color: #333; padding: 13px 20px; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                                    <i class="fa fa-fw fa-desktop"></i> Screenshots
+                                </a>
+                            </li>
+                            <li class="nav-item" style="border-top-right-radius: 10px; border: 1px solid #ddd; border-top-left-radius: 10px; background-color: #e6ccff; font-weight: 600; font-size: 14px; margin: 0 3px;">
+                                <a class="nav-link" onMouseOver="this.style.color='blue'" onMouseOut="this.style.color='#333'" data-bs-toggle="tab"  href="#FAQs" style="color: #333; padding: 13px 20px; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                                    <i class="fa fa-fw fa-gear"></i> FAQs
+                                </a>
+                            </li>
+                            <li class="nav-item" style=" border-top-right-radius: 10px; border-top-left-radius: 10px; border: 1px solid #ddd; background-color: #e6ccff; font-weight: 600; font-size: 14px; margin: 0 3px;">
+                                <a class="nav-link" onMouseOver="this.style.color='blue'" onMouseOut="this.style.color='#333'" data-bs-toggle="tab"  href="#Releases" style="color: #333; padding: 13px 20px; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                                    <i class="fa fa-fw fa-send"></i> Releases
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div id="Features" class="tab-pane active"  style="overflow: auto;">
+                        <div class="row">
+                            <div class="col-12 col-md-4 col-lg-4 col-xl-4 p-4 d-flex" >
+                                <div class="card p-3" style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); transition: 0.3s; width: 95%;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
+                                    <h5><b>ZATCA Onboarding & Certificates</b></h5>
+                                    <ul>
+                                        <li>Onboarding request to submit CSR and obtain Compliance CSID</li>
+                                        <li>Onboarding request to submit Compliance CSID + Request ID and obtain Production CSID</li>
+                                        <li>Renewal request to submit Compliance CSID + Request ID and obtain a new Production CSID</li>
+                                        <li>Perform ZATCA Compliance Checks before going live</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 col-lg-4 col-xl-4 p-4 d-flex" >
+                                <div class="card p-3" style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); transition: 0.3s; width: 95%;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
+                                    <h5><b>Invoice Submission</b></h5>
+                                    <ul>
+                                        <li>Submission of Standard e-invoices for Clearance via ZATCA API</li>
+                                        <li>Submission of Simplified e-invoices for Reporting</li>
+                                        <li>Automatically send invoices to ZATCA when confirming in Odoo</li>
+                                        <li>Send multiple invoices in bulk directly to ZATCA</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 col-lg-4 col-xl-4 p-4 d-flex" >
+                                <div class="card p-3" style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); transition: 0.3s; width: 95%;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
+                                    <h5><b>ZATCA VAT Invoice Report</b></h5>
+                                    <ul>
+                                        <li>Generate ZATCA VAT Invoice Report</li>
+                                        <li>Invoice reports include QR Code</li>
+                                        <li>Support for both Simplified & Standard Tax Invoices</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 col-lg-4 col-xl-4 p-4 d-flex" >
+                                <div class="card p-3" style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); transition: 0.3s; width: 95%;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
+                                    <h5><b>Benefits</b></h5>
+                                    <ul>
+                                        <li>Fully ZATCA Phase 2 compliant (FATOORAH e-invoicing regulations)</li>
+                                        <li>Streamlined onboarding, renewal, and compliance certificate management</li>
+                                        <li>Automates invoice clearance and reporting to ZATCA</li>
+                                        <li>Reduces manual work and eliminates compliance errors</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="FAQs" class="tab-pane fade"  style="overflow: auto;">
+                        <br />
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="mt-3 mb-3 shadow-lg d-flex" style=" padding: 15px 30px; border-radius: 10px;">
+                                    <span class="fa fa-hand-o-right text-primary" style="color: #4c84ff;  font-size: 30px; vertical-align: middle;  border-radius: 100%;"></span>
+                                    <div style="font-size: 20px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">
+                                        <div class="pl-1">
+                                            <p>
+                                                <b class="pl-1"> How can we take support Or Customization Request ?</b>
+                                            </p>
+                                            <p>
+                                                <span class="fa fa-arrow-right"></span> Please Contact us at <a href="mailto:support@nextflow.in">support@nextflow.in</a> for Support/Customization.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mt-3 mb-3 shadow-lg d-flex" style=" padding: 15px 30px; border-radius: 10px;">
+                                    <span class="fa fa-hand-o-right text-primary" style="color: #4c84ff;  font-size: 30px; vertical-align: middle;  border-radius: 100%;"></span>
+                                    <div style="font-size: 20px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">
+                                        <div class="pl-1">
+                                            <p>
+                                                <b class="pl-1">
+                                                     Can we get Free support ?
+                                                    </b>
+                                            </p>
+                                            <p>
+                                                <span class="fa fa-arrow-right"></span> <b>Yes</b>, You can get free support for 90 Day's.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mt-3 mb-3 shadow-lg d-flex" style=" padding: 15px 30px; border-radius: 10px;">
+                                    <span class="fa fa-hand-o-right text-primary" style="color: #4c84ff;  font-size: 30px; vertical-align: middle;  border-radius: 100%;"></span>
+                                    <div style="font-size: 20px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">
+                                        <div class="pl-1">
+                                            <p>
+                                                <b class="pl-1"> This app is working with Odoo Community and Enterprise ? </b>
+                                            </p>
+                                            <p>
+                                                <span class="fa fa-arrow-right"></span> <b>Yes</b>, can use with Community and Enterprise both.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="Setup" class="tab-pane fade" >
+                        <div class="tab-content" style="overflow: auto;">
+
+                            <div class="row  overflow-auto" >
+                                <div class="col-md-12">
+                                    <div class="mt-3 mb-3 text-center">
+                                        <div style="border-radius: 10px;text-align: center; font-size: 20px; font-weight: 600;font-style: italic;">
+                                            <b>APPS => Zatca Integration Phase 2 => Activate</b>
+    <!--                                            <p style="font-size: 18px; font-weight: 400; font-family: monospace">-->
+
+    <!--                                            </p>-->
+                                        </div>
+                                        <img src="ss/img.png" class="img-fluid mt-3 mb-3" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row  overflow-auto" >
+                                <div class="col-md-12">
+                                    <div class="mt-3 mb-3 text-center">
+                                        <div style="border-radius: 10px;text-align: center; font-size: 20px; font-weight: 600;font-style: italic;">
+                                            <b>Settings => Invoicing => Zatca E-Invoicing Settings</b>
+                                            <p style="font-size: 18px; font-weight: 400; font-family: monospace">
+                                                Here you can set API Mode of the Zatca.
+                                            </p>
+                                        </div>
+                                        <img src="ss/img_1.png" class="img-fluid mt-3 mb-3" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row  overflow-auto" >
+                                <div class="col-md-12">
+                                    <div class="mt-3 mb-3 text-center">
+                                        <div style="border-radius: 10px;text-align: center; font-size: 20px; font-weight: 600;font-style: italic;">
+                                            <b>Settings => Invoicing => Fiscal Localization</b>
+                                            <p style="font-size: 18px; font-weight: 400; font-family: monospace">
+                                                User must have Saudi Arabia Fiscal Localization package.
+                                            </p>
+                                        </div>
+                                        <img src="ss/img_2.png" class="img-fluid mt-3 mb-3" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row  overflow-auto" >
+                                <div class="col-md-12">
+                                    <div class="mt-3 mb-3 text-center">
+                                        <div style="border-radius: 10px;text-align: center; font-size: 20px; font-weight: 600;font-style: italic;">
+                                            <b>Settings => Users & Companies => Company => Open Company</b>
+                                            <p style="font-size: 18px; font-weight: 400; font-family: monospace">
+                                                Here you can set Zatca details for the company.
+                                            </p>
+                                        </div>
+                                        <img src="ss/img_3.png" class="img-fluid mt-3 mb-3" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row  overflow-auto" >
+                                <div class="col-md-12">
+                                    <div class="mt-3 mb-3 text-center">
+                                        <div style="border-radius: 10px;text-align: center; font-size: 20px; font-weight: 600;font-style: italic;">
+                                            <b>Onboarding the Journals</b>
+                                            <p style="font-size: 18px; font-weight: 400; font-family: monospace">
+                                                On the Zatca tab of the Company, you can onboard the journal.
+                                                <br/>
+                                                Clicking on the <b>Onboard Journal</b> button on the list of Sales Journal will open a pop-up for the OTP.
+                                            </p>
+                                        </div>
+                                        <img src="ss/img_4.png" class="img-fluid mt-3 mb-3" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row  overflow-auto" >
+                                <div class="col-md-12">
+                                    <div class="mt-3 mb-3 text-center">
+                                        <div style="border-radius: 10px;text-align: center; font-size: 20px; font-weight: 600;font-style: italic;">
+                                            <b></b>
+                                            <p style="font-size: 18px; font-weight: 400; font-family: monospace">
+                                                The user can receive an OTP on the phone number which is configured on the company's general information.
+                                                <br/>
+                                                After entering OTP and clicking on the <b>Request</b> button, the journal will be onboarded.
+                                            </p>
+                                        </div>
+                                        <img src="ss/img_5.png" class="img-fluid mt-3 mb-3" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row  overflow-auto" >
+                                <div class="col-md-12">
+                                    <div class="mt-3 mb-3 text-center">
+                                        <div style="border-radius: 10px;text-align: center; font-size: 20px; font-weight: 600;font-style: italic;">
+                                            <b></b>
+                                            <p style="font-size: 18px; font-weight: 400; font-family: monospace">
+                                                See, Journal will be onboarded successfully.
+                                                <br/>
+                                                The user also can <b>Re-Onboard</b> the Journal or <b>Renew the Production CSID</b>.
+                                            </p>
+                                        </div>
+                                        <img src="ss/img_6.png" class="img-fluid mt-3 mb-3" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row  overflow-auto" >
+                                <div class="col-md-12">
+                                    <div class="mt-3 mb-3 text-center">
+                                        <div style="border-radius: 10px;text-align: center; font-size: 20px; font-weight: 600;font-style: italic;">
+                                            <b></b>
+                                            <p style="font-size: 18px; font-weight: 400; font-family: monospace">
+                                                See, the onboarded journal details for ZATCA by clicking on the Journal
+                                            </p>
+                                        </div>
+                                        <img src="ss/img_7.png" class="img-fluid mt-3 mb-3" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row  overflow-auto" >
+                                <div class="col-md-12">
+                                    <div class="mt-3 mb-3 text-center">
+                                        <div style="border-radius: 10px;text-align: center; font-size: 20px; font-weight: 600;font-style: italic;">
+                                            <b></b>
+                                            <p style="font-size: 18px; font-weight: 400; font-family: monospace">
+                                                For submitting the Invoice to ZATCA portal, user also need to have some details of the customer
+                                            </p>
+                                        </div>
+                                        <img src="ss/img_8.png" class="img-fluid mt-3 mb-3" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row  overflow-auto" >
+                                <div class="col-md-12">
+                                    <div class="mt-3 mb-3 text-center">
+                                        <div style="border-radius: 10px;text-align: center; font-size: 20px; font-weight: 600;font-style: italic;">
+                                            <b>Creating a creating and confirming the invoice, system will auto Submit to the ZATCA Portal.</b>
+<!--                                            <p style="font-size: 18px; font-weight: 400; font-family: monospace">-->
+<!--                                                -->
+<!--                                            </p>-->
+                                        </div>
+                                        <img src="ss/img_9.png" class="img-fluid mt-3 mb-3" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row  overflow-auto" >
+                                <div class="col-md-12">
+                                    <div class="mt-3 mb-3 text-center">
+                                        <div style="border-radius: 10px;text-align: center; font-size: 20px; font-weight: 600;font-style: italic;">
+                                            <b>ZATCA VAT Invoice</b>
+<!--                                            <p style="font-size: 18px; font-weight: 400; font-family: monospace">-->
+<!--                                                -->
+<!--                                            </p>-->
+                                        </div>
+                                        <img src="ss/img_10.png" class="img-fluid mt-3 mb-3" />
+                                        <img src="ss/img_11.png" class="img-fluid mt-3 mb-3" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row  overflow-auto" >
+                                <div class="col-md-12">
+                                    <div class="mt-3 mb-3 text-center">
+                                        <div style="border-radius: 10px;text-align: center; font-size: 20px; font-weight: 600;font-style: italic;">
+                                            <b>ZATCA VAT Invoice QR Code Scan Result</b>
+                                            <p style="font-size: 18px; font-weight: 400; font-family: monospace">
+                                                Here you can show the QR code scan result.
+                                            </p>
+                                        </div>
+                                        <img src="ss/img_12.png" class="img-fluid mt-3 mb-3" />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                   <div id="Releases" class="tab-pane fade"  style="overflow: auto;">
+                        <br />
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="mt-3 mb-3 sh_content shadow rounded bg-white" style="padding: 20px;">
+                                    <span class="fa fa-hand-o-right" style="color: #4c84ff; font-size: 35px; vertical-align: middle; margin-right: 20px; border-radius: 100%;"></span>
+
+                                    <span style="font-size: 20px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">Releases
+                                        on 28<sup>th</sup> August 2025</span>
+                                    <br />
+                                    <p style="padding: 20px; padding-bottom: 0px;">
+                                        <span class="badge mr-2 bg-success" style=" padding: 5px 15px; border-radius: 3px; color: #fff; font-size: 9px; text-transform: uppercase; font-weight: bold;">
+                                            Initial
+                                        </span>
+                                        <span style="font-size: 17px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">
+                                            Version 18.0.1 | Initial Released.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="nf-multi-language text-center mt-5">
+        <h3>Multi Language</h3>
+        <img src="title.png" style="width: 45%; height: 30px;" />
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="img" style="text-align: center;">
+                    <img class="rounded" src="eng.png" title="English" alt="english" style="margin: 10px 10px; border-radius: 0.25rem !important; height: 90px; margin-right: 20px; width: 90px;" />
+                    <img class="rounded" src="ger.png" title="Germany" alt="germany" style="margin: 10px 10px; border-radius: 0.25rem !important; height: 90px; margin-right: 20px; width: 90px;" />
+                    <img class="rounded" src="arb.png" title="Arab" alt="arab" style="margin: 10px 10px; border-radius: 0.25rem !important; height: 90px; margin-right: 20px; width: 90px;" />
+                    <img class="rounded" src="chi.png" title="Chinese" alt="Chinese" style="margin: 10px 10px; margin-left: -10px; border-radius: 0.25rem !important; height: 110px; width: 115px;" />
+                    <img class="rounded" src="fre.png" title="French" alt="French" style="margin: 10px 10px; margin-left: -20px; border-radius: 0.25rem !important; height: 110px; width: 115px;" />
+                </div>
+            </div>
+        </div>
+    </section>
+        <section  class="nft_support text-center mt-5">
+         <h3>Support</h3>
+        <img src="title.png" style="width: 45%; height: 30px;" />
+        <div class="">
+            <div class="row">
+                <div class="col-12 col-md-3 col-lg-3 col-xl-3"></div>
+                <div class="col-12 col-md-3 col-lg-3 col-xl-3">
+                    <div class="text-center" style="background-color: #d39e00; border-radius: 10px; min-height: 100px; padding: 20px; font-size: 17px; font-weight: 600;">
+                        <div style="margin-bottom: 10px;">
+                            <span class="fa fa-envelope" style="font-size: 50px;" ></span>
+                        </div>
+                        <span style="font-size: 18px;">support@nextflow.in</span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 col-lg-3 col-xl-3">
+                    <div class="text-center" style="background-color: #e83e8c; border-radius: 10px; min-height: 100px; padding: 20px; font-size: 17px; font-weight: 600;">
+                        <div>
+                            <img src="support.png" />
+                        </div>
+                        +91 7383203034
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 col-lg-3 col-xl-3"></div>
+            </div>
+        </div>
+    </section>
+
+        <section id='nf_services' class="mt-5 o_teaser_blocks s_three_columns o_colored_level o_cc o_cc1 pb80 ">
+        <div class="nf-services text-center">
+           <h3>
+               Our Services
+           </h3>
+           <img src="title.png" style="width: 45%; height: 30px;" />
+
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-3 col-lg-3 col-xl-3">
+                <div class="text-center" style="background-color: #ff6b6b; border-radius: 10px; min-height: 100px; padding: 20px; font-size: 17px; font-weight: 600;">
+                    <div style="padding: 10px;">
+                        <i class="fa fa-refresh" style="font-size: 50px;" ></i>
+                    </div>
+                    Odoo Migration
+                </div>
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 col-xl-3">
+                <div class="text-center" style="background-color: #e4bbfb; border-radius: 10px; min-height: 100px; padding: 20px; font-size: 17px; font-weight: 600;">
+                    <div style="padding: 10px;">
+                        <i class="fa fa-wrench" style="font-size: 50px;" ></i>
+                    </div>
+                    Odoo Customization
+                </div>
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 col-xl-3">
+                <div class="text-center" style="background-color: #cff59a; border-radius: 10px; min-height: 100px; padding: 20px; font-size: 17px; font-weight: 600;">
+                    <div style="padding: 10px;">
+                        <i class="fa fa-user" style="font-size: 50px;" ></i>
+                    </div>
+                    Support & Maintenance
+                </div>
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 col-xl-3">
+                <div class="text-center" style="background-color: #6462CD; border-radius: 10px; min-height: 100px; padding: 20px; font-size: 17px; font-weight: 600;">
+                    <div style="padding: 10px;">
+                        <i class="fa fa-cogs" style="font-size: 50px;" ></i>
+                    </div>
+                    Odoo Implementation
+                </div>
+            </div>
+        </div>
+    </section>
+        <section id='nf_multi-language ' class="p-3">
+        <div class="">
+            <div class=" nf-related text-center pt-5">
+                <h3 class="" >
+                    Apps for you</h3>
+           <img src="title.png" style="width: 45%; height: 30px;" />
+
+                <div class="row" style="margin-top: 50px;">
+                    <div class="col-md-4 col-12 text-center">
+                        <div>
+                            <a href="https://apps.odoo.com/apps/modules/15.0/POSCustomerCreationOffline/" style="text-decoration: none;" target="_blank">
+                                <img src="pos_create_customer.png" class="img-fluid" style="object-fit: cover;" />
+                                <h3 class="mt-3" style="font-variant: small-caps; color: #4c84ff;"> POS Customer Creation </h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12 text-center">
+                        <div>
+                            <a href="https://apps.odoo.com/apps/modules/15.0/nf_pos_receipt_a4_size/" style="text-decoration: none;" target="_blank">
+                                <img src="pos_a4_size_receipt.png" class="img-fluid" style=" object-fit: cover;" />
+                                <h3 class="mt-3" style="font-variant: small-caps; color: #4c84ff;"> POS A4 size Receipt
+                                </h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12 text-center">
+                        <div>
+                            <a href="https://apps.odoo.com/apps/modules/14.0/nf_pos_price_to_weight/" style="text-decoration: none;" target="_blank">
+                                <img src="pos_price_to_weight.png" class="img-fluid" style="object-fit: cover;" />
+                                <h3 class="mt-3" style="font-variant: small-caps; color: #4c84ff;"> Pos Price to Weight
+                                </h3>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

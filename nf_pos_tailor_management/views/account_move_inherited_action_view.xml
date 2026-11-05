@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_action_account_move_form" model="ir.actions.act_window">
+        <field name="name">Orders</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="account.view_move_form"/>
+    </record>
+</odoo>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="external_layout_standard_zatca">
+        <t t-if="not company">
+            <!-- Multicompany -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id"/>
+            </t>
+            <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-else="else">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+        </t>
+        <t t-set="company" t-value="company.with_context(lang='en_US')"/>
+        <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+            <div class="first-page">
+                <div class="row" style="font-size: 14px;">
+                    <div class="col-4" name="company_address">
+                        <p>
+                            <span t-field="company.name"/>
+                            <br/>
+                            <span t-field="company.country_id"/>, <span t-field="company.city"/> <span t-field="company.zip"/>
+                            <br/>
+                            <t t-if="company.partner_id.vat">
+                                Vat Number: <span t-field="company.partner_id.vat"/>
+                                <br/>
+                            </t>
+                            Company ID: <span t-field="company.company_registry"/><br/>
+                        </p>
+                    </div>
+                    <div class="col-4 text-center" name="qr_code">
+                        <t t-if="company.logo">
+                            <img t-att-src="image_data_uri(company.logo)" style="max-height: 45px;" alt="Logo"/>
+                            <br/>
+                        </t>
+                        <br/>
+                        <div class="text-center" style="background-color:#FFF;">
+                            <div>
+                                <img t-if="o.l10n_sa_qr_code_str"
+                                     t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s'%('QR', quote_plus(o.l10n_sa_qr_code_str), 150, 150)"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4" name="company_address" dir="rtl">
+                        <t t-set="o_sec" t-value="o.with_context(lang='ar_001')"/>
+                        <p class="text-end">
+                            <span t-field="o_sec.company_id.arabic_name"/>
+                            <br/>
+                            <span t-field="o_sec.company_id.country_id"/>,<span t-field="o_sec.company_id.arabic_city"/> <span t-field="company.zip"/>
+                            
+                            <br/>
+                            <t class="text-end" t-if="o_sec.company_id.partner_id.vat">
+                                الرقم الضريبي:
+                                <span t-field="o_sec.company_id.partner_id.vat"/>
+                                <br/>
+                            </t>
+                            معرف الشركة:
+                            <span t-field="o.company_id.company_registry"/>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id " t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <t t-out="0"/>
+        </div>
+
+        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+            <div class="last-page">
+                <div class="row" style="font-size: 14px;">
+                    <div class="col-6">
+                        <p>
+                            Tel: <span t-field="company.phone"/><br/>
+                            <span t-field="company.email"/><br/>
+                            <a><span t-field="company.website"/></a>
+                        </p>
+                    </div>
+                    <div class="col-6" dir="rtl">
+                        <t t-set="o_sec" t-value="o.with_context(lang='ar_001')"/>
+                        <p class="text-end">
+                            هاتف: <span t-field="o_sec.company_id.phone"/><br/>
+                            <span t-field="o_sec.company_id.email"/><br/>
+                            <a><span t-field="company.website"/></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="font-size: 14px;">
+                <div t-if="report_type=='pdf'" class="text-muted">
+                    Page:
+                    <span class="page"/>
+                    of
+                    <span class="topage"/>
+                </div>
+            </div>
+        </div>
+
+    </template>
+</odoo>

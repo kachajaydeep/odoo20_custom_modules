@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Point of Sale Product Lot Selection</title>
+    <meta name="description" content="Manage product lots directly in Odoo Point of Sale. Select multiple lots, enter custom quantities, view available quantities in real time, print lot details, and simplify refunds.">
+    <meta name="keywords" content="odoo pos odoo point of sale pos lot selection product lot selection lot management pos lot management odoo lot number pos lot number serial number pos odoo inventory lot pos inventory lot tracking product tracking pos refund lot odoo pos module odoo pos lot multiple lot selection custom lot quantity odoo pos lot selection odoo pos module odoo point of sale odoo inventory lot management odoo pos customization odoo pos customization odoo developer odoo developer odoo development company odoo development company odoo pos solution odoo pos solution odoo inventory solution odoo implementation odoo implementation odoo partner odoo partner odoo pos development odoo pos development odoo lot tracking odoo serial number tracking pos lot management pos inventory management custom odoo pos module custom odoo module">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap 5 Bundle JS (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+</head>
+
+<body style="margin:0; background-color:#ffffff; font-family:'Segoe UI',sans-serif; color:#2d3748;">
+
+    <!-- HERO -->
+    <section style="margin-top: 40px;">
+        <div class="container-fluid" style="max-width:1400px; margin:auto;">
+            <div class="row align-items-center gx-5 gy-5" style="background-color:#ffffff; border-radius:30px;">
+
+                <!-- LEFT CONTENT -->
+                <div class="col-lg-6">
+
+                    <!-- TOP BADGE -->
+                    <div class="d-inline-flex align-items-center"
+                        style="background-color:#f3f0ff; color:#5a35d9; padding:8px 16px; border-radius:30px; font-size:14px; font-weight:700;">
+                        <div
+                            style="width:8px; height:8px; background-color:#6c47ff; border-radius:50%; margin-right:10px;">
+                        </div>
+                        Odoo Module · Point of Sale Product Lot Selection
+                    </div>
+
+                    <!-- MAIN HEADING -->
+                    <h1
+                        style="font-size:clamp(38px,5vw,64px); font-weight:800; line-height:1.1; color:#4b5563; margin-top:28px; margin-bottom:24px; letter-spacing:-1px;">
+                        Point of Sale Product Lot Selection
+                    </h1>
+
+                    <!-- DESCRIPTION -->
+                    <p
+                        style="font-size:17px; color:#8a94a6; line-height:1.9; font-weight:600; max-width:620px; margin-bottom:35px;">
+                        <b>Point of Sale Product Lot Selection</b> is a powerful Odoo POS enhancement that makes it easier to manage and track lot-tracked products directly from the Point of Sale interface.
+                        <br/>
+                        When selling products that are managed by lots, selecting the correct lot and quantity can be time-consuming. This module provides a simple and efficient workflow to <b>select lots, view available quantities, enter custom quantities, select multiple lots, and manage lot information during refunds.</b>
+                        <br/>
+                        With this solution, POS users can select one or multiple lots when adding a product to the cart. Each lot displays its available quantity, allowing the cashier to make an informed selection based on current stock.
+                        <br/>
+                        The module also allows users to <b>define custom quantities for each selected lot.</b> This is especially useful when the required product quantity needs to be fulfilled from multiple lots.
+                    </p>
+
+                    <!-- FEATURE BOXES -->
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="position-relative shadow overflow-hidden"
+                                style="background-color:#ffffff; border-radius:20px; padding:24px;">
+                                <div class="position-absolute top-0 start-0 bottom-0"
+                                    style="background-color: #5a35d9; width: 0.40rem;">
+                                </div>
+                                <h6 style="color:#5a35d9; font-size:15px; font-weight:800; margin-bottom:12px;">
+                                    ✔ Select Lot When Adding Products to Cart
+                                </h6>
+
+                                <p style="margin:0; color:#8a94a6; font-size:14px; font-weight:600; line-height:1.7;">
+                                    Select the required lot or lot number directly when adding a tracked product to the POS cart. This makes lot-based sales easier and more accurate.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="position-relative shadow overflow-hidden"
+                                style="background-color:#ffffff; border-radius:20px; padding:24px;">
+                                <div class=" position-absolute top-0 start-0 bottom-0"
+                                    style="background-color: #5a35d9; height: 100%; width: 0.40rem;"></div>
+                                <h6 style="color:#5a35d9; font-size:15px; font-weight:800; margin-bottom:12px;">
+                                    ✔ View Available Quantity by Lot
+                                </h6>
+
+                                <p style="margin:0; color:#8a94a6; font-size:14px; font-weight:600; line-height:1.7;">
+                                    See the available quantity for each lot during POS lot selection, helping cashiers choose the appropriate lot based on stock availability.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAGS -->
+                    <div style="margin-top:35px;">
+                        <p
+                            style="font-size:12px; color:#9aa3b2; font-weight:700; text-transform:uppercase; letter-spacing:.12em; margin-bottom:14px;">
+                            Available for
+                        </p>
+
+                        <div class="d-flex flex-wrap">
+                            <span
+                                style="background-color:#f3f0ff; color:#5a35d9; border:1px solid #d9d0ff; padding:10px 18px; border-radius:30px; font-size:12px; font-weight:700;">
+                                Community
+                            </span>
+
+                            <span
+                                style="background-color:#fff7ed; color:#b45309; border:1px solid #fed7aa; padding:10px 18px; border-radius:30px; font-size:12px; font-weight:700;">
+                                Enterprise
+                            </span>
+
+                            <span
+                                style="background-color:#f0fdf4; color:#166534; border:1px solid #bbf7d0; padding:10px 18px; border-radius:30px; font-size:12px; font-weight:700;">
+                                Odoo.sh
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT IMAGE -->
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="shadow overflow-hidden" style="position:relative; border-radius:30px;">
+
+                        <img src="partner_img.png" alt="Business Team" class="img-fluid w-100"
+                            style="height:520px; object-fit:contain; display:block; border-radius: 24px; background-color: #dce0e9;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO SECTION -->
+    <section>
+        <div class="mt-5" style="padding: 30px 15px;background-color:#f0f3fe;">
+            <div class="text-center mb-3 mb-md-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    See it in action
+                </p>
+
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#50545d;text-transform: capitalize;">
+                    Watch the full walkthrough
+                </h2>
+            </div>
+
+            <div class="row mt-5 d-flex justify-content-center">
+                <div class="col-lg-5 mb-4">
+                    <div
+                        style="background-color:#ffffff;border-radius:24px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.06);">
+                        <div style="border-radius:24px; overflow:hidden; width:100%; height:320px;">
+                            <div class="media_iframe_video"
+                                style="width:100%; height:100%; border-radius: 24px 24px 0 0;"
+                                data-oe-expression="//www.youtube.com/embed/JGW0ImO0Ebk?rel=0&amp;autoplay=0">
+                                <div class="css_editable_mode_display"></div>
+                                <div class="media_iframe_video_size"></div>
+                                <iframe frameborder="0" allowfullscreen="allowfullscreen"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    src="https://www.youtube.com/embed/JGW0ImO0Ebk?rel=0&autoplay=0"
+                                    aria-label="Media video" style="width:100%; height:100%; border:0; display:block;">
+                                </iframe>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center p-2 mb-2 align-items-center">
+                            <div class="d-flex flex-wrap">
+                                <span class="mb-2"
+                                    style="background-color:#f0eeff; color:#5a35d9; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600;margin:0px 5px;">&#127916;
+                                    HD Quality
+                                </span>
+
+                                <span class="mb-2"
+                                    style="background-color:#f0eeff; color:#5a35d9; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600;margin:0px 5px;">&#128266;
+                                    With Narration
+                                </span>
+
+                                <span class="mb-2"
+                                    style="background-color:#f0eeff; color:#5a35d9; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600;margin:0px 5px;">&#128247;
+                                    Step-by-step
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DESCRIPTION -->
+                <div class="col-12 col-lg-6 p-3">
+                    <h3
+                        style="font-family:'Sora',sans-serif; font-size:clamp(1.1rem,4vw,1.4rem); font-weight:700; color:#0d0d0d; margin-bottom:1rem;text-transform: capitalize;color: #50545d;">
+                        POS Lot Selection Video
+                    </h3>
+
+                    <p
+                        style="color:#666; font-size:clamp(13px,3vw,14px); line-height:1.8; margin-bottom:1rem;font-size: 16px;color: #a6aeb9;margin-top: 11px;font-weight: 600;">
+                        This video demonstrates how POS users can select lots when adding products to the cart, view available quantities, select multiple lots, and define custom quantities for each lot.
+                    </p>
+
+                    <a href="https://youtu.be/JGW0ImO0Ebk" target="_blank" class="mb-lg-0"
+                        style="background-color:white;display:inline-flex; align-items:center;border:1.5px solid #ddd; border-radius:9px; padding:10px 20px; font-size:13px; font-weight:600; color:#1a1a1a; text-decoration:none; margin-bottom: 10px;">
+                        <img src="youtube.png" alt="Youtube Image" style="margin-right: 10px;font-size: 20px;"
+                            height="20" width="20">
+                        Watch On YouTube
+                    </a>
+
+                    <a href="https://www.youtube.com/@nextflowit" target="_blank" class="ms-lg-2 mb-lg-0"
+                        style="background-color:white;display:inline-flex; align-items:center;border:1.5px solid #ddd; border-radius:9px; padding:10px 20px; font-size:13px; font-weight:600; color:#1a1a1a; text-decoration:none; margin-bottom: 10px;">
+                        <img src="youtube.png" alt="Youtube Image" style="margin-right: 10px;font-size: 20px;"
+                            height="20" width="20">
+                        Explore Our Channel
+                    </a>
+                </div>
+            </div>
+            <div class="row mt-5 d-flex justify-content-center">
+                <!-- DESCRIPTION -->
+                <div class="col-12 col-lg-6 p-3">
+                    <h3
+                        style="font-family:'Sora',sans-serif; font-size:clamp(1.1rem,4vw,1.4rem); font-weight:700; color:#0d0d0d; margin-bottom:1rem;text-transform: capitalize;color: #50545d;">
+                        POS Refund Order / Lot Selection Video
+                    </h3>
+
+                    <p
+                        style="color:#666; font-size:clamp(13px,3vw,14px); line-height:1.8; margin-bottom:1rem;font-size: 16px;color: #a6aeb9;margin-top: 11px;font-weight: 600;">
+                        This video demonstrates how the module helps POS users identify the lot from which a product was originally sold when processing a refund. The relevant lot information can be automatically selected, making the refund process faster and improving product traceability.
+                    </p>
+
+                    <a href="https://youtu.be/woor3Rqx1nc" target="_blank" class="mb-lg-0"
+                        style="background-color:white;display:inline-flex; align-items:center;border:1.5px solid #ddd; border-radius:9px; padding:10px 20px; font-size:13px; font-weight:600; color:#1a1a1a; text-decoration:none; margin-bottom: 10px;">
+                        <img src="youtube.png" alt="Youtube Image" style="margin-right: 10px;font-size: 20px;"
+                            height="20" width="20">
+                        Watch On YouTube
+                    </a>
+
+                    <a href="https://www.youtube.com/@nextflowit" target="_blank" class="ms-lg-2 mb-lg-0"
+                        style="background-color:white;display:inline-flex; align-items:center;border:1.5px solid #ddd; border-radius:9px; padding:10px 20px; font-size:13px; font-weight:600; color:#1a1a1a; text-decoration:none; margin-bottom: 10px;">
+                        <img src="youtube.png" alt="Youtube Image" style="margin-right: 10px;font-size: 20px;"
+                            height="20" width="20">
+                        Explore Our Channel
+                    </a>
+                </div>
+
+                <div class="col-lg-5 mb-4">
+                    <div
+                        style="background-color:#ffffff;border-radius:24px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.06);">
+                        <div style="border-radius:24px; overflow:hidden; width:100%; height:320px;">
+                            <div class="media_iframe_video"
+                                style="width:100%; height:100%; border-radius: 24px 24px 0 0;"
+                                data-oe-expression="//www.youtube.com/embed/woor3Rqx1nc?rel=0&amp;autoplay=0">
+                                <div class="css_editable_mode_display"></div>
+                                <div class="media_iframe_video_size"></div>
+                                <iframe frameborder="0" allowfullscreen="allowfullscreen"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    src="https://www.youtube.com/embed/woor3Rqx1nc?rel=0&autoplay=0"
+                                    aria-label="Media video" style="width:100%; height:100%; border:0; display:block;">
+                                </iframe>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center p-2 mb-2 align-items-center">
+                            <div class="d-flex flex-wrap">
+                                <span class="mb-2"
+                                    style="background-color:#f0eeff; color:#5a35d9; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600;margin:0px 5px;">&#127916;
+                                    HD Quality
+                                </span>
+
+                                <span class="mb-2"
+                                    style="background-color:#f0eeff; color:#5a35d9; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600;margin:0px 5px;">&#128266;
+                                    With Narration
+                                </span>
+
+                                <span class="mb-2"
+                                    style="background-color:#f0eeff; color:#5a35d9; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600;margin:0px 5px;">&#128247;
+                                    Step-by-step
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support -->
+    <section>
+        <div class="container-fluid" style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #f5f4f0;">
+            <div class="text-center mb-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    For Help</p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#50545d;">
+                    Contact Us</h2>
+            </div>
+            <div class="row mt-5">
+
+                <!-- SUPPORT CARD -->
+                <div class="col-lg-4 mb-4">
+                    <div class="shadow" style="background-color:#ffffff; border-radius:22px; padding:30px;">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h3
+                                            style="font-size:20px; font-weight:700; margin-bottom:20px; color: #505450;">
+                                            Quick Support
+                                        </h3>
+                                        <p
+                                            style="line-height:1.8; margin-bottom:20px; color:#8a94a6; line-height:1.9; font-weight:600;">
+                                            Contact us directly on WhatsApp for quick support.
+                                        </p>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <img src="./support/whatsapp.png" alt="Whatsapp Image" class="img-fluid">
+                                    </div>
+                                </div>
+                                <h5 class="text-center" style="color:#25D366; font-weight:700;">
+                                    &#128172;
+                                    +91 73832 03034
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EMAIL CARD -->
+                <div class="col-lg-4 mb-4">
+                    <div class="shadow" style="background-color:#ffffff; border-radius:22px; padding:30px;">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h3
+                                            style="font-size:20px; font-weight:700; margin-bottom:20px; color: #505450;">
+                                            Electronic Support
+                                        </h3>
+
+                                        <p
+                                            style="line-height:1.8; margin-bottom:20px; color:#8a94a6; line-height:1.9; font-weight:600;">
+                                            Raise ticket for a demo on below given email addres.
+                                        </p>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <img src="./support/email.png" alt="Email Image" class="img-fluid">
+                                    </div>
+                                </div>
+
+                                <h6 class="text-center" style="color:#4c51bf; font-weight:600;">
+                                    &#128232;
+                                    <a href="mailto:support@nextflow.in" style="color:#4c51bf; text-decoration:underline;">support@nextflow.in</a>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CENTER CARD -->
+                <div class="col-lg-4 mb-4">
+                    <div class="shadow" style="background-color:#ffffff; border-radius:22px; padding:30px;">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h3
+                                            style="font-size:20px; font-weight:700; margin-bottom:20px; color: #505450;">
+                                            Support Center
+                                        </h3>
+
+                                        <p
+                                            style="line-height:1.8; margin-bottom:20px; color:#8a94a6; line-height:1.9; font-weight:600;">
+                                            Our support team is ready to assist you anytime.
+                                        </p>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <img src="./support/contact.png" alt="Contact Image" class="img-fluid">
+                                    </div>
+                                </div>
+
+                                <h5 class="text-center" style="color:#3182ce; font-weight:700;">
+                                    &#128241;
+                                    +91 73832 03034
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOT FEATURE -->
+    <section id="hot_feature" style="padding:3rem 0; border-top:2px solid #eae9e4;">
+        <div class="container-fluid">
+            <div class="text-center mb-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    What&apos;s inside</p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#50545d; margin-bottom:12px;">
+                    Hot Features</h2>
+            </div>
+            <div class="row g-2 g-md-3 mb-2 mb-md-3">
+                <div class="col-12 col-md-8">
+                    <div
+                        style="background-color:#ffffff; border-radius:18px; border:1px solid #e8e8e4; border-top: 3px solid #5a35d9; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:16px;">
+                            <div>
+                                &#10010;
+                            </div>
+                        </div>
+                        <h3
+                            style="font-family:'Sora',sans-serif; font-size:23px; font-weight:700; margin-bottom:8px; color:#50545d;">
+                            Add Custom Quantities per Lot
+                        </h3>
+                        <p
+                            style="color:#777; font-size:16px; line-height:1.7; margin-bottom:16px;color: #a6aeb9; margin-top: 11px; font-weight: 600; padding-right: 40px;">
+                            Enter a specific quantity for each selected lot instead of being limited to the default quantity. This is especially useful when a single POS order uses stock from multiple lots.
+                        </p>                        
+                        <div class="d-flex flex-wrap">
+                            <span class="mb-2 me-2"
+                                style="background-color:#f5f4f0; color:#555; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Quantities per Lot
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div
+                        style="background-color:#ffffff; border-radius:18px; border:1px solid #e8e8e4; border-top: 3px solid #3b82f6; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:16px;">
+                            &#10010;
+                        </div>
+                        <h3
+                            style="font-family:'Sora',sans-serif; font-size:23px; font-weight:700; margin-bottom:8px; color:#505450;">
+                            Add Multiple Lots in a Single Click
+                        </h3>
+                        <p
+                            style="color:#a6aeb9; font-size:16px; line-height:1.7; margin-bottom:16px;margin-top: 11px; font-weight: 600; padding-right: 40px;">
+                            Select multiple available lots quickly and add them to the POS order without repeatedly performing the same operation.
+                        </p>                        
+                        <div class="d-flex flex-wrap">
+                            <span class="mb-2 me-2"
+                                style="background-color:#f0fdf4; color:#166534; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Multiple Lots in a Single Click
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-2 g-md-3 mb-2 mb-md-3">
+                <div class="col-12 col-md-4">
+                    <div
+                        style="background-color:#ffffff; border-radius:18px; border:1px solid #e8e8e4; border-top: 3px solid #ef4444; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:16px;">
+                            &#9776;
+                        </div>
+                        <h3
+                            style="font-family:'Sora',sans-serif; font-size:23px; font-weight:700; margin-bottom:8px; color:#505450;">
+                            Multiple Lots with Custom Quantities
+                        </h3>
+                        <p
+                            style="color:#a6aeb9; font-size:16px; line-height:1.7; margin-bottom:12px;margin-top: 11px; font-weight: 600; padding-right: 40px;">
+                            Use multiple lots for the same product and assign a different quantity to each lot according to the actual stock being sold.
+                        </p>                        
+                        <div class="d-flex flex-wrap">
+                            <span class="mb-2 me-2"
+                                style="background-color:#f0f9ff; color:#075985; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Multiple Lots with Custom Quantities
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8">
+                    <div
+                        style="background-color:#ffffff; border-radius:18px; border:1px solid #e8e8e4; border-top: 3px solid #f59e0b; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:16px;">
+                            &#8635;
+                        </div>
+                        <h3
+                            style="font-family:'Sora',sans-serif; font-size:23px; font-weight:700; margin-bottom:8px; color: #505450;">
+                            Real-Time Lot Quantity Updates
+                        </h3>
+                        <p
+                            style="color:#a6aeb9; font-size:16px; line-height:1.7; margin-bottom:16px;margin-top: 11px; font-weight: 600; padding-right: 40px;">
+                            Lot quantities are updated in real time during POS operations, helping reduce incorrect lot selection and improving inventory accuracy.
+                        </p>                        
+                        <div class="d-flex flex-wrap">
+                            <span class="mb-2 me-2"
+                                style="background-color:#fff1f2; color:#be123c; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Real-Time Lot Quantity Updates
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </section>
+
+    <!-- FOOTER BUTTONS -->
+    <section style="top:0px; opacity: 0.8;">
+        <div class="main-div">
+            <div class="d-flex justify-content-center px-3 py-3 mb-3  position-sticky top-0" style="z-index: 100;">
+                <div id="navScroll" class="d-flex justify-content-around flex-nowrap overflow-auto shadow"
+                    style="border-radius:50px; scrollbar-width:thin; -webkit-overflow-scrolling: touch;">
+
+                    <ul class="nav nav-pills d-inline-flex align-items-center p-lg-3 p-sm-0"
+                        style="background-color:#ffffff; margin:0; list-style:none; flex-wrap:nowrap; min-width:max-content;">
+
+                        <li class="nav-item p-sm-0"
+                            style="border-radius:40px; padding:5px 10px; cursor:pointer; margin-right:6px; white-space:nowrap;">
+                            <a class="nav-link active" href="#DetailedFeature" data-bs-toggle="tab"
+                                style="text-decoration:none; border: none; font-size:14px; font-weight:600; font-family:'DM Sans',sans-serif;">
+                                Features
+                            </a>
+                        </li>
+
+                        <li class="nav-item p-sm-0"
+                            style="border-radius:40px; padding:5px 10px; cursor:pointer; margin-right:6px; white-space:nowrap; flex-shrink:0;">
+                            <a class="nav-link" href="#Screenshots" data-bs-toggle="tab"
+                                style="text-decoration:none;border: none; font-size:14px; font-weight:600; font-family:'DM Sans',sans-serif;">
+                                Screenshots
+                            </a>
+                        </li>
+
+                        <li class="nav-item p-sm-0"
+                            style="border-radius:40px; padding:5px 10px; cursor:pointer; margin-right:6px; white-space:nowrap; flex-shrink:0;">
+                            <a class="nav-link" href="#Changelog" data-bs-toggle="tab"
+                                style="text-decoration:none; border: none; font-size:14px; font-weight:600; font-family:'DM Sans',sans-serif;">
+                                Changelog
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-content">
+
+                <!-- DETAILE FEATURE TAB -->
+                <div id="DetailedFeature" class="mb-5 tab-pane active">
+                    <div class="container-fluid"
+                        style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #f5f4f0;">
+                        <div class="text-center mb-5">
+                            <p
+                                style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                                Deep dive</p>
+                            <h2
+                                style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:700; color:#0d0d0d;">
+                                Features in detail</h2>
+                        </div>
+
+                        <div class="row g-4">
+                            <!-- Card 1 -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#128424;
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Print Multiple Lot Details
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#16a34a; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Print multiple selected lot numbers together on the POS receipt/order, making it easier to identify which lots were sold to the customer.
+                                        </li>                                        
+                                    </ul>                                    
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#8634;
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Automatic Lot Selection During Refund
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#a855f7; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            When refunding an order, the system helps identify the lot from which the original product was sold, making lot-based refunds faster and more reliable.
+                                        </li>
+                                    </ul>                                    
+                                </div>
+                            </div>
+                            
+                            <!-- Card 3 -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#9432;
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Lot Information During Refund
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#65a8bf; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            View the relevant lot information while processing refunds so that the returned product can be associated with the appropriate lot.
+                                        </li>
+                                    </ul>                                    
+                                </div>
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#9881;
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Easy Lot-Based POS Workflow
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#25824a; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            The module provides a simple workflow for businesses that need accurate lot tracking directly from the Odoo Point of Sale interface.
+                                        </li>
+                                    </ul>                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCREENSHOTS -->
+                <div id="Screenshots" class="tab-pane fade">
+                    <div class="container-fluid"
+                        style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #f5f4f0;">
+                        <div class="text-center mb-5">
+                            <p
+                                style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                                Visual walkthrough</p>
+                            <h2
+                                style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:700; color:#0d0d0d;">
+                                Screenshots</h2>
+                        </div>
+
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-lg-10 col-md-12" style="background-color: #f0eeff; border-radius: 10px;">
+                                <div class="tab-content">
+
+                                    <div id="ss-pos_default_customer" class="tab-pane active">
+                                        <div class="mb-5">
+                                            <h4 class="pt-4"
+                                                style="font-family:'Sora',sans-serif; font-size:1.1rem; font-weight:700; color:#6c47ff; margin-bottom:20px; display:flex; align-items:center;">
+                                                <span
+                                                    style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:8px; font-size:16px; margin-right: 10px;">
+                                                    &#9744;
+                                                </span>
+                                                Point of Sale Product Lot Selection workflow
+                                            </h4>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="mb-4" style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Point Of Sale &rarr; Settings &rarr; Enable Product Lot Selection
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_01.png" class="img-fluid rounded"
+                                                            alt="pos configuration"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>                                                
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                           Menu Products &rarr; Products &rarr; View product form, click on 'On Hand', and view stock by lot number.
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_02.png" class="img-fluid rounded"
+                                                            alt="product from view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_03.png" class="img-fluid rounded"
+                                                            alt="product from view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Select the product, open the 'Lot Selection' pop-up, view the available quantity in the lot, and add the quantity.
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_04.png" class="img-fluid rounded"
+                                                        alt="pos product view lot"
+                                                        style="border-radius:8px; border:1px solid #ede9fe;"
+                                                        onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            The selected lots have been added as separate lines, so you can change the quantity for a specific lot if you wish.
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_05.png" class="img-fluid rounded"
+                                                            alt="pos product view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>                                                                                                
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                    style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">                                                        
+                                                    <p
+                                                        style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                        Check the lot number on the receipt.
+                                                    </p>
+                                                <img src="ScreenShot/ss_img_06.png" class="img-fluid rounded"
+                                                    alt="receipt view"
+                                                    style="border-radius:8px; border:1px solid #ede9fe;"
+                                                    onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <h3 class="text-center">Refund Flow</h3>
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            You can also see the lot number in the refund order.
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_07.png" class="img-fluid rounded"
+                                                            alt="pos order view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Add the refund quantity.
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_08.png" class="img-fluid rounded"
+                                                            alt="pos order view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">                                                        
+                                                    </div>
+                                                </div>                                                
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            The selected flour, along with its number, will be automatically added to the cart.
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_09.png" class="img-fluid rounded"
+                                                            alt="pos order view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Order refund receipt
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_10.png" class="img-fluid rounded"
+                                                            alt="pos receipt view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">                                                        
+                                                    </div>
+                                                </div>                                                                                                                        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHANGELOG -->
+                <div id="Changelog" class="tab-pane fade show">
+                    <div class="container-fluid"
+                        style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #f5f4f0;">
+                        <div class="text-center mb-5">
+                            <p
+                                style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                                What&apos;s new</p>
+                            <h2
+                                style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:700; color:#0d0d0d;">
+                                Changelog</h2>
+                        </div>
+                        <div class="position-relative ps-4"
+                            style="max-width:680px; margin:0 auto; border-left:2px solid #e8e8e4;">
+                            <div class="position-absolute top-0 start-0 bottom-0"
+                                style="background-color: #e8e8e4; width: 0.20rem;">
+                                <div
+                                    style="position:absolute; margin-left:-11px; width:24px; height:24px; background-color:#6c47ff; border-radius:50%; display:flex; align-items:center; justify-content:center;">
+                                    <div
+                                        style="width:18px; height:18px; margin:auto; background-color:#6c47ff; border-radius:50%; border:3px solid #ffffff;">
+                                    </div>
+                                </div>
+                                <div
+                                    style="position:absolute; margin-left:-11px; width:24px; height:24px; background-color:#6c47ff; border-radius:50%; display:flex; align-items:center; justify-content:center;margin-top: 250px;">
+                                    <div
+                                        style="width:18px; height:18px; margin:auto; background-color:#6c47ff; border-radius:50%; border:3px solid #ffffff;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-relative mb-4 pl-4">
+                                <div class="d-flex flex-wrap align-items-center mb-3">
+                                    <span
+                                        style="font-family:'Sora',sans-serif; font-size:17px; font-weight:700; color:#0d0d0d;margin-right:10px;">Version
+                                        19.0.1</span>
+                                    <span
+                                        style="background-color:#f0eeff; color:#5a35d9; border:1px solid #d0c4ff; padding:3px 10px; border-radius:6px; font-size:11px; font-weight:700;margin-right:10px;">Odoo
+                                        19</span>
+                                    <span
+                                        style="background-color:#dcfce7; color:#166534; padding:3px 10px; border-radius:6px; font-size:11px; font-weight:700;">Initial
+                                        Release</span>
+                                    <span style="color:#666; font-size:12px; margin-left:4px;margin-right:10px;">
+                                        19<sup>th</sup> September 2026
+                                    </span>
+                                </div>
+                                <div class="d-flex flex-column"
+                                    style="background-color:#f8f8f6; border:1px solid #e8e8e4; border-radius:12px; padding:18px 20px;">
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added lot selection when adding tracked products to the POS cart.
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added display of available quantity for each lot.
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added custom quantity selection for individual lots.
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added support for selecting multiple lots in a single operation.
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added support for assigning custom quantities to multiple lots.
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added real-time lot quantity updates.
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added multiple lot information to POS receipt printing.
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added lot information for POS refunds.
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added automatic lot selection support during refund operations.
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Improved lot-based product traceability in POS.
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added a user-friendly lot selection workflow for POS users.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>                            
+                            <div class="position-absolute"
+                                style="margin-top:4px; margin-left:-30px; width:16px; height:16px; background-color:#d0d0c8; border-radius:50%; border:3px solid #ffffff;">
+                            </div>
+                            <div style="position:relative; opacity:.45;">
+                                <div class="d-flex flex-wrap align-items-center mb-3">
+                                    <span
+                                        style="font-family:'Sora',sans-serif; font-size:17px; font-weight:700; color:#0d0d0d;margin-right:10px;">Version
+                                        19.0.2</span>
+                                    <span
+                                        style="background-color:#f0eeff; color:#5a35d9; border:1px solid #d0c4ff; padding:3px 10px; border-radius:6px; font-size:11px; font-weight:700;">Planned</span>
+                                    <span style="color:#666; font-size:12px; margin-left:4px;">Coming soon</span>
+                                </div>
+                                <div
+                                    style="background-color:#f8f8f6; border:1px dashed #e8e8e4; border-radius:12px; padding:18px 20px;">
+                                    <div style="display:flex; align-items:center;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#ccc; border-radius:50%; margin:7px 10px 0 0;">
+                                        </div><span style="font-size:13px; color:#aaa;">More exciting features being
+                                            planned...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQS -->
+    <section>
+        <div class="container-fluid" style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #eae9e4;">
+
+            <div class="text-center mb-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    Got questions?
+                </p>
+
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:700; color:#0d0d0d;">
+                    Frequently Asked Questions
+                </h2>
+            </div>
+
+            <div id="faqAccordion" class="d-flex flex-column" style="max-width:760px; margin:0 auto;">
+
+                <!-- FAQ 1 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center" href="#faq1" data-target="#faq1"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq1"
+                        style="padding:20px 24px; text-decoration:none; width:100%;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            How can I get support or request customization?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq1" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:rgb(102, 102, 102); font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                Please contact us at
+                                <a href="mailto:support@nextflow.in"
+                                    style="color:#6c47ff; text-decoration:none; font-weight:600;">
+                                    support@nextflow.in
+                                </a>
+                                for any support or customization requests.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center" href="#faq2" data-target="#faq2"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq2"
+                        style="padding:20px 24px; text-decoration:none; width:100%;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Can I get free support after purchase?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq2" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <b>Yes!</b>
+                                You get
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    90 days of free support
+                                </span>
+                                included with every purchase — no strings attached.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq7"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq7"
+                        style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            This App is working on offline mode ?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq7" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    Yes,
+                                </span>
+                                You can use this module in offline mode.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center" href="#faq3" data-target="#faq3"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq3"
+                        style="padding:20px 24px; text-decoration:none; width:100%;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            What does Point of Sale Product Lot Selection do?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq3" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                This module allows POS users to select product lots directly when adding products to the cart. Users can also specify custom quantities and work with multiple lots for the same product.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- FAQ 4 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq4"
+                        data-toggle="collapse" data-target="#faq4" aria-expanded="false" data-bs-toggle="collapse"
+                        aria-controls="faq4" style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Does the module support POS refunds?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq4" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    Yes,
+                                </span>The module provides lot information during POS refund operations and helps identify the lot associated with the original sale.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq5"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq5"
+                        style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Can the system automatically select the lot during a refund?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq5" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    Yes,
+                                </span>
+                                The module supports automatic lot selection during refund operations based on the lot information associated with the original order.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq6"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq6"
+                        style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                           Is this module useful for businesses with lot-tracked products?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq6" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    Yes,
+                                </span>
+                                It is designed for businesses that sell lot-tracked products through Odoo POS and require better lot-level traceability.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq8"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq8"
+                        style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                           Can I use different quantities from different lots in one order?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq8" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    Yes,
+                                </span>
+                                You can select multiple lots and define a custom quantity for each lot within the same POS order.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 9 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq9"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq9"
+                        style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                           Does this module replace Odoo Inventory lot management?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq9" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    No,
+                                </span>
+                                The module is designed to enhance lot selection and traceability in Odoo POS. It works with Odoo's existing lot/inventory functionality rather than replacing inventory management.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 10 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq10"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq10"
+                        style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                           Is this module suitable for POS environments where lot traceability is important?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq10" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    Yes,
+                                </span>
+                                It is especially useful when businesses need to know which lot was sold and need that information when processing refunds or reviewing POS sales.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MULTI LANGUAGE -->
+    <section
+        style="background-color: #f0f3fe; padding:30px; font-family:'Segoe UI',sans-serif; overflow:hidden; margin-top: 20px;">
+        <div class="container-fluid">
+
+            <div class="container-fluid text-center mb-4">
+                <p
+                    style="font-size:11px; font-weight:600; color:rgb(153, 153, 153); text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    Available worldwide
+                </p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#50545d; margin-bottom:20px;">
+                    Multi-Language Support
+                </h2>
+            </div>
+
+            <!-- FLAGS -->
+            <div class="row justify-content-center text-center mb-5 mt-5 mb-sm-0">
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 3s ease-in-out infinite; transition:0.3s;">
+                        <img src="Flags/eng.png" class="img-fluid" alt="US Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            English
+                        </h6>
+                    </div>
+                </div>
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 4s ease-in-out infinite;">
+                        <img src="Flags/ger.png" class="img-fluid" alt="German Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            German
+                        </h6>
+                    </div>
+                </div>
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 5s ease-in-out infinite;">
+                        <img src="Flags/arb.png" class="img-fluid" alt="Arabic Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            Arabic
+                        </h6>
+                    </div>
+                </div>
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 3.5s ease-in-out infinite;">
+                        <img src="Flags/chi.png" class="img-fluid" alt="Chinese Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            Chinese
+                        </h6>
+                    </div>
+                </div>
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 4.5s ease-in-out infinite;">
+                        <img src="Flags/fre.png" class="img-fluid" alt="French Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            French
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="nf_services"
+        style="background-color:#ffffff; padding:15px 0; border-top:2px solid #f5f4f0;padding: 50px 0;">
+        <div class="container-fluid">
+            <div class="text-center mb-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    What we offer</p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#505450; margin-bottom:12px;">
+                    Our Services</h2>
+                <p class="mb-md-3" style="color:#888; font-size:16px; max-width:520px; margin:0 auto;">
+                    Expert Odoo services tailored to
+                    grow your business &mdash; from migration to full implementation and beyond.</p>
+            </div>
+            <div class="row g-3 g-md-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #6c47ff; border-radius:16px; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin:auto;">
+                            &#128260;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d; text-align: center;">
+                            Odoo Migration</h4>
+                        <p style="color:#777; font-size:14px; line-height:1.7; margin-bottom:16px; text-align: center;">
+                            Seamlessly migrate
+                            your Odoo database and modules from older versions to the latest. We handle the entire
+                            process &mdash; data, customizations, and configurations.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -10%; margin-left: 68%; width:120px; height:120px; background-color:rgba(108, 71, 255, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -8%; margin-left: 63%; width:50px; height:50px; background-color:rgba(108, 71, 255, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #f59e0b; border-radius:16px; padding:1.5rem; height:100%;">
+                        <div style="width:48px; height:48px; border-radius:12px; font-size:30px; margin: auto;">
+                            &#128295;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d; text-align: center;">
+                            Odoo Customization</h4>
+                        <p style="color:#777; font-size:14px; line-height:1.7; margin-bottom:16px; text-align: center;">
+                            Modify existing Odoo
+                            modules &mdash; CRM, Sales, Inventory, Accounting &mdash; to fit your operations. Add
+                            new
+                            fields, change workflows, and create custom business rules.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -10%; margin-left: 68%; width:120px; height:120px; background-color:rgba(245, 158, 11, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -8%; margin-left: 63%; width:50px; height:50px; background-color:rgba(245, 158, 11, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #10b981; border-radius:16px; padding:1.5rem; height:100%;">
+                        <div style="width:48px; height:48px; border-radius:12px; font-size:30px; margin:auto;">
+                            &#127760;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d; text-align: center;">
+                            Web Development in Odoo</h4>
+                        <p style="color:#777; font-size:14px; line-height:1.7; margin-bottom:16px; text-align: center;">
+                            We build powerful,
+                            user-friendly websites fully integrated with your Odoo system &mdash; from landing pages
+                            to
+                            full e-commerce storefronts.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -3%; margin-left: 68%; width:120px; height:120px; background-color:rgba(16, 185, 129, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-left: 62%; width:50px; height:50px; background-color:rgba(16, 185, 129, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="mt-sm-0 position-relative overflow-hidden"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #ef4444; border-radius:16px; padding:1.5rem; height:100%;margin-top: 30px;">
+                        <div
+                            style="width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin:auto;">
+                            &#9881;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d; text-align: center;">
+                            Odoo Implementation</h4>
+                        <p style="color:#777; font-size:14px; line-height:1.7; margin-bottom:16px; text-align: center;">
+                            End-to-end Odoo
+                            integration with e-commerce platforms, payment gateways, shipping carriers, and more.
+                            Robust
+                            connections for your critical systems.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -10%; margin-left: 68%; width:120px; height:120px; background-color:rgba(239, 68, 68, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -8%; margin-left: 63%; width:50px; height:50px; background-color:rgba(239, 68, 68, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="mt-sm-0 overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #3b82f6; border-radius:16px; padding:1.5rem; height:100%;margin-top: 30px;">
+                        <div
+                            style="width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin:auto;">
+                            &#128247;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d;text-align: center;">
+                            Odoo Support &amp; Maintenance</h4>
+                        <p style="color:#777; font-size:13px; line-height:1.7; margin-bottom:16px;text-align: center;">
+                            Expert technical
+                            assistance, proactive security updates, performance monitoring, and user support to keep
+                            your Odoo system reliable and effective.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -3%; margin-left: 68%; width:120px; height:120px; background-color:rgba(59, 130, 246, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-left: 62%; width:50px; height:50px; background-color:rgba(59, 130, 246, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="mt-sm-0 overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #ec4899; border-radius:16px; padding:1.5rem; height:100%;margin-top: 30px;">
+                        <div
+                            style="width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin:auto;">
+                            &#127891;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d;text-align: center;">
+                            Odoo Training</h4>
+                        <p style="color:#777; font-size:13px; line-height:1.7; margin-bottom:16px;text-align: center;">
+                            Comprehensive
+                            functional and technical Odoo training to help your teams understand, implement, and
+                            effectively use Odoo for business operations.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -3%; margin-left: 68%; width:120px; height:120px; background-color:rgba(236, 72, 153, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-left: 62%; width:50px; height:50px; background-color:rgba(236, 72, 153, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== APPS FOR YOU SECTION ===== -->
+    <section id="sh_most_demanded_apps"
+        style="background-color:#f0f3fe; padding:20px 0; font-family:'Segoe UI',sans-serif;">
+
+        <div class="container-fluid px-lg-5 px-3 mt-4">
+
+            <div class="text-center mb-3">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    From our catalog</p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#505450; margin-bottom:12px;">
+                    Apps For You</h2>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-end mb-4">
+                <!-- TITLE -->
+                <a href="https://apps.odoo.com/apps/modules/browse?author=NextFlowIT" target="_blank"
+                    style="display:inline-flex; align-items:center; border:1.5px solid #ddd; border-radius:9px; padding:10px 20px; font-size:13px; font-weight:600; color:#1a1a1a; text-decoration:none; background-color:#fff;">
+                    View All Apps
+                    <span style="font-size:11px; color:#5a35d9; margin-left:8px;">
+                        >>
+                    </span>
+                </a>
+            </div>
+
+            <!-- APP CARDS -->
+            <div class="row">
+
+                <!-- CARD 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="h-100" style="background-color:#fff;border-radius:24px;overflow:hidden;
+                                        box-shadow:0 15px 40px rgba(0,0,0,0.06);transition:0.4s;">
+
+                        <a href="https://apps.odoo.com/apps/modules/19.0/nf_hide_cost_price" target="_blank"
+                            style="text-decoration:none;">
+
+                            <!-- IMAGE -->
+                            <div class="d-flex flex-column">
+                                <!-- IMAGE -->
+                                <img src="Apps_Images/hide_cost_price.gif" class="img-fluid" alt="Hide Cost & Sale Price"
+                                    style="width:100%;
+                                                    height:100%;
+                                                    object-fit:cover;
+                                                    transition:.4s;
+                                                    border-radius: 24px 24px 0 0;">
+
+                            </div>
+
+                            <!-- CONTENT -->
+                            <div style="padding:20px;">
+                                <h4 style="font-weight:700;color:#1a202c;margin-bottom:15px;">
+                                    Hide Cost & Sale Price
+                                </h4>
+
+                                <p style="color:#718096;margin-bottom:25px;">
+                                    Hide Cost & Sale Price helps businesses protect sensitive pricing information by restricting access to Product Cost and Sales Price across Odoo. Administrators can control which users or groups are allowed to view product pricing while hiding these values from unauthorized users.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="h-100" style="background-color:#fff;border-radius:24px;overflow:hidden;
+                                        box-shadow:0 15px 40px rgba(0,0,0,0.06);transition:0.4s;">
+
+                        <a href="https://apps.odoo.com/apps/modules/19.0/nf_pos_employee_access_rights" target="_blank"
+                            style="text-decoration:none;">
+
+                            <!-- IMAGE -->
+                            <div class="d-flex flex-column">
+                                <!-- IMAGE -->
+                                <img src="Apps_Images/pos_employee_access_rights.gif" class="img-fluid" alt="Point of Sale Employee Access Rights"
+                                    style="width:100%;
+                                                    height:100%;
+                                                    object-fit:cover;
+                                                    transition:.4s;
+                                                    border-radius: 24px 24px 0 0;">
+
+                            </div>
+
+                            <!-- CONTENT -->
+                            <div style="padding:20px;">
+                                <h4 style="font-weight:700;color:#1a202c;margin-bottom:15px;">
+                                    Point of Sale Employee Access Rights
+                                </h4>
+
+                                <p style="color:#718096;margin-bottom:25px;">
+                                    Point of Sale Employee Access Rights gives you complete control over what each POS employee can access and perform within the Odoo Point of Sale. Restrict sensitive actions, hide unnecessary buttons, and simplify the POS interface based on employee roles. This helps improve security, prevent unauthorized operations, and create a cleaner, more efficient checkout experience.
+                                </p>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="h-100" style="background-color:#fff;border-radius:24px;overflow:hidden;
+                                        box-shadow:0 15px 40px rgba(0,0,0,0.06);transition:0.4s;">
+
+                        <a href="https://apps.odoo.com/apps/modules/19.0/nf_remove_line_option" target="_blank"
+                            style="text-decoration:none;">
+
+                            <!-- IMAGE -->
+                            <div class="d-flex flex-column">
+                                <!-- IMAGE -->
+                                <img src="Apps_Images/pos_remove_line_option.gif" class="img-fluid" alt="Point Of Sale Remove Line"
+                                    style="width:100%;
+                                        height:100%;
+                                        object-fit:cover;
+                                        transition:.4s;
+                                        border-radius: 24px 24px 0 0;">
+
+                            </div>
+
+                            <!-- CONTENT -->
+                            <div style="padding:20px;">
+                                <h4 style="font-weight:700;color:#1a202c;margin-bottom:15px;">
+                                    Point Of Sale Remove Line
+                                </h4>
+
+                                <p style="color:#718096;margin-bottom:25px;">
+                                    Point Of Sale Remove Line(s) Option improves the Odoo Point of Sale experience by allowing cashiers to instantly remove all order lines from the current order with a single click.
+                                    Instead of deleting products one by one, users can simply click the Remove Line(s) button to clear the current cart. This saves time, improves checkout speed, and is especially useful when an order is entered incorrectly or a customer changes their mind.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

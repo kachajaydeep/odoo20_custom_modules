@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates>
+    <t t-name="nf_pos_order_type.OrderTypes">
+        <Dialog>
+            <t t-if="this.pos.config.nf_pos_order_type_ids?.length">
+                <div class="nf-main-content">
+                    <t t-set-slot="header">
+                        <h2>Order Types</h2>
+                        <button type="button" class="btn-close" t-on-click="() => this.closePopup()" aria-label="Close"></button>
+                    </t>
+        
+                    <t t-foreach="this.state.pos_order_type_ids" t-as="order"
+                        t-key="order.id">
+                        <div t-att-data-id="order.id" t-on-click="() => this.setOrder(order)">
+                            <div class="d-flex justify-content-between align-items-center border p-3 mt-2 cursor-pointer">
+                                <div>
+                                    <span t-out="order.name" class="h3"></span>
+                                </div>
+                                
+                                <div><i class="fa fa-angle-right fs-2"></i></div>
+                            </div>
+                        </div>
+                    </t>
+
+                    <t t-set-slot="footer">
+                        <button class="btn btn-secondary border-1"
+                            t-on-click="() => this.closePopup()">
+                            Cancel</button>
+                    </t>
+                </div>
+            </t>
+        </Dialog>
+    </t>
+</templates>

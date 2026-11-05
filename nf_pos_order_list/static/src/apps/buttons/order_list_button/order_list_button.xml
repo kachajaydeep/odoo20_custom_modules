@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="nf_pos_order_list.NfOrderListButton" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='this.props.showRemainingButtons']//t[@t-set='fiscalSubText']" position="before">
+            <t t-if="this.ui.isSmall">
+                <t t-if="this.pos.config.nf_pos_enable_order_list">
+                    <t t-call="point_of_sale.controlButton"
+                        icon="'list'"
+                        btnText.translate="Order List"
+                        btnClasses="'btn bg-100 btn-md py-2 text-start'" 
+                        onClick="() => this.order_list()" />
+                </t>
+            </t>
+            <t t-else="">
+                <t t-if="this.pos.config.nf_pos_enable_order_list">
+                    <t t-call="point_of_sale.controlButton"
+                        icon="'view_list'"
+                        btnText.translate="Order List"
+                        btnClasses="'btn btn-secondary py-2 '" 
+                        onClick="() => this.order_list()" />
+                </t>
+            </t>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,37 @@
+.nf_shortcut_input_wrap {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                border-radius: 6px;
+                transition: all 0.2s ease;
+                padding: 2px 4px;
+            }
+            .nf_shortcut_input_wrap.nf_focused {
+                background-color: #f0f4ff;
+                outline: 2px solid #7c6fcd;
+                outline-offset: 1px;
+            }
+            .nf_shortcut_input {
+                border: none !important;
+                outline: none !important;
+                background: transparent !important;
+                box-shadow: none !important;
+                font-family: monospace;
+                font-size: 13px;
+                min-width: 100px;
+            }
+            .nf_shortcut_icon {
+                font-size: 14px;
+                opacity: 0.6;
+                animation: nf_pulse 1s infinite;
+            }
+            .nf_shortcut_hint {
+                font-size: 10px;
+                color: #7c6fcd;
+                white-space: nowrap;
+                opacity: 0.8;
+            }
+            @keyframes nf_pulse {
+                0%, 100% { opacity: 0.4; }
+                50%       { opacity: 1;   }
+            }

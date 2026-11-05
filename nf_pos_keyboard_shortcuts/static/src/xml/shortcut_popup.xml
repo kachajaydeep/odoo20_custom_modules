@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="nf_pos_keyboard_shortcuts.ShortcutPopup">
+        <Dialog title="'Keyboard Shortcuts'" size="'lg'">
+            <t t-if="this.shortcuts.length === 0">
+                <div class="nf-empty-state">
+                    <div class="nf-empty-icon">⌨</div>
+                    <p class="nf-empty-title">No shortcuts configured</p>
+                    <p class="nf-empty-sub">Add shortcuts from POS Settings to speed up your workflow.</p>
+                </div>
+            </t>
+
+            <t t-else="">
+                <table class="table table-sm mb-0 nf-shortcut-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Key Combination</th>
+                            <th>Action</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-log="this"/>
+                        <t t-foreach="this.shortcuts" t-as="sc" t-key="sc.id">
+                            <tr>
+                                <td class="nf-seq">
+                                    <t t-out="sc_index + 1"/>
+                                </td>
+                                <td class="nf-name">
+                                    <t t-out="sc.nf_name"/>
+                                </td>
+                                <td>
+                                    <t t-foreach="sc.nf_key_combination.split('+')" t-as="k" t-key="k_index">
+                                        <kbd class="nf-kbd"><t t-out="k.trim()"/></kbd>
+                                        <t t-if="!k_last">
+                                            <span class="nf-plus">+</span>
+                                        </t>
+                                    </t>
+                                </td>
+                                <td>
+                                    <span class="nf-action-badge">
+                                        <t t-out="sc.nf_action_label"/>
+                                    </span>
+                                </td>
+                                <td class="nf-desc">
+                                    <t t-if="sc.nf_description">
+                                        <t t-out="sc.nf_description"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span class="nf-no-desc">—</span>
+                                    </t>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+
+                <div class="nf-footer">
+                    <span class="nf-footer-icon">💡</span>
+                    <span><t t-out="this.shortcuts.length"/> shortcut(s) active · Configure in POS Settings</span>
+                </div>
+            </t>
+        </Dialog>
+    </t>
+</templates>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="nf_sale_report_brand_column"
+          inherit_id="sale.report_saleorder_document">
+
+        <xpath expr="//th[@name='th_description']" position="after">
+            <th t-if="doc.nf_brand_report_enable">Brand</th>
+        </xpath>
+
+        <xpath expr="//td[@name='td_product_quantity']" position="before">
+            <td t-if="doc.nf_brand_report_enable"  name="td_brand">
+                <span t-if="line.product_id.nf_product_brand_id">
+                    <t t-out="line.product_id.nf_product_brand_id.nf_name"/>
+                </span>
+                <span t-else="">-</span>
+            </td>
+        </xpath>
+
+
+    </template>
+</odoo>

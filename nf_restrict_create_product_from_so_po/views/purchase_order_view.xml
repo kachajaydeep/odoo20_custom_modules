@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="view_purchase_order_inherit_no_create_edit" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit.no.create.lines</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//page/field[@name='order_line']/list/field[@name='product_id']" position="attributes">
+                <attribute name="options">{'no_create': True, 'no_open': True}</attribute>
+                <attribute name="groups">nf_restrict_create_product_from_so_po.restrict_to_create_purchase_order_group</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='order_line']/list/field[@name='product_id']" position="after">
+                <field name="product_id" groups="!nf_restrict_create_product_from_so_po.restrict_to_create_purchase_order_group"></field>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+

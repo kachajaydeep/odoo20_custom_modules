@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="nf_pos_variant_displayres_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.nf_pos_variant_display</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <block id="pos_payment_section" position="after" >
+                <block title="Variant Settings" id="nf_pos_variant_display">
+                    <setting help="Variant easy selection in pos">
+                       <field name="nf_enable_custom_variant"/>
+                   </setting>
+                </block>
+            </block>
+        </field>
+    </record>
+</odoo>

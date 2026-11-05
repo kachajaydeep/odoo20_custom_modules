@@ -1,0 +1,2343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Point Of Sale Orderline Pricelist</title>
+    <meta name="description" content="Apply different pricelists directly on individual POS order lines in Odoo Point of Sale. Manage product-specific pricing, discounts, promotions, and customer-based rates with flexible order line pricelists in Odoo.">
+    <meta name="keywords" content="odoo pos orderline pricelist odoo pos line pricelist odoo pos product pricing odoo point of sale pricelist odoo pos pricing rules odoo pos discount management odoo pos promotional pricing odoo pricelist per order line odoo pos customer pricing odoo retail pricing management odoo pos price customization odoo point of sale pricing module odoo pos sales pricing odoo pricelist integration nextflow technology odoo module odoo pos dynamic pricing odoo pos advanced pricelist pos price list pos pricelist pos price discount pricelist pos price list pos pos discount discount pricelist pricelist discount pos orderline pos sale pos product price">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap 5 Bundle JS (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+</head>
+
+<body style="margin:0; background-color:#ffffff; font-family:'Segoe UI',sans-serif; color:#2d3748;">
+
+    <!-- HERO -->
+    <section style="margin-top: 40px;">
+        <div class="container-fluid" style="max-width:1400px; margin:auto;">
+            <div class="row align-items-center gx-5 gy-5" style="background-color:#ffffff; border-radius:30px;">
+
+                <!-- LEFT CONTENT -->
+                <div class="col-lg-6">
+
+                    <!-- TOP BADGE -->
+                    <div class="d-inline-flex align-items-center"
+                        style="background-color:#f3f0ff; color:#5a35d9; padding:8px 16px; border-radius:30px; font-size:14px; font-weight:700;">
+                        <div
+                            style="width:8px; height:8px; background-color:#6c47ff; border-radius:50%; margin-right:10px;">
+                        </div>
+                        Odoo Module · Point Of Sale Orderline Pricelist
+                    </div>
+
+                    <!-- MAIN HEADING -->
+                    <h1
+                        style="font-size:clamp(38px,5vw,64px); font-weight:800; line-height:1.1; color:#4b5563; margin-top:28px; margin-bottom:24px; letter-spacing:-1px;">
+                        Point Of Sale <br class="d-none d-md-block">
+                        Orderline Pricelist
+                    </h1>
+
+                    <!-- DESCRIPTION -->
+                    <p
+                        style="font-size:17px; color:#8a94a6; line-height:1.9; font-weight:600; max-width:620px; margin-bottom:35px;">
+                        Enhance and control product-wise pricelist management directly from the Odoo POS interface with
+                        dynamic pricelist selection for each individual product. This module allows cashiers to apply
+                        different <span class="text-dark">pricelists product-by-product</span> directly from the product card using an interactive
+                        popup selection system .<br />
+
+                        This module enhances the Odoo POS by adding a dedicated pricelist button below each product
+                        price section, allowing users to open a popup and apply different pricelists individually for
+                        each product. Once selected, the system automatically calculates the discounted price and
+                        displays the applied pricelist name, <span class="text-dark">original price with line-through formatting</span>, and final
+                        discounted price in bold. The same pricing details are also shown on the POS receipt for better
+                        transparency. On the backend, the selected pricelist information is stored for each order line
+                        with proper tracking support.
+                    </p>
+
+                    <!-- FEATURE BOXES -->
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="position-relative shadow overflow-hidden"
+                                style="background-color:#ffffff; border-radius:20px; padding:24px;">
+                                <div class=" position-absolute top-0 start-0 bottom-0"
+                                    style="background-color: #5a35d9; height: 100%; width: 0.40rem;"></div>
+                                <h6 style="color:#5a35d9; font-size:15px; font-weight:800; margin-bottom:12px;">
+                                    ✔ Product-wise Pricelist
+                                </h6>
+
+                                <p style="margin:0; color:#8a94a6; font-size:14px; font-weight:600; line-height:1.7;">
+                                    Apply different pricelists individually for each product directly from the POS.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="position-relative shadow overflow-hidden"
+                                style="background-color:#ffffff; border-radius:20px; padding:24px;">
+                                <div class="position-absolute top-0 start-0 bottom-0"
+                                    style="background-color: #5a35d9; width: 0.40rem;">
+                                </div>
+                                <h6 style="color:#5a35d9; font-size:15px; font-weight:800; margin-bottom:12px;">
+                                    ✔ Automatic Price Calculation
+                                </h6>
+
+                                <p style="margin:0; color:#8a94a6; font-size:14px; font-weight:600; line-height:1.7;">
+                                    Calculates and applies the discounted price based on the selected pricelist.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAGS -->
+                    <div style="margin-top:35px;">
+                        <p
+                            style="font-size:12px; color:#9aa3b2; font-weight:700; text-transform:uppercase; letter-spacing:.12em; margin-bottom:14px;">
+                            Available for
+                        </p>
+
+                        <div class="d-flex flex-wrap">
+                            <span
+                                style="background-color:#f3f0ff; color:#5a35d9; border:1px solid #d9d0ff; padding:10px 18px; border-radius:30px; font-size:12px; font-weight:700;">
+                                Community
+                            </span>
+
+                            <span
+                                style="background-color:#fff7ed; color:#b45309; border:1px solid #fed7aa; padding:10px 18px; border-radius:30px; font-size:12px; font-weight:700;">
+                                Enterprise
+                            </span>
+
+                            <span
+                                style="background-color:#f0fdf4; color:#166534; border:1px solid #bbf7d0; padding:10px 18px; border-radius:30px; font-size:12px; font-weight:700;">
+                                Odoo.sh
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT IMAGE -->
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="shadow overflow-hidden" style="position:relative; border-radius:30px;">
+
+                        <img src="partner_img.png" alt="Business Team" class="img-fluid w-100"
+                            style="height:520px; object-fit:contain; display:block; border-radius: 24px; background-color: #dce0e9;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO SECTION -->
+    <section>
+        <div class="mt-5" style="padding: 30px 15px;background-color:#f0f3fe;">
+            <div class="text-center mb-3 mb-md-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    See it in action
+                </p>
+
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#50545d;text-transform: capitalize;">
+                    Watch the full walkthrough
+                </h2>
+            </div>
+
+            <div class="row mt-5 d-flex justify-content-center">
+                <div class="col-lg-5 mb-4">
+                    <div
+                        style="background-color:#ffffff;border-radius:24px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.06);">
+                        <div style="border-radius:24px; overflow:hidden; width:100%; height:320px;">
+                            <div class="media_iframe_video"
+                                style="width:100%; height:100%; border-radius: 24px 24px 0 0;"
+                                data-oe-expression="//www.youtube.com/embed/HPcY6vg9t9o?rel=0&amp;autoplay=0">
+                                <div class="css_editable_mode_display"></div>
+                                <div class="media_iframe_video_size"></div>
+                                <iframe frameborder="0" allowfullscreen="allowfullscreen"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    src="https://www.youtube.com/embed/HPcY6vg9t9o?rel=0&autoplay=0"
+                                    aria-label="Media video" style="width:100%; height:100%; border:0; display:block;">
+                                </iframe>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center p-2 mb-2 align-items-center">
+                            <div class="d-flex flex-wrap">
+                                <span class="mb-2"
+                                    style="background-color:#f0eeff; color:#5a35d9; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600;margin:0px 5px;">&#127916;
+                                    HD Quality
+                                </span>
+
+                                <span class="mb-2"
+                                    style="background-color:#f0eeff; color:#5a35d9; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600;margin:0px 5px;">&#128266;
+                                    With Narration
+                                </span>
+
+                                <span class="mb-2"
+                                    style="background-color:#f0eeff; color:#5a35d9; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600;margin:0px 5px;">&#128247;
+                                    Step-by-step
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DESCRIPTION -->
+                <div class="col-12 col-lg-6 p-3">
+                    <h3
+                        style="font-family:'Sora',sans-serif; font-size:clamp(1.1rem,4vw,1.4rem); font-weight:700; color:#0d0d0d; margin-bottom:1rem;text-transform: capitalize;color: #50545d;">
+                        Everything you need to know in one video
+                    </h3>
+
+                    <p
+                        style="color:#666; font-size:clamp(13px,3vw,14px); line-height:1.8; margin-bottom:1rem;font-size: 16px;color: #a6aeb9;margin-top: 11px;font-weight: 600;">
+                        This video provides a complete walkthrough of the Product-wise Pricelist Management feature in
+                        Odoo Point of Sale. It demonstrates how users can apply different pricelists individually for
+                        each product directly from the POS screen using a dedicated pricelist button and interactive
+                        popup selection.
+                    </p>
+
+                    <p
+                        style="color:#666; font-size:14px; line-height:1.8; margin-bottom:24px;font-size: 16px;color: #a6aeb9;margin-top: 11px;font-weight: 600;">
+                        The video also showcases automatic discounted price calculation, display of the applied
+                        pricelist name, original price with line-through formatting, and bold discounted pricing in the
+                        POS interface and receipt. Additionally, it covers compatibility with simple products, products
+                        with extra prices, tax-inclusive pricing, multiple tax types, and combo products, ensuring a
+                        smooth and accurate pricing workflow within the Odoo POS environment.
+                    </p>
+
+                    <a href="https://youtu.be/HPcY6vg9t9o" target="_blank" class="mb-lg-0"
+                        style="background-color:white;display:inline-flex; align-items:center;border:1.5px solid #ddd; border-radius:9px; padding:10px 20px; font-size:13px; font-weight:600; color:#1a1a1a; text-decoration:none; margin-bottom: 10px;">
+                        <img src="youtube.png" alt="Youtube Image" style="margin-right: 10px;font-size: 20px;"
+                            height="20" width="20">
+                        Watch On YouTube
+                    </a>
+
+                    <a href="https://www.youtube.com/@nextflowit" target="_blank" class="ms-lg-2 mb-lg-0"
+                        style="background-color:white;display:inline-flex; align-items:center;border:1.5px solid #ddd; border-radius:9px; padding:10px 20px; font-size:13px; font-weight:600; color:#1a1a1a; text-decoration:none; margin-bottom: 10px;">
+                        <img src="youtube.png" alt="Youtube Image" style="margin-right: 10px;font-size: 20px;"
+                            height="20" width="20">
+                        Explore Our Channel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support -->
+    <section>
+        <div class="container-fluid" style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #f5f4f0;">
+            <div class="text-center mb-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    For Help</p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#50545d;">
+                    Contact Us</h2>
+            </div>
+            <div class="row mt-5">
+
+                <!-- SUPPORT CARD -->
+                <div class="col-lg-4 mb-4">
+                    <div class="shadow" style="background-color:#ffffff; border-radius:22px; padding:30px;">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h3
+                                            style="font-size:20px; font-weight:700; margin-bottom:20px; color: #505450;">
+                                            Quick Support
+                                        </h3>
+                                        <p
+                                            style="line-height:1.8; margin-bottom:20px; color:#8a94a6; line-height:1.9; font-weight:600;">
+                                            Contact us directly on WhatsApp for quick support.
+                                        </p>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <img src="./support/whatsapp.png" alt="Whatsapp Image" class="img-fluid">
+                                    </div>
+                                </div>
+                                <h5 class="text-center" style="color:#25D366; font-weight:700;">
+                                    &#128172;
+                                    +91 73832 03034
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EMAIL CARD -->
+                <div class="col-lg-4 mb-4">
+                    <div class="shadow" style="background-color:#ffffff; border-radius:22px; padding:30px;">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h3
+                                            style="font-size:20px; font-weight:700; margin-bottom:20px; color: #505450;">
+                                            Electronic Support
+                                        </h3>
+
+                                        <p
+                                            style="line-height:1.8; margin-bottom:20px; color:#8a94a6; line-height:1.9; font-weight:600;">
+                                            Raise ticket for a demo on below given email addres.
+                                        </p>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <img src="./support/email.png" alt="Email Image" class="img-fluid">
+                                    </div>
+                                </div>
+
+                                <h6 class="text-center" style="color:#4c51bf; font-weight:600;">
+                                    &#128232;
+                                    <a href="mailto:support@nextflow.in" style="color:#4c51bf; text-decoration:underline;">support@nextflow.in</a>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CENTER CARD -->
+                <div class="col-lg-4 mb-4">
+                    <div class="shadow" style="background-color:#ffffff; border-radius:22px; padding:30px;">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h3
+                                            style="font-size:20px; font-weight:700; margin-bottom:20px; color: #505450;">
+                                            Support Center
+                                        </h3>
+
+                                        <p
+                                            style="line-height:1.8; margin-bottom:20px; color:#8a94a6; line-height:1.9; font-weight:600;">
+                                            Our support team is ready to assist you anytime.
+                                        </p>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <img src="./support/contact.png" alt="Contact Image" class="img-fluid">
+                                    </div>
+                                </div>
+
+                                <h5 class="text-center" style="color:#3182ce; font-weight:700;">
+                                    &#128241;
+                                    +91 73832 03034
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOT FEATURE -->
+    <section id="hot_feature" style="padding:3rem 0; border-top:2px solid #eae9e4;">
+        <div class="container-fluid">
+            <div class="text-center mb-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    What&apos;s inside</p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#50545d; margin-bottom:12px;">
+                    Hot Features</h2>
+            </div>
+            <div class="row g-2 g-md-3 mb-2 mb-md-3">
+                <div class="col-12 col-md-8">
+                    <div
+                        style="background-color:#ffffff; border-radius:18px; border:1px solid #e8e8e4; border-top: 3px solid #5a35d9; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:16px;">
+                            <div>
+                                &#128204;
+                            </div>
+                        </div>
+                        <h3
+                            style="font-family:'Sora',sans-serif; font-size:23px; font-weight:700; margin-bottom:8px; color:#50545d;">
+                            Product-wise Pricelist Management
+                        </h3>
+                        <p
+                            style="color:#777; font-size:16px; line-height:1.7; margin-bottom:16px;color: #a6aeb9; margin-top: 11px; font-weight: 600; padding-right: 40px;">
+                            Apply different pricelists individually for each product directly from the POS screen using a dedicated pricelist selection button. Users can instantly open a popup containing all available pricelists and apply the desired pricing rule to a specific product without affecting other order lines.
+                        </p>
+                        <div class="d-flex flex-wrap">
+                            <span class="mb-2 me-2"
+                                style="background-color:#f5f4f0; color:#555; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Individual Pricelist Selection
+                            </span>
+                            <span class="mb-2 me-2"
+                                style="background-color:#f5f4f0; color:#555; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Flexible Product Pricing
+                            </span>
+                            <span class="mb-2 me-2"
+                                style="background-color:#f5f4f0; color:#555; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                POS Integrated Workflow
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div
+                        style="background-color:#ffffff; border-radius:18px; border:1px solid #e8e8e4; border-top: 3px solid #3b82f6; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:16px;">
+                            &#128176;
+                        </div>
+                        <h3
+                            style="font-family:'Sora',sans-serif; font-size:23px; font-weight:700; margin-bottom:8px; color:#505450;">
+                            Automatic Discount Price Calculation
+                        </h3>
+                        <p
+                            style="color:#a6aeb9; font-size:16px; line-height:1.7; margin-bottom:16px;margin-top: 11px; font-weight: 600; padding-right: 40px;">
+                            Instantly calculate and update discounted prices based on the selected pricelist configuration.
+                        </p>
+                        <div class="d-flex flex-wrap">
+                            <span class="mb-2 me-2"
+                                style="background-color:#f0fdf4; color:#166534; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Real-time Price Update
+                            </span>
+                            <span class="mb-2 me-2"
+                                style="background-color:#f0fdf4; color:#166534; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Accurate Discount Calculation
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-2 g-md-3 mb-2 mb-md-3">
+                <div class="col-12 col-md-4">
+                    <div
+                        style="background-color:#ffffff; border-radius:18px; border:1px solid #e8e8e4; border-top: 3px solid #ef4444; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:16px;">
+                            &#129534;
+                        </div>
+                        <h3
+                            style="font-family:'Sora',sans-serif; font-size:23px; font-weight:700; margin-bottom:8px; color:#505450;">
+                            Enhanced Price Display
+                        </h3>
+                        <p
+                            style="color:#a6aeb9; font-size:16px; line-height:1.7; margin-bottom:12px;margin-top: 11px; font-weight: 600; padding-right: 40px;">
+                            Clearly display the applied pricelist name, original price with line-through formatting, and final discounted price in bold.
+                        </p>
+                        <div class="d-flex flex-wrap">
+                            <span class="mb-2 me-2"
+                                style="background-color:#f0f9ff; color:#075985; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Pricelist Visibility
+                            </span>
+                            <span class="mb-2 me-2"
+                                style="background-color:#f0f9ff; color:#075985; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Original vs Discounted Price
+                            </span>
+                            <span class="mb-2 me-2"
+                                style="background-color:#f0f9ff; color:#075985; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Customer-friendly Display
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8">
+                    <div
+                        style="background-color:#ffffff; border-radius:18px; border:1px solid #e8e8e4; border-top: 3px solid #f59e0b; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:16px;">
+                            &#127991;&#65039;
+                        </div>
+                        <h3
+                            style="font-family:'Sora',sans-serif; font-size:23px; font-weight:700; margin-bottom:8px; color: #505450;">
+                            Receipt Pricelist Information
+                        </h3>
+                        <p
+                            style="color:#a6aeb9; font-size:16px; line-height:1.7; margin-bottom:16px;margin-top: 11px; font-weight: 600; padding-right: 40px;">
+                            Automatically print selected pricelist details and discounted pricing on the POS receipt for better transparency. The receipt clearly displays the applied pricelist name, original product price with line-through formatting, and the final discounted price, helping customers easily understand the applied pricing and discounts during checkout.
+                        </p>
+                        <div class="d-flex flex-wrap">
+                            <span class="mb-2 me-2"
+                                style="background-color:#fff1f2; color:#be123c; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Receipt Integration
+                            </span>
+                            <span class="mb-2 me-2"
+                                style="background-color:#fff1f2; color:#be123c; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Discount Visibility
+                            </span>
+                            <span class="mb-2 me-2"
+                                style="background-color:#fff1f2; color:#be123c; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Transparent Billing
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-2 g-md-3">
+                <div class="col-12 col-md-8">
+                    <div
+                        style="background-color:#ffffff; border-radius:18px; border:1px solid #e8e8e4; border-top: 3px solid #ec4899; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:16px;">
+                            &#129518;
+                        </div>
+                        <h3
+                            style="font-family:'Sora',sans-serif; font-size:23px; font-weight:700; margin-bottom:8px; color:#505450;">
+                            Advanced Tax Compatibility
+                        </h3>
+                        <p
+                            style="color:#a6aeb9; font-size:16px; line-height:1.7; margin-bottom:16px;margin-top: 11px; font-weight: 600; padding-right: 40px;">
+                           Fully compatible with percentage taxes, fixed taxes, group taxes, and price-included tax configurations. The module accurately recalculates discounted pricing and tax amounts after pricelist selection, ensuring smooth operation with complex tax rules and maintaining correct totals throughout the entire POS order workflow.
+                        </p>
+                        <div class="d-flex flex-wrap align-items-center">
+                            <div class="d-flex align-items-flex-end" style="height:40px; margin-top:8px;">
+                                <div
+                                    style="width:18px; height:28px; background-color:#6c47ff; border-radius:4px 4px 0 0;">
+                                </div>
+                                <div
+                                    style="width:18px; height:38px; background-color:#a78bfa; border-radius:4px 4px 0 0;">
+                                </div>
+                                <div
+                                    style="width:18px; height:22px; background-color:#c4b5fd; border-radius:4px 4px 0 0;">
+                                </div>
+                                <div
+                                    style="width:18px; height:40px; background-color:#6c47ff; border-radius:4px 4px 0 0;">
+                                </div>
+                                <div
+                                    style="width:18px; height:32px; background-color:#a78bfa; border-radius:4px 4px 0 0;">
+                                </div>
+                                <div
+                                    style="width:18px; height:36px; background-color:#c4b5fd; border-radius:4px 4px 0 0;">
+                                </div>
+                            </div>
+                            <span class="mb-2 me-2 ms-2"
+                                style="background-color:#f0f9ff; color:#075985; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Tax Calculation Support
+                            </span>
+                            <span class="mb-2 me-2"
+                                style="background-color:#f0f9ff; color:#075985; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Inclusive & Exclusive Taxes
+                            </span>
+                            <span class="mb-2 me-2"
+                                style="background-color:#f0f9ff; color:#075985; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Accurate Tax Handling
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div
+                        style="background-color:#ffffff; border-radius:18px; border:1px solid #e8e8e4; border-top: 3px solid #10b981; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:16px;">
+                            &#128736;&#65039;
+                        </div>
+                        <h3
+                            style="font-family:'Sora',sans-serif; font-size:23px; font-weight:700; margin-bottom:8px; color: #505450;">
+                            Support for Complex Products
+                        </h3>
+                        <p
+                            style="color:#a6aeb9; font-size:16px; line-height:1.7; margin-bottom:16px;margin-top: 11px; font-weight: 600; padding-right: 40px;">
+                            Works seamlessly with simple products, products with extra prices, extra price with taxes, and combo/composite products.
+                        </p>
+                        <div class="d-flex flex-wrap">
+                            <span class="mb-2 me-2"
+                                style="background-color:#f5f4f0; color:#555; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Simple Products
+                            </span>
+                            <span class="mb-2 me-2"
+                                style="background-color:#f5f4f0; color:#555; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Attribute Extra Pricing
+                            </span>
+                            <span class="mb-2 me-2"
+                                style="background-color:#f5f4f0; color:#555; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Combo Product Support
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER BUTTONS -->
+    <section style="top:0px; opacity: 0.8;">
+        <div class="main-div">
+            <div class="d-flex justify-content-center px-3 py-3 mb-3  position-sticky top-0" style="z-index: 100;">
+                <div id="navScroll" class="d-flex justify-content-around flex-nowrap overflow-auto shadow"
+                    style="border-radius:50px; scrollbar-width:thin; -webkit-overflow-scrolling: touch;">
+
+                    <ul class="nav nav-pills d-inline-flex align-items-center p-lg-3 p-sm-0"
+                        style="background-color:#ffffff; margin:0; list-style:none; flex-wrap:nowrap; min-width:max-content;">
+
+                        <li class="nav-item p-sm-0"
+                            style="border-radius:40px; padding:5px 10px; cursor:pointer; margin-right:6px; white-space:nowrap;">
+                            <a class="nav-link active" href="#DetailedFeature" data-bs-toggle="tab"
+                                style="text-decoration:none; border: none; font-size:14px; font-weight:600; font-family:'DM Sans',sans-serif;">
+                                Features
+                            </a>
+                        </li>
+
+                        <li class="nav-item p-sm-0"
+                            style="border-radius:40px; padding:5px 10px; cursor:pointer; margin-right:6px; white-space:nowrap; flex-shrink:0;">
+                            <a class="nav-link" href="#Screenshots" data-bs-toggle="tab"
+                                style="text-decoration:none;border: none; font-size:14px; font-weight:600; font-family:'DM Sans',sans-serif;">
+                                Screenshots
+                            </a>
+                        </li>
+
+                        <li class="nav-item p-sm-0"
+                            style="border-radius:40px; padding:5px 10px; cursor:pointer; margin-right:6px; white-space:nowrap; flex-shrink:0;">
+                            <a class="nav-link" href="#Changelog" data-bs-toggle="tab"
+                                style="text-decoration:none; border: none; font-size:14px; font-weight:600; font-family:'DM Sans',sans-serif;">
+                                Changelog
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-content">
+
+                <!-- DETAILE FEATURE TAB -->
+                <div id="DetailedFeature" class="mb-5 tab-pane active">
+                    <div class="container-fluid"
+                        style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #f5f4f0;">
+                        <div class="text-center mb-5">
+                            <p
+                                style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                                Deep dive</p>
+                            <h2
+                                style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:700; color:#0d0d0d;">
+                                Features in detail</h2>
+                        </div>
+
+                        <div class="row g-4">
+
+                            <!-- Card 1 -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#9881;&#65039;
+                                        </div>
+                                        <div>
+                                            <p
+                                                style="font-size:13px; color:#666; margin:0; text-transform:uppercase; letter-spacing:.06em;">
+                                                 POS → Pricelist Configuration
+                                            </p>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Easy Pricelist Setup & Management
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#16a34a; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Configure and manage multiple pricelists directly from the Odoo backend.
+
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#16a34a; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Enable different pricelists for use inside the POS session.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:16px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#16a34a; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Control which pricelists are available for product-wise selection in the POS interface.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:16px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#16a34a; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                           Allows businesses to create flexible pricing strategies for different customer requirements.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#128161;
+                                        </div>
+                                        <div>
+                                            <p
+                                                style="font-size:13px; color:#666; margin:0; text-transform:uppercase; letter-spacing:.06em;">
+                                                 POS → Product Pricelist Selection</p>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Easy Pricelist Selection from Product Screen</h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#16a34a; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Adds a dedicated pricelist button below each product price section inside the POS interface.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#16a34a; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Allows users to open a popup containing all available pricelists for quick selection.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:16px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#16a34a; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Apply different pricelists individually for each product within the same order.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:16px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#16a34a; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Provides a faster and more flexible pricing workflow directly from the POS screen.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#128269;
+                                        </div>
+                                        <div>
+                                            <p
+                                                style="font-size:13px; color:#666; margin:0; text-transform:uppercase; letter-spacing:.06em;">
+                                                POS → Product-wise Pricelist Processing
+                                            </p>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Flexible Pricelist Handling
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#a855f7; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Allows separate pricelist application for each individual product in the same POS order.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#a855f7; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Selected pricelist affects only the targeted product without modifying other order lines.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#a855f7; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Supports real-time switching between pricelists during the active POS session.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#a855f7; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                           Helps cashiers manage customer-specific pricing directly from the billing screen.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#129534;
+                                        </div>
+                                        <div>
+                                            <p
+                                                style="font-size:13px; color:#666; margin:0; text-transform:uppercase; letter-spacing:.06em;">
+                                                POS → Receipt Pricing Information
+                                            </p>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Enhanced Receipt Display
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                           Automatically prints selected pricelist details on the POS receipt.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Displays original and discounted prices clearly for customer transparency.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Helps customers easily understand applied discounts and pricing rules.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                           Keeps receipt formatting clean and fully integrated with the POS receipt layout.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 5  -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#129518;
+                                        </div>
+                                        <div>
+                                            <p
+                                                style="font-size:13px; color:#666; margin:0; text-transform:uppercase; letter-spacing:.06em;">
+                                                POS → Tax & Pricing Accuracy
+                                            </p>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Advanced Pricing and Tax Handling
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Automatically recalculates taxes after applying product-wise pricelists.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Supports percentage tax, fixed tax, group tax, and price-included tax configurations.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Ensures accurate totals for discounted products with complex tax structures.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                           Maintains stable pricing behavior across the complete POS order workflow.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 6  -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#9889;
+                                        </div>
+                                        <div>
+                                            <p
+                                                style="font-size:13px; color:#666; margin:0; text-transform:uppercase; letter-spacing:.06em;">
+                                                POS → Optimized User Experience
+                                            </p>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Faster and Cleaner POS Workflow
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                           Reduces manual pricing adjustments during checkout operations.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Provides a responsive and user-friendly popup experience for pricelist selection.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Optimized for smooth performance on desktop screens and POS terminals.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Creates a cleaner, faster, and more professional billing experience in the POS system.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 7  -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#129504;
+                                        </div>
+                                        <div>
+                                            <p
+                                                style="font-size:13px; color:#666; margin:0; text-transform:uppercase; letter-spacing:.06em;">
+                                                POS → Intelligent Pricelist Logic
+                                            </p>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Smart Pricing Engine
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                           Automatically applies pricelist rules based on the selected pricing configuration.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Handles complex pricing structures without breaking the POS calculation flow.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Maintains accurate subtotal and total calculations after pricelist changes.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Ensures stable discount behavior across all supported product types.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 8  -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#128450;&#65039;
+                                        </div>
+                                        <div>
+                                            <p
+                                                style="font-size:13px; color:#666; margin:0; text-transform:uppercase; letter-spacing:.06em;">
+                                                POS → Backend Pricelist Tracking
+                                            </p>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Order Line Pricelist Storage
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                           Stores selected pricelist information separately for each POS order line.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Saves applied pricelist names for better backend tracking and reporting.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Helps administrators review product-wise pricing history from POS orders.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Provides better visibility for sales auditing and discount management.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCREENSHOTS -->
+                <div id="Screenshots" class="tab-pane fade">
+                    <div class="container-fluid"
+                        style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #f5f4f0;">
+                        <div class="text-center mb-5">
+                            <p
+                                style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                                Visual walkthrough</p>
+                            <h2
+                                style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:700; color:#0d0d0d;">
+                                Screenshots</h2>
+                        </div>
+
+                        <div class="row">
+
+                            <!-- Screenshot Navbar -->
+                            <div class="col-lg-3 col-md-12 mb-4">
+                                <ul class="nav flex-column nav-pills"
+                                    style="background-color: #f0eeff; border-radius: 10px; padding: 10px;">
+                                    <div
+                                        style="font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #666; padding: 0 1.25rem; margin: 0.5rem;">
+                                        Screenshots
+                                    </div>
+                                    <li class="nav-item">
+                                        <a class="nav-link active d-flex justify-content-start" data-bs-toggle="tab"
+                                            href="#ss-config_pricelist"
+                                            style="font-size:14px; font-weight:600; padding: 15px; text-decoration: none;">
+                                            <span style="width: 35px; height: 20px;">
+                                                &#9881;&#65039;
+                                            </span>
+                                            <span>Pricelist Configuration</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link d-flex justify-content-start" data-bs-toggle="tab"
+                                            href="#ss-product_screen"
+                                            style="font-size:14px; font-weight:600; padding: 15px; text-decoration: none;">
+                                            <span style="width: 35px; height: 20px;">
+                                                &#128722;
+                                            </span>
+                                            <span>POS Product Screen</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link d-flex justify-content-start" data-bs-toggle="tab"
+                                            href="#ss-tax_calculation"
+                                            style="font-size:14px; font-weight:600; padding: 15px; text-decoration: none;">
+                                            <span style="width: 35px; height: 20px;">
+                                               &#9878;
+                                            </span>
+                                            <span>Tax Calculation</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link d-flex justify-content-start" data-bs-toggle="tab"
+                                            href="#ss-combo_extra_price"
+                                            style="font-size:14px; font-weight:600; padding: 15px; text-decoration: none;">
+                                            <span style="width: 35px; height: 20px;">
+                                                &#128717;&#65039;
+                                            </span>
+                                            <span>
+                                                Extra Price & Combo Product
+                                            </span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link d-flex justify-content-start" data-bs-toggle="tab"
+                                            href="#ss-backend_order"
+                                            style="font-size:14px; font-weight:600; padding: 15px; text-decoration: none;">
+                                            <span style="width: 35px; height: 20px;">
+                                                &#128202;
+                                            </span>
+                                            <span>
+                                               Backend Orders
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-lg-9 col-md-12" style="background-color: #f0eeff; border-radius: 10px;">
+                                <div class="tab-content">
+
+                                    <!-- Configure Pricelist -->
+                                    <div id="ss-config_pricelist" class="tab-pane active">
+                                        <div class="mb-5">
+                                            <h4 class="pt-4"
+                                                style="font-family:'Sora',sans-serif; font-size:1.1rem; font-weight:700; color:#6c47ff; margin-bottom:20px; display:flex; align-items:center;">
+                                                <span
+                                                    style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:8px; font-size:16px; margin-right: 10px;">
+                                                    &#9881;&#65039;
+                                                </span>
+                                                Pricelist Configuration 
+                                            </h4>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                        Menus &rarr; Point Of Sale 
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_01.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Configuration &rarr; Settings
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_02.png" class="img-fluid rounded"
+                                                            alt="Admin access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Pricing &rarr; Enable Flexible Pricelist
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_03.png" class="img-fluid rounded"
+                                                            alt="Admin access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Save Settings
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_04.png" class="img-fluid rounded"
+                                                            alt="Admin access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Products &rarr; Pricelists
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_05.png" class="img-fluid rounded"
+                                                            alt="Admin access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Create New Pricelist
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_06.png" class="img-fluid rounded"
+                                                            alt="Admin access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_07.png" class="img-fluid rounded"
+                                                            alt="Admin access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_08.png" class="img-fluid rounded"
+                                                            alt="Admin access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_09.png" class="img-fluid rounded"
+                                                            alt="Admin access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_10.png" class="img-fluid rounded"
+                                                            alt="Admin access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_11.png" class="img-fluid rounded"
+                                                            alt="Admin access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Created Multiple Pricelists. Then, Configuration &rarr; Settings
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_12.png" class="img-fluid rounded"
+                                                            alt="Admin access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Add Pricelist(s) To POS Store
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_13.png" class="img-fluid rounded"
+                                                            alt="Admin access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- POS Product Screen -->
+                                    <div id="ss-product_screen" class="tab-pane">
+                                        <div class="mb-5">
+                                            <h4 class="pt-4"
+                                                style="font-family:'Sora',sans-serif; font-size:1.1rem; font-weight:700; color:#6c47ff; margin-bottom:20px; display:flex; align-items:center;">
+                                                <span
+                                                    style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:8px; font-size:16px; margin-right: 10px;">
+                                                    &#128722;
+                                                </span>
+                                                POS Product Screen
+                                            </h4>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                        POS Store &rarr; Furniture Shop
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_14.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Add Any Product To Card. The Pricelist Button Will Appear At The Bottom Of the Product Price.
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_15.png" class="img-fluid rounded"
+                                                            alt="Admin access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Pricelist Selection PopUp 
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_16.png" class="img-fluid rounded"
+                                                            alt="Admin access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Selected Pricelist Applied For Single Product.
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_17.png" class="img-fluid rounded"
+                                                            alt="Admin access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_18.png" class="img-fluid rounded"
+                                                            alt="Admin access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Pricelist With Min. Qty Rule
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_19.png" class="img-fluid rounded"
+                                                            alt="Admin access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_20.png" class="img-fluid rounded"
+                                                            alt="Admin access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="mb-4"
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Numpad Discount (Manual)
+                                                            </p>
+                                                            <img src="ScreenShot/ss_img_21.png" class="img-fluid rounded"
+                                                                alt="Users list view"
+                                                                style="border-radius:8px; border:1px solid #ede9fe;"
+                                                                onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="mb-4"
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Numpad Price (Manual)
+                                                            </p>
+                                                            <img src="ScreenShot/ss_img_22.png" class="img-fluid rounded"
+                                                                alt="Users list view"
+                                                                style="border-radius:8px; border:1px solid #ede9fe;"
+                                                                onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Tax Calculation -->
+                                    <div id="ss-tax_calculation" class="tab-pane">
+                                        <div class="mb-5">
+                                            <h4 class="pt-4"
+                                                style="font-family:'Sora',sans-serif; font-size:1.1rem; font-weight:700; color:#6c47ff; margin-bottom:20px; display:flex; align-items:center;">
+                                                <span
+                                                    style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:8px; font-size:16px; margin-right: 10px;">
+                                                    &#9878;
+                                                </span>
+                                                Tax Calculation
+                                            </h4>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                        Product With Tax Type - 'Percentage %'
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_23.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_24.png" class="img-fluid rounded"
+                                                        alt="Users list view"
+                                                        style="border-radius:8px; border:1px solid #ede9fe;"
+                                                        onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_25.png" class="img-fluid rounded"
+                                                        alt="Users list view"
+                                                        style="border-radius:8px; border:1px solid #ede9fe;"
+                                                        onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                        Product With Tax Type - 'Fixed Amount'
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_26.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_27.png" class="img-fluid rounded"
+                                                        alt="Users list view"
+                                                        style="border-radius:8px; border:1px solid #ede9fe;"
+                                                        onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                        Product With Tax Type - 'Group'
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_28.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_29.png" class="img-fluid rounded"
+                                                        alt="Users list view"
+                                                        style="border-radius:8px; border:1px solid #ede9fe;"
+                                                        onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Extra Price & Combo Product -->
+                                    <div id="ss-combo_extra_price" class="tab-pane">
+                                        <div class="mb-5">
+                                            <h4 class="pt-4"
+                                                style="font-family:'Sora',sans-serif; font-size:1.1rem; font-weight:700; color:#6c47ff; margin-bottom:20px; display:flex; align-items:center;">
+                                                <span
+                                                    style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:8px; font-size:16px; margin-right: 10px;">
+                                                    &#128717;&#65039;
+                                                </span>
+                                                Extra Price & Combo Product
+                                            </h4>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                        Product With Extra Price 
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_30.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_31.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                        Combo Product
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_42.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_43.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_44.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                        Combo Product With Manual Discount
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_45.png" class="img-fluid rounded"
+                                                        alt="Users list view"
+                                                        style="border-radius:8px; border:1px solid #ede9fe;"
+                                                        onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                        Combo Product With Extra Price
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_46.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_47.png" class="img-fluid rounded"
+                                                        alt="Users list view"
+                                                        style="border-radius:8px; border:1px solid #ede9fe;"
+                                                        onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Backend Orders -->
+                                    <div id="ss-backend_order" class="tab-pane">
+                                        <div class="mb-5">
+                                            <h4 class="pt-4"
+                                                style="font-family:'Sora',sans-serif; font-size:1.1rem; font-weight:700; color:#6c47ff; margin-bottom:20px; display:flex; align-items:center;">
+                                                <span
+                                                    style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:8px; font-size:16px; margin-right: 10px;">
+                                                    &#128202;
+                                                </span>
+                                                Backend Orders
+                                            </h4>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                        Order Created
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_32.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_33.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                        Backend - Created Order 
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_36.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_37.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                        Order With Multiple Orderlines
+                                                        </p>
+                                                        <img src="ScreenShot/ss_img_38.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_39.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_40.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/ss_img_41.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHANGELOG -->
+                <div id="Changelog" class="tab-pane fade show">
+                    <div class="container-fluid"
+                        style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #f5f4f0;">
+                        <div class="text-center mb-5">
+                            <p
+                                style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                                What&apos;s new</p>
+                            <h2
+                                style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:700; color:#0d0d0d;">
+                                Changelog</h2>
+                        </div>
+                        <div class="position-relative ps-4"
+                            style="max-width:680px; margin:0 auto; border-left:2px solid #e8e8e4;">
+                            <div class="position-absolute top-0 start-0 bottom-0"
+                                style="background-color: #e8e8e4; width: 0.20rem;">
+                                <div
+                                    style="position:absolute; margin-left:-11px; width:24px; height:24px; background-color:#6c47ff; border-radius:50%; display:flex; align-items:center; justify-content:center;">
+                                    <div
+                                        style="width:18px; height:18px; margin:auto; background-color:#6c47ff; border-radius:50%; border:3px solid #ffffff;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-relative mb-4 pl-4">
+                                <div class="d-flex flex-wrap align-items-center mb-3">
+                                    <span
+                                        style="font-family:'Sora',sans-serif; font-size:17px; font-weight:700; color:#0d0d0d;margin-right:10px;">Version
+                                        20.0.1</span>
+                                    <span
+                                        style="background-color:#f0eeff; color:#5a35d9; border:1px solid #d0c4ff; padding:3px 10px; border-radius:6px; font-size:11px; font-weight:700;margin-right:10px;">Odoo
+                                        20</span>
+                                    <span
+                                        style="background-color:#dcfce7; color:#166534; padding:3px 10px; border-radius:6px; font-size:11px; font-weight:700;">Initial
+                                        Release</span>
+                                    <span style="color:#666; font-size:12px; margin-left:4px;margin-right:10px;">
+                                        30<sup>th</sup> September 2026
+                                    </span>
+                                </div>
+                                <div class="d-flex flex-column"
+                                    style="background-color:#f8f8f6; border:1px solid #e8e8e4; border-radius:12px; padding:18px 20px;">
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added product-wise pricelist selection functionality inside the POS interface
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added dedicated pricelist button below each product price section
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Interactive popup added for selecting available pricelists per product
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Automatic discounted price calculation after pricelist selection
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Display applied pricelist name directly on the POS order line
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added original price with line-through and discounted price with bold formatting
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Pricelist information displayed on the POS receipt for better transparency
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                           Backend fields added to store selected pricelist information for each order line
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Support added for simple products and products with extra pricing
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                           Compatible with extra price and tax combination products
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Advanced tax compatibility added for percentage, fixed, group, and price-included taxes
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Full support for combo/composite products in POS workflow
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Multi-language support — English, German, Arabic, Chinese, French
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-absolute"
+                                style="margin-top:4px; margin-left:-30px; width:16px; height:16px; background-color:#d0d0c8; border-radius:50%; border:3px solid #ffffff;">
+                            </div>
+                            <div style="position:relative; opacity:.45;">
+                                <div class="d-flex flex-wrap align-items-center mb-3">
+                                    <span
+                                        style="font-family:'Sora',sans-serif; font-size:17px; font-weight:700; color:#0d0d0d;margin-right:10px;">Version
+                                        20.0.2</span>
+                                    <span
+                                        style="background-color:#f0eeff; color:#5a35d9; border:1px solid #d0c4ff; padding:3px 10px; border-radius:6px; font-size:11px; font-weight:700;">Planned</span>
+                                    <span style="color:#666; font-size:12px; margin-left:4px;">Coming soon</span>
+                                </div>
+                                <div
+                                    style="background-color:#f8f8f6; border:1px dashed #e8e8e4; border-radius:12px; padding:18px 20px;">
+                                    <div style="display:flex; align-items:center;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#ccc; border-radius:50%; margin:7px 10px 0 0;">
+                                        </div><span style="font-size:13px; color:#aaa;">More exciting features being
+                                            planned...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQS -->
+    <section>
+        <div class="container-fluid" style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #eae9e4;">
+
+            <div class="text-center mb-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    Got questions?
+                </p>
+
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:700; color:#0d0d0d;">
+                    Frequently Asked Questions
+                </h2>
+            </div>
+
+            <div id="faqAccordion" class="d-flex flex-column" style="max-width:760px; margin:0 auto;">
+
+                <!-- FAQ 1 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center" href="#faq1" data-target="#faq1"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq1"
+                        style="padding:20px 24px; text-decoration:none; width:100%;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            How can I get support or request customization?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq1" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:rgb(102, 102, 102); font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                Please contact us at
+                                <a href="mailto:support@nextflow.in"
+                                    style="color:#6c47ff; text-decoration:none; font-weight:600;">
+                                    support@nextflow.in
+                                </a>
+                                for any support or customization requests.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center" href="#faq2" data-target="#faq2"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq2"
+                        style="padding:20px 24px; text-decoration:none; width:100%;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Can I get free support after purchase?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq2" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <b>Yes!</b>
+                                You get
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    90 days of free support
+                                </span>
+                                included with every purchase — no strings attached.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center" href="#faq3" data-target="#faq3"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq3"
+                        style="padding:20px 24px; text-decoration:none; width:100%;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            How does the Pricelist Selection Popup work?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq3" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                Users can click the pricelist button available below the product price in the POS screen to open a popup containing 
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    all available pricelists 
+                                </span>
+                                for that specific product.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- FAQ 4 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq4"
+                        data-toggle="collapse" data-target="#faq4" aria-expanded="false" data-bs-toggle="collapse"
+                        aria-controls="faq4" style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Can different pricelists be applied to different products in the same order?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq4" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    Yes, 
+                                </span>
+                                the module allows users to apply separate pricelists individually for each product within the same POS order.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq5"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq5"
+                        style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Are discounted prices automatically calculated after pricelist selection?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq5" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    Yes,
+                                </span>
+                                once a pricelist is selected, the system instantly calculates and updates the discounted price along with applicable taxes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq6"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq6"
+                        style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Will the applied pricelist details appear on the receipt?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq6" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    Yes,
+                                </span>
+                                the receipt displays the applied pricelist name, original price with line-through formatting, and the final discounted price.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq7"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq7"
+                        style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Is the module compatible with taxes and combo products?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq7" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    Yes,
+                                </span>
+                                the module supports percentage taxes, fixed taxes, group taxes, tax-inclusive pricing, products with extra prices, and combo/composite products.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MULTI LANGUAGE -->
+    <section
+        style="background-color: #f0f3fe; padding:30px; font-family:'Segoe UI',sans-serif; overflow:hidden; margin-top: 20px;">
+        <div class="container-fluid">
+
+            <div class="container-fluid text-center mb-4">
+                <p
+                    style="font-size:11px; font-weight:600; color:rgb(153, 153, 153); text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    Available worldwide
+                </p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#50545d; margin-bottom:20px;">
+                    Multi-Language Support
+                </h2>
+            </div>
+
+            <!-- FLAGS -->
+            <div class="row justify-content-center text-center mb-5 mt-5 mb-sm-0">
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 3s ease-in-out infinite; transition:0.3s;">
+                        <img src="Flags/eng.png" class="img-fluid" alt="US Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            English
+                        </h6>
+                    </div>
+                </div>
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 4s ease-in-out infinite;">
+                        <img src="Flags/ger.png" class="img-fluid" alt="German Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            German
+                        </h6>
+                    </div>
+                </div>
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 5s ease-in-out infinite;">
+                        <img src="Flags/arb.png" class="img-fluid" alt="Arabic Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            Arabic
+                        </h6>
+                    </div>
+                </div>
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 3.5s ease-in-out infinite;">
+                        <img src="Flags/chi.png" class="img-fluid" alt="Chinese Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            Chinese
+                        </h6>
+                    </div>
+                </div>
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 4.5s ease-in-out infinite;">
+                        <img src="Flags/fre.png" class="img-fluid" alt="French Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            French
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="nf_services"
+        style="background-color:#ffffff; padding:15px 0; border-top:2px solid #f5f4f0;padding: 50px 0;">
+        <div class="container-fluid">
+            <div class="text-center mb-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    What we offer</p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#505450; margin-bottom:12px;">
+                    Our Services</h2>
+                <p class="mb-md-3" style="color:#888; font-size:16px; max-width:520px; margin:0 auto;">
+                    Expert Odoo services tailored to
+                    grow your business &mdash; from migration to full implementation and beyond.</p>
+            </div>
+            <div class="row g-3 g-md-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #6c47ff; border-radius:16px; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin:auto;">
+                            &#128260;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d; text-align: center;">
+                            Odoo Migration</h4>
+                        <p style="color:#777; font-size:14px; line-height:1.7; margin-bottom:16px; text-align: center;">
+                            Seamlessly migrate
+                            your Odoo database and modules from older versions to the latest. We handle the entire
+                            process &mdash; data, customizations, and configurations.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -10%; margin-left: 68%; width:120px; height:120px; background-color:rgba(108, 71, 255, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -8%; margin-left: 63%; width:50px; height:50px; background-color:rgba(108, 71, 255, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #f59e0b; border-radius:16px; padding:1.5rem; height:100%;">
+                        <div style="width:48px; height:48px; border-radius:12px; font-size:30px; margin: auto;">
+                            &#128295;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d; text-align: center;">
+                            Odoo Customization</h4>
+                        <p style="color:#777; font-size:14px; line-height:1.7; margin-bottom:16px; text-align: center;">
+                            Modify existing Odoo
+                            modules &mdash; CRM, Sales, Inventory, Accounting &mdash; to fit your operations. Add
+                            new
+                            fields, change workflows, and create custom business rules.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -10%; margin-left: 68%; width:120px; height:120px; background-color:rgba(245, 158, 11, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -8%; margin-left: 63%; width:50px; height:50px; background-color:rgba(245, 158, 11, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #10b981; border-radius:16px; padding:1.5rem; height:100%;">
+                        <div style="width:48px; height:48px; border-radius:12px; font-size:30px; margin:auto;">
+                            &#127760;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d; text-align: center;">
+                            Web Development in Odoo</h4>
+                        <p style="color:#777; font-size:14px; line-height:1.7; margin-bottom:16px; text-align: center;">
+                            We build powerful,
+                            user-friendly websites fully integrated with your Odoo system &mdash; from landing pages
+                            to
+                            full e-commerce storefronts.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -9%; margin-left: 68%; width:120px; height:120px; background-color:rgba(16, 185, 129, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -8%; margin-left: 63%; width:50px; height:50px; background-color:rgba(16, 185, 129, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="mt-sm-0 position-relative overflow-hidden"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #ef4444; border-radius:16px; padding:1.5rem; height:100%;margin-top: 30px;">
+                        <div
+                            style="width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin:auto;">
+                            &#9881;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d; text-align: center;">
+                            Odoo Implementation</h4>
+                        <p style="color:#777; font-size:14px; line-height:1.7; margin-bottom:16px; text-align: center;">
+                            End-to-end Odoo
+                            integration with e-commerce platforms, payment gateways, shipping carriers, and more.
+                            Robust
+                            connections for your critical systems.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -10%; margin-left: 68%; width:120px; height:120px; background-color:rgba(239, 68, 68, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -8%; margin-left: 63%; width:50px; height:50px; background-color:rgba(239, 68, 68, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="mt-sm-0 overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #3b82f6; border-radius:16px; padding:1.5rem; height:100%;margin-top: 30px;">
+                        <div
+                            style="width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin:auto;">
+                            &#128247;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d;text-align: center;">
+                            Odoo Support &amp; Maintenance</h4>
+                        <p style="color:#777; font-size:13px; line-height:1.7; margin-bottom:16px;text-align: center;">
+                            Expert technical
+                            assistance, proactive security updates, performance monitoring, and user support to keep
+                            your Odoo system reliable and effective.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -9%; margin-left: 68%; width:120px; height:120px; background-color:rgba(59, 130, 246, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -7%; margin-left: 63%; width:50px; height:50px; background-color:rgba(59, 130, 246, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="mt-sm-0 overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #ec4899; border-radius:16px; padding:1.5rem; height:100%;margin-top: 30px;">
+                        <div
+                            style="width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin:auto;">
+                            &#127891;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d;text-align: center;">
+                            Odoo Training</h4>
+                        <p style="color:#777; font-size:13px; line-height:1.7; margin-bottom:16px;text-align: center;">
+                            Comprehensive
+                            functional and technical Odoo training to help your teams understand, implement, and
+                            effectively use Odoo for business operations.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -9%; margin-left: 68%; width:120px; height:120px; background-color:rgba(236, 72, 153, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -7%; margin-left: 63%; width:50px; height:50px; background-color:rgba(236, 72, 153, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== APPS FOR YOU SECTION ===== -->
+    <section id="sh_most_demanded_apps"
+        style="background-color:#f0f3fe; padding:20px 0; font-family:'Segoe UI',sans-serif;">
+
+        <div class="container-fluid px-lg-5 px-3 mt-4">
+
+            <div class="text-center mb-3">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    From our catalog</p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#505450; margin-bottom:12px;">
+                    Apps For You</h2>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-end mb-4">
+                <!-- TITLE -->
+                <a href="https://apps.odoo.com/apps/modules/browse?author=NextFlowIT" target="_blank"
+                    style="display:inline-flex; align-items:center; border:1.5px solid #ddd; border-radius:9px; padding:10px 20px; font-size:13px; font-weight:600; color:#1a1a1a; text-decoration:none; background-color:#fff;">
+                    View All Apps
+                    <span style="font-size:11px; color:#5a35d9; margin-left:8px;">
+                        >>
+                    </span>
+                </a>
+            </div>
+
+            <!-- APP CARDS -->
+            <div class="row">
+
+                <!-- CARD 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="h-100" style="background-color:#fff;border-radius:24px;overflow:hidden;
+                                        box-shadow:0 15px 40px rgba(0,0,0,0.06);transition:0.4s;">
+
+                        <a href="https://apps.odoo.com/apps/modules/19.0/nf_discount_limit_from_pos" target="_blank"
+                            style="text-decoration:none;">
+
+                            <!-- IMAGE -->
+                            <div class="d-flex flex-column">
+                                <!-- IMAGE -->
+                                <img src="Apps_Images/pos_emp_discount_limit.gif" class="img-fluid" alt="Barcode App"
+                                    style="width:100%;
+                                                    height:100%;
+                                                    object-fit:cover;
+                                                    transition:.4s;
+                                                    border-radius: 24px 24px 0 0;">
+
+                            </div>
+
+                            <!-- CONTENT -->
+                            <div style="padding:20px;">
+                                <h4 style="font-weight:700;color:#1a202c;margin-bottom:15px;">
+                                    Cashier Discount Limit From Pos
+                                </h4>
+
+                                <p style="color:#718096;margin-bottom:25px;">
+                                    It enables administrators to define maximum discount limits at both the product and POS product category levels, ensuring consistent pricing policies across all transactions. The module supports both fixed amount and percentage-based discount limits, and it can be configured individually for product variants, offering flexibility to meet diverse business requirements.
+                                </p>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="h-100" style="background-color:#fff;border-radius:24px;overflow:hidden;
+                                        box-shadow:0 15px 40px rgba(0,0,0,0.06);transition:0.4s;">
+
+                        <a href="https://apps.odoo.com/apps/modules/19.0/nf_pos_order_type" target="_blank"
+                            style="text-decoration:none;">
+
+                            <!-- IMAGE -->
+                            <div class="d-flex flex-column">
+                                <!-- IMAGE -->
+                                <img src="Apps_Images/pos_order_type.gif" class="img-fluid" alt="Payment Gateway App"
+                                    style="width:100%;
+                                                    height:100%;
+                                                    object-fit:cover;
+                                                    transition:.4s;
+                                                    border-radius: 24px 24px 0 0;">
+
+                            </div>
+
+                            <!-- CONTENT -->
+                            <div style="padding:20px;">
+                                <h4 style="font-weight:700;color:#1a202c;margin-bottom:15px;">
+                                    Pos Order Type
+                                </h4>
+
+                                <p style="color:#718096;margin-bottom:25px;">
+                                    The module for Odoo enhances point-of-sale operations by allowing businesses to define and categorize different types of orders directly within the POS interface. Using this, store managers can create distinct order types such as dine-in, takeaway, home delivery, or instant delivery, enabling staff to quickly select the appropriate type during checkout.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="h-100" style="background-color:#fff;border-radius:24px;overflow:hidden;
+                                        box-shadow:0 15px 40px rgba(0,0,0,0.06);transition:0.4s;">
+
+                        <a href="https://apps.odoo.com/apps/modules/19.0/nf_pos_order_list" target="_blank"
+                            style="text-decoration:none;">
+
+                            <!-- IMAGE -->
+                            <div class="d-flex flex-column">
+                                <!-- IMAGE -->
+                                <img src="Apps_Images/pos_order_list.gif" class="img-fluid" alt="Accounting App"
+                                    style="width:100%; height:225.66px; object-fit:cover; transition:.4s; border-radius: 24px 24px 0 0;">
+                            </div>
+
+                            <!-- CONTENT -->
+                            <div style="padding:20px;">
+                                <h4 style="font-weight:700;color:#1a202c;margin-bottom:15px;">
+                                    Point Of Sale Order list
+                                </h4>
+
+                                <p style="color:#718096;margin-bottom:25px;">
+                                    Enjoy a customized screen that adapts to your preferences, offering a unique and efficient way to display and manage your orders. Experience the perfect blend of functionality and user-friendliness.Our app is designed with simplicity in mind, ensuring a pleasant and efficient navigation experience.
+                                </p>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

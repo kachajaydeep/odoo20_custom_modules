@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_nf_measurement_type_form" model="ir.ui.view">
+        <field name="name">nf.measurement.type.form</field>
+        <field name="model">nf.measurement.type</field>
+        <field name="arch" type="xml">
+            <form string="Measurement Type">
+                <sheet>
+                    <group>
+                        <field name="active" invisible="1" />
+                        <field name="name"/>
+                        <field name="code"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+     <record id="nf_measurement_type_search_view" model="ir.ui.view">
+        <field name="name">measurement.type.search</field>
+        <field name="model">nf.measurement.type</field>
+        <field name="arch" type="xml">
+            <search string="Search Measurement Type">
+                <field name="name" string="Name/code" filter_domain="['|', ('name', 'ilike', self), ('code', 'ilike', self)]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_nf_measurement_type_tree" model="ir.ui.view">
+        <field name="name">nf.measurement.type.tree</field>
+        <field name="model">nf.measurement.type</field>
+        <field name="arch" type="xml">
+            <list string="Measurement Types">
+                <field name="name"/>
+                <field name="code"/>
+            </list>
+        </field>
+    </record>
+</odoo>

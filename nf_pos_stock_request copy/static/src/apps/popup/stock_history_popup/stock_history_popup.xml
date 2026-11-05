@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+     <t t-name="nf_pos_stock_request.NfStockHistoryPopup">
+        <Dialog>
+            <t t-set-slot="header">
+                <h5>Stock Request History</h5>
+            </t>
+            <div class="nf-main-content">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Location</th>
+                                <th>Order</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="this.props.nfstockpickings" t-as="picking" t-key="picking.id">
+                                <tr>
+                                    <td t-out="picking.product_name"></td>
+                                    <td><t t-out="picking.location_id.name"/></td>
+                                    <td>
+                                        <button class="btn btn-success rounded-pill" t-on-click="() => this.generateInternalTransfer(quant,this.state.request_quantity)">Accept</button>
+                                    </td>
+                                </tr>
+                           </t>
+                        </tbody>
+                    </table>
+                </div>
+                <t t-set-slot="footer">
+                    <button class="btn btn-secondary border-1"
+                        t-on-click="() => this.closePopup()">
+                        Cancel</button>
+                </t>
+            </Dialog>
+    </t>
+</templates>

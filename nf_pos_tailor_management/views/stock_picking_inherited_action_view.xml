@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_nf_custom_picking" model="ir.actions.act_window">
+        <field name="name">New Transfer</field>
+        <field name="res_model">stock.picking</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

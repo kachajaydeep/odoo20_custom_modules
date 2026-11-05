@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>POS Stock Request</title>
+        <meta name="title" content="Odoo POS Stock Request Module - Real-time Stock Visibility and Transfer Requests">
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="POS Stock Request module for Odoo 19 allows real-time stock visibility in POS, enables stock requests from stores, tracks request history, and automates internal transfers. Improve inventory management and streamline POS operations.">
+        <meta name="keywords" content="Odoo pos stock request point of sale stock real-time inventory internal transfers stock requests pos inventory management warehouse integration inventory approval stock tracking odoo pos module multi-store pos stock notifications point of sale stock request point of sale real time inventory transfer point of sale inventory management inventory management from point of sale inventory manage from pos stock request from point of sale">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    </head>
+
+    <body>
+        <section class="nf_m_header">
+            <div class="container-fluid px-5 pb-3 text-center text-lg-start" style="background-color:#f8f9fa; border-radius:10px;">
+                <div class="row align-items-center">
+                    <!-- Module Info -->
+                    <div class="col-12 col-lg-6 my-4 my-lg-0">
+
+
+                        <h1 class="fw-bolder" style="font-size:calc(1.8rem + 1.5vw); color:#212529; margin-bottom:15px;">
+                            POS Stock Request
+                        </h1>
+                        <p style="font-size:17px; color:#6c757d; line-height:1.7;">
+                            The <strong>POS Stock Request</strong> module brings real-time inventory management directly into the Point of Sale interface. POS users can view available stock quantities on product tiles, create stock requests for products that are unavailable in their store, and track all their requests through a dedicated My Requests section. This ensures that sales staff can efficiently manage stock shortages without leaving the POS, improving customer service and reducing delays.
+                        </p>
+                        <!-- Dependency Badge -->
+                        <div style="margin-top:20px;" class="text-start">
+                            <p class="fw-bold" style="font-size:16px; color:#212529; margin-bottom:10px;">Platform Support</p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span style="background-color:#714B67; color:#fff; padding:6px 14px; border-radius:20px; font-size:14px;">Community</span>
+                                <span style="background-color:#714B67; color:#fff; padding:6px 14px; border-radius:20px; font-size:14px;">Enterprise</span>
+                                <span style="background-color:#714B67; color:#fff; padding:6px 14px; border-radius:20px; font-size:14px;">Odoo.sh</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Hero Image -->
+                    <div class="col-12 col-lg-6 text-center">
+                        <img src="partner_img.png" class="img-fluid" style="max-width:65%; border-radius:8px;" alt="Tailor Order From Pos Module" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== VIDEO + DESCRIPTION ===== -->
+        <section class="nft_header pb-4">
+            <div class="container-fluid px-5 pt-4 text-center text-lg-start">
+                <div class="row ">
+                    <!-- Video -->
+                    <div class="col-12 col-lg-6">
+                        <div class="text-center w-100" style="position:relative;  height:auto; overflow:hidden; border-radius:8px;">
+                            <div class="position-relative" style="width:100%; height:0; padding-bottom:56.25%;">
+                                <a href="https://www.youtube.com/watch?v=LKBDWvFI6os&feature=youtu.be" target="_blank"
+                                    class="position-absolute top-0 start-0 d-block" style="width:100%; height:100%;">
+                                    <img src="video.gif" alt="YouTube Video Thumbnail" style="width:78%; height:100%; object-fit:cover;" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Text -->
+                    <div class="col-12 col-lg-6 my-4 my-lg-0">
+                        <div class="p-4">
+                            <p style="font-size:18px; font-family:'Poppins', sans-serif; color:#6c757d; line-height:1.7; margin:0;">
+                                Inventory managers can review incoming requests, approve or reject them, and automatically generate internal transfer orders to fulfill approved requests. The module supports multiple stores and warehouses, role-based access control, and real-time notifications for both senders and receivers. By integrating POS operations with inventory management, the module streamlines stock flow, reduces manual processes, and maintains accurate stock levels across all locations.
+                             </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOT FEATURES ===== -->
+        <section id="nf_hot_feature">
+            <div class="container-fluid d-flex flex-column align-items-center" style="padding:60px 20px 0; background-color:#f8f9fa; border-radius:10px; font-family:Arial, sans-serif;">
+                <div class="text-center mb-3">
+                    <h2>
+                        Hot Features
+                    </h2>
+                </div>
+
+                <div class="container-fluid mt-3">
+                    <div class="row">
+                        <!-- Feature Cards -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="card-body">
+                            <h5 class="card-title fw-bold" style="color:#212529;">Real-Time Stock Visibility in POS</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        Shows the available quantity of products directly on the POS product tiles when Enable Stock Request from POS is active.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="color:#212529;">Stock Requests from POS</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        Allows POS users to request products from the inventory directly, even if the stock is not available in their POS store.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="color:#212529;">Multi-Store Support</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        Supports multiple POS stores, each with its own operation types, source, and destination locations
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="color:#212529;">Approval Workflow</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        Inventory managers can approve or reject stock requests from the POS, ensuring controlled stock movement.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="color:#212529;">Notifications</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        Sends notifications to both sender and receiver when a stock request is made or approved, keeping all parties informed.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="color:#212529;">Internal Transfer Integration</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        Automatically generates internal transfer orders for approved POS stock requests, streamlining warehouse operations.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SUPPORT SECTION ===== -->
+        <section class="nft_support text-center">
+            <div class="container-fluid mt-5 px-4">
+                <div class="row">
+                    <!-- Address -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card text-start shadow-sm" style="border-radius:12px; padding:30px; height:100%;">
+                            <div class="d-flex" >
+                                <div class="w-75">
+                                    <h5 class="card-title fw-bold">Quick Support</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.6;">
+                                        <strong>WhatsApp</strong><br/>
+                                        210, Skymall, Nr. Mercedez-Benz Showroom, Gondal Road,<br />Rajkot (360004), Gujarat, India
+                                    </p>
+                                    <div>
+                                        <span class="fa fa-whatsapp text-success" ></span>
+                                        <strong> +91 73832 03034 </strong>    
+                                    </div>
+                                </div>
+                                <div class="w-25">
+                                    <img src="support/whatsapp.png" width="100%" atl="Whatsapp" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Support Center -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                       
+                        <div class="card text-start shadow-sm" style="border-radius:12px; padding:30px; height:100%;">
+                            <div class="d-flex" >
+                                <div class="w-75" >
+                                    <h5 class="card-title fw-semibold">Electronic Support</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.6;">
+                                        Please feel free to write an email to us or use our electronic ticketing system.
+                                    </p>
+                                    <p style="color:#333; font-size:14px; line-height:1.6;">
+                                        <strong>Email :</strong>
+                                        <a href="mailto:support@nextflow.in" style="color:#1D4ED8; text-decoration:none;">support@nextflow.in</a> |
+                                        <a href="mailto:nextfloit@gmail.com" style="color:#1D4ED8; text-decoration:none;">nextfloit@gmail.com</a>
+                                    </p>
+                                </div>
+                                <div class="w-25" >
+                                    <img src="support/email.png" width="100%" atl="Whatsapp" />
+                                                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Electronic Support -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                         <div class="card text-start shadow-sm" style="border-radius:12px; padding:30px; height:100%;">
+                            <div class="d-flex">
+                                <div class="w-75" >
+                                    <h5 class="card-title fw-semibold">Support Center</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.6;">
+                                        Our dedicated Support team is available to assist you with any questions, concerns, or support you may need.
+                                    </p>
+                                    <p style="color:#333; font-size:14px; line-height:1.6;">
+                                        <strong>Phone :</strong>
+                                        <a href="tel:+917383203034" style="color:#1D4ED8; text-decoration:none;"> +91 73832 03034</a>
+                                    </p>
+                                </div>
+                                <div class="w-25" >  
+                                    <img src="support/contact.png" width="100%" atl="Whatsapp" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TABS: Features / Screenshots / FAQs / Releases ===== -->
+        <section id="nf-menus">
+            <div class="main-div px-4">
+                <div class="position-relative">
+                    <ul class="nav nav-pills nav-fill gap-3">
+                        <li class="nav-item" style="border:1px solid #ddd;border-radius: 10px; background-color:#DBEAFE; margin:0 3px;">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#Features"
+                                style="padding:13px 20px;border-radius: 10px;">
+                                <i class="fa fa-fw fa-gear"></i> Features
+                            </a>
+                        </li>
+                        <li class="nav-item" style="border:1px solid #ddd;border-radius: 10px; background-color:#DBEAFE; font-weight:600; font-size:14px; margin:0 3px;">
+                            <a class="nav-link" data-bs-toggle="tab" href="#Setup"
+                                style="padding:13px 20px;border-radius: 10px;">
+                                <i class="fa fa-fw fa-desktop"></i> Screenshots
+                            </a>
+                        </li>
+                        <li class="nav-item" style="border:1px solid #ddd;border-radius: 10px; background-color:#DBEAFE; font-weight:600; font-size:14px; margin:0 3px;">
+                            <a class="nav-link" data-bs-toggle="tab" href="#FAQs"
+                                style="padding:13px 20px;border-radius: 10px;">
+                                <i class="fa fa-fw fa-gear"></i> FAQs
+                            </a>
+                        </li>
+                        <li class="nav-item" style="border:1px solid #ddd;border-radius: 10px; background-color:#DBEAFE; font-weight:600; font-size:14px; margin:0 3px;">
+                            <a class="nav-link" data-bs-toggle="tab" href="#Releases"
+                                style="padding:13px 20px;border-radius: 10px;">
+                                <i class="fa fa-fw fa-send"></i> Releases
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tab Panes -->
+                <div class="tab-content">
+
+                    <!-- FEATURES TAB -->
+                    <div id="Features" class="tab-pane active">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Request History</b></h5>
+                                    <ul>
+                                        <li>POS users can view the history of all their stock requests and quotations under the <strong>My Requests</strong> section.</li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Role-Based Access</b></h5>
+                                    <ul>
+                                        <li>Ensures only authorized users (e.g., inventory managers) can approve requests, while POS users can only create and track requests.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Seamless POS Integration</b></h5>
+                                    <ul>
+                                        <li>Fully integrated with the Odoo POS interface for a smooth user experience without switching modules.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Partial Stock Requests</b></h5>
+                                    <ul>
+                                        <li>Users can request only the quantity they need, and managers can approve partial quantities if full stock isn’t available.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Multi-Warehouse Support</b></h5>
+                                    <ul>
+                                        <li>Works across multiple warehouses and locations, ensuring accurate stock movement between POS stores and warehouses.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Request Prioritization</b></h5>
+                                    <ul>
+                                        <li>High-priority requests can be handled first, helping streamline urgent stock needs in POS stores.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQs TAB -->
+                <div id="FAQs" class="tab-pane fade">
+                        <br />
+                        <div class="container-fluid" style="width: 98%;">
+                            <div class="mt-3 mb-3 shadow-lg d-flex" style="padding:15px 30px; border-radius:10px;width:98%">
+                                <span class="fa fa-hand-o-right" style="color:#4c84ff; font-size:30px; vertical-align:middle; border-radius:100%;"></span>
+                                <div style="font-size:20px; font-weight:500; vertical-align:middle;">
+                                    <div class="ps-1">
+                                        <p><b class="ps-1">How can we take support Or Customization Request?</b></p>
+                                        <p><span class="fa fa-arrow-right"></span> Please Contact us at <a href="mailto:support@nextflow.in">support@nextflow.in</a> for Support/Customization.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid" style="width: 98%;">
+                            <div class="mt-3 mb-3 shadow-lg d-flex" style="padding:15px 30px; border-radius:10px;width:98%">
+                                <span class="fa fa-hand-o-right" style="color:#4c84ff; font-size:30px; vertical-align:middle; border-radius:100%;"></span>
+                                <div style="font-size:20px; font-weight:500; vertical-align:middle;">
+                                    <div class="ps-1">
+                                        <p><b class="ps-1">Can we get Free support?</b></p>
+                                        <p><span class="fa fa-arrow-right"></span> <b>Yes</b>, You can get free support for 90 Day's.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid" style="width: 98%;">
+                            <div class="mt-3 mb-3 shadow-lg d-flex" style="padding:15px 30px; border-radius:10px;width:98%">
+                                <span class="fa fa-hand-o-right" style="color:#4c84ff; font-size:30px; vertical-align:middle; border-radius:100%;"></span>
+                                <div style="font-size:20px; font-weight:500; vertical-align:middle;">
+                                    <div class="ps-1">
+                                        <p><b class="ps-1">Can I request products that are out of stock?</b></p>
+                                        <p><span class="fa fa-arrow-right"></span><b>Yes</b>, When a product is out of stock in the POS store, you can create a stock request by adding it to the cart and clicking Request.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid" style="width: 98%;">
+                            <div class="mt-3 mb-3 shadow-lg d-flex" style="padding:15px 30px; border-radius:10px;width:98%">
+                                <span class="fa fa-hand-o-right" style="color:#4c84ff; font-size:30px; vertical-align:middle; border-radius:100%;"></span>
+                                <div style="font-size:20px; font-weight:500; vertical-align:middle;">
+                                    <div class="ps-1">
+                                        <p><b class="ps-1">Who can approve stock requests?</b></p>
+                                        <p><span class="fa fa-arrow-right"></span> Only users with Inventory Administrator access can approve stock requests. POS users cannot approve requests.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid" style="width: 98%;">
+                            <div class="mt-3 mb-3 shadow-lg d-flex" style="padding:15px 30px; border-radius:10px;width:98%">
+                                <span class="fa fa-hand-o-right" style="color:#4c84ff; font-size:30px; vertical-align:middle; border-radius:100%;"></span>
+                                <div style="font-size:20px; font-weight:500; vertical-align:middle;">
+                                    <div class="ps-1">
+                                        <p><b class="ps-1">Can I track the status of my stock requests?</b></p>
+                                        <p><span class="fa fa-arrow-right"></span><b>Yes</b>, All requests are tracked in the My Requests section, showing statuses like Pending, Approved, Rejected, or Completed.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SCREENSHOTS TAB -->
+                    <div id="Setup" class="tab-pane fade">
+                        <div class="container my-4">
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <div class="nav flex-column nav-pills bg-light p-2 rounded shadow-sm sticky-top">
+                                    <a class="nav-link active text-center mb-2"
+                                        data-bs-toggle="tab" href="#internal_transfer_configuration">
+                                            Internal Transfer and POS Setup & Configuration
+                                        </a>
+
+                                        <a class="nav-link text-center mb-2"
+                                        data-bs-toggle="tab" href="#internal_transfer_creation_in_pos">
+                                            Internal Transfer Creation in POS
+                                        </a>
+
+                                        <a class="nav-link text-center mb-2"
+                                        data-bs-toggle="tab" href="#backend_processing_fulfillment">
+                                            Backend Processing & Fulfillment
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9">
+                                    <div class="tab-content bg-white p-3 rounded shadow-sm">
+                                        <!-- configuration commission -->
+                                        <div class="tab-pane fade show active" id="internal_transfer_configuration">
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Install POS Stock Request module.</b></p>
+                                                    <img src="ss/1.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Click on Inventory to navigate to the Inventory module.</b></p>
+                                                    <img src="ss/2.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Click on Configuration, then select Settings to navigate to the Inventory settings.</b></p>
+                                                    <img src="ss/3.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <!-- <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Navigate to Point of Sale => Configuration => Settings.</b></p>
+                                                    <img src="ss/2.2.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Navigate to Configuration => Settings.</b></p>
+                                                    <img src="ss/3.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div> -->
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>In the Warehouse section, enable Storage Locations, then click Save to apply the changes.</b></p>
+                                                    <img src="ss/4.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now click on "Operations" to verify that the "Internal Transfers" menu is visible after enabling "Storage Locations".</b></p>
+                                                    <img src="ss/5.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now click on Locations to navigate to the Stock Locations.</b></p>
+                                                    <img src="ss/6.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>If you want to create a new location as per your requirements, click on "New" and create an "Internal Transfer" location.</b></p>
+                                                    <img src="ss/7.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now click on Point of Sale to navigate to the Point of Sale module.</b></p>
+                                                    <img src="ss/8.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now click on the Configuration menu, then select Settings.</b></p>
+                                                    <img src="ss/9.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now select your shop and locate the Inventory section. Choose the required Operation Type and navigate to it by clicking the right arrow.</b></p>
+                                                    <img src="ss/10.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now select the "Operation Type" as "Internal Transfer", and set the "Source Location" and "Destination Location" as required,and "save" the configuration.</b></p>
+                                                    <img src="ss/11.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now go back to the Point of Sale Configuration, select another shop, assign a different Operation Type, and click Save. Then navigate to the Operation Type by clicking the right arrow.</b></p>
+                                                    <img src="ss/12.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now select the "Operation Type" as "Internal Transfer", and set the "Source Location" and "Destination Location" as required,and "save" the configuration.</b></p>
+                                                    <img src="ss/13.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now go back to the "Point of Sale Configuration Settings" and open the first shop. Enable the options "Enable Stock Request from POS" and "Enable Stock Information" then click Save.</b></p>
+                                                    <img src="ss/14.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now open the another shop. Enable the options "Enable Stock Request from POS" and "Enable Stock Information" then click Save.</b></p>
+                                                    <img src="ss/15.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now click on the "Settings" to navigate to the Settings.</b></p>
+                                                    <img src="ss/16.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now click on "Users & Companies", then click on the "Users".</b></p>
+                                                    <img src="ss/17.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now click on the desired user.</b></p>
+                                                    <img src="ss/18.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now set the "Point of Sale" and "Inventory" access for the user, select User under both modules, and click Save.</b></p>
+                                                    <img src="ss/19.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Apply percentage base commission -->
+                                        <div class="tab-pane fade" id="internal_transfer_creation_in_pos">
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now log in with a user who has "Point of Sale" and "Inventory" access as a user, as per your requirement, and open the desired "POS store".</b></p>
+                                                    <img src="ss/20.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+        
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now, in another session, log in with a user who has Inventory access as Administrator, and open another desired POS store.</b></p>
+                                                    <img src="ss/21.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>The number displayed on the product tile indicates the available stock quantity. It is visible only when the Enable Stock Request from POS option is enabled in the specific POS store configuration settings.</b></p>
+                                                    <img src="ss/22.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+        
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>On the other side, if no quantity is set in the POS store, it indicates that no stock is available. Now select your desired product, add it to the cart, and then click on the &#8942; button.</b></p>
+                                                    <img src="ss/23.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now click on the Request button.</b></p>
+                                                    <img src="ss/24.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+        
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now enter the "Request Quantity" as required, then click the "Book" button to confirm the request.</b></p>
+                                                    <img src="ss/25.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>An internal request is received by the receiver with a notification such as “Incoming Stock Request...”.</b></p>
+                                                    <img src="ss/26.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>click on the &#8942; button.</b></p>
+                                                    <img src="ss/27.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now Click on the "My Requests" button</b></p>
+                                                    <img src="ss/28.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now, in the Incoming Requests section, you can see the request sent by the sender, and click the View button to open and review the request.</b></p>
+                                                    <img src="ss/29.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now enter the approved quantity in the Done field, then click Approve to confirm the request.</b></p>
+                                                    <img src="ss/30.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>After confirming, a "Transfer Quotation" notification will be displayed.</b></p>
+                                                    <img src="ss/31.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>From the sender’s side, a notification is received stating that your quotation has been approved, along with the quotation number, and the stock quantity on the product tile is updated accordingly.</b></p>
+                                                    <img src="ss/32.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>click on the &#8942; button.</b></p>
+                                                    <img src="ss/33.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now Click on the "My Requests" button.</b></p>
+                                                    <img src="ss/34.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now click on My Requests to navigate to the My Request History section.</b></p>
+                                                    <img src="ss/35.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>You can see your request quotations history displayed in this section. Now, go back to the POS store by clicking the Back button.</b></p>
+                                                    <img src="ss/36.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>From the other user’s side, click on the  &#8942; button.</b></p>
+                                                    <img src="ss/37.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+            
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now click on the Request button.</b></p>
+                                                    <img src="ss/38.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now enter the "Request Quantity" as required, then click the "Book" button to confirm the request.</b></p>
+                                                    <img src="ss/39.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>An internal request is received by the receiver with a notification such as “Incoming Stock Request...”.</b></p>
+                                                    <img src="ss/40.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>click on the &#8942; button.</b></p>
+                                                    <img src="ss/33.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now Click on the "My Requests" button.</b></p>
+                                                    <img src="ss/34.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now, in the Incoming Requests section, you can see the request sent by the sender, and click the View button to open and review the request.</b></p>
+                                                    <img src="ss/41.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now you can see that the Inventory user does not have access to approve the quotation.</b></p>
+                                                    <img src="ss/42.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now click the "Backend" button to navigate to the backend.</b></p>
+                                                    <img src="ss/43.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                 
+                                            <!-- Now click the "Backend" button to navigate to the backend -->
+                                        </div>
+
+                                        <!-- Fixed Amount Base Commission -->
+                                        <div class="tab-pane fade" id="backend_processing_fulfillment">
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now click on the "Inventory" menu to navigate to the Inventory module.</b></p>
+                                                    <img src="ss/44.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                        
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now click on "Operations", then select the "Internal" menu.</b></p>
+                                                    <img src="ss/45.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                             <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Now you can see that an Internal Transfer order has been created from the POS side. Click on it to open the record.</b></p>
+                                                    <img src="ss/46.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>When you click the "Approve" button, the internal transfer request will be approved in the backend.</b></p>
+                                                    <img src="ss/47.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>                    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RELEASES TAB -->
+                    <div id="Releases" class="tab-pane fade">
+                        <br />
+                        <div class="mt-3 mb-3 sh_content shadow rounded bg-white" style="padding:20px; width:98%;">
+                            <span class="fa fa-hand-o-right" style="color:#4c84ff; font-size:35px; vertical-align:middle; margin-right:20px;"></span>
+                            <span style="font-size:20px; font-weight:500; vertical-align:middle;">Releases on 15<sup>th</sup> April 2026</span>
+                            <br />
+                            <p style="padding:20px; padding-bottom:0;">
+                                <span class="badge bg-success fw-bold me-2" style="padding:5px 15px; border-radius:3px; color:#fff; font-size:9px; text-transform:uppercase;">Initial</span>
+                                <span style="font-size:17px; font-weight:500; vertical-align:middle;">Version 19.0.1 | Initial Released.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                </div><!-- /tab-content -->
+            </div>
+        </section>
+
+        <!-- ===== MULTI LANGUAGE ===== -->
+        <section class="nf-multi-language text-center pt-5">
+            <h3 class="mb-4">Multi Language</h3>
+            <div class="row justify-content-evenly align-items-center gx-0 text-center">
+                <img class="rounded col-auto" src="eng.png" title="English" alt="english" style="border-radius:0.25rem !important; height:90px; width:90px;" />
+                <img class="rounded col-auto" src="ger.png" title="Germany" alt="germany" style="border-radius:0.25rem !important; height:90px; width:90px;" />
+                <img class="rounded col-auto" src="arb.png" title="Arab" alt="arab" style="border-radius:0.25rem !important; height:90px; width:90px;" />
+                <img class="rounded col-auto" src="chi.png" title="Chinese" alt="Chinese" style="border-radius:0.25rem !important; height:110px; width:115px;" />
+                <img class="rounded col-auto" src="fre.png" title="French" alt="French" style="border-radius:0.25rem !important; height:110px; width:115px;" />
+            </div>
+        </section>
+
+        <!-- ===== OUR SERVICES ===== -->
+        <section id="nf_services" class="mt-5">
+            <div class="container-fluid d-flex flex-column align-items-center" style="padding:60px 20px 0; border-radius:10px; font-family:Arial, sans-serif; background-color:#f8f9fa;">
+                <div class="text-center mb-3">
+                    <h4 class="mb-1" style="color:#f74780;">Our Service</h4>
+                    <h1 class="display-5 mb-4">What We Can Do For You</h1>
+                    <p style="color:#6c757d; font-size:16px; max-width:750px; margin:0 auto; line-height:1.6;">
+                        <!-- Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. -->
+                    </p>
+                </div>
+
+                <div class="container-fluid py-3">
+                    <div class="row justify-content-center">
+                        <!-- Service Card 1 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card text-center p-4 border-0 shadow-sm"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <div class="d-flex justify-content-center align-items-center" style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                       <i class="fa fa-2x fa-cogs" ></i>
+                                    </div>
+                                </div>
+                                <h5 class="card-title fw-bold" style="color:#212529;">Odoo Implementation</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">We specialize in Odoo Integration Services, creating robust connections between Odoo and your other critical software systems, e-commerce platforms, payment gateways, shipping carriers, and more.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Service Card 2 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card text-center p-4 border-0 shadow-sm"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <div class="d-flex justify-content-center align-items-center" style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                        <i class="fa fa-2x fa-wrench" ></i>
+                                    </div>
+                                </div>
+                                <h5 class="card-title fw-bold" style="color:#212529;">Odoo Customization</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">We can modify existing Odoo modules, such as CRM, Sales, Inventory, and Accounting, to better fit your company's operations. This includes adding new fields, changing workflows, and creating custom business rules. </p>
+                                
+                            </div>
+                        </div>
+
+                        <!-- Service Card 3 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card text-center p-4 border-0 shadow-sm"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <div class="d-flex justify-content-center align-items-center" style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                        <i class="fa fa-2x fa-user" ></i>
+                                    </div>
+                                </div>
+                                <h5 class="card-title fw-bold" style="color:#212529;">Web Development in Odoo</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">We build more than just beautiful websites; we build powerful business tools. Our web development services create professional, user-friendly sites that are fully integrated with your Odoo system.</p>
+                                
+                            </div>
+                        </div>
+
+                      
+                        <!-- Service Card 4 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card text-center p-4 border-0 shadow-sm"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <div class="d-flex justify-content-center align-items-center" style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                       <i class="fa fa-2x fa-globe" ></i>
+                                    </div>
+                                </div>
+                                <h5 class="card-title fw-bold" style="color:#212529;">Odoo Support and Maintenance</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">Odoo Support and Maintenance Our Odoo Support and Maintenance plans provide you with expert technical assistance, proactive security updates, performance monitoring, and help with user questions to ensure your system remains a reliable and effective asset.</p>
+                            </div>
+                        </div>
+
+
+                        <!-- Service Card 5 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card text-center p-4 border-0 shadow-sm"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <div class="d-flex justify-content-center align-items-center" style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                        <i class="fa fa-2x fa-users" ></i>
+                                    </div>
+                                </div>
+                                <h5 class="card-title fw-bold" style="color:#212529;">Odoo Training</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">We provide comprehensive functional and technical Odoo training to help teams understand, implement, and effectively use Odoo for their business operations.</p>
+                            </div>
+                        </div>
+
+                          <!-- Service Card 6 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card text-center p-4 border-0 shadow-sm"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <div class="d-flex justify-content-center align-items-center" style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                        <i class="fa fa-2x fa-refresh" ></i>
+                                    </div>
+                                </div>
+                                <h5 class="card-title fw-bold" style="color:#212529;">Odoo Migration</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">Odoo Database migration and module migraion. migrating a odoo setup version older to new. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== RELATED APPS ===== -->
+        <section id="sh_most_demanded_apps" style="background-color:transparent;">
+            <div class="container-fluid px-4">
+                <div class="nf-related text-center">
+                    <h3 class="display-5" style="font-family:Verdana, Geneva, Tahoma, sans-serif; text-transform:capitalize; font-weight:500;">Apps for you</h3>
+                </div>
+               <div class="row" style="margin-top:1rem;">
+                    <div class="col-md-4 mb-3">
+                        <div class="sh_content shadow rounded text-center">
+                            <div class="sh_img">
+                                <a href="https://apps.odoo.com/apps/modules/19.0/nf_pos_order_list" target="_blank">
+                                    <img class="rounded" src="pos_order_list.gif" width="100%" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="sh_content shadow rounded text-center">
+                            <div class="sh_img">
+                                <a href="https://apps.odoo.com/apps/modules/19.0/nf_pos_discounted_product" target="_blank">
+                                    <img class="rounded" src="pos_display_discount_price.gif" width="100%" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="sh_content shadow rounded text-center">
+                            <div class="sh_img">
+                                <a href="https://apps.odoo.com/apps/modules/17.0/nf_pos_create_saleorder" target="_blank">
+                                    <img class="rounded" src="create_sale_order_from_pos.gif" width="100%" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="service-item shadow rounded py-3 px-4 mb-2 text-center btn d-flex justify-content-center align-items-center fw-bold"
+                    target="_blank"
+                    style="text-decoration:none; font-size:20px; width:100%; border-radius:0.25rem !important; border:1px solid black;color: #000;"
+                    href="https://apps.odoo.com/apps/modules/browse?author=NextFlowIT">
+                    Explore Our Leading Apps List
+                </a>
+            </div>
+        </section>
+    </body>
+
+
+</html>

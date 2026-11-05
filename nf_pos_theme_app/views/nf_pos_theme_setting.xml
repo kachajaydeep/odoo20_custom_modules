@@ -1,0 +1,42 @@
+<!-- views/pos_theme_settings_views.xml -->
+
+<odoo>
+    <data>
+        <!-- Form View -->
+        <record id="view_pos_theme_settings_form" model="ir.ui.view">
+            <field name="name">nf.pos.theme.settings.form</field>
+            <field name="model">nf.pos.theme.settings</field>
+            <field name="arch" type="xml">
+                <form string="POS Theme Settings">
+                    <group>
+                        <field name="name"/>
+                        <field name="logo" widget="image"/>
+                        <field name="product_view_selection"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- list View -->
+        <record id="view_pos_theme_settings_list" model="ir.ui.view">
+            <field name="name">nf.pos.theme.settings.list</field>
+            <field name="model">nf.pos.theme.settings</field>
+            <field name="arch" type="xml">
+                <list string="POS Theme Settings">
+                    <field name="name"/>
+                    <field name="product_view_selection"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Action to open the form or list view -->
+        <record id="action_pos_theme_settings" model="ir.actions.act_window">
+            <field name="name">POS Theme Settings</field>
+            <field name="res_model">nf.pos.theme.settings</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Menu Item -->
+        <menuitem id="nf_menu_pos_theme_settings" name="POS Theme Settings" parent="point_of_sale.pos_menu_products_configuration" action="action_pos_theme_settings"/>
+    </data>
+</odoo>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_pos_stock_request.NfStockPickingHistory">
+        <div class="screen h-100 bg-100 d-flex flex-column">
+            <div class="controls d-flex align-items-center p-2 bg-view border-bottom gap-2">
+                <button class="btn btn-secondary" t-on-click="this.closeCustomScreen">
+                    <i class="fa fa-chevron-left me-1"/> Back
+                </button>
+                <div class="btn-group flex-grow-1 d-flex gap-2" role="group">
+                    <button type="button" class="btn btn-outline-success rounded-pill" 
+                            t-att-class="{'active': this.state.activeTab === 'incoming'}"
+                            t-on-click="() => this.switchTab('incoming')">
+                        Incoming Requests
+                    </button>
+                    <button type="button" class="btn btn-outline-success rounded-pill" 
+                            t-att-class="{'active': this.state.activeTab === 'outgoing'}"
+                            t-on-click="() => this.switchTab('outgoing')">
+                        My Requests
+                    </button>
+                </div>
+                <button class="btn btn-primary" t-on-click="this.fetchPickings">
+                    <i class="fa fa-refresh me-1" t-att-class="{'fa-spin': this.state.loading}"/> Refresh
+                </button>
+            </div>
+            <div class="content flex-grow-1 overflow-auto">
+                <div t-if="this.state.loading" class="d-flex justify-content-center align-items-center h-100">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <div t-else="" class="p-3">
+                    <t t-if="this.state.activeTab === 'incoming'">
+                        <div t-if="this.state.incoming.length === 0" class="alert alert-info text-center">
+                            No incoming stock requests found.
+                        </div>
+                        <table t-else="" class="table table-hover bg-view shadow-sm rounded">
+                            <thead class="bg-light sticky-top">
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Requested By</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-end">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="this.state.incoming" t-as="picking" t-key="picking.id">
+                                        <tr t-if="picking.state !== 'done'" class="align-middle">
+                                            <td>
+                                                <div class="fw-bold" t-out="picking.product_name"/>
+                                                <div class="small text-muted" t-out="picking.picking_id[1]"/>
+                                            </td>
+                                            <td>
+                                                <div t-out="picking.location_dest_id[1]"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="badge rounded-pill text-white text-capitalize fs-5" 
+                                                      t-attf-class="bg-{{ picking.state === 'done' ? 'success' : picking.state === 'cancel' ? 'danger' : 'info' }}"
+                                                      t-out="picking.state"/>
+                                            </td>
+                                            <td class="text-end">
+                                                <button class="btn btn-outline-primary btn-sm rounded-pill px-3" 
+                                                        t-on-click="() => this.acceptPicking(picking)">
+                                                    View
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </t>
+                            </tbody>
+                        </table>
+                    </t>
+                    
+                    <t t-if="this.state.activeTab === 'outgoing'">
+                        <div t-if="this.state.outgoing.length === 0" class="alert alert-info text-center">
+                            You haven't made any stock requests yet.
+                        </div>
+                        <table t-else="" class="table table-hover bg-view shadow-sm rounded">
+                            <thead class="bg-light sticky-top">
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Source Store</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-end">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="this.state.outgoing" t-as="picking" t-key="picking.id">
+                                    <tr class="align-middle">
+                                        <td>
+                                            <div class="fw-bold" t-out="picking.product_name"/>
+                                            <div class="small text-muted" t-out="picking.picking_id[1]"/>
+                                        </td>
+                                        <td>
+                                            <div t-out="picking.location_id[1]"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="badge rounded-pill text-white text-capitalize fs-5" 
+                                                    t-attf-class="bg-{{ picking.state === 'done' ? 'success' : picking.state === 'cancel' ? 'danger' : 'info' }}"
+                                                    t-out="picking.state"/>
+                                        </td>
+                                        <td class="text-end">
+                                            <button  class="btn btn-outline-primary btn-sm rounded-pill px-3" 
+                                                    t-on-click="() => this.acceptPicking(picking)">
+                                                View
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_pos_keyboard_shortcuts.Navbar" t-inherit="point_of_sale.Navbar" t-inherit-mode="extension">
+        <xpath expr="//DropdownItem[@t-if='this.showCreateProductButton']" position="before">
+            <DropdownItem t-if="this.pos.config.nf_enable_keyboard_shortcuts" onSelected="() => this.openShortcutPopup()">
+                <i class="oi oi-fw fa-solid fa-keyboard" data-icon="keyboard" aria-hidden="true"></i>
+                Shortcuts
+            </DropdownItem>
+        </xpath>
+    </t>
+</templates>

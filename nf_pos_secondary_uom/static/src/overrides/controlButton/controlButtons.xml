@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve">
+    <t t-name="nf_pos_secondary_uom.ControlButtons" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//t[@name='o_pricelist_button']" position="after">
+            <t t-log="this"/>
+            <t t-if="this.pos.config.allow_secondary_uom">
+                <t t-call="point_of_sale.controlButton"
+                    icon="'fa_solid fa_scale_balanced me_4'"
+                    btnText.translate="UOM"
+                    btnClasses="'btn btn-secondary btn-lg text-truncate '" 
+                    onClick="() => this.selectUom()"
+                    disabled="!this.currentOrder.getSelectedOrderline()" />
+            </t>
+        </xpath>
+    </t>
+</template>

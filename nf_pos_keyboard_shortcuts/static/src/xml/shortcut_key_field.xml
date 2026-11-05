@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="nf_pos_keyboard_shortcuts.ShortcutKeyField">
+        <div t-attf-class="nf_shortcut_input_wrap {{ this.state.focused ? 'nf_focused' : '' }}">
+            <span t-if="this.state.focused" class="nf_shortcut_icon">⌨</span>
+            <input
+                type="text"
+                class="o_input nf_shortcut_input"
+                t-att-placeholder="this.state.focused ? 'Press keys...' : 'e.g. CTRL+P'"
+                t-att-readonly="this.props.readonly"
+                t-att-value="this.value"
+                t-on-keydown="this.onKeyDown"
+                t-on-focus="() => this.onFocus"
+                t-on-blur="() => this.onBlur"
+            />
+            <span t-if="this.state.focused" class="nf_shortcut_hint">Esc to clear</span>
+        </div>
+    </t>
+</templates>

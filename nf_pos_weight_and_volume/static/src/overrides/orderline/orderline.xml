@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_pos_service_charge.Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <xpath expr="//ul[hasclass('info-list')]" position="inside">
+            <t t-if="!vals.isReceipt">
+                <li class="d-flex justify-content-between">
+                    <t t-if="this.env.services.pos.config.nf_pos_display_weight">
+                        <span>
+                            <b>Weight :</b>
+                            <span t-out="this.line.product_id.weight" class="me-1" />/<span t-out="this.line.product_id.weight_uom_name" class="ms-1" />
+                        </span>
+                    </t>
+                    <t t-if="this.env.services.pos.config.nf_pos_display_volume">
+                        <span>
+                            <b>Volume :</b>
+                            <span t-out="this.line.product_id.volume" class="me-1" />/<span t-out="this.line.product_id.volume_uom_name" class="ms-1" />
+                        </span>
+                    </t>
+                </li>
+            </t>
+            <t t-else="">
+                <li class="d-flex justify-content-between">
+                    <t t-if="this.env.services.pos.config.nf_display_weight_in_Receipt">
+                        <span>
+                            <b>Weight :</b>
+                            <span t-out="this.line.product_id.weight" class="me-1" />/<span t-out="this.line.product_id.weight_uom_name" class="ms-1" />
+                        </span>
+                    </t>
+                    <t t-if="this.env.services.pos.config.nf_pos_display_volume_in_receipt">
+                        <span>
+                            <b>Volume :</b>
+                            <span t-out="this.line.product_id.volume" class="me-1" />/<span t-out="this.line.product_id.volume_uom_name" class="ms-1" />
+                        </span>
+                    </t>
+                </li>
+            </t>
+        </xpath>
+    </t>
+</templates>

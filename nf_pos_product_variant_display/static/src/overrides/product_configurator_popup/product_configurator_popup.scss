@@ -1,0 +1,50 @@
+.o_dialog{
+    .nf-vendor-search{
+                transition: all 0.5s ease;
+                padding: 6px 20px 6px 16px;
+                width: 192px;
+                font-size: 16px;
+                height: 42px;
+                color: #1f2937;
+                background-color: #ffffff;
+                border: 2px solid #e5e7eb;
+                border-radius: 8px;
+                outline: none;
+                transition: all 0.3s ease;
+                background-image: url('../../img/search-svgrepo-com.svg');
+                background-size: 33px;
+                background-repeat: no-repeat; 
+                background-position: 6px 3px;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                
+                &::placeholder {
+                    color: #9ca3af;
+                    font-style: italic;
+                }
+                
+                &:hover {
+                    border-color: #d1d5db;
+                    background-color: #f9fafb;
+                }
+                
+                &:focus {
+                    background-color: #ffffff;
+                    box-shadow: 0 0 0 3px rgba(113, 75, 103, 0.1);
+                }
+                
+                &::-webkit-calendar-picker-indicator {
+                    display: none !important;
+                }
+                
+                &::-webkit-list-button {
+                    display: none !important;
+                }
+            }
+            .nf-vendor-search.show {
+                    opacity: 1;
+                    max-width: 192px; /* Or 100% on mobile */
+                    padding: 6px 20px 6px 45px;
+                    pointer-events: auto;
+            }
+
+}

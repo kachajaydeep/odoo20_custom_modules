@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="restrict_to_create_sale_order_group" model="res.groups">
+        <field name="name">Restrict to create products from Sale order</field>
+    </record>
+
+    <record id="restrict_to_create_purchase_order_group" model="res.groups">
+        <field name="name">Restrict to create products from Purchase order</field>
+    </record>
+</odoo>

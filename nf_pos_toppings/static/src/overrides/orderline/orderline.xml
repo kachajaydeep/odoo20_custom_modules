@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_pos_toppings.Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <xpath expr='//li' position='inside'>
+            <!-- <t t-log="'this',this"/>
+            <t t-log="'vals',vals"/> -->
+            <!-- <attribute name="t-attf-class" separator=" " add = "{{ line.nf_child_orderline_id ? (this.env.services.pos.getOrder() and this.env.services.pos.getOrder().finalized ? 'nf_receipt_screen_child_lines' : 'nf_child_lines') : '' }}" ></attribute> -->
+        </xpath>
+    </t>
+</templates>

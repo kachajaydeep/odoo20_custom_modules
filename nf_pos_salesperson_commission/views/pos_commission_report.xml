@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <template id="nf_commission_report"></template>
+
+    <record id="nf_commission_report_menu" model="ir.actions.report">
+        <field name="name">SalesPerson Commission Report</field>
+        <field name="model">pos.session</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">nf_pos_salesperson_commission.nf_commission_report</field>
+        <field name="report_file">nf_pos_salesperson_commission.nf_commission_report</field>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="nf_purchase_bill_line_match_tree" model="ir.ui.view">
+        <field name="name">Hide Product Product Price</field>
+        <field name="model">purchase.bill.line.match</field>
+        <field name="inherit_id" ref="purchase.purchase_bill_line_match_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_uom_price']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+            <xpath expr="//field[@name='purchase_amount_untaxed']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_cost_price_group</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

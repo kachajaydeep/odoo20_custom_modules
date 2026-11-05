@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="nf_invoice_report_brand_column" inherit_id="account.report_invoice_document">
+        <xpath expr="//th[@name='th_description']" position="after">
+            <th name="th_brand" t-if="o.nf_brand_invoice_report_enable" class="text-start"><span>Brand</span></th>
+        </xpath>
+        <xpath expr="//td[@name='account_invoice_line_name']" position="after">
+            <td name="td_brand" t-if="o.nf_brand_invoice_report_enable">
+                <span t-if="line.nf_brand_id" t-out="line.nf_brand_id.nf_name"/>
+                <span t-else="">-</span>
+            </td>
+        </xpath>
+    </template>
+</odoo>

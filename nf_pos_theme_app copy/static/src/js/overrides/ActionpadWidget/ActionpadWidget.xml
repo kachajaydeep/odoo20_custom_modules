@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id='template' xml:space='preserve'>
+    <t t-name="nf_pos_theme_app.ActionpadWidget" t-inherit="point_of_sale.ActionpadWidget" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('validation')]" position="inside">
+            <t t-if="!this.ui.isSmall &amp; this?.pos?.router?.currentScreen() === 'ProductScreen' &amp; !this?.pos?.config?.module_pos_restaurant">
+                <button class="nf-hold-btn nf-hold-desktop-btn button btn btn-lg py-3 d-flex align-items-center justify-content-center flex-fill" t-on-click="() => this.pos.clickSaveOrder()" style="font-size:0.9rem;">
+                    <i class="fa fa-pause-circle-o" aria-hidden="true"></i> Hold Order
+                </button>
+            </t>
+        </xpath>
+        
+        <xpath expr="//div[hasclass('actionpad')]" position="inside">
+            <t t-if=" this?.pos?.config?.module_pos_restaurant &amp; this?.pos?.router?.currentScreen() === 'ProductScreen'">
+                <button class="nf-hold-desktop-btn nf-resto-btn button btn btn-lg py-3 d-flex align-items-baseline column-gap-1 justify-content-center flex-fill mt-2" t-if="!this.currentOrder.isEmpty() and this.pos.numpadMode != 'table'" t-on-click="() => this.pos.clickSaveOrder()" style="background-color:#fc8019c7;order:3;">
+                    <i class="fa fa-pause-circle-o" aria-hidden="true"></i> Hold Order
+                </button>
+            </t>
+        </xpath>
+
+        <xpath expr="//div[hasclass('validation')]" position="inside">
+            <t t-if="this.ui.isSmall &amp; this?.pos?.router?.currentScreen() === 'ProductScreen' &amp; !this?.pos?.config?.module_pos_restaurant">
+                <button class="nf-hold-btn nf-hold-desktop-btn button btn btn-lg py-3 d-flex align-items-center justify-content-center flex-fill" t-on-click="() => this.pos.clickSaveOrder()" style="order:-1 !important;font-size:0.9rem;">
+                    <i class="fa fa-pause-circle-o" aria-hidden="true"></i> Hold Order </button>
+            </t>
+        </xpath>
+    </t>
+</templates>

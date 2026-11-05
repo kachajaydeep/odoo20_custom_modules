@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template_order" xml:space="preserve">
+    <t t-name="nf_pos_image_preview.ProductCard" t-inherit="point_of_sale.ProductCard" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('product-content')]" position="after">
+            <div class="position: absolute rounded fs-5" style="z-index:10;">
+                <button
+                    t-on-click="(event) => this.ImageButtonClicked(event)"
+                    type="button"
+                    class="btn btn-secondary d-inline-flex align-items-center justify-content-center m-2 p-0 shadow-sm"
+                    title="Image"
+                    aria-label="Image"
+                    style="width: 30px;height: 30px;border-radius: 10px;transition: transform 0.2s ease, box-shadow 0.2s ease;"
+                >
+                    <i class="oi fs-5" data-icon="image"></i>
+                </button>
+            </div>
+        </xpath>
+    </t>
+</template>

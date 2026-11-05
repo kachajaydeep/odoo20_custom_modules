@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve">
+    <t t-name="nf_point_of_sale.ProductCard" t-inherit="point_of_sale.ProductCard" t-inherit-mode="extension" >
+        <xpath expr="//div[hasclass('product-content')]" position="after">
+            <div class="mt-3 pt-3 pb-1 btn-con" style="z-index:100">
+               <button class="info-btn" t-on-click="(event) => this.ButtonClicked(event)" data-tooltip="You can see product information" data-tooltip-delay="0" style="width: 30px;height: 30px;border-radius: 10px;transition: transform 0.2s ease, box-shadow 0.2s ease;">
+                <i class="oi" data-icon="info"></i>
+            </button>
+            </div>
+        </xpath>
+    </t>
+</template>

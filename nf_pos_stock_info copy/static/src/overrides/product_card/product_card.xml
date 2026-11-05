@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_product_card_inherit" t-inherit="point_of_sale.ProductCard" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('product-img')]" position="before">
+            <t t-if="this.pos.config.nf_pos_enable_stock_info and this.props.product.attribute_line_ids.length === 0">
+            <span class="position-absolute z-1 nf_pos_display_qty">
+                <span>
+                    <t t-if="this.props.productCartQty">
+                        <t t-out="this.getNfStock- this.productQty"/>
+                    </t>
+                    <t t-else="">
+                        <t t-out="this.getNfStock"/>
+                    </t>
+                </span>
+            </span>
+            </t>
+        </xpath>
+    </t>
+</templates>

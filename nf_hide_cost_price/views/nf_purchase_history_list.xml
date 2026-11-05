@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="nf_purchase_history_tree" model="ir.ui.view">
+        <field name="name">Hide Product Product Price</field>
+        <field name="model">purchase.order.line</field>
+        <field name="inherit_id" ref="purchase.purchase_history_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='price_subtotal']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_cost_price_group</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="nf_pos_dashboard_design">
+    <t t-name="nf_pos_dashboard.NfDashboard">
+
+        <header id="dashboard_counter">
+            <div class="container-fluid pt-4">
+                <div class="row m-0 ">
+                    <div class="col-12 col-lg-8 col-12 ">
+                        <div class="card">
+                            <!-- <div class="card-content"> -->
+                                <div class="card-body nf-card-body d-flex flex-column row m-0-gap-4">
+                                    <div class="d-flex column-gap-3 align-items-center">
+                                        <div class="avatar avatar-lg">
+                                            <img class="rounded-circle o_user_avatar" style="width: 50px; height: 50px" t-att-src="this.state.user_img" alt="User" />
+                                        </div>
+                                        <h4 t-if="this.user" class="card-title m-0 p-0 user fs-4">
+                                            <span t-out="this.farewell"></span>,                                     
+                                            <span t-out='this.user.display_name' />
+!
+                                        </h4>
+                                    </div>
+                                    <p class="card-text fs-5">
+                                        Here's What's happening with your store today.
+                                    </p>
+                                </div>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-12">
+                        <div class="card nf-card">
+                            <div class="card-content">
+                                <div class="card-body nf-card-body ">
+                                    <fieldset>
+                                        <div class="input-group  ">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Start Date</span>
+                                            </div>
+                                            <input type="date" t-on-change="() => this._nfChangeDate()" class="form-control" accesskey="Q" placeholder="Start Date" role="searchbox" t-model.proxy="this.state.start_date" id="nf_start_date"></input>
+                                        </div>
+
+                                        <div class="input-group pt-1">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">End Date</span>
+                                            </div>
+                                            <input type="date" class="form-control" accesskey="Q" placeholder="End Date" role="searchbox" t-model.proxy="this.state.end_date" id="nf_end_date" t-on-change="() => this._nfChangeDate()" ></input>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section id="dashboard_counter" style=" min-width: 85% !important; width: 100% !important; height: 100%;">
+            <div class="NfTemp">
+                <span class="nf-times-title"> Product Sales </span>
+                <i class="nf-times fa fa-times-circle-o" />
+                <div class="nf-product-data">
+                    <table class="product-data-table" style="width: 98%; margin-left: 20px;">
+                        <thead>
+                            <th style='padding: 10px;'>#</th>
+                            <th style='padding: 10px;'> Product Name </th>
+                            <th style='padding: 10px;'> Quantity </th>
+                            <th style='padding: 10px;'> Amount </th>
+                        </thead>
+                        <tbody>
+                            <tr t-if="this.state.Datas and this.state.Datas.length" t-foreach="this.state.Datas" t-as="data" t-key="data.id">
+                                <td>
+                                    <t t-out="data[0]" />
+                                </td>
+                                <td>
+                                    <t t-out="data[1][this.session.bundle_params.lang]" />
+                                </td>
+                                <td>
+                                    <t t-out="data[2]" />
+                                </td>
+                                <td>
+                                    <t t-out="data[3]" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="container-fluid" >
+                <section id="nf_header_section">
+                    <div class="row m-0">
+                        <div class="col-12 col-lg-3 col-md-6 col-sm-12">
+                            <div class="card nf-card">
+                                <div class="card-body nf-card-body ">
+                                    <div class="row m-0">
+                                        <div class="col-3">
+                                            <div class="stats-icon purple">
+                                                <i class="fa fa-eye"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-9">
+                                            <h6 class="text-muted font-semibold text-formated fs-5 text-wrap">
+                                                <strong>
+                                                    <span> Active POS Session</span>
+                                                </strong>
+                                            </h6>
+                                            <h6 class="font-extrabold mb-0 text-nowrap fs-5">
+                                                <t t-out="this.state.Total_active_sessions" />
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 col-md-6 col-sm-12">
+                            <div class="card nf-card">
+                                <div class="card-body nf-card-body ">
+                                    <div class="row m-0">
+                                        <div class="col-3">
+                                            <div class="stats-icon red">
+                                                <i class="fa fa-shopping-bag"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-9">
+                                            <h6 class="text-muted font-semibold text-formated fs-5 text-wrap">
+                                                <strong>
+                                                    <span> Total Order</span>
+                                                </strong>
+                                            </h6>
+                                            <h6 class="font-extrabold mb-0 text-nowrap fs-5">
+                                                <t t-out="this.state.order_length" />
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 col-md-6 col-sm-12">
+                            <div class="card nf-card">
+                                <div class="card-body nf-card-body ">
+                                    <div class="row m-0">
+                                        <div class="col-3">
+                                            <div class="stats-icon yellow">
+                                                <i class="fa fa-line-chart"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-9">
+                                            <h6 class="text-muted font-semibold text-formated fs-5 text-wrap">
+                                                <strong>
+                                                    <span> Total Sales </span>
+                                                </strong>
+                                            </h6>
+                                            <h6 class="font-extrabold mb-0 text-nowrap fs-5">
+                                                <t t-out="this.state.nf_today_total_sales" />
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 col-md-6 col-sm-12">
+                            <div class="card nf-card">
+                                <div class="card-body nf-card-body ">
+                                    <div class="row m-0">
+                                        <div class="col-3">
+                                            <div class="stats-icon green">
+                                                <i class="fa fa-cart-arrow-down"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-9">
+                                            <h6 class="text-muted font-semibold text-formated fs-5 text-wrap">
+                                                <strong>
+                                                    <span> Total Product Sold </span>
+                                                </strong>
+                                            </h6>
+                                            <h6 class="font-extrabold mb-0 text-nowrap fs-5">
+                                                <t t-out="this.state.today_product_sold" />
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="row m-0">
+                        <div class="col-12 col-lg-9">
+                            <div class="card-header nf-card-body">
+                                <t t-if="this.session.bundle_params.lang == 'he_IL'">
+                                    <h4 style="text-align: left">Month Sales</h4>
+                                </t>
+                                <t t-else="">
+                                    <h4>Month Sales</h4>
+                                </t>
+                                <div style="float: right; margin-top: -33px; width: 13%;">
+                                    <select class="form-control" id='NfSaleFilter' t-on-change="(event) => this.NfSaleFilter(event)">
+                                        <option value="Day">Today</option>
+                                        <option value="Month" selected="selected">This Month</option>
+                                        <option value="Year">This Year</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card-body nf-card-body">
+                                <div id="nf-pos-month-sale-chart"></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <div class="card-body nf-card-body">
+                                <div class="card-header">
+                                    <h4>Today Top Sale</h4>
+                                </div>
+                                <div class="card-body nf-card-body pb-4">
+                                    <div class="recent-message d-flex pt-4">
+                                        <div class="stats-icon yellow">
+                                            <i class="fa fa-clock-o" />
+                                        </div>
+                                        <div class="name ms-4 ml-4">
+                                            <h5 class="mb-1">Today Top Sale</h5>
+                                            <h4 class="text-muted mb-0">
+                                                <span class="nf_top_sale_of_the_day">
+                                                    <t t-out="this.state.max_order_total" />
+                                                </span>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div class="recent-message d-flex pt-4">
+                                        <div class="stats-icon purple">
+                                            <i class="fa fa-line-chart" />
+                                        </div>
+                                        <div class="name ms-4 ml-4">
+                                            <h5 class="mb-1">Month Highest Sale</h5>
+                                            <h4 class="text-muted mb-0">
+                                                <span class="nf_highest_of_month">
+                                                    <t t-out="this.state.heights_month_sale" />
+                                                </span>
+                                            </h4>
+                                            <h6 class="text-muted mb-0">Last 30 Days</h6>
+                                        </div>
+                                    </div>
+                                    <div class="recent-message d-flex pt-4">
+                                        <div class="stats-icon red">
+                                            <i class="fa fa-dollar" />
+                                        </div>
+                                        <div class="name ms-4 ml-4">
+                                            <h5 class="mb-1">Average Selling Price</h5>
+                                            <h4 class="text-muted mb-0">
+                                                <span class="nf_avarage_sale_of_month">
+                                                    <t t-out="this.state.avrage_salling_amount" />
+                                                </span>
+                                            </h4>
+                                            <h6 class="text-muted mb-0">Last 30 Days</h6>
+                                        </div>
+                                    </div>
+                                    <div class="recent-message d-flex pt-4 ">
+                                        <div class="stats-icon green">
+                                            <i class="fa fa-shopping-bag" />
+                                        </div>
+                                        <div class="name ms-4 ml-4">
+                                            <h5 class="mb-1">Month Total Sale</h5>
+                                            <h4 class="text-muted mb-0">
+                                                <span class="month_sale">
+                                                    <t t-out="this.state.month_sale" />
+                                                </span>
+                                            </h4>
+                                            <h6 class="text-muted mb-0">Last 30 Days</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="nf-profile-section" style="margin-top: 15px">
+                    <div class="row m-0">
+                        <div class="col-12 col-xl-3">
+                            <div class="card nf-card">
+                                <div class="card-header nf-card-body">
+                                    <h4> Top Customer </h4>
+                                </div>
+                                <div class="card-body nf-card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Customer Name</th>
+                                                <th>Products </th>
+                                                <th>Amount </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="NF-Customer-Data" t-if="this.state.top_customers">
+                                            <t t-set="nf_total" t-value="0.00" />
+                                            <tr t-if="this.state.top_customers.length" t-foreach="this.state.top_customers" t-as="cust" t-key="cust_index">
+                                                <td>
+                                                    <t t-out="cust.partner_name" />
+                                                </td>
+                                                <td>
+                                                    <t t-out="cust.total_product" />
+                                                </td>
+                                                <td>
+                                                    <t t-out="this.state.currency_symbol" />
+                                                    <t t-out="cust.amount" />
+                                                    <t t-set="nf_total" t-value="nf_total + cust.amount" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">Total</td>
+                                                <td>
+                                                    <b>
+                                                        <t t-out="this.state.currency_symbol" />
+
+                                                        <t t-out="nf_total" />
+                                                    </b>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="card nf-card">
+                                <div class="card-header nf-card-body ">
+                                    <h4> Top Products </h4>
+                                </div>
+                                <div class="card-body nf-card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-lg">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product Name</th>
+                                                    <th> Sale Qty </th>
+                                                    <th> Total </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="nf-stock-update" t-if="this.state.nf_products">
+                                                <tr t-if="this.state.nf_products.length" t-foreach="this.state.nf_products" t-as="data" t-key="data.product_id">
+                                                    <td>
+                                                        <t t-out="data.product_name[this.session.bundle_params.lang]" />
+                                                    </td>
+                                                    <td>
+                                                        <t t-out="data.total_qty" />
+                                                    </td>
+                                                    <td>
+                                                        <t t-out="this.state.currency_symbol" />
+                                                        <t t-out="data.totalamount" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <div class="card nf-card">
+                                <div class="card-header nf-card-body">
+                                    <h4> Payments </h4>
+                                </div>
+                                <div class="card-body nf-card-body">
+                                    <div id="chart-profile-visit"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+    </t>
+</template>

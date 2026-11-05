@@ -1,0 +1,107 @@
+#dashboard_counter{
+    .o_action_manager{
+        overflow: auto !important;
+    }
+    .nf-card-body { 
+        border-radius: 15px !important;
+        border: none;
+        background-color: #fff !important;
+        margin: 10px 0px;
+        padding: 10px;
+    }
+    .py-4-5 { padding-top: 2rem !important; padding-bottom: 2rem !important }
+    .nf-user-name{
+        margin-left: 10px;
+    }
+    .card-header, .card-body {
+        background-color: #fff;
+    }
+    .nf-card {
+            margin-bottom: 2.2rem;
+            border: none;
+            border-radius: 15px !important;
+    }
+    .nf-card-header {
+        border: none;
+        h4 {
+            font-size: 14px;
+            font-weight: bold;
+        }
+    }
+    .apexcharts-yaxis-title-text{
+        font-size: 14px !important;
+    }
+    .stats-icon {
+        width: 3rem;
+        height:3rem;
+        border-radius: .5rem;
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        i {
+            color: #fff;
+            font-size: 1.7rem;
+        }
+        &.purple {
+            background-color: #9694ff;
+        }
+        &.yellow {
+            background-color: #e1e129;
+        }
+        &.red {
+            background-color: #ff7976;
+        }
+        &.green {
+            background-color: #5ddab4;
+        }
+        @media (max-width: 767px) {
+            float: left;
+            margin-bottom: .4rem;
+        }
+    }
+    
+    .nf-product-data {
+        display: none;
+    }
+    .nf-times {
+        display: none !important; 
+    }
+    .nf-times-title {
+        display: none !important; 
+    }
+    
+    .NfProductData {
+        background-color: #00000094 !important;
+     
+        .nf-product-data {
+            display: block;
+        }
+        .nf-times-title {
+            display: block !important; 
+            padding: 15px;
+            position: absolute;
+            font-weight: 800;
+            font-size: 20px;
+        }
+        .nf-times:not(.NfProductData) {
+            display: block !important; 
+            float: right;
+            margin: 15px;
+            font-size: 36px;
+        }
+        .NfTemp{
+            position: absolute;
+            max-width: 90%;
+            width: 100%;
+            opacity: 7 !important;
+            background: white;
+            margin: 5%;
+            z-index: 1;
+            border-radius: 20px;
+        }
+        .container{
+            opacity: 0.1;
+        }
+    }
+}

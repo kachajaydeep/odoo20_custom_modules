@@ -1,0 +1,2 @@
+id,name,model_id,group_id/id,operation,domain
+nf_product_sale_report.access_product_sale_report,access_product_sale_report,product.sale.report,base.group_user,crud

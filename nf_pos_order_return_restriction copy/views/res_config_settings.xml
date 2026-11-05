@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id='nf_pos_order_return_restriction_settings' model='ir.ui.view'>
+        <field name='name'>nf.pos.order.restriction.settings.form</field>
+        <field name='model'>res.config.settings</field>
+        <field name='inherit_id' ref="point_of_sale.res_config_settings_view_form" />
+        <field name='arch' type='xml'>
+            <block id="pos_interface_section" position="inside" >
+                <setting>
+                    <field name="nf_restrict_return_order"></field>
+                    <div id="pos_order_restriction_days" invisible="not nf_restrict_return_order" >
+                        <label for="nf_return_restrict_days" class="col-lg-3 o_light_label"/>
+                        <field name="nf_return_restrict_days" required="nf_restrict_return_order"></field>
+                    </div>
+                </setting> 
+            </block>
+        </field>
+    </record>
+ <record id="nf_pos_order_return_res_inherit" model="ir.ui.view">
+        <field name="name">nf.pos.order.form.view.inherit</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position='after'>
+                <field name="return_exprired" readonly="1" invisible="1"/>
+            </field>
+        </field>
+    </record>
+    
+</odoo>

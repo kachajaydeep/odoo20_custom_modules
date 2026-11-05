@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="user_commission_line_rights" model="ir.rule">
+        <field name="name">User can only see their only own record</field>
+        <field name="model_id" ref="model_pos_commission_line"></field>
+        <field name="domain_force">[('create_uid', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('nf_pos_salesperson_commission.nf_commission_user'))]"></field>
+        <field name="perm_write" eval="True" />
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="manager_commission_rules_rights" model="ir.rule">
+        <field name="name">Manager can access the all the records from manager commission rules</field>
+        <field name="model_id" ref="model_pos_commission_rules"></field>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('nf_pos_salesperson_commission.nf_commission_manager'))]"></field>
+        <field name="perm_write" eval="True" />
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="manager_commission_line_rights" model="ir.rule">
+        <field name="name">Manager can access the all the records from manager commission line</field>
+        <field name="model_id" ref="nf_pos_salesperson_commission.model_pos_commission_line"></field>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('nf_pos_salesperson_commission.nf_commission_manager'))]"></field>
+        <field name="perm_write" eval="True" />
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+</odoo>

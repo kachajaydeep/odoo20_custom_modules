@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Announcement List View -->
+    <record id="view_nf_announcement_list" model="ir.ui.view">
+        <field name="name">employee.announcement.list</field>
+        <field name="model">employee.announcement</field>
+
+        <field name="arch" type="xml">
+            <list string="Announcements">
+
+                <field name="name"/>
+                <field name="date"/>
+                <field name="sequence"/>
+
+            </list>
+        </field>
+    </record>
+
+    <!-- Announcement Form View -->
+    <record id="view_nf_announcement_form" model="ir.ui.view">
+        <field name="name">employee.announcement.form</field>
+        <field name="model">employee.announcement</field>
+
+        <field name="arch" type="xml">
+
+            <form string="Announcement">
+
+                <sheet>
+                    <widget name="web_ribbon"
+                        title="Archived"
+                        bg_color="text-bg-danger"
+                        invisible="active"/>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"
+                                   placeholder="Announcement Title..."/>
+                        </h1>
+                    </div>
+
+                    <group>
+
+                        <group>
+                            <field name="date"/>
+                            <field name="sequence"/>
+                        </group>
+
+                    </group>
+
+                </sheet>
+
+            </form>
+
+        </field>
+    </record>
+
+    <!-- Announcement Kanban View -->
+    <record id="view_nf_announcement_kanban" model="ir.ui.view">
+        <field name="name">employee.announcement.kanban</field>
+        <field name="model">employee.announcement</field>
+
+        <field name="arch" type="xml">
+
+            <kanban string="Announcements" class="o_kanban_small_column">
+
+                <field name="name"/>
+                <field name="date"/>
+                <field name="sequence"/>
+
+                <templates>
+
+                    <t t-name="card">
+
+                        <div class="oe_kanban_card p-2">
+
+                            <div class="d-flex justify-content-between align-items-start">
+
+                                <strong>
+                                    <field name="name"/>
+                                </strong>
+
+                                
+
+                            </div>
+
+                            <div class="mt-2">
+                                <field name="date" />
+                            </div>
+
+                            <div class="mt-2">
+                                <span class="badge bg-info">
+                                    <field name="sequence"/>
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </t>
+
+                </templates>
+
+            </kanban>
+
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_nf_announcement_search" model="ir.ui.view">
+        <field name="name">employee.announcement.search</field>
+        <field name="model">employee.announcement</field>
+
+        <field name="arch" type="xml">
+
+            <search>
+
+                <field name="name"/>
+                <field name="date"/>
+                <field name="sequence"/>
+                
+
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+
+                <group>
+
+                    <filter string="Name"
+                            name="group_name"
+                            context="{'group_by': 'name'}"/>
+
+                    <filter string="Sequence"
+                            name="group_sequence"
+                            context="{'group_by': 'sequence'}"/>
+                            
+                    <filter name="active"
+                            context="{'group_by':'active'}"
+                            string="Active"/>
+                </group>
+
+            </search>
+
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_nf_announcement" model="ir.actions.act_window">
+
+        <field name="name">Announcements</field>
+
+        <field name="res_model">employee.announcement</field>
+
+        <field name="view_mode">list,kanban,form</field>
+
+        <field name="search_view_id"
+               ref="view_nf_announcement_search"/>
+
+        <field name="help" type="html">
+
+            <p class="o_view_nocontent_smiling_face">
+                Create your first announcement!
+            </p>
+
+            <p>
+                Keep your employees informed with company-wide announcements.
+            </p>
+
+        </field>
+
+    </record>
+
+</odoo>

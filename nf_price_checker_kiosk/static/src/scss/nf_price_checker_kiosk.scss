@@ -1,0 +1,525 @@
+:root {
+  /* DARK MODE (Default) */
+  --primary-bg: #0f172a;
+  --secondary-bg: #1e293b;
+  --accent-color: #38bdf8;
+  --accent-hover: #0ea5e9;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --card-bg: rgba(30, 41, 59, 0.7);
+  --border-color: #334155;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+  --glass: blur(10px);
+}
+
+.light-mode {
+  /* LIGHT MODE */
+  --primary-bg: #f1f5f9;
+  // --secondary-bg: #ffffff;
+  --secondary-bg: #f1f5f9;
+  --accent-color: #0284c7;
+  --accent-hover: #0369a1;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --border-color: #e2e8f0;
+  --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+}
+
+body.o_price_checker_kiosk {
+  background: radial-gradient(
+    circle at top left,
+    var(--secondary-bg),
+    var(--primary-bg)
+  );
+  color: var(--text-primary);
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+
+  .nf-price-checker-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    box-sizing: border-box;
+
+    /* HEADER */
+    .nf-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+
+      .nf-company-logo img {
+        max-height: 70px;
+        filter: drop-shadow(var(--shadow));
+      }
+
+      .nf-title {
+        font-size: 1.7rem;
+        font-weight: 850;
+        background: linear-gradient(to right, var(--accent-color), #818cf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .nf-header-right {
+        .nf-theme-toggle {
+          background: var(--secondary-bg);
+          border: 1px solid var(--border-color);
+          color: var(--text-primary);
+          padding: 0.75rem;
+          border-radius: 50%;
+          width: 45px;
+          height: 45px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          box-shadow: var(--shadow);
+
+          &:hover {
+            transform: scale(1.1);
+            border-color: var(--accent-color);
+          }
+
+          i {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+
+    /* MAIN SPLIT */
+    .nf-main-content {
+      flex: 1;
+      display: flex;
+      gap: 2rem;
+      overflow: hidden;
+      .nf-error-message {
+          background: rgba(239, 68, 68, 0.1);
+          color: var(--error-color);
+          padding: 1rem 1.5rem;
+          border-radius: 1rem;
+          border-left: 4px solid var(--error-color);
+          font-weight: 600;
+          animation: shake 0.4s ease-in-out;
+        }
+      /* LEFT */
+      .nf-left-panel {
+        flex: 1.2;
+        display: flex;
+        align-items: stretch;
+        justify-content: stretch;
+
+        .nf-product-details {
+          display: flex;
+          gap: 2.5rem;
+          background: var(--card-bg);
+          backdrop-filter: var(--glass);
+          border: 1px solid var(--border-color);
+          border-radius: 0.8rem;
+          padding: 2.5rem;
+          width: 100%;
+          box-shadow: var(--shadow);
+          animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+          align-items: center;
+          overflow: scroll;
+          scrollbar-width: none;
+
+          .nf-product-image {
+            flex: 0 0 45%;
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+
+            img {
+              max-width: 90%;
+              max-height: 90%;
+              object-fit: contain;
+              filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+            }
+          }
+
+          .nf-product-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+
+            .nf-product-name {
+              font-size: 2rem;
+              font-weight: 850;
+              line-height: 1.1;
+              letter-spacing: -0.02em;
+            }
+
+            .nf-product-price {
+              font-size: 2rem;
+              color: var(--accent-color);
+              font-weight: 900;
+              text-shadow: 0 5px 15px rgba(56, 189, 248, 0.2);
+              .nf-label{
+                font-size: 1rem;
+                color: var(--text-secondary);
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                font-weight: 700;
+                margin-bottom: 0.4rem;
+              }
+            }
+
+            .nf-info-grid {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 1.5rem;
+
+              .nf-info-item {
+                .nf-label {
+                  font-size: 0.8rem;
+                  color: var(--text-secondary);
+                  text-transform: uppercase;
+                  letter-spacing: 0.05em;
+                  font-weight: 700;
+                  margin-bottom: 0.4rem;
+                }
+
+                .nf-value {
+                  font-size: 1.3rem;
+                  font-weight: 600;
+                }
+
+                .nf-stock-badge {
+                  display: inline-block;
+                  background: rgba(16, 185, 129, 0.15);
+                  padding: 0.4rem 0.5rem;
+                  border-radius: 0.75rem;
+                  color: var(--success-color);
+                  font-weight: 700;
+                  border: 1px solid rgba(16, 185, 129, 0.2);
+                }
+              }
+            }
+
+            .nf-small-text {
+              font-size: 1rem;
+              color: var(--text-secondary);
+              line-height: 1.6;
+            }
+
+            .nf-pricelist-section::before,.nf-pricelist-section::after{
+                content: "";
+                flex: 1;
+                border-top: 2px solid #ccc;
+              }
+              .nf-pricelist-section::before{
+                   margin-right: 15px;
+              }
+              .nf-pricelist-section::after{
+                margin-left: 15px;
+              }
+              .nf-pricelist-section {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                span{
+                  font-size: 20px;
+                  font-weight: bold;
+                }
+              }
+          }
+        }
+      }
+
+      /* RIGHT */
+      .nf-right-panel {
+        flex: 0.8;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .nf-search-box {
+          display: flex;
+          gap: 1rem;
+          background: var(--secondary-bg);
+          // padding: 0.6rem;
+          border-radius: 1.5rem;
+          border: 2px solid var(--border-color);
+          box-shadow: var(--shadow);
+          transition: border-color 0.2s;
+
+          &:focus-within {
+            border-color: var(--accent-color);
+          }
+
+          input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 0.8rem;
+            font-weight: 500;
+
+            &::placeholder {
+              color: var(--text-secondary);
+            }
+
+            &:focus {
+              outline: none;
+            }
+          }
+
+          .nf-search-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0 2.5rem;
+            border-radius: 0 20px 20px 0;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+
+            &:hover {
+              background: var(--accent-hover);
+              transform: translateY(-2px);
+            }
+          }
+        }
+
+        .nf-error-message {
+          background: rgba(239, 68, 68, 0.1);
+          color: var(--error-color);
+          padding: 1rem 1.5rem;
+          border-radius: 1rem;
+          border-left: 4px solid var(--error-color);
+          font-weight: 600;
+          animation: shake 0.4s ease-in-out;
+        }
+
+        .nf-idle-message {
+          color: var(--text-secondary);
+          text-align: center;
+          // margin-top: 4rem;
+          font-size: 1.8rem;
+          font-weight: 500;
+          opacity: 0.6;
+        }
+
+        .nf-keyboard {
+          margin-top: auto;
+          display: grid;
+          grid-template-columns: repeat(10, 1fr);
+          gap: 0.6rem;
+          background: var(--secondary-bg);
+          padding: 1rem;
+          border-radius: 1.5rem;
+          box-shadow: var(--shadow);
+          border: 1px solid var(--border-color);
+
+          .nf-key {
+            background: var(--primary-bg);
+            padding: 1rem 0;
+            text-align: center;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.1s;
+            user-select: none;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+
+            &:hover {
+              background: var(--border-color);
+            }
+
+            &:active {
+              background: var(--accent-color);
+              color: white;
+              transform: translateY(2px);
+              border-bottom-width: 1px;
+            }
+
+            &.nf-wide {
+              grid-column: span 2;
+              background: var(--border-color);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 1200px) {
+  body.o_price_checker_kiosk {
+    .nf-price-checker-container {
+      .nf-main-content {
+        .nf-left-panel {
+          .nf-product-details {
+            flex-direction: column;
+            padding: 2rem;
+            max-height: 640px;
+          }
+        }
+
+        .nf-product-image {
+          flex: 0 0 300px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  body.o_price_checker_kiosk {
+    .nf-price-checker-container {
+      .nf-main-content {
+        flex-direction: column;
+        overflow-y: auto;
+
+        .nf-left-panel {
+          flex: none;
+        }
+
+        .nf-right-panel {
+          flex: none;
+
+          .nf-keyboard {
+            margin-top: 2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body.o_price_checker_kiosk {
+    .nf-price-checker-container {
+      .nf-main-content {
+        .nf-left-panel {
+          .nf-product-details {
+            flex-direction: row;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  body.o_price_checker_kiosk
+    .nf-price-checker-container
+    .nf-header
+    .nf-company-logo
+    img {
+    max-height: 35px;
+  }
+  body.o_price_checker_kiosk
+    .nf-price-checker-container
+    .nf-main-content
+    .nf-left-panel {
+    .nf-product-details {
+      flex-direction: column;
+
+      .nf-product-image {
+        flex: 0 0 225px;
+      }
+      .nf-product-info {
+        .nf-product-name {
+          font-size: 1.7rem;
+        }
+        .nf-product-price {
+          font-size: 2.2rem;
+        }
+        .nf-info-grid {         
+          .nf-info-item {
+            .nf-value {
+              font-size: 1.1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  body.o_price_checker_kiosk
+    .nf-price-checker-container
+    .nf-main-content
+    .nf-right-panel
+    .nf-search-box {
+    // width: 30px;
+    padding: 0 0 0 10px;
+    .nf-search-btn {
+      padding: 0;
+      width: 100px;
+    }
+    input {
+      padding: 0.7rem 0;
+      font-size: 0.7rem;
+    }
+  }
+  body.o_price_checker_kiosk
+    .nf-price-checker-container
+    .nf-main-content
+    .nf-right-panel
+    .nf-keyboard {
+    grid-template-columns: repeat(5, 1fr);
+    .nf-key {
+      padding: 0.5rem 0;
+      font-size: 0.8rem;
+    }
+    .nf-key.nf-wide {
+      grid-column: span 1;
+    }
+  }
+
+  body.o_price_checker_kiosk .nf-price-checker-container .header .title {
+    font-size: 1rem;
+  }
+}

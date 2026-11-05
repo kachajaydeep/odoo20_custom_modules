@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_pos_login_with_qr.LoginScreen" t-inherit="point_of_sale.LoginScreen" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('mobile-scanner')]" position="after">
+            <button class="nf-scan-face btn btn-secondary px-4" t-on-click="(ev) => this.onClickScanQR(ev)">
+                <i class="fa fa-qrcode" style="font-size: 25px;" aria-hidden="true"></i>
+            </button>
+        </xpath>
+        <xpath expr="//div[hasclass('screen-login')]" position="after">
+            <div t-attf-class="{{this.nf_qr_state.qr_scan ? ' d-block':' d-none'}}"
+                 class="screen-login flex-grow-1 d-flex align-items-center justify-content-center" >
+                <video id="video" width="600" height="450" autoplay="autoplay"></video>
+            </div>
+        </xpath>
+    </t>
+</templates>

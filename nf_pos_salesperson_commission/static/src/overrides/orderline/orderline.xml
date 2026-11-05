@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <xpath expr="//li[contains(@class,'price-per-unit')]" position="after">
+            <t t-if="this.env.services.pos.config.apply_commission and this.env.services.pos.config and line.emp_name">
+                <div class="d-flex pt-1">
+                    <div>Person :</div>
+                    <div class="ps-1" t-out="this.props.line.emp_name"/>
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>

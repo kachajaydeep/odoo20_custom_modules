@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="announcement_welcome" model="employee.announcement">
+            <field name="name">Welcome to Employee Dashboard!</field>
+            <field name="date" eval="DateTime.today()"/>
+        </record>
+    </data>
+</odoo>

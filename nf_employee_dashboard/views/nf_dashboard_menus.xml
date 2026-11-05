@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Main Menu -->
+    <menuitem id="menu_nf_dashboard_root"
+              name="Employee Dashboard"
+              sequence="2"
+              action="action_nf_employee_dashboard"
+              groups="base.group_user"/>
+
+    <menuitem id="menu_nf_attewndance"
+              name="CheckIn / CheckOut"
+              action="nf_employee_management_view"
+              parent="nf_employee_dashboard.menu_nf_dashboard_root"
+              groups="base.group_user"/>
+
+    <menuitem id="menu_nf_announcements"
+              name="Announcements"
+              action="action_nf_announcement"
+              groups="nf_employee_dashboard.group_nf_dashboard_manager"/>
+
+</odoo>

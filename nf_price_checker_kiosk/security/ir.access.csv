@@ -1,0 +1,2 @@
+id,name,model_id,group_id/id,operation,domain
+access_res_config_settings_price_checker_manager,access.res.config.settings.price.checker.manager,res.config.settings,nf_price_checker_kiosk.nf_checker_manager,crud,

@@ -1,0 +1,342 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* nf_pos_receipt_a4_size
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-26 14:09+0000\n"
+"PO-Revision-Date: 2021-12-26 14:09+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: nf_pos_receipt_a4_size
+#: model:ir.model.fields,field_description:nf_pos_receipt_a4_size.field_res_company___nf_show_arabic_labels
+msgid " Nf Show Arabic Labels"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model:ir.actions.report,print_report_name:nf_pos_receipt_a4_size.nf_a4_size_receipt_report_print
+msgid "'A4 size receipt'"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "/ فاتورة"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid ""
+"<br/>\n"
+"                                            <span> Unit Price </span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid ""
+"<br/>\n"
+"                                            <span>Amount</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid ""
+"<br/>\n"
+"                                            <span>Description</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid ""
+"<br/>\n"
+"                                            <span>Item No.</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid ""
+"<br/>\n"
+"                                            <span>No.</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid ""
+"<br/>\n"
+"                                            <span>Qty</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid ""
+"<br/>\n"
+"                                            <span>Unit</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span class=\"float-left \">Invoice no.:</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span class=\"float-left \">Mobile No. :  </span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span class=\"float-left ml-1\">Invoice Date: </span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span class=\"float-left ml-1\">Invoice No. : </span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span class=\"float-left ml-1\">Order No. :</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span class=\"float-left ml-1\">Phone No. : </span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span class=\"float-left ml-2\">Invoice Date : </span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span class=\"float-left\">Customer Name : </span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span class=\"float-left\">Customer Name :</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span class=\"float-left\">Mobile No. : </span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span class=\"float-left\">Order No. : </span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span class=\"float-left\">Phone No. :</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span class=\"float-right mr-1\">فاتورة التاريخ</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span class=\"float-right\"> رقم الطلب </span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span class=\"float-right\"> رقم الموبايل </span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span class=\"float-right\"> رقم الهاتف </span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span class=\"float-right\">اسم العميل</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span class=\"float-right\">رقم الفاتورة</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span> Discount </span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span> Unit Price </span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span>Amount</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span>Grand Total</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span>Item No.</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span>No.</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span>Product Name</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span>Qty</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span>Total Vat </span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span>Total</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "<span>Unit</span>"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.nf_a4_size_receipt_configuration
+msgid "A4 Size Receipt Configuration"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model:ir.model,name:nf_pos_receipt_a4_size.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model:ir.model.fields,field_description:nf_pos_receipt_a4_size.field_pos_config___nf_enable_a4_size_receipt
+msgid "Enable A4 size Receipt Print"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model:ir.model.fields,field_description:nf_pos_receipt_a4_size.field_pos_config___nf_show_arabic_labels
+msgid "Enable Arabic Labels"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "Logo"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model:ir.model,name:nf_pos_receipt_a4_size.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model:ir.model,name:nf_pos_receipt_a4_size.model_pos_order
+msgid "Point of Sale Orders"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#. openerp-web
+#: code:addons/nf_pos_receipt_a4_size/static/src/xml/nf_pos_receipt.xml:0
+#, python-format
+msgid "Print A4 Size Receipt"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model:ir.model.fields,field_description:nf_pos_receipt_a4_size.field_pos_order__qr_code_img
+msgid "Qr Code"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "Sale Invoice"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "Thank You"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "Vat Number"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model:ir.actions.report,name:nf_pos_receipt_a4_size.nf_a4_size_receipt_report_print
+msgid "a4 Receipt Print"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "إجمالي ضريبة القيمة المضافة"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "الخصم"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "الكمية"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "المبلغ"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "المبلغ الإجمالي"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "سعر الوحدة"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "لا"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "لا الصنف"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "وحدة"
+msgstr ""
+
+#. module: nf_pos_receipt_a4_size
+#: model_terms:ir.ui.view,arch_db:nf_pos_receipt_a4_size.a4_size_receipt_layout
+msgid "وصف"
+msgstr ""

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="nf_login_pos_access_error" inherit_id="web.login">
+        <xpath expr="//div[hasclass('oe_structure')]" position="after">
+            <t t-if="request.params.get('error') == 'pos_access_error'">
+                <div class="alert alert-danger" role="alert">
+                    You do not have access to Point of Sale. Please contact your administrator.
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>
+

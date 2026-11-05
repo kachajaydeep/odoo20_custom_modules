@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_generate_pdf_report_style1" model="ir.actions.report">
+        <field name="name">Catalog Style - 1 Report</field>
+        <field name="model">nf.generated.product.catalog</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">nf_product_catalog_generator.report_product_catalog_style1</field>
+        <!-- <field name="report_file">nf_product_catalog_generator.report_product_catalog_style1</field> -->
+        <field name="print_report_name">'%s Catalog Report' %(object.catalog_name)</field>
+        <field name="binding_model_id" ref="model_nf_generated_product_catalog"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_generate_pdf_report_style2" model="ir.actions.report">
+        <field name="name">Catalog Style - 2 Report</field>
+        <field name="model">nf.generated.product.catalog</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">nf_product_catalog_generator.report_product_catalog_style2</field>
+        <!-- <field name="report_file">nf_product_catalog_generator.report_product_catalog_style2</field> -->
+        <field name="print_report_name">'%s Catalog Report' %(object.catalog_name)</field>
+        <field name="binding_model_id" ref="model_nf_generated_product_catalog"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_generate_pdf_report_style3" model="ir.actions.report">
+        <field name="name">Catalog Style - 3 Report</field>
+        <field name="model">nf.generated.product.catalog</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">nf_product_catalog_generator.report_product_catalog_style3</field>
+        <!-- <field name="report_file">nf_product_catalog_generator.report_product_catalog_style3</field> -->
+        <field name="print_report_name">'%s Catalog Report' %(object.catalog_name)</field>
+        <field name="binding_model_id" ref="model_nf_generated_product_catalog"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_generate_pdf_report_style4" model="ir.actions.report">
+        <field name="name">Catalog Style - 4 Report</field>
+        <field name="model">nf.generated.product.catalog</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">nf_product_catalog_generator.report_product_catalog_style4</field>
+        <!-- <field name="report_file">nf_product_catalog_generator.report_product_catalog_style4</field> -->
+        <field name="print_report_name">'%s Catalog Report' %(object.catalog_name)</field>
+        <field name="binding_model_id" ref="model_nf_generated_product_catalog"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_generate_pdf_report_style5" model="ir.actions.report">
+        <field name="name">Catalog Style - 5 Report</field>
+        <field name="model">nf.generated.product.catalog</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">nf_product_catalog_generator.report_product_catalog_style5</field>
+        <!-- <field name="report_file">nf_product_catalog_generator.report_product_catalog_style5</field> -->
+        <field name="print_report_name">'%s Catalog Report' %(object.catalog_name)</field>
+        <field name="binding_model_id" ref="model_nf_generated_product_catalog"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

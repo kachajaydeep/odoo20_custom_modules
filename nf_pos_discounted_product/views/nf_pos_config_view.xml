@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_pos_dicounted_price_config_view_inherit" model="ir.ui.view">
+        <field name="name">nf.pos.discounted.price.config.view.inherit</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//setting[field[@name='default_partner_id']]" position="after">
+                <setting id="nf_pos_enable_dicsounted_price_on_cart" string="Display Base Price In Cart" help="Show discounted product price on order cart">
+                    <field name="nf_pos_enable_dicsounted_price_on_cart" />
+                </setting>
+                <setting id="nf_pos_enable_discounted_price_in_receipt" string="Display Base Price In Receipt" help="Show discounted product price in order receipt.">
+                    <field name="nf_pos_enable_discounted_price_in_receipt" />
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

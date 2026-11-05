@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="nf_pos_cash_control_receipt.CashReceiptPrintPopup">
+        <html id="pos-receipt">
+
+            <head>
+                <meta charset="UTF-8"/>
+                <t t-call="point_of_sale.pos_order_receipt_style"/>
+            </head>
+
+            <body>
+
+                <div
+                    class="pos-receipt"
+                    style="width: 100%; font-size: 14px;"
+                >
+
+                    <!-- ============================= -->
+                    <!-- RECEIPT HEADER -->
+                    <!-- ============================= -->
+
+                    <div
+                        style="
+                            width: 100%;
+                            text-align: center;
+                            margin-bottom: 10px;
+                        "
+                    >
+
+                        <!-- Company Logo -->
+                        <t t-if="image and image.get('logo')">
+                            <div
+                                style="
+                                    width: 100%;
+                                    text-align: center;
+                                    margin-bottom: 5px;
+                                "
+                            >
+                                <img
+                                    t-att-src="image['logo']"
+                                    style="
+                                        max-width: 100%;
+                                        max-height: 70px;
+                                    "
+                                />
+                            </div>
+                        </t>
+
+                        <!-- Company Name -->
+                        <div
+                            style="
+                                font-size: 18px;
+                                font-weight: bold;
+                                text-align: center;
+                                margin-bottom: 4px;
+                            "
+                        >
+                            <t t-out="company and company.name or ''"/>
+                        </div>
+
+                        <!-- Receipt Title -->
+                        <div
+                            style="
+                                font-size: 16px;
+                                font-weight: bold;
+                                text-align: center;
+                                margin-top: 5px;
+                            "
+                        >
+                            CASH IN / OUT STATEMENT
+                        </div>
+
+                        <!-- Separator -->
+                        <div
+                            style="
+                                width: 100%;
+                                border-bottom: 1px solid #000;
+                                margin-top: 8px;
+                            "
+                        />
+
+                    </div>
+
+
+                    <!-- ============================= -->
+                    <!-- CASH STATEMENT TABLE -->
+                    <!-- ============================= -->
+
+                    <div
+                        class="pos-receipt-contact"
+                        style="width: 100%;"
+                    >
+
+                        <table
+                            class="nf_in_out_statement_table"
+                            style="
+                                width: 100%;
+                                border-collapse: collapse;
+                                table-layout: fixed;
+                            "
+                        >
+
+                            <thead>
+
+                                <tr>
+
+                                    <th
+                                        style="
+                                            width: 30%;
+                                            text-align: left;
+                                            border-bottom: 1px solid #000;
+                                            padding: 5px 2px;
+                                            font-weight: bold;
+                                        "
+                                    >
+                                        Date
+                                    </th>
+
+                                    <th
+                                        style="
+                                            width: 30%;
+                                            text-align: left;
+                                            border-bottom: 1px solid #000;
+                                            padding: 5px 2px;
+                                            font-weight: bold;
+                                        "
+                                    >
+                                        Reason
+                                    </th>
+
+                                    <th
+                                        style="
+                                            width: 20%;
+                                            text-align: right;
+                                            border-bottom: 1px solid #000;
+                                            padding: 5px 2px;
+                                            font-weight: bold;
+                                        "
+                                    >
+                                        Credit
+                                    </th>
+
+                                    <th
+                                        style="
+                                            width: 20%;
+                                            text-align: right;
+                                            border-bottom: 1px solid #000;
+                                            padding: 5px 2px;
+                                            font-weight: bold;
+                                        "
+                                    >
+                                        Debit
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <!-- ============================= -->
+                                <!-- SINGLE CASH IN / OUT RECEIPT -->
+                                <!-- ============================= -->
+
+                                <t t-if="sigle_receipt">
+
+                                    <tr>
+
+                                        <!-- Date -->
+                                        <td
+                                            style="
+                                                text-align: left;
+                                                padding: 5px 2px;
+                                                vertical-align: top;
+                                            "
+                                        >
+                                            <t t-out="date"/>
+                                        </td>
+
+                                        <!-- Reason -->
+                                        <td
+                                            style="
+                                                text-align: left;
+                                                padding: 5px 2px;
+                                                vertical-align: top;
+                                            "
+                                        >
+                                            <t t-out="reason"/>
+                                        </td>
+
+
+                                        <!-- CASH IN -->
+                                        <t t-if="type == 'in'">
+
+                                            <td
+                                                style="
+                                                    text-align: right;
+                                                    padding: 5px 2px;
+                                                    vertical-align: top;
+                                                "
+                                            >   
+                                            <t t-out="this.order.currency.symbol+ ' '+amount"/>
+                                            </td>
+
+                                            <td
+                                                style="
+                                                    text-align: right;
+                                                    padding: 5px 2px;
+                                                    vertical-align: top;
+                                                "
+                                            >
+                                                -
+                                            </td>
+
+                                        </t>
+
+
+                                        <!-- CASH OUT -->
+                                        <t t-else="">
+
+                                            <td
+                                                style="
+                                                    text-align: right;
+                                                    padding: 5px 2px;
+                                                    vertical-align: top;
+                                                "
+                                            >
+                                                -
+                                            </td>
+
+                                            <td
+                                                style="
+                                                    text-align: right;
+                                                    padding: 5px 2px;
+                                                    vertical-align: top;
+                                                "
+                                            >
+                                                <t t-out="this.order.currency.symbol+ ' '+amount"/>
+                                            </td>
+
+                                        </t>
+
+                                    </tr>
+
+                                </t>
+
+
+                                <!-- ============================= -->
+                                <!-- ALL CASH IN / OUT RECEIPTS -->
+                                <!-- ============================= -->
+
+                                <t t-else="">
+
+                                    <t
+                                        t-set="total_cash_in"
+                                        t-value="0"
+                                    />
+
+                                    <t
+                                        t-set="total_cash_out"
+                                        t-value="0"
+                                    />
+
+
+                                    <t
+                                        t-foreach="TotalCashData or []"
+                                        t-as="data"
+                                        t-key="data.id"
+                                    >
+
+                                        <t
+                                            t-set="cash"
+                                            t-value="data.payment_ref.split('-')"
+                                        />
+
+
+                                        <tr>
+
+                                            <!-- Date -->
+                                            <td
+                                                style="
+                                                    text-align: left;
+                                                    padding: 5px 2px;
+                                                    vertical-align: top;
+                                                    font-size: 10px;
+                                                "
+                                            >
+                                                <t t-out="data.date"/>
+                                            </td>
+
+
+                                            <!-- Reason -->
+                                            <td
+                                                style="
+                                                    text-align: left;
+                                                    padding: 5px 2px;
+                                                    vertical-align: top;
+                                                    word-break: break-word;
+                                                "
+                                            >
+                                                <t t-out="cash[2]"/>
+                                            </td>
+
+
+                                            <!-- CASH IN -->
+                                            <t t-if="cash[1] == 'in'">
+
+                                                <td
+                                                    style="
+                                                        text-align: right;
+                                                        padding: 5px 2px;
+                                                        vertical-align: top;
+                                                    "
+                                                >
+
+                                                    <t t-out="this.order.currency.symbol+ ' '+data.amount"/>
+
+                                                    <t
+                                                        t-set="total_cash_in"
+                                                        t-value="data.amount + total_cash_in"
+                                                    />
+
+                                                </td>
+
+                                                <td
+                                                    style="
+                                                        text-align: right;
+                                                        padding: 5px 2px;
+                                                        vertical-align: top;
+                                                    "
+                                                >
+                                                    -
+                                                </td>
+
+                                            </t>
+
+
+                                            <!-- CASH OUT -->
+                                            <t t-else="">
+
+                                                <td
+                                                    style="
+                                                        text-align: right;
+                                                        padding: 5px 2px;
+                                                        vertical-align: top;
+                                                    "
+                                                >
+                                                    -
+                                                </td>
+
+                                                <td
+                                                    style="
+                                                        text-align: right;
+                                                        padding: 5px 2px;
+                                                        vertical-align: top;
+                                                    "
+                                                >
+
+                                                    <t t-out="this.order.currency.symbol+ ' '+data.amount"/>
+
+                                                    <t
+                                                        t-set="total_cash_out"
+                                                        t-value="data.amount + total_cash_out"
+                                                    />
+
+                                                </td>
+
+                                            </t>
+
+                                        </tr>
+
+                                    </t>
+
+
+                                    <!-- ============================= -->
+                                    <!-- TOTAL -->
+                                    <!-- ============================= -->
+
+                                    <tr>
+                                        <td
+                                            colspan="2"
+                                            style="
+                                                text-align: right;
+                                                padding: 7px 2px;
+                                                font-size: 15px;
+                                                font-weight: bold;
+                                                border-top: 1px solid #000;
+                                            "
+                                        >
+                                            Total
+                                        </td>
+
+                                        <td
+                                            style="
+                                                text-align: right;
+                                                padding: 7px 2px;
+                                                font-weight: bold;
+                                                border-top: 1px solid #000;
+                                            "
+                                        >
+                                            <t t-out="this.order?.currency.symbol+ ' '+total_cash_in"/>
+                                        </td>
+
+                                        <td
+                                            style="
+                                                text-align: right;
+                                                padding: 7px 2px;
+                                                font-weight: bold;
+                                                border-top: 1px solid #000;
+                                            "
+                                        >
+                                            <t t-out="this.order?.currency.symbol+ ' '+total_cash_out"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </body>
+        </html>
+    </t>
+</templates>

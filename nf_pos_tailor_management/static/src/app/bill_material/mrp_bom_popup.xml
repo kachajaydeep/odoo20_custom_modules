@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates>
+    <t t-name="nf_pos_tailor_management.MrpBom">
+        <Dialog>
+                <div class="nf-main-content">
+                    <t t-set-slot="header">
+                        <h2>Materials</h2>
+                        <button type="button" class="btn-close" t-on-click="() => this.closePopup()" aria-label="Close"></button>
+                    </t>
+                    
+                    <t t-foreach="this.state.bom_ids" t-as="material"
+                        t-key="material.id">
+                        <div t-att-data-id="material.id" t-on-click="() => this.posOrderPopup(material)">
+                            <div class="d-flex justify-content-between align-items-center border p-3 mt-2 cursor-pointer">
+                                <div>
+                                     <t t-if="material.code">
+                                         <span t-out="material.code"></span>
+                                     </t>
+                                     <t t-else="">
+                                        <span t-out="material.display_name"></span>
+                                     </t>
+                                </div>
+
+                                <div><i class="fa fa-angle-right fs-2"></i></div>
+                            </div>
+                        </div>
+                    </t>
+
+                    <t t-set-slot="footer">
+                        <button class="btn btn-secondary border-1"
+                            t-on-click="() => this.closePopup()">
+                            Cancel</button>
+                    </t>
+                </div>
+        </Dialog>
+    </t>
+</templates>

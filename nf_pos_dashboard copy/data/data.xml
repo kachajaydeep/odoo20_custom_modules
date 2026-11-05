@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate='1'>
+    <record id="nf_pos_dashboard_record_1" model="nf.pos.dashboard">
+        <field name="name">POS Dashboard</field>
+    </record>
+</odoo>

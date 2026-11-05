@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="nf_action_delete_view">
+
+        <Dialog title="'Delete Section'">
+
+            <div class="p-3">
+                This action allows you to manage section deletion. You can either delete only the selected line or delete the full section along with all associated lines below it.
+            </div>
+
+            <t t-set-slot="footer">
+
+                <button class="btn btn-primary"
+                        t-on-click="() => this.deleteOnlySection()">
+                    Section Delete Only
+                </button>
+
+                <button class="btn btn-primary"
+                        t-on-click="() => this.deleteSectionWithLines()">
+                    Section + Lines (<t t-out="this.state.lineCount"/>)
+                </button>
+
+                <button class="btn btn-secondary"
+                        t-on-click="() => this.close()">
+                    Cancel
+                </button>
+
+            </t>
+
+        </Dialog>
+
+    </t>
+
+</templates>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_config_custom_view_form" model="ir.ui.view">
+        <field name="name">pos.config.form.view.inherit</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='other_devices']" position="after">
+                <setting id="nf_auto_validate_session" string="Enable Auto Session Validation" help="Automatically validate and close the POS session after a configured period.">
+                    <field name="nf_enable_auto_session_validation"></field>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

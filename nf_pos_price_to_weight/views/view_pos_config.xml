@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nft_pos_config_view_inherit" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook//div[hasclass('o_settings_container')]" position="inside">
+                <setting help="Convert Product Price to Weight">
+                    <field name="nft_price_to_weight_selection" />
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

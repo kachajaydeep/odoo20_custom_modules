@@ -1,0 +1,21 @@
+.sh-stock-info-table { 
+    width: 80%;
+    tr {
+        padding: 5px;
+        th{  
+            padding: 5px;
+          }
+        td{ 
+            padding: 5px;
+            &.nf-location-name-width_25{
+                width: 25%;
+            }
+            &.nf-location-name-width_35{
+                width: 35%;
+            }
+            &.nf-location-name-width_50{
+                width: 50%;
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_inherit_point_of_sale_config" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.pos.receipt.barcode</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_bills_and_receipts_section']" position="inside">
+                <setting help="To print barcode on order receipt." id="pos_order_receipt_barcode">
+                    <field name="nf_enable_receipt_barcode"/>
+                    <div class="content-group mt16" invisible="not nf_enable_receipt_barcode">
+                        <div class="col mt16">
+                            <div class="content-group row">
+                                <label for="nf_barcode_prefix" class="col-lg-2" string="Prefix"/>
+                                <field name="nf_barcode_prefix" default="026"/>
+                            </div>
+                        </div>
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

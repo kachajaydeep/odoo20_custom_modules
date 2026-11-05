@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="nf_employee_dashboard_templates" xml:space="preserve">
+
+    <t t-name="nf_employee_dashboard.Dashboard">
+
+        <div class="nf-main-content">
+            <div class="nf-page-body">
+
+                <!-- WELCOME BAR -->
+                <div class="nf-welcome-bar">
+                    <h1 class="nf-welcome-title">
+                        Welcome back,
+                        <span class="nf-accent">
+                            <t t-if="state.employee and state.employee.name">
+                                <t t-out="this.state.employee.name"/>
+                            </t>
+                            <t t-else="">User</t>
+                        </span>
+                        &#x1F44B;
+                    </h1>
+                    <div class="nf-date-badge">
+                        <i class="fa fa-calendar" style="margin-right:5px;vertical-align:-1px"/>
+                        <t t-out="this.state.today_date or ''"/>
+                    </div>
+                </div>
+
+                <!-- KPI CARDS -->
+                <div class="nf-kpi-row">
+
+                    <a t-attf-href="/odoo/action-nf_employee_dashboard.action_nf_emp_leave/"
+                    class="nf-kpi nf-kpi-1">
+                        <div class="nf-kpi-info">
+                            <span>Leaves</span>
+                            <strong t-out="this.state.leave"/>
+                        </div>
+                        <i class="fa fa-clock-o nf-kpi-icon"/>
+                    </a>
+
+                    <a t-attf-href="/odoo/action-nf_employee_dashboard.action_nf_emp_attendance/"
+                    class="nf-kpi nf-kpi-2">
+                        <div class="nf-kpi-info">
+                            <span>Attendance</span>
+                            <strong t-out="this.state.attendance"/>
+                        </div>
+                        <i class="fa fa-calendar nf-kpi-icon"/>
+                    </a>
+
+                    <a t-attf-href="/odoo/action-nf_employee_dashboard.action_nf_emp_expense/"
+                    class="nf-kpi nf-kpi-3">
+                        <div class="nf-kpi-info">
+                            <span>Expenses</span>
+                            <strong t-out="this.state.expense"/>
+                        </div>
+                        <i class="fa fa-dollar nf-kpi-icon"/>
+                    </a>
+
+                </div>
+
+                <!-- HIGHLIGHTS ROW -->
+                <div class="nf-mid-row">
+
+                    <!-- Birthdays -->
+                    <div class="nf-card">
+                        <div class="nf-card-head">
+                            <h3>
+                                <i class="fa fa-birthday-cake" style="color:#7c6af7"/>
+                                Birthdays
+                            </h3>
+                        </div>
+                        <div class="nf-card-body nf-scroll">
+                            <t t-foreach="state.birthdays or []" t-as="emp" t-key="emp.id">
+                                <div t-att-class="'nf-person-row' + (emp.is_today ? ' nf-today-bday' : '')">
+                                    <div class="nf-today-glow" t-if="emp.is_today">
+                                        <i class="fa fa-birthday-cake nf-today-icon"/>
+                                    </div>
+                                    <t t-if="emp.image">
+                                        <img t-att-src="emp.image"
+                                            width="36" height="36"
+                                            class="nf-person-img"
+                                            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+                                    </t>
+                                    <div class="nf-emp-av nf-person-av" t-att-style="emp.image ? 'display:none' : 'display:flex'">
+                                        <t t-out="emp.name and emp.name[0] or 'E'"/>
+                                    </div>
+                                    <div class="nf-person-info">
+                                        <div class="nf-person-name">
+                                            <t t-out="emp.name"/>
+                                            <t t-if="emp.is_today">
+                                                <span class="nf-today-tag nf-today-tag-bday">🎂 Happy Birthday</span>
+                                            </t>
+                                        </div>
+                                        <div class="nf-person-sub">
+                                            <t t-out="emp.birthday"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+
+                    <!-- Anniversary -->
+                    <div class="nf-card">
+                        <div class="nf-card-head">
+                            <h3>
+                                <img src="/nf_employee_dashboard/static/src/img/confetti.png" height="20" width="20" alt="Anniversaries"/>
+                                Anniversaries
+                            </h3>
+                        </div>
+                        <div class="nf-card-body nf-scroll">
+                            <t t-foreach="this.state.anniversary or []" t-as="emp" t-key="emp.id">
+                                <div t-att-class="'nf-person-row' + (emp.is_today ? ' nf-today-anniv' : '')">
+                                    <div class="nf-today-glow nf-today-glow-anniv" t-if="emp.is_today">
+                                        <img src="/nf_employee_dashboard/static/src/img/confetti.png" class="nf-today-icon-img" alt="Anniversaries"/>
+                                    </div>
+                                    <t t-if="emp.image">
+                                        <img t-att-src="emp.image"
+                                            width="36" height="36"
+                                            class="nf-person-img"
+                                            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+                                    </t>
+                                    <div class="nf-emp-av nf-person-av" t-att-style="emp.image ? 'display:none' : 'display:flex'">
+                                        <t t-out="emp.name and emp.name[0] or 'E'"/>
+                                    </div>
+                                    <div class="nf-person-info">
+                                        <div class="nf-person-name">
+                                            <t t-out="emp.name"/>
+                                            <t t-if="emp.is_today">
+                                                <span class="nf-today-tag nf-today-tag-anniv"><img src="/nf_employee_dashboard/static/src/img/confetti.png" height="15" width="15" alt="Anniversaries"/> Happy Anniversary</span>
+                                            </t>
+                                        </div>
+                                        <div class="nf-person-sub">
+                                            <t t-out="emp.anniversary_date"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+
+                    <!-- Announcements -->
+                    <div class="nf-card">
+                        <div class="nf-card-head">
+                            <h3>
+                                <i class="fa fa-bullhorn" style="color:#7c6af7"/>
+                                Announcements
+                            </h3>
+                        </div>
+                        <div class="nf-card-body nf-scroll">
+                            <t t-foreach="this.state.announcements or []" t-as="ann" t-key="ann.id">
+                                <div class="nf-ann-row">
+                                    <div class="nf-ann-dot"/>
+                                    <div>
+                                        <div class="nf-ann-title">
+                                            <t t-out="ann.name"/>
+                                        </div>
+                                        <div class="nf-ann-date">
+                                            <t t-out="ann.date"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- TABLES ROW: LEAVES + ATTENDANCE -->
+                <div class="nf-table-row">
+
+                    <!-- My Leaves -->
+                    <div class="nf-card">
+                        <div class="nf-card-head">
+                            <h3>
+                                <i class="fa fa-clock-o" style="color:#7c6af7"/>
+                                My Leaves
+                            </h3>
+                            <a href="/web#action=nf_employee_dashboard.action_nf_emp_leave&amp;model=hr.leave&amp;view_type=form"
+                            class="nf-new-btn">
+                                <i class="fa fa-plus" style="font-size:10px"/> New
+                            </a>
+                        </div>
+                        <div class="nf-card-body">
+                            <div class="nf-table-wrap">
+                                <table class="nf-tbl">
+                                    <thead>
+                                        <tr>
+                                            <th>Employee</th>
+                                            <th>Leave Type</th>
+                                            <th>From</th>
+                                            <th>To</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="this.state.leave_list or []"
+                                            t-as="leave"
+                                            t-key="leave.id">
+                                            <td>
+                                                <div class="nf-emp-cell">
+                                                    <div class="nf-emp-av">
+                                                        <t t-out="leave.employee_name and leave.employee_name[0] or 'E'"/>
+                                                    </div>
+                                                    <t t-out="leave.employee_name"/>
+                                                </div>
+                                            </td>
+                                            <td><t t-out="leave.name"/></td>
+                                            <td><t t-out="leave.date_from"/></td>
+                                            <td><t t-out="leave.date_to"/></td>
+                                            <td>
+                                                <span t-att-class="'nf-status nf-s-' + leave.state">
+                                                    <t t-out="leave.state"/>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- My Attendance -->
+                    <div class="nf-card">
+                        <div class="nf-card-head">
+                            <h3>
+                                <i class="fa fa-calendar" style="color:#7c6af7"/>
+                                My Attendance
+                            </h3>
+                            <a href="/web#action=nf_employee_dashboard.action_nf_emp_attendance&amp;model=hr.attendance&amp;view_type=form"
+                            class="nf-new-btn">
+                                <i class="fa fa-plus" style="font-size:10px"/> New
+                            </a>
+                        </div>
+                        <div class="nf-card-body">
+                            <div class="nf-table-wrap">
+                                <table class="nf-tbl">
+                                    <thead>
+                                        <tr>
+                                            <th>Employee</th>
+                                            <th>Check In</th>
+                                            <th>Check Out</th>
+                                            <th>Hours</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="this.state.attendance_list or []"
+                                            t-as="att"
+                                            t-key="att.id">
+                                            <td>
+                                                <div class="nf-emp-cell">
+                                                    <div class="nf-emp-av">
+                                                        <t t-out="att.employee_name and att.employee_name[0] or 'E'"/>
+                                                    </div>
+                                                    <t t-out="att.employee_name"/>
+                                                </div>
+                                            </td>
+                                            <td><t t-out="att.check_in"/></td>
+                                            <td><t t-out="att.check_out"/></td>
+                                            <td class="nf-hours-cell">
+                                                <t t-out="att.worked_hours.toFixed(2)"/>h
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- EXPENSES TABLE -->
+                <div class="nf-card nf-card-full">
+                    <div class="nf-card-head">
+                        <h3>
+                            <i class="fa fa-dollar" style="color:#7c6af7"/>
+                            My Expenses
+                        </h3>
+                        <a href="/web#action=nf_employee_dashboard.action_nf_emp_expense&amp;model=hr.expense&amp;view_type=form"
+                        class="nf-new-btn">
+                            <i class="fa fa-plus" style="font-size:10px"/> New
+                        </a>
+                    </div>
+                    <div class="nf-card-body">
+                        <div class="nf-table-wrap">
+                            <table class="nf-tbl">
+                                <thead>
+                                    <tr>
+                                        <th>Employee</th>
+                                        <th>Expense</th>
+                                        <th>Date</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="this.state.expense_list or []"
+                                        t-as="exp"
+                                        t-key="exp.id">
+                                        <td>
+                                            <div class="nf-emp-cell">
+                                                <div class="nf-emp-av">
+                                                    <t t-out="exp.employee_name and exp.employee_name[0] or 'E'"/>
+                                                </div>
+                                                <t t-out="exp.employee_name"/>
+                                            </div>
+                                        </td>
+                                        <td><t t-out="exp.name"/></td>
+                                        <td><t t-out="exp.date"/></td>
+                                        <td class="nf-amount-cell"><t t-out="exp.total_amount"/></td>
+                                        <td>
+                                            <span t-att-class="'nf-status nf-s-' + exp.state">
+                                                <t t-out="exp.state"/>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </t>
+
+</templates>

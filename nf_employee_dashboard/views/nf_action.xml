@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_nf_emp_leave" model="ir.actions.act_window">
+        <field name="name">Leaves</field>
+        <field name="res_model">hr.leave</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_nf_emp_attendance" model="ir.actions.act_window">
+        <field name="name">Attendances</field>
+        <field name="res_model">hr.attendance</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_nf_emp_expense" model="ir.actions.act_window">
+        <field name="name">Expenses</field>
+        <field name="res_model">hr.expense</field>
+        <field name="view_mode">list,form</field>
+    </record>   
+</odoo>

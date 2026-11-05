@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates>
+    <t t-name="nf_pos_salesperson_commission.PosSalesPerson">
+        <Dialog>
+            <div>
+                <t t-set-slot="header">
+                    <h2>Select SalesPerson</h2>
+                    <button type="button" class="btn-close" t-on-click="() => this.close()" aria-label="Close"></button>
+                </t>
+                <t t-foreach="this.state.commission_ids" t-as="employee"
+                    t-key="employee.id">
+                    <div t-att-data-id="employee.id" t-on-click="() => this.getSalesPerson(employee)">
+                        <div class="d-flex justify-content-between align-items-center border p-3 mt-2 cursor-pointer">
+                            <div>
+                                <span t-out="employee.name" class="h3"></span>
+                            </div>
+                            
+                            <div><i class="fa fa-angle-right fs-2"></i></div>
+                        </div>
+                    </div>
+                </t>
+                <t t-set-slot="footer">
+                    <button class="button cancel btn btn-lg lh-lg btn-secondary" t-on-click="() => this.close()">Cancel</button>
+                </t>
+            </div>
+        </Dialog>
+    </t>
+</templates>

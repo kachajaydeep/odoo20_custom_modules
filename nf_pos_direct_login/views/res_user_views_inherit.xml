@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hr_employee_form_inherited" model="ir.ui.view">
+        <field name="name">res.users.view.form.inherited</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='page_security']" position="after">
+                <page name="user_point_of_sale" string="Point Of Sale">
+                    <group col='1'>
+                        <field name="pos_only_user" />
+                        <field name="default_pos_config_id" required="pos_only_user" invisible="not pos_only_user"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

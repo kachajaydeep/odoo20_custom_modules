@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_inherit_point_of_sale_config" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.pos.keyboard.shortcut</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_interface_section']" position="after">
+                <block id="nf_pos_keyboard_shortcut" title="Keyboard Shortcuts">
+                    <setting
+                        id="nf_enable_keyboard_shortcuts_setting"
+                        string="Enable Keyboard Shortcuts"
+                        help="Allow cashiers to use keyboard shortcuts in POS.">
+                        <field name="nf_enable_keyboard_shortcuts" />
+                    </setting>
+
+                    <!-- Pending save notification -->
+                    <div class="row mt-2 o_settings_container"
+                        invisible="not nf_enable_keyboard_shortcuts or nf_shortcut_ids">
+                        <div class="col-12">
+                            <div class="alert alert-warning d-flex align-items-center gap-2 mb-0" role="alert">
+                                <i class="fa fa-info-circle"/>
+                                <span>Default shortcuts will be created after you click <strong>Save</strong>.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3 o_settings_container"
+                        invisible="not nf_enable_keyboard_shortcuts">
+                        <div class="col-12 o_setting_box">
+                            <div class="o_setting_right_pane w-100">
+                                <span class="o_form_label fw-bold mb-2">Configured Shortcuts</span>
+                                <field name="nf_shortcut_ids" nolabel="1">
+                                    <list editable="bottom"
+                                        create="1"
+                                        delete="1"
+                                        decoration-muted="not nf_is_active">
+
+                                        <field name="nf_sequence"
+                                            widget="handle" />
+
+                                        <field name="nf_is_active"
+                                            string="Active"
+                                            optional="hide" />
+
+                                        <field name="nf_name"
+                                            string="Name"
+                                            optional="show" />
+
+                                        <field name="nf_key_combination"
+                                            string="Shortcut Key"
+                                            widget="shortcut_key"
+                                            optional="show" />
+
+                                        <field name="nf_action"
+                                            string="Action"
+                                            optional="show" />
+
+                                        <field name="nf_description"
+                                            string="Description"
+                                            optional="hide" />
+
+                                    </list>
+                                </field>
+                            </div>
+                        </div>
+                    </div>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

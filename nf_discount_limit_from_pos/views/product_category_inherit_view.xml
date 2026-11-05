@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="nf_pos_category_inherit_form_view" model="ir.ui.view">
+        <field name="name">nf.pos.category.inherited.form.view</field>
+        <field name="model">pos.category</field>
+        <field name="inherit_id" ref="point_of_sale.product_pos_category_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/group[@name='sequence']/field[@name='color']" position="after">
+                <field name="nf_discount_type" string="Discount Type"></field>
+                <field name="nf_discount_limit" string="Discount Limit"></field>
+            </xpath>
+        </field>
+    </record>
+</odoo>

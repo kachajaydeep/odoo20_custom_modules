@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="nf_pos_weight_and_volume.OrderReceipt" inherit_id="point_of_sale.pos_order_receipt">
+            <xpath expr="//td[@name='subtotal']/parent::tr" position="before">
+                <tr t-if="config['nf_pos_display_weight_in_receipt']">
+                    <td class="d-flex justify-content-between" name="totalWeight">Total Weight:</td>
+                    <td class="text-end w-30">
+                        <t t-out="order['nf_order_total_weight']" />
+                    </td>
+                </tr>
+                <tr t-if="config['nf_pos_display_volume_in_receipt']">
+                    <td class="d-flex justify-content-between" name="totalWeight">Total Volume:</td>
+                    <td class="text-end w-30">
+                        <t t-out="order['nf_order_total_weight']" />
+                    </td>
+                </tr>
+            </xpath>
+        </template>
+    </data>
+
+</odoo>

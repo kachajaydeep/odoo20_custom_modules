@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="nf_custom_receipt_from_pos_inherit" inherit_id="point_of_sale.pos_order_receipt">
+        <xpath expr="//div[@style='padding-left: 3px; padding-right: 3px;']" position="attributes">
+            <attribute name="t-if">not extra_data.get('nf_custom_receipt_template_name')</attribute>
+        </xpath>
+        <xpath expr="//div[@style='padding-left: 3px; padding-right: 3px;']" position="after">
+            <t t-if="extra_data.get('nf_custom_receipt_template_name')" t-call="{{extra_data['nf_custom_receipt_template_name']}}"/>
+        </xpath>
+    </template>
+</odoo>
+
+
+    <!-- <t t-if="data.nf_receipt_template === 'nf_custom_receipt_from_pos.Receipt1'"> -->
+    <!-- </t> -->
+        <!-- <t t-if="extra_data.get('nf_custom_receipt_template_enabled')"
+            t-call="extra_data.get('nf_custom_receipt_template_enabled')"/> -->
+
+
+    <!-- <div>
+        <t t-out="extra_data.get('nf_custom_receipt_template_enabled')"/>
+    </div>
+
+    <div>
+        Template:
+        <t t-out="extra_data.get('nf_custom_receipt_template_name')"/>
+    </div> -->
+
+<!-- <odoo>
+    <template id="pos_order_receipt_nf_custom_inherit" inherit_id="point_of_sale.pos_order_receipt">
+        <xpath expr="//div[@style='padding-left: 3px; padding-right: 3px;']" position="attributes">
+            <attribute name="t-if">not extra_data.get('nf_custom_receipt_template_name')</attribute>
+        </xpath>
+        <xpath expr="//div[@style='padding-left: 3px; padding-right: 3px;']" position="after">
+            <t t-log="'this',this"/>
+            <t t-if="extra_data.get('nf_custom_receipt_template_name')" t-call="nf_custom_receipt_from_pos.Receipt1"/>
+        </xpath>
+    </template>
+</odoo> -->

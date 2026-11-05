@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="nf_view_employee_form_qr" model="ir.ui.view">
+        <field name="name">nf.hr.employee.form.qr</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='pin']" position="replace">
+                <field name="qr_code" widget="image" invisible="1"/>
+                <label for="pin"/>
+                <div class="o_row">
+                    <field name="pin"/>
+                    <button name="%(nf_pos_login_with_qr.hr_employee_print_qr_badge)d"
+                            string="Print QR Badge" class="btn btn-link" type="action" invisible="not pin"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

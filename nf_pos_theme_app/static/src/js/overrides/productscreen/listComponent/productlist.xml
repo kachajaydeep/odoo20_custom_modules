@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="nf_pos_theme_app.ProductListView">
+        
+        <tr tabindex="0" 
+            t-attf-class="{{props.color ? `o_colorlist_item_wo_border_color_${props.color}` : ''}} w-100 nf-list-product product position-relative   btn-light  align-items-stretch p-0 m-0 rounded-3 text-start cursor-pointer transition-base"
+            t-on-keypress="(event) => event.code === 'Space' ? props.onClick(event) : ()=>{}"
+            t-on-click="props.onClick"
+            t-att-data-product-id="props.productId"
+            t-attf-aria-labelledby="article_product_{{props.productId}}">
+            
+            <td>
+                <h1 t-if="props.productCartQty"
+                    t-out="props.productCartQty"
+                    class="product-cart-qty text-muted display-6 fw-bolder m-0 mt-auto" />
+              </td>
+            <td  class="nf-product-img" style="padding: 10px;">
+                <t t-if="props.imageUrl" >
+                    <img class="bg-100" style="width: 44% !important; border-radius: 20px;" t-att-src="props.imageUrl" t-att-alt="props.name" />
+                </t>
+                <t t-else="" >
+                    -
+                </t>
+            </td>
+            <td class="product-content  px-2 justify-content-between rounded-bottom rounded-3 flex-shrink-1">
+                <div class="overflow-hidden lh-sm p my-2"
+                    t-att-class="{'d-flex justify-content-center align-items-center text-center fs-4': !props.imageUrl}"
+                    t-attf-id="article_product_{{props.productId}}"
+                    t-esc="props.name" />
+            </td>
+            <td  class="nf-default-code">
+                <t t-if="props.default_code" >
+                    <t t-esc="props.default_code" ></t>
+                </t>
+                <t t-else="" >
+                    -
+                </t>
+            </td>
+            <td t-if="props.price" class="nf-price">
+                <t t-esc="props.price" ></t>
+            </td>
+            
+          
+        </tr>
+    </t>
+</templates>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+  <t t-name="nf_pos_product_search_by_vendor.Navbar" t-inherit="point_of_sale.Navbar" t-inherit-mode="extension">
+    <xpath expr="//div[hasclass('pos-leftheader')]" position="after">
+    <t t-if="this.pos.config.nf_product_search_by_vendor">
+      <div class="nf-vendor-container" t-if="!this.ui.isSmall">
+        <input
+            t-on-input="this.nfSearchProductByVendor"
+            t-on-keydown.stop=""
+            placeholder="Search Vendor..."
+            class="nf-vendor-search"
+            icon="{type: 'fa', value: 'fa-search fa-lg fa-fw'}"
+        />
+      </div>         
+      <div class="nf-vendor-container d-flex gap-2 align-items-center" t-if="this.ui.isSmall">
+        <img src="/nf_pos_product_search_by_vendor/static/src/img/users-people-svgrepo-com.svg" id="nf_partner_mobile_search_icon" class="nf_partner_mobile" alt="search-svgrepo-com" t-on-click="() => this.searchButton()"/>
+        <input
+            t-on-input="this.nfSearchProductByVendor"
+            t-on-keydown.stop=""
+            placeholder="Search Vendor..."
+            class="nf-vendor-search"
+            icon="{type: 'fa', value: 'fa-search fa-lg fa-fw'}"
+            id="nf-vendor"
+        />
+      </div>         
+    </t>
+    </xpath>
+  </t>
+</templates>

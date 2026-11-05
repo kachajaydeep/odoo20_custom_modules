@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_pos_purchase_order.PurchaseOrderPopup">
+        <Dialog title="this.props.title">
+            <div class="row m-0 mb-3 p-0">
+                <div class="col-xl-6">
+                    <label class="col-form-label" for="vendor_id">Vendor</label>
+                    <select name="vendor_id" class="form-select" t-on-change="this.OnChange" required="1">
+                        <t t-foreach="this.changes.partners" t-as="partner" t-key="partner.id">
+                            <option t-att-value="partner.id" t-att-selected="partner.id === this.changes.vendor_id ? 'selected' : false">
+                                <t t-out="partner.name"/>
+                            </option>
+                        </t>
+                    </select>
+                </div>
+            </div>
+
+            <t t-set-slot="footer">
+                <button class="button confirm highlight btn btn-lg btn-primary" 
+                t-on-click="() => this.OnConfirmCreatePO()"
+                        t-out="this.props.confirmText"/>
+                <button class="button cancel btn btn-lg btn-secondary" 
+                t-on-click="() => this.env.dialogData.close()"
+                        t-out="this.props.cancelText"/>
+            </t>
+        </Dialog>
+    </t>
+</templates>

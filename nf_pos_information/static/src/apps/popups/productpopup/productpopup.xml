@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve">
+
+    <t t-name="nf_pos_information.ProductPopUp">
+        <Dialog title="'Product Information PopUp'">
+            <div class="info-popup">
+                <!-- Header -->
+                <h2>
+                    Product Details
+                </h2>
+
+                <!-- Main Section -->   
+                <div style="display:flex; gap:20px;" class="row">
+
+                    <!-- Image -->
+                    <div class="img-con img-fluid col-6">
+                        <img t-att-src="'/web/image/product.template/' + this.props.product.id + '/image_1920'"/>
+                    </div>
+
+                    <!-- Details -->
+                    <div class="info-table col-6">
+                        <table>
+                            <tr>
+                                <td>Name</td>
+                                <td t-out="this.props.product.display_name"/>
+                            </tr>
+
+                            <tr>
+                                <td >Price</td>
+                                <td t-out="this.props.currency.symbol+ ' ' + this.props.product.list_price"/>
+                            </tr>
+
+                            <tr>
+                                <td >Category</td>
+                                <td  t-out="this.props.product.pos_categ_ids[0].name ? this.props.product.pos_categ_ids[0].name : '-'"/>
+                            </tr>
+
+                            <tr>
+                                <td >Barcode</td>
+                                <td  t-out="this.props.product.barcode || '-'"/>
+                            </tr>
+
+                            <tr>
+                                <td>Type</td>
+                                <td>
+                                    <t t-if="this.props.product.type == 'consu'">
+                                        <t t-out="'Goods'"/>
+                                    </t>
+                                    <t t-elif="this.props.product.type == 'service'">
+                                        <t t-out="'Service'"/>
+                                    </t>
+                                    <t t-elif="this.props.product.type == 'combo'">
+                                        <t t-out="'Combo'"/>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-out="'-'"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <hr class="text-muted mt-5 mb-5" />
+
+                <!-- Description -->
+                <div style="margin-top:20px;">
+                    <h4 style="margin-bottom:8px;">Description</h4>
+                    <p>
+                        <t t-if="this.format_description()">
+                            <t t-out="this.format_description()"/>
+                        </t>                        
+                    </p>
+                </div>
+            </div>
+        </Dialog>
+    </t>
+</template>

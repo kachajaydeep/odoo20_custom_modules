@@ -1,0 +1,11 @@
+# -*- coding: utf-8 -*-
+# Copyright (C) 2021-Today: Part of NextFlowIT.
+# @author:  Part of NextFlowIT.
+
+from odoo import fields, models  
+
+class NfResConfigSettings(models.TransientModel):
+    _inherit = 'res.config.settings'
+
+    nf_product_brand_on_view_enable = fields.Boolean(related="company_id.nf_product_brand_on_view_enable", readonly=False, string="Product Brand on Views")
+    nf_product_brand_report_enable = fields.Boolean(related="company_id.nf_product_brand_report_enable", readonly=False, string="Product Brand on Reports")

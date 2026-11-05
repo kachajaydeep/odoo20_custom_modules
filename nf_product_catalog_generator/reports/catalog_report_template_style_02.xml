@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_product_catalog_style2_document">
+        <t t-call="web.external_layout">
+            <t t-set="o" t-value="o.with_context()"/>
+            <div class="page" id="style2_design">
+                <style>
+                    #style2_design h3 {
+                        text-align: center;
+                        font-size: 20px;
+                        font-weight: bold;
+                        margin-bottom: 20px;
+                    }
+
+                    #style2_design .catalog-grid {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr); /* default, overridden inline below */
+                        gap: 16px;
+                        padding: 0;
+                    }
+
+                    #style2_design .catalog-card {
+                        padding: 12px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 8px;
+                        background: #fff;
+                        page-break-inside: avoid; /* avoid card splitting across pages */
+                    }
+
+                    #style2_design .card-image {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                        display: block;
+                        margin: 0 auto;
+                    }
+
+                    #style2_design .card-image-placeholder {
+                        width: 100%;
+                        height: 120px;
+                        background: #f8f9fa;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #adb5bd;
+                        font-size: 12px;
+                        border: 1px dashed #dee2e6;
+                        border-radius: 4px;
+                    }
+
+                    #style2_design .card-meta {
+                        font-size: 11px;
+                        color: #6c757d;
+                        display: flex;
+                        gap: 6px;
+                        flex-wrap: wrap;
+                        align-items: center;
+                    }
+
+                    #style2_design .card-meta span {
+                        background: #f1f3f5;
+                        padding: 1px 6px;
+                        border-radius: 3px;
+                    }
+
+                    #style2_design .card-name {
+                        font-size: 13px;
+                        font-weight: 600;
+                        color: #0d6efd;
+                        text-decoration: none;
+                        line-height: 1.4;
+                    }
+
+                    #style2_design .card-description {
+                        font-size: 12px;
+                        color: #495057;
+                        line-height: 1.4;
+                    }
+
+                    #style2_design .card-price {
+                        font-size: 15px;
+                        font-weight: bold;
+                        color: #212529;
+                        text-align: right;
+                        margin-top: auto;
+                    }
+
+                    #style2_design .card-footer {
+                        display: flex;
+                        justify-content: flex-start;
+                        margin-top: 4px;
+                    }
+
+                    #style2_design .btn-read-more {
+                        font-size: 11px;
+                        padding: 4px 12px;
+                        border: 1px solid #0d6efd;
+                        border-radius: 4px;
+                        color: #0d6efd;
+                        background: #fff;
+                        text-decoration: none;
+                        display: inline-block;
+                    }
+
+                    @media print {
+                        #style2_design .page-break {
+                            page-break-before: always;
+                            break-before: page;
+                        }
+                    }
+                </style>
+
+                <h2>
+                    <span t-field="o.catalog_name"/>
+                </h2>
+
+                <t t-set="cols" t-value="2 if o.printbox_per_row == '2_box' else 3 if o.printbox_per_row == '3_box' else 4"/>
+                <t t-set="products" t-value="o.product_id"/>
+                <t t-set="total" t-value="len(products)"/>
+
+                <table class="table-borderless w-100" style="table-layout: fixed;">
+                    <t t-set="row_index" t-value="0"/>
+                    <t t-foreach="range(0, total, cols)" t-as="chunk_start">
+
+                        <!-- ✅ Page break logic — before this row if enabled -->
+                        <t t-if="o.break_page and o.break_after_product and o.break_after_product > 0 and chunk_start > 0 and (chunk_start % (o.break_after_product)) == 0">
+                            <tr>
+                                <td t-attf-colspan="{{cols}}" style="page-break-after: always;"/>
+                            </tr>
+                        </t>
+
+                        <tr style="vertical-align: top;">
+                            <t t-foreach="range(chunk_start, min(chunk_start + cols, total))" t-as="idx">
+                                <t t-set="line" t-value="products[idx]"/>
+                                <td t-attf-style="width:{{ 100 // cols }}%; padding: 8px; border: 1px solid #dee2e6; vertical-align: top;">
+
+                                    <!-- Image -->
+                                    <t t-if="o.image">
+                                        <t t-if="line.image_1920">
+                                            <div t-attf-style="text-align:center; width:{{ o.image_width or 100 }}px; height:{{ o.image_height or 100 }}px; overflow:hidden; margin: 0 auto;">
+                                                <span t-field="line.image_1920" t-options="{'widget': 'image', 'style': 'width:100%; height:100%; object-fit:contain;'}"/>
+                                            </div>
+                                        </t>
+                                        <t t-else="">
+                                            <div t-attf-style="width:{{ o.image_width or 100 }}px; height:{{ o.image_height or 100 }}px; background:#f8f9fa; display:flex; align-items:center; justify-content:center; color:#adb5bd; font-size:12px; border:1px dashed #dee2e6; margin: 0 auto;">
+                                                No Image
+                                            </div>
+                                        </t>
+                                    </t>
+
+                                    <!-- Meta: Internal Ref + Category + UOM -->
+                                    <div style="font-size:11px; color:#6c757d; margin-top:6px;">
+                                        <t t-if="o.inter_ref">
+                                            <span style="background:#f1f3f5; padding:1px 6px; border-radius:3px; margin-right:4px;" t-out="line.default_code or ''"/>
+                                        </t>
+                                        <t t-if="o.print_category">
+                                            <span style="background:#f1f3f5; padding:1px 6px; border-radius:3px; margin-right:4px;" t-out="line.categ_id.name or ''"/>
+                                        </t>
+                                        <t t-if="o.print_uom">
+                                            <span style="background:#f1f3f5; padding:1px 6px; border-radius:3px;" t-out="line.uom_id.name or ''"/>
+                                        </t>
+                                    </div>
+
+                                    <!-- Product Name -->
+                                    <div style="margin-top:6px;">
+                                        <t t-if="o.product_link">
+                                            <a t-attf-href="/web#id={{ line.id }}&amp;model=product.product&amp;view_type=form" style="font-size:13px; font-weight:600; color:#0d6efd; text-decoration:none;">
+                                                <span t-out="line.display_name"/>
+                                            </a>
+                                        </t>
+                                        <t t-else="">
+                                            <span style="font-size:13px; font-weight:600; color:#0d6efd;" t-out="line.display_name"/>
+                                        </t>
+                                    </div>
+
+                                    <!-- Description -->
+                                    <t t-if="o.description">
+                                        <div style="font-size:12px; color:#495057; margin-top:4px; line-height:1.4;">
+                                            <span t-out="line.description or ''"/>
+                                        </div>
+                                    </t>
+
+                                    <!-- Price -->
+                                    <t t-if="o.price">
+                                        <div style="font-size:15px; font-weight:bold; text-align:right; margin-top:8px;">
+                                            Sale Price: 
+                                            <span t-field="line.lst_price" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                                        </div>
+                                    </t>
+
+                                    <!-- Read More Button -->
+                                    <div style="margin-top:8px;">
+                                        <a t-attf-href="/web#id={{ line.id }}&amp;model=product.product&amp;view_type=form" style="font-size:11px; padding:4px 12px; border:1px solid #0d6efd; border-radius:4px; color:#0d6efd; text-decoration:none;">
+                            Read More
+                                        </a>
+                                    </div>
+
+                                </td>
+                            </t>
+
+                            <!-- ✅ Fill empty cells in last row if products don't divide evenly -->
+                            <t t-if="(total - chunk_start) &lt; cols">
+                                <t t-foreach="range(cols - (total - chunk_start))" t-as="empty">
+                                    <td t-attf-style="width:{{ 100 // cols }}%;"/>
+                                </t>
+                            </t>
+                        </tr>
+                    </t>
+                </table>
+            </div>
+        </t>
+    </template>
+<!-- ################################################################## -->
+    <!-- Main wrapper template -->
+    <template id="report_product_catalog_style2">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="nf_product_catalog_generator.report_product_catalog_style2_document"/>
+            </t>
+        </t>
+    </template>
+</odoo>

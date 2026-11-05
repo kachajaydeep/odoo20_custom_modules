@@ -1,0 +1,8 @@
+.order-container li.orderline.nf_child_lines {
+    margin-left: 20px;
+    border-left: 5px solid green !important;
+}
+.order-container li.orderline.nf_receipt_screen_child_lines{
+    border-left: 0 !important;
+    margin-left: 20px;
+}

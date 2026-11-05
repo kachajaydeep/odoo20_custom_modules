@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="CashMovePopup" t-inherit="point_of_sale.CashMovePopup" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('confirm')]" position="after">
+            <div class="button confirm btn btn-lg lh-lg btn-primary" t-if="this.pos.config.nf_enable_cash_in_ont_receipt and this.pos.config.nf_enable_cash_report" t-on-click="this.CashInReceipt">
+                Total Cash / Out
+            </div>
+        </xpath>
+    </t>
+</templates>

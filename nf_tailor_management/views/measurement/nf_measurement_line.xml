@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_nf_measurement_line_form" model="ir.ui.view">
+        <field name="name">nf.measurement.line.form</field>
+        <field name="model">nf.measurement.line</field>
+        <field name="arch" type="xml">
+            <form string="Measurement Line">
+                <sheet>
+                    <group>
+                        <field name="measurement_type_id"></field>
+                        <field name="measurement_id"/>
+                        <field name="size"/>
+                        <field name="note"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_nf_measurement_line_tree" model="ir.ui.view">
+        <field name="name">nf.measurement.line.tree</field>
+        <field name="model">nf.measurement.line</field>
+        <field name="arch" type="xml">
+            <list string="Measurement Lines">
+                <field name="measurement_type_id"></field>
+                <field name="measurement_id"/>
+                <field name="size"/>
+            </list>
+        </field>
+    </record>
+
+    
+
+</odoo>

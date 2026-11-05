@@ -1,0 +1,2298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <meta name="description" content="Employee Dashboard for Odoo is a smart HR dashboard module that helps manage employee Leaves, Attendance, Expenses, Contracts, Birthdays, Anniversaries, Check-In, Check-Out, Break Timing, and Company Announcements with secure role-based access for Odoo 17, 18, and 19.">
+    <meta name="keywords" content="employee dashboard odoo odoo hr dashboard employee dashboard module employee self service odoo odoo employee management employee attendance dashboard employee check in check out odoo employee break timing odoo odoo attendance management employee leave dashboard odoo employee expenses dashboard employee birthday reminder odoo employee anniversary dashboard company announcements odoo hr dashboard odoo 17 hr dashboard odoo 18 hr dashboard odoo 19 odoo hr employee portal employee management erp odoo odoo hrms dashboard attendance tracking odoo hr employee dashboard module nextflow technology odoo apps employee dashboard app for odoo odoo employee attendance system employee dashboard emp dashboard hr dashboard odoo employee dashboard employee attendance employee check in employee check out odoo hr management employee leave dashboard expenses dashboard employee birthday dashboard employee anniversary dashboard odoo employee portal module hr dashboard module odoo hr dashboard app employee announcements odoo hr dashboard for odoo erp">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap 5 Bundle JS (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+</head>
+
+<body style="margin:0; background-color:#ffffff; font-family:'Segoe UI',sans-serif; color:#2d3748;">
+
+    <!-- HERO -->
+    <section style="margin-top: 40px;">
+        <div class="container-fluid" style="max-width:1400px; margin:auto;">
+            <div class="row align-items-center gx-5 gy-5" style="background-color:#ffffff; border-radius:30px;">
+
+                <!-- LEFT CONTENT -->
+                <div class="col-lg-6">
+
+                    <!-- TOP BADGE -->
+                    <div class="d-inline-flex align-items-center"
+                        style="background-color:#f3f0ff; color:#5a35d9; padding:8px 16px; border-radius:30px; font-size:14px; font-weight:700;">
+                        <div
+                            style="width:8px; height:8px; background-color:#6c47ff; border-radius:50%; margin-right:10px;">
+                        </div>
+                        Odoo Module · Employee Dashboard
+                    </div>
+
+                    <!-- MAIN HEADING -->
+                    <h1
+                        style="font-size:clamp(38px,5vw,64px); font-weight:800; line-height:1.1; color:#4b5563; margin-top:28px; margin-bottom:24px; letter-spacing:-1px;">
+                        Employee Dashboard
+                    </h1>
+
+                    <!-- DESCRIPTION -->
+                    <p
+                        style="font-size:17px; color:#8a94a6; line-height:1.9; font-weight:600; max-width:620px; margin-bottom:35px;">
+                       <b>Employee Dashboard </b> is a comprehensive HR management dashboard module for Odoo that helps organizations centralize employee-related activities into a single, modern, and user-friendly interface.
+                       The module is designed to improve employee productivity, simplify HR operations, and provide quick access to important HR data without navigating through multiple menus.
+                        <br/>This module creates a smart workspace for both employees and HR managers by displaying essential information such as <b> Leaves, Attendance, Expenses, Contracts, Birthdays, Anniversaries, and Company Announcements </b> directly on the dashboard.         
+                        <br/>The Employee Dashboard is built with role-based access management, ensuring data security and a personalized user experience for every employee in the organization.           
+                    </p>
+
+                    <!-- FEATURE BOXES -->
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="position-relative shadow overflow-hidden"
+                                style="background-color:#ffffff; border-radius:20px; padding:24px;">
+                                <div class="position-absolute top-0 start-0 bottom-0"
+                                    style="background-color: #5a35d9; width: 0.40rem;">
+                                </div>
+                                <h6 style="color:#5a35d9; font-size:15px; font-weight:800; margin-bottom:12px;">
+                                    ✔ Role - Based Dashboard Access
+                                </h6>
+
+                                <p style="margin:0; color:#8a94a6; font-size:14px; font-weight:600; line-height:1.7;">
+                                    Managers can access all employee records while employees can securely view only their own information and activities.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="position-relative shadow overflow-hidden"
+                                style="background-color:#ffffff; border-radius:20px; padding:24px;">
+                                <div class=" position-absolute top-0 start-0 bottom-0"
+                                    style="background-color: #5a35d9; height: 100%; width: 0.40rem;"></div>
+                                <h6 style="color:#5a35d9; font-size:15px; font-weight:800; margin-bottom:12px;">
+                                    ✔ Company Announcements
+                                </h6>
+
+                                <p style="margin:0; color:#8a94a6; font-size:14px; font-weight:600; line-height:1.7;">
+                                    Displays all company announcements to employees.Keeps employees updated with important company information.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAGS -->
+                    <div style="margin-top:35px;">
+                        <p
+                            style="font-size:12px; color:#9aa3b2; font-weight:700; text-transform:uppercase; letter-spacing:.12em; margin-bottom:14px;">
+                            Available for
+                        </p>
+
+                        <div class="d-flex flex-wrap">
+                            <span
+                                style="background-color:#f3f0ff; color:#5a35d9; border:1px solid #d9d0ff; padding:10px 18px; border-radius:30px; font-size:12px; font-weight:700;">
+                                Community
+                            </span>
+
+                            <span
+                                style="background-color:#fff7ed; color:#b45309; border:1px solid #fed7aa; padding:10px 18px; border-radius:30px; font-size:12px; font-weight:700;">
+                                Enterprise
+                            </span>
+
+                            <span
+                                style="background-color:#f0fdf4; color:#166534; border:1px solid #bbf7d0; padding:10px 18px; border-radius:30px; font-size:12px; font-weight:700;">
+                                Odoo.sh
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT IMAGE -->
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="shadow overflow-hidden" style="position:relative; border-radius:30px;">
+
+                        <img src="partner_img.png" alt="Business Team" class="img-fluid w-100"
+                            style="height:520px; object-fit:contain; display:block; border-radius: 24px; background-color: #dce0e9;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO SECTION -->
+    <section>
+        <div class="mt-5" style="padding: 30px 15px;background-color:#f0f3fe;">
+            <div class="text-center mb-3 mb-md-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    See it in action
+                </p>
+
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#50545d;text-transform: capitalize;">
+                    Watch the full walkthrough
+                </h2>
+            </div>
+
+            <div class="row mt-5 d-flex justify-content-center">
+                <div class="col-lg-5 mb-4">
+                    <div
+                        style="background-color:#ffffff;border-radius:24px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.06);">
+                        <div style="border-radius:24px; overflow:hidden; width:100%; height:320px;">
+                            <div class="media_iframe_video"
+                                style="width:100%; height:100%; border-radius: 24px 24px 0 0;"
+                                data-oe-expression="//www.youtube.com/embed/DlkcYuIUzUw?rel=0&amp;autoplay=0">
+                                <div class="css_editable_mode_display"></div>
+                                <div class="media_iframe_video_size"></div>
+                                <iframe frameborder="0" allowfullscreen="allowfullscreen"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    src="https://www.youtube.com/embed/DlkcYuIUzUw"
+                                    aria-label="Media video" style="width:100%; height:100%; border:0; display:block;">
+                                </iframe>
+                            </div>
+                        </div>
+                        
+
+                        <div class="d-flex justify-content-center p-2 mb-2 align-items-center">
+                            <div class="d-flex flex-wrap">
+                                <span class="mb-2"
+                                    style="background-color:#f0eeff; color:#5a35d9; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600;margin:0px 5px;">&#127916;
+                                    HD Quality
+                                </span>
+
+                                <span class="mb-2"
+                                    style="background-color:#f0eeff; color:#5a35d9; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600;margin:0px 5px;">&#128266;
+                                    With Narration
+                                </span>
+
+                                <span class="mb-2"
+                                    style="background-color:#f0eeff; color:#5a35d9; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600;margin:0px 5px;">&#128247;
+                                    Step-by-step
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DESCRIPTION -->
+                <div class="col-12 col-lg-6 p-3">
+                    <h3
+                        style="font-family:'Sora',sans-serif; font-size:clamp(1.1rem,4vw,1.4rem); font-weight:700; color:#0d0d0d; margin-bottom:1rem;text-transform: capitalize;color: #50545d;">
+                        Everything you need to know in one video
+                    </h3>
+
+                    <p
+                        style="color:#666; font-size:clamp(13px,3vw,14px); line-height:1.8; margin-bottom:1rem;font-size: 16px;color: #a6aeb9;margin-top: 11px;font-weight: 600;">
+                        Manage your employees efficiently with the powerful Employee Dashboard module for Odoo. This advanced HR dashboard provides employees and managers with quick access to Leaves, Attendance, Expenses, Contracts, Birthdays, Anniversaries, Announcements, Check-In/Check-Out, and Break Timing management from a single centralized screen.
+                    </p>
+
+                    <a href="https://youtu.be/DlkcYuIUzUw" target="_blank" class="mb-lg-0"
+                        style="background-color:white;display:inline-flex; align-items:center;border:1.5px solid #ddd; border-radius:9px; padding:10px 20px; font-size:13px; font-weight:600; color:#1a1a1a; text-decoration:none; margin-bottom: 10px;">
+                        <img src="youtube.png" alt="Youtube Image" style="margin-right: 10px;font-size: 20px;"
+                            height="20" width="20">
+                        Watch On YouTube
+                    </a>
+
+                    <a href="https://www.youtube.com/@nextflowit" target="_blank" class="ms-lg-2 mb-lg-0"
+                        style="background-color:white;display:inline-flex; align-items:center;border:1.5px solid #ddd; border-radius:9px; padding:10px 20px; font-size:13px; font-weight:600; color:#1a1a1a; text-decoration:none; margin-bottom: 10px;">
+                        <img src="youtube.png" alt="Youtube Image" style="margin-right: 10px;font-size: 20px;"
+                            height="20" width="20">
+                        Explore Our Channel
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Support -->
+    <section>
+        <div class="container-fluid" style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #f5f4f0;">
+            <div class="text-center mb-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    For Help</p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#50545d;">
+                    Contact Us</h2>
+            </div>
+            <div class="row mt-5">
+
+                <!-- SUPPORT CARD -->
+                <div class="col-lg-4 mb-4">
+                    <div class="shadow" style="background-color:#ffffff; border-radius:22px; padding:30px;">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h3
+                                            style="font-size:20px; font-weight:700; margin-bottom:20px; color: #505450;">
+                                            Quick Support
+                                        </h3>
+                                        <p
+                                            style="line-height:1.8; margin-bottom:20px; color:#8a94a6; line-height:1.9; font-weight:600;">
+                                            Contact us directly on WhatsApp for quick support.
+                                        </p>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <img src="./support/whatsapp.png" alt="Whatsapp Image" class="img-fluid">
+                                    </div>
+                                </div>
+                                <h5 class="text-center" style="color:#25D366; font-weight:700;">
+                                    &#128172;
+                                    +91 73832 03034
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EMAIL CARD -->
+                <div class="col-lg-4 mb-4">
+                    <div class="shadow" style="background-color:#ffffff; border-radius:22px; padding:30px;">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h3
+                                            style="font-size:20px; font-weight:700; margin-bottom:20px; color: #505450;">
+                                            Electronic Support
+                                        </h3>
+
+                                        <p
+                                            style="line-height:1.8; margin-bottom:20px; color:#8a94a6; line-height:1.9; font-weight:600;">
+                                            Raise ticket for a demo on below given email addres.
+                                        </p>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <img src="./support/email.png" alt="Email Image" class="img-fluid">
+                                    </div>
+                                </div>
+
+                                <h6 class="text-center" style="color:#4c51bf; font-weight:600;">
+                                    &#128232;
+                                    <a href="mailto:support@nextflow.in" style="color:#4c51bf; text-decoration:underline;">support@nextflow.in</a>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CENTER CARD -->
+                <div class="col-lg-4 mb-4">
+                    <div class="shadow" style="background-color:#ffffff; border-radius:22px; padding:30px;">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h3
+                                            style="font-size:20px; font-weight:700; margin-bottom:20px; color: #505450;">
+                                            Support Center
+                                        </h3>
+
+                                        <p
+                                            style="line-height:1.8; margin-bottom:20px; color:#8a94a6; line-height:1.9; font-weight:600;">
+                                            Our support team is ready to assist you anytime.
+                                        </p>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <img src="./support/contact.png" alt="Contact Image" class="img-fluid">
+                                    </div>
+                                </div>
+
+                                <h5 class="text-center" style="color:#3182ce; font-weight:700;">
+                                    &#128241;
+                                    +91 73832 03034
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOT FEATURE -->
+    <section id="hot_feature" style="padding:3rem 0; border-top:2px solid #eae9e4;">
+        <div class="container-fluid">
+            <div class="text-center mb-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    What&apos;s inside</p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#50545d; margin-bottom:12px;">
+                    Hot Features</h2>
+            </div>
+            <div class="row g-2 g-md-3 mb-2 mb-md-3">
+                <div class="col-12 col-md-8">
+                    <div
+                        style="background-color:#ffffff; border-radius:18px; border:1px solid #e8e8e4; border-top: 3px solid #5a35d9; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:16px;">
+                            &#128104;&#8205;&#128188;</span>
+                        </div>
+                        <h3
+                            style="font-family:'Sora',sans-serif; font-size:23px; font-weight:700; margin-bottom:8px; color:#50545d;">
+                            Better Employee Engagement</h3>
+                        <p
+                            style="color:#777; font-size:16px; line-height:1.7; margin-bottom:16px;color: #a6aeb9; margin-top: 11px; font-weight: 600; padding-right: 40px;">
+                            Birthday reminders, anniversaries, and announcements help improve workplace culture.
+                        </p>
+                        <div class="d-flex flex-wrap">
+                            <span class="mb-2 me-2"
+                                style="background-color:#f5f4f0; color:#555; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Birthday
+                            </span>
+                            <span class="mb-2 me-2"
+                                style="background-color:#f5f4f0; color:#555; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Anniversaries 
+                            </span>
+
+                            <span class="mb-2 me-2"
+                                style="background-color:#f5f4f0; color:#555; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Announcements 
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div
+                        style="background-color:#ffffff; border-radius:18px; border:1px solid #e8e8e4; border-top: 3px solid #f59e0b; padding:1.5rem; height:100%;">
+                        <div style="width:120px; height:44px; border-radius:12px; display:inline-flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:16px; white-space:nowrap;">
+                            &#128104;&#8205;&#128188;&#128994;&#128308;&#9749;
+                        </div>
+                        <h3
+                            style="font-family:'Sora',sans-serif; font-size:23px; font-weight:700; margin-bottom:8px; color: #505450;">
+                            Employee Check-In, Check-Out & Break Timing</h3>
+                        <p
+                            style="color:#a6aeb9; font-size:16px; line-height:1.7; margin-bottom:16px;margin-top: 11px; font-weight: 600; padding-right: 40px;">
+                            Employees can easily manage daily attendance with quick Check-In and Check-Out options. The dashboard also tracks employee break timing to monitor working hours, break duration, and overall attendance activity efficiently.
+                        </p>
+                        <div class="d-flex flex-wrap">
+                            <span class="mb-2 me-2"
+                                style="background-color:#fff1f2; color:#be123c; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Check-In
+                            </span>
+                            <span class="mb-2 me-2"
+                            style="background-color:#fff1f2; color:#be123c; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Check-Out
+                            </span>
+
+                            <span class="mb-2 me-2"
+                            style="background-color:#fff1f2; color:#be123c; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Break Timing
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-2 g-md-3 mb-2 mb-md-3">
+                
+                <div class="col-12 col-md-4">
+                    <div
+                        style="background-color:#ffffff; border-radius:18px; border:1px solid #e8e8e4; border-top: 3px solid #3b82f6; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:16px;">
+                            &#128193;</div>
+                        <h3
+                            style="font-family:'Sora',sans-serif; font-size:23px; font-weight:700; margin-bottom:8px; color:#505450;">
+                            Quick Create Records</h3>
+
+                        <p style="color:#a6aeb9; font-size:16px; line-height:1.7; margin-bottom:16px;margin-top: 11px; font-weight: 600; padding-right: 40px;">
+                            From the dashboard list views:
+                                <ul>
+                                    <li>Users can click the New button from the right side.</li>
+                                    <li>Opens the form view directly.</li>
+                                    <li>Allows fast record creation for:</li>
+                                    <ul>
+                                        <li>Leave Requests</li>
+                                        <li>Attendance Records</li>
+                                        <li>Expense Records</li>
+                                    </ul>
+                                </ul>
+                        </p>  
+                        
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div
+                        style="background-color:#ffffff; border-radius:18px; border:1px solid #e8e8e4; border-top: 3px solid #ec4899; padding:1.5rem; height:100%;">
+                        <div style="width:44px; height:44px; border-radius:12px; display:inline-flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:16px; white-space:nowrap;">
+                        &#128256;&#9776;
+                        </div>
+                        <h3
+                            style="font-family:'Sora',sans-serif; font-size:23px; font-weight:700; margin-bottom:8px; color:#505450;">
+                            Smart Navigation</h3>
+
+                        <p
+                            style="color:#a6aeb9; font-size:16px; line-height:1.7; margin-bottom:16px;margin-top: 11px; font-weight: 600; padding-right: 40px;">
+                            Users can directly click:
+                                <ul>
+                                    <li>Leaves</li>
+                                    <li>Attendance</li>
+                                    <li>Expenses</li>
+                                    <li>Contracts</li>
+                                </ul>
+                            to open their corresponding list views instantly.
+                        </p>    
+                        <div class="d-flex flex-wrap">
+                            <span class="mb-2 me-2"
+                                style="background-color:#f0f9ff; color:#075985; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Navigation
+                            </span>
+                            <span class="mb-2 me-2"
+                                style="background-color:#f0f9ff; color:#075985; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                list views
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- FOOTER BUTTONS -->
+    <section style="top:0px; opacity: 0.8;">
+        <div class="main-div">
+            <div class="d-flex justify-content-center px-3 py-3 mb-3  position-sticky top-0">
+                <div id="navScroll" class="d-flex justify-content-around flex-nowrap overflow-auto shadow"
+                    style="border-radius:50px; scrollbar-width:thin; -webkit-overflow-scrolling: touch;">
+
+                    <ul class="nav nav-pills d-inline-flex align-items-center p-lg-3 p-sm-0"
+                        style="background-color:#ffffff; margin:0; list-style:none; flex-wrap:nowrap; min-width:max-content;">
+
+                        <li class="nav-item p-sm-0"
+                            style="border-radius:40px; padding:5px 10px; cursor:pointer; margin-right:6px; white-space:nowrap;">
+                            <a class="nav-link active" href="#DetailedFeature" data-bs-toggle="tab"
+                                style="text-decoration:none; border: none; font-size:14px; font-weight:600; font-family:'DM Sans',sans-serif;">
+                                Features
+                            </a>
+                        </li>
+
+                        <li class="nav-item p-sm-0"
+                            style="border-radius:40px; padding:5px 10px; cursor:pointer; margin-right:6px; white-space:nowrap; flex-shrink:0;">
+                            <a class="nav-link" href="#Screenshots" data-bs-toggle="tab"
+                                style="text-decoration:none;border: none; font-size:14px; font-weight:600; font-family:'DM Sans',sans-serif;">
+                                Screenshots
+                            </a>
+                        </li>
+
+                        <li class="nav-item p-sm-0"
+                            style="border-radius:40px; padding:5px 10px; cursor:pointer; margin-right:6px; white-space:nowrap; flex-shrink:0;">
+                            <a class="nav-link" href="#Changelog" data-bs-toggle="tab"
+                                style="text-decoration:none; border: none; font-size:14px; font-weight:600; font-family:'DM Sans',sans-serif;">
+                                Changelog
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-content">
+
+                <!-- DETAILE FEATURE TAB -->
+                <div id="DetailedFeature" class="mb-5 tab-pane active">
+                    <div class="container-fluid"
+                        style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #f5f4f0;">
+                        <div class="text-center mb-5">
+                            <p
+                                style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                                Deep dive</p>
+                            <h2
+                                style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:700; color:#0d0d0d;">
+                                Features in detail</h2>
+                        </div>
+
+                        <div class="row g-4">
+
+                            <!-- Card 1: employee dashboard access control -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#128101;&#128737;
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Employee Dashboard Access Control</h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0">
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#6c47ff; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Manager users can access and view all employee records.
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#6c47ff; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            <span>Employees can access only their own information and records.</span>
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#6c47ff; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            <span>Secure role-based dashboard visibility.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 2: odoo v17,v18  -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#9881;
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Employee Dashboard for Odoo v17 & v18</h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#a855f7; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                                <div>
+                                                    The dashboard includes:
+                                                    <ul style="list-style-type:circle; padding-left:20px; margin-top:8px;">
+                                                        <li>Leaves</li>
+                                                        <li>Attendance</li>
+                                                        <li>Expenses</li>
+                                                        <li>Contracts</li>
+                                                        
+                                                    </ul>
+                                                </div>                                           
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#a855f7; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Users can click on each section to open the corresponding list view.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 3: odoo v19 -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#9881;
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Employee Dashboard for Odoo v19</h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            <div>
+                                                The dashboard includes:
+                                                <ul style="list-style-type:circle; padding-left:20px; margin-top:8px;">
+                                                    <li>Leaves</li>
+                                                    <li>Attendance</li>
+                                                    <li>Expenses</li>                                                    
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316;; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Note: <br/>Contracts are not available in Odoo v19 dashboard.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 4: Employee Birthday Management -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#127874;
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Employee Birthday Management</h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Displays all employee birthdays in a dedicated dashboard section.
+                                        </li>
+
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Highlights today's birthdays.
+                                        </li>
+
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Upcoming birthdays are automatically shown in the next lines.
+                                        </li>
+
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Helps HR teams celebrate employee milestones.
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 5: Employee Anniversary Management -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#127881;
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Employee Anniversary Management</h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Displays all employee work anniversaries.
+                                        </li>
+
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Highlights today's anniversaries.
+                                        </li>
+
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Upcoming anniversaries are displayed sequentially.
+                                        </li>
+
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#f97316; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                            Improves employee engagement and company culture.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 6: Company Announcements -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#128226
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Company Announcements</h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#a855f7; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                                Displays all company announcements to employees.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCREENSHOTS -->
+                <div id="Screenshots" class="tab-pane fade">
+                    <div class="container-fluid"
+                        style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #f5f4f0;">
+                        <div class="text-center mb-5">
+                            <p
+                                style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                                Visual walkthrough</p>
+                            <h2
+                                style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:700; color:#0d0d0d;">
+                                Screenshots</h2>
+                        </div>
+
+                        <div class="row">
+
+                            <!-- Screenshot Navbar -->
+                            <div class="col-lg-3 col-md-12 mb-4">
+                                <ul class="nav flex-column nav-pills"
+                                    style="background-color: #f0eeff; border-radius: 10px; padding: 10px;">
+                                    <div
+                                        style="font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #666; padding: 0 1.25rem; margin: 0.5rem;">
+                                        Screenshots
+                                    </div>
+                                    <li class="nav-item">
+                                        <a class="nav-link active d-flex justify-content-start" data-bs-toggle="tab"
+                                            href="#ss-access"
+                                            style="font-size:14px; font-weight:600; padding: 15px; text-decoration: none;">
+                                            <span style="width: 35px; height: 20px;">
+                                                &#128100;
+                                            </span>
+                                            <span>Users Access Rights</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link d-flex justify-content-start" data-bs-toggle="tab"
+                                            href="#ss-manager-dashboard"
+                                            style="font-size:14px; font-weight:600; padding: 15px; text-decoration: none;">
+                                            <span style="width: 35px; height: 20px;">
+                                                &#128104;&#8205;&#128188;
+                                            </span>
+                                            <span>Manager Dashboard</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link d-flex justify-content-start" data-bs-toggle="tab"
+                                            href="#ss-emp-dashboard"
+                                            style="font-size:14px; font-weight:600; padding: 15px; text-decoration: none;">
+                                            <span style="width: 35px; height: 20px">
+                                                &#129489;&#8205;&#128188;
+                                            </span>
+                                            <span>
+                                                Employee Dashboard
+                                            </span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link d-flex justify-content-start" data-bs-toggle="tab"
+                                            href="#ss-check-in-out"
+                                            style="font-size:14px; font-weight:600; padding: 15px; text-decoration: none;">
+                                            <span style="width: 35px; height: 20px">
+                                                &#9749;
+                                            </span>
+                                            <span>
+                                                Check-In / Check-Out
+                                            </span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <div class="col-lg-9 col-md-12" style="background-color: #f0eeff; border-radius: 10px;">
+                                <div class="tab-content">
+
+                                    <!-- User Access -->
+                                    <div id="ss-access" class="tab-pane active">
+                                        <div class="mb-5">
+                                            <h4 class="pt-4"
+                                                style="font-family:'Sora',sans-serif; font-size:1.1rem; font-weight:700; color:#6c47ff; margin-bottom:20px; display:flex; align-items:center;">
+                                                <span
+                                                    style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:8px; font-size:16px; margin-right: 10px;">&#128100;</span>
+                                                User Access Rights
+                                            </h4>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Main menu 
+                                                            &rarr; Click " Settings " Open setting  view
+                                                        </p>
+                                                        <img src="ss/img.png" class="img-fluid rounded"
+                                                            alt="Users list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Settings &rarr; Users & Companies &rarr; Click " Users " Open user list view
+                                                        </p>
+                                                        <img src="ss/ss_img_27.png" class="img-fluid rounded"
+                                                            alt="Admin access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Open the Administrator user, go to the Access Rights tab, and under Other, set Employee Dashboard to Manager
+                                                        </p>
+                                                        <img src="ss/ss_img_26.png" class="img-fluid rounded"
+                                                            alt="Product Brand admin list"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <img src="ss/ss_img_13.png"
+                                                            class="img-fluid rounded" alt="Product Brand form"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Open the user, go to the Access Rights tab, and under Human Resources, set Contracts to Employee Manager.
+                                                        </p><img
+                                                            src="ss/ss_img_28.png" class="img-fluid rounded"
+                                                            alt="User access rights"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <img src="ss/ss_img_01.png"
+                                                            class="img-fluid rounded" alt="User cannot delete"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <img src="ss/ss_img_30.png"
+                                                            class="img-fluid rounded" alt="User cannot delete"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <img src="ss/ss_img_29.png"
+                                                            class="img-fluid rounded" alt="User cannot delete"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- manager dashboard -->
+                                    <div id="ss-manager-dashboard" class="tab-pane fade">
+                                        <div class="mb-5">
+                                            <h4 class="pt-4"
+                                                style="font-family:'Sora',sans-serif; font-size:1.1rem; font-weight:700; color:#6c47ff; margin-bottom:20px; display:flex; align-items:center;">
+                                                <span
+                                                    style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:8px; font-size:16px; margin-right: 10px;">&#128104;&#8205;&#128188;</span>
+                                                    
+                                                It Shows The Manager Dashboard Workflow
+                                            </h4>
+                                            <div class="row g-4">
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Manager Dashboard See                                                           
+                                                        </p><img
+                                                            src="ss/ss_img_13.png" class="img-fluid rounded"
+                                                            alt="Sale order with brand"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                           Leave: shows total employee leaves as a smart counter on the dashboard. When the manager clicks on the Leave section, it opens the full leave list view where all employee leave records are visible.
+                                                        </p>
+                                                        <img src="ss/ss_img_14.png" class="img-fluid rounded"
+                                                            alt="Invoice with brand"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Leave: The dashboard manager can easily monitor, approve, and track leave requests for all employees from a single screen.
+                                                        </p><img
+                                                            src="ss/ss_img_15.png" class="img-fluid rounded"
+                                                            alt="Invoice with brand"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Attendance: displays total employee attendance as a smart counter on the dashboard. When the manager clicks on the Attendance section, it opens the full attendance list view where all employee attendance records are shown.
+                                                        </p><img
+                                                            src="ss/ss_img_17.png" class="img-fluid rounded"
+                                                            alt="Invoice with brand"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Attendance : The dashboard manager can track check-in, check-out, and working hours of all employees in real time from a single screen.
+                                                        </p><img
+                                                            src="ss/ss_img_16.png" class="img-fluid rounded"
+                                                            alt="Invoice with brand"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Expenses: shows total employee expenses as a smart counter on the dashboard. When the manager clicks on the Expenses section, it opens the full expenses list view where all employee expense records are visible.
+                                                        </p><img
+                                                            src="ss/ss_img_18.png" class="img-fluid rounded"
+                                                            alt="Invoice with brand"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Expenses : The dashboard manager can review, monitor, and manage employee expense submissions efficiently from a single screen.
+                                                        </p><img
+                                                            src="ss/ss_img_19.png" class="img-fluid rounded"
+                                                            alt="Invoice with brand"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Contracts: displays total employee contracts as a smart counter on the dashboard. When the manager clicks on the Contracts section, it opens the full contracts list view where all employee contract records are shown.
+                                                        </p><img
+                                                            src="ss/ss_img_20.png" class="img-fluid rounded"
+                                                            alt="Invoice with brand"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Contracts : The dashboard manager can view, track, and manage all employee contracts easily from a single screen.
+                                                        </p><img
+                                                            src="ss/ss_img_21.png" class="img-fluid rounded"
+                                                            alt="Invoice with brand"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Birthdays: Employee Birthday
+                                                        </p>
+                                                        
+                                                        <img
+                                                            src="ss/img_3.png" class="img-fluid rounded"
+                                                            alt="Invoice with brand"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Birthdays: Displays employee birthdays in a smart list format. The dashboard highlights today's birthdays at the top first, making it easy to identify current celebrations. On the second line, it displays upcoming birthdays, helping managers and employees track future events in advance. This makes it easy for employees to manage birthday celebrations from a single screen.
+                                                        </p>
+                                                        
+                                                        <img
+                                                            src="ss/img_1.png" class="img-fluid rounded"
+                                                            alt="Invoice with brand"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Anniversaries: Employee Anniversary
+                                                        </p>
+                                                        <img
+                                                            src="ss/img_4.png" class="img-fluid rounded"
+                                                            alt="Invoice with brand"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Anniversaries: Displays employee anniversaries in a structured dashboard view. The dashboard first highlights today's anniversaries at the top, so managers can quickly identify and celebrate employee milestones. On the next line, it shows upcoming anniversaries, which helps track future work milestones in advance. This feature improves employee appreciation, engagement, and workplace culture from a single screen.
+                                                        </p>
+                                                        <img
+                                                            src="ss/img_2.png" class="img-fluid rounded"
+                                                            alt="Invoice with brand"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Announcements : Click "New"  
+                                                        </p>
+                                                        <img
+                                                            src="ss/ss_img_22.png" class="img-fluid rounded"
+                                                            alt="Invoice with brand"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Announcements: Create new announcements
+                                                        </p>
+                                                        <img
+                                                            src="ss/ss_img_23.png" class="img-fluid rounded"
+                                                            alt="Invoice with brand"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Announcements: Announcements: displays all company announcements in the employee dashboard. Managers can publish important updates, and employees can view them directly from the dashboard. It keeps all staff informed about company news, HR updates, policies, and important notifications in a centralized and easy-to-access section.
+                                                        </p>
+                                                        <img
+                                                            src="ss/ss_img_24.png" class="img-fluid rounded"
+                                                            alt="Invoice with brand"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- emp dashboard -->
+                                    <div id="ss-emp-dashboard" class="tab-pane fade">
+                                        <div class="mb-5">
+                                            <h4 class="pt-4"
+                                                style="font-family:'Sora',sans-serif; font-size:1.1rem; font-weight:700; color:#6c47ff; margin-bottom:20px; display:flex; align-items:center;">
+                                                <span
+                                                    style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:8px; font-size:16px; margin-right: 10px;">&#129489;&#8205;&#128188;
+                                                </span>
+                                                It Shows The Employee Dashboard Workflow
+                                            </h4>
+                                            <div class="row g-4">
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Employee Dashboard See
+                                                        </p>
+                                                        <img src="ss/ss_img_01.png"
+                                                            class="img-fluid rounded" alt="Product view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Employee Dashboard: provides a centralized HR interface where employees and managers can access key modules like Leaves, Attendance, Expenses, and Contracts from a single screen. Each section shows a smart counter and allows users to click and open the full list view instantly. Managers can monitor all employee records, while employees can access only their own data, ensuring secure and efficient HR management.
+                                                        </p>
+                                                        <img src="ss/ss_img_03.png"
+                                                            class="img-fluid rounded" alt="Product form brand"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Leave: in the employee dashboard, employees can see only their own leave records. It shows total leaves as a smart counter, and when clicked, it opens the leave list view filtered for the current user only. This ensures privacy and secure access, allowing each employee to view and manage only their personal leave requests.
+                                                        </p>
+                                                        <img
+                                                            src="ss/ss_img_07.png" class="img-fluid rounded"
+                                                            alt="Brand list column"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Attendance: in the employee dashboard, employees can view only their own attendance records. It shows total attendance as a smart counter, and when clicked, it opens the attendance list view filtered for the current user only. Employees can track their check-in, check-out, and working hours securely from a single screen.
+                                                        </p>
+                                                        <img src="ss/ss_img_08.png"
+                                                            class="img-fluid rounded" alt="Variants list"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Expenses: in the employee dashboard, employees can view only their own expense records. It shows total expenses as a smart counter, and when clicked, it opens the expense list view filtered for the current user only. Employees can easily track, manage, and submit their personal expenses securely from a single screen.
+                                                        </p>
+                                                        <img src="ss/ss_img_09.png"
+                                                            class="img-fluid rounded" alt="Variants list"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Birthday & Anniversaries: in the employee dashboard, employees can view all employee birthdays and work anniversaries. The dashboard first highlights today's birthdays and anniversaries at the top for quick visibility, and then shows upcoming birthdays and anniversaries in the next section. This helps improve employee engagement, recognition, and workplace celebrations from a single screen.
+                                                        </p>
+                                                        <img src="ss/ss_img_02.png"
+                                                            class="img-fluid rounded" alt="Variants list"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Announcements: in the employee dashboard, employees can view all company announcements in one place. Managers can publish important updates, and employees can read them directly from the dashboard. It keeps everyone informed about HR updates, company news, policies, and important notifications in a simple and centralized way.
+                                                        </p>
+                                                        <img src="ss/img_5.png"
+                                                            class="img-fluid rounded" alt="Variants list"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- check in out -->
+                                    <div id="ss-check-in-out" class="tab-pane fade">
+                                        <div class="mb-5">
+                                            <h4 class="pt-4"
+                                                style="font-family:'Sora',sans-serif; font-size:1.1rem; font-weight:700; color:#6c47ff; margin-bottom:20px; display:flex; align-items:center;">
+                                                <span
+                                                    style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:8px; font-size:16px; margin-right: 10px;">&#9749;
+                                                </span>
+                                                It Shows The Check-In / Check-Out Workflow
+                                            </h4>
+                                            <div class="row g-4">
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Click "Check-In & Check-Out"
+                                                        </p>
+                                                        <img src="ss/img_6.png"
+                                                            class="img-fluid rounded" alt="Product view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Check-in: Before an employee checks in, the toggle indicator on the right side of the header remains red, indicating that the Manage is not currently checked in. 
+                                                        </p>
+                                                        <img src="ss/img_7.png"
+                                                            class="img-fluid rounded" alt="Product form brand"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            After completing the check-in process, the toggle indicator automatically changes to green, indicating that the manager has successfully checked in and is currently active.
+                                                        </p>
+                                                        <img
+                                                            src="ss/img_8.png" class="img-fluid rounded"
+                                                            alt="Brand list column"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Break Timing: when the employee clicks the break toggle button, the break timer starts automatically to track break duration. During the break period, the toggle indicator on the right side of the header changes to red, indicating that the employee is currently on break. This helps managers monitor employee break status and timing in real time.
+                                                        </p>
+                                                        <img src="ss/img_9.png"
+                                                            class="img-fluid rounded" alt="Variants list"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Break Timing Close: when the employee closes the break timing toggle, the break timer stops automatically and the employee returns to active working status. The toggle indicator on the right side of the header changes back to green, indicating that the break has ended successfully.
+                                                        </p>
+                                                        <img src="ss/img_11.png"
+                                                            class="img-fluid rounded" alt="Variants list"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ss/img_12.png"
+                                                            class="img-fluid rounded" alt="Variants list"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Manager Check-Out: managers can complete their workday by clicking the Check-Out button from the dashboard.
+                                                        </p>
+                                                        <img src="ss/img_10.png"
+                                                            class="img-fluid rounded" alt="Variants list"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            After check-out, the manager attendance session ends automatically and the toggle indicator on the right side of the header changes to red, indicating that the manager is no longer checked in. This helps track manager attendance and working status accurately in real time.
+                                                        </p>
+                                                        <img src="ss/img_14.png"
+                                                            class="img-fluid rounded" alt="Variants list"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Dashboard: displays today's attendance details including check-in, check-out, working hours, and current attendance status directly on the dashboard for quick real-time tracking.
+                                                        </p>
+                                                        <img src="ss/img_15.png"
+                                                            class="img-fluid rounded" alt="Variants list"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Click "Check-In & Check-Out"
+                                                        </p>
+                                                        <img src="ss/ss_img_12.png"
+                                                            class="img-fluid rounded" alt="Variants list"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Check-in: Before an employee checks in, the toggle indicator on the right side of the header remains red, indicating that the employee is not currently checked in.
+                                                        </p>
+                                                        <img src="ss/ss_img_31.png"
+                                                            class="img-fluid rounded" alt="Variants list"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            After completing the check-in process, the toggle indicator automatically changes to green, indicating that the employee has successfully checked in and is currently active.
+                                                        </p>
+                                                        <img src="ss/ss_img_32.png"
+                                                            class="img-fluid rounded" alt="Variants list"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Break Timing: in employee dashboard, when the employee clicks the break toggle button, the break timer starts automatically to track break duration. During the break period, the header right-side toggle indicator turns red, showing that the employee is currently on break. This helps managers clearly monitor employee break status and timing in real time in a simple and structured way.
+                                                        </p>
+                                                        <img src="ss/ss_img_33.png"
+                                                            class="img-fluid rounded" alt="Variants list"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Break Timing Close: when the employee closes the break toggle, the break timer stops automatically and the employee returns to active working status. The toggle indicator changes back to green, indicating the break has ended successfully.
+                                                        </p>
+                                                        <img src="ss/ss_img_32.png"
+                                                            class="img-fluid rounded" alt="Variants list"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Employee Check-Out: employees can complete their workday by clicking the Check-Out button from the dashboard.
+                                                        </p>
+                                                        <img src="ss/ss_img_34.png"
+                                                            class="img-fluid rounded" alt="Variants list"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:14px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            After check-out, the attendance session ends automatically and the dashboard shows the checked-out status with updated working hours. The toggle indicator on the right side of the header changes to red, indicating that the employee is no longer checked in. This helps in accurately tracking the employee's attendance and working status in real time.
+                                                        </p>
+                                                        <img src="ss/ss_img_35.png"
+                                                            class="img-fluid rounded" alt="Variants list"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHANGELOG -->
+                <div id="Changelog" class="tab-pane fade show"> 
+                    <div class="container-fluid"
+                        style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #f5f4f0;">
+                        <div class="text-center mb-5">
+                            <p
+                                style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                                What&apos;s new</p>
+                            <h2
+                                style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:700; color:#0d0d0d;">
+                                Changelog</h2>
+                        </div>
+                        <div class="position-relative ps-4"
+                            style="max-width:680px; margin:0 auto; border-left:2px solid #e8e8e4;">
+                            <div class="position-absolute top-0 start-0 bottom-0"
+                                style="background-color: #e8e8e4; width: 0.20rem;">
+                                <div
+                                    style="position:absolute; margin-left:-11px; width:24px; height:24px; background-color:#6c47ff; border-radius:50%; display:flex; align-items:center; justify-content:center;">
+                                    <div
+                                        style="width:18px; height:18px; margin:auto; background-color:#6c47ff; border-radius:50%; border:3px solid #ffffff;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-relative mb-4 pl-4">
+                                <div class="d-flex flex-wrap align-items-center mb-3">
+                                    <span
+                                        style="font-family:'Sora',sans-serif; font-size:17px; font-weight:700; color:#0d0d0d;margin-right:10px;">Version
+                                        19.0.1</span>
+                                    <span
+                                        style="background-color:#f0eeff; color:#5a35d9; border:1px solid #d0c4ff; padding:3px 10px; border-radius:6px; font-size:11px; font-weight:700;margin-right:10px;">Odoo
+                                        19</span>
+                                    <span
+                                        style="background-color:#dcfce7; color:#166534; padding:3px 10px; border-radius:6px; font-size:11px; font-weight:700;">Initial
+                                        Release</span>
+                                    <span style="color:#666; font-size:12px; margin-left:4px;margin-right:10px;">30th May
+                                        2026</span>
+                                </div>
+                                <div class="d-flex flex-column"
+                                    style="background-color:#f8f8f6; border:1px solid #e8e8e4; border-radius:12px; padding:18px 20px;">
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div><span style="font-size:13px; color:#444;">
+                                            Added Employee Dashboard for Odoo
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Role-based dashboard access for Managers and Employees
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div><span style="font-size:13px; color:#444;">Employee self dashboard functionality</span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div><span style="font-size:13px; color:#444;">Added Employee Check-In, Check-Out, Break Timing management feature</span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div><span style="font-size:13px; color:#444;">Added Leaves management dashboard</span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div><span style="font-size:13px; color:#444;">Added Attendance management dashboard</span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div><span style="font-size:13px; color:#444;">Added Expenses management dashboard</span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div><span style="font-size:13px; color:#444;">Added Contracts support for Odoo 17 & 18</span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div><span style="font-size:13px; color:#444;">Added Employee Birthday reminder section</span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div><span style="font-size:13px; color:#444;">Added Employee Anniversary reminder section</span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div><span style="font-size:13px; color:#444;">Added Company Announcements section</span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div><span style="font-size:13px; color:#444;">Added smart click navigation to list views</span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div><span style="font-size:13px; color:#444;">Added quick record creation using New button</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-absolute"
+                                style="margin-top:4px; margin-left:-30px; width:16px; height:16px; background-color:#d0d0c8; border-radius:50%; border:3px solid #ffffff;">
+                            </div>
+                            <div style="position:relative; opacity:.45;">
+                                <div class="d-flex flex-wrap align-items-center mb-3">
+                                    <span
+                                        style="font-family:'Sora',sans-serif; font-size:17px; font-weight:700; color:#0d0d0d;margin-right:10px;">Version
+                                        19.0.2</span>
+                                    <span
+                                        style="background-color:#f0eeff; color:#5a35d9; border:1px solid #d0c4ff; padding:3px 10px; border-radius:6px; font-size:11px; font-weight:700;">Planned</span>
+                                    <span style="color:#666; font-size:12px; margin-left:4px;">Coming soon</span>
+                                </div>
+                                <div
+                                    style="background-color:#f8f8f6; border:1px dashed #e8e8e4; border-radius:12px; padding:18px 20px;">
+                                    <div style="display:flex; align-items:center;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#ccc; border-radius:50%; margin:7px 10px 0 0;">
+                                        </div><span style="font-size:13px; color:#aaa;">More exciting features being
+                                            planned...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQS -->
+    <section>
+        <div class="container-fluid" style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #eae9e4;">
+
+            <div class="text-center mb-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    Got questions?
+                </p>
+
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:700; color:#0d0d0d;">
+                    Frequently Asked Questions
+                </h2>
+            </div>
+
+            <div id="faqAccordion" class="d-flex flex-column" style="max-width:760px; margin:0 auto;">
+
+                <!-- FAQ 1 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center" href="#faq1" data-target="#faq1"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq1"
+                        style="padding:20px 24px; text-decoration:none; width:100%;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            How can I get support or request customization?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq1" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:rgb(102, 102, 102); font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                Please contact us at
+                                <a href="mailto:support@nextflow.in"
+                                    style="color:#6c47ff; text-decoration:none; font-weight:600;">
+                                    support@nextflow.in
+                                </a>
+                                for any support or customization requests.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center" href="#faq2" data-target="#faq2"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq2"
+                        style="padding:20px 24px; text-decoration:none; width:100%;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Can I get free support after purchase?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq2" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <b>Yes!</b>
+                                You get <b>90 days of free support</b> included with every purchase — no strings
+                                attached.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center" href="#faq3" data-target="#faq3"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq3"
+                        style="padding:20px 24px; text-decoration:none; width:100%;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            What is the Employee Dashboard module in Odoo?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq3" class="collapse" data-parent="#faqAccordion"            data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                Employee Dashboard is an advanced HR dashboard module for Odoo that provides quick access to employee information such as Leaves, Attendance, Expenses, Contracts, Birthdays, Anniversaries, Announcements, Check-In, Check-Out, and Break Timing from a single dashboard.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- FAQ 4 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq4"
+                        data-toggle="collapse" data-target="#faq4" aria-expanded="false" data-bs-toggle="collapse"
+                        aria-controls="faq4" style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Can managers view all employee records?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq4" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <b>Yes.</b>Manager users can access and monitor all employee records and dashboard activities.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq5"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq5"
+                        style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Can employees view other employee details?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq5" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <b>No.</b> Regular employees can only access and view their own personal records and dashboard information.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+                
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq6" data-toggle="collapse"
+                        data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq6"
+                        style="padding:20px 24px; text-decoration: none;">
+                
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Does the module support employee check-in and check-out?
+                        </span>
+                
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+                
+                    <div id="faq6" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <b>Yes,</b>
+                                Employees can easily perform Check-In and Check-Out directly from the dashboard.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+                
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq7" data-toggle="collapse"
+                        data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq7"
+                        style="padding:20px 24px; text-decoration: none;">
+                
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Is break timing management available?
+                        </span>
+                
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+                
+                    <div id="faq7" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <b>Yes.</b> The module supports employee break timing tracking and management.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+                
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq8" data-toggle="collapse"
+                        data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq8"
+                        style="padding:20px 24px; text-decoration: none;">
+                
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Can users create leave requests from the dashboard?
+                        </span>
+                
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+                
+                    <div id="faq8" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <b>Yes.</b> Users can quickly create leave requests directly from the dashboard list views using the New button.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 9 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+                
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq9" data-toggle="collapse"
+                        data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq9"
+                        style="padding:20px 24px; text-decoration: none;">
+                
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Can users access Expenses from the dashboard?
+                        </span>
+                
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+                
+                    <div id="faq9" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <b>Yes.</b> Employees can view and manage expense records directly from the dashboard.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MULTI LANGUAGE -->
+    <section
+        style="background-color: #f0f3fe; padding:30px; font-family:'Segoe UI',sans-serif; overflow:hidden; margin-top: 20px;">
+        <div class="container-fluid">
+
+            <div class="container-fluid text-center mb-4">
+                <p
+                    style="font-size:11px; font-weight:600; color:rgb(153, 153, 153); text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    Available worldwide
+                </p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#50545d; margin-bottom:20px;">
+                    Multi-Language Support
+                </h2>
+            </div>
+
+            <!-- FLAGS -->
+            <div class="row justify-content-center text-center mb-5 mt-5 mb-sm-0">
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 3s ease-in-out infinite; transition:0.3s;">
+                        <img src="eng.png" class="img-fluid" alt="US Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            English
+                        </h6>
+                    </div>
+                </div>
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 4s ease-in-out infinite;">
+                        <img src="ger.png" class="img-fluid" alt="German Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            German
+                        </h6>
+                    </div>
+                </div>
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 5s ease-in-out infinite;">
+                        <img src="arb.png" class="img-fluid" alt="Arabic Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            Arabic
+                        </h6>
+                    </div>
+                </div>
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 3.5s ease-in-out infinite;">
+                        <img src="chi.png" class="img-fluid" alt="Chinese Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            Chinese
+                        </h6>
+                    </div>
+                </div>
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 4.5s ease-in-out infinite;">
+                        <img src="fre.png" class="img-fluid" alt="French Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            French
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="nf_services"
+        style="background-color:#ffffff; padding:15px 0; border-top:2px solid #f5f4f0;padding: 50px 0;">
+        <div class="container-fluid">
+            <div class="text-center mb-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    What we offer</p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#505450; margin-bottom:12px;">
+                    Our Services</h2>
+                <p class="mb-md-3" style="color:#888; font-size:16px; max-width:520px; margin:0 auto;">
+                    Expert Odoo services tailored to
+                    grow your business &mdash; from migration to full implementation and beyond.</p>
+            </div>
+            <div class="row g-3 g-md-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #6c47ff; border-radius:16px; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin:auto;">
+                            &#128260;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d; text-align: center;">
+                            Odoo Migration</h4>
+                        <p style="color:#777; font-size:14px; line-height:1.7; margin-bottom:16px; text-align: center;">
+                            Seamlessly migrate
+                            your Odoo database and modules from older versions to the latest. We handle the entire
+                            process &mdash; data, customizations, and configurations.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -10%; margin-left: 68%; width:120px; height:120px; background-color:rgba(108, 71, 255, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -8%; margin-left: 63%; width:50px; height:50px; background-color:rgba(108, 71, 255, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #f59e0b; border-radius:16px; padding:1.5rem; height:100%;">
+                        <div style="width:48px; height:48px; border-radius:12px; font-size:30px; margin: auto;">
+                            &#128295;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d; text-align: center;">
+                            Odoo Customization</h4>
+                        <p style="color:#777; font-size:14px; line-height:1.7; margin-bottom:16px; text-align: center;">
+                            Modify existing Odoo
+                            modules &mdash; CRM, Sales, Inventory, Accounting &mdash; to fit your operations. Add
+                            new
+                            fields, change workflows, and create custom business rules.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -10%; margin-left: 68%; width:120px; height:120px; background-color:rgba(245, 158, 11, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -8%; margin-left: 63%; width:50px; height:50px; background-color:rgba(245, 158, 11, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #10b981; border-radius:16px; padding:1.5rem; height:100%;">
+                        <div style="width:48px; height:48px; border-radius:12px; font-size:30px; margin:auto;">
+                            &#127760;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d; text-align: center;">
+                            Web Development in Odoo</h4>
+                        <p style="color:#777; font-size:14px; line-height:1.7; margin-bottom:16px; text-align: center;">
+                            We build powerful,
+                            user-friendly websites fully integrated with your Odoo system &mdash; from landing pages
+                            to
+                            full e-commerce storefronts.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -3%; margin-left: 68%; width:120px; height:120px; background-color:rgba(16, 185, 129, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-left: 62%; width:50px; height:50px; background-color:rgba(16, 185, 129, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="mt-sm-0 position-relative overflow-hidden"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #ef4444; border-radius:16px; padding:1.5rem; height:100%;margin-top: 30px;">
+                        <div
+                            style="width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin:auto;">
+                            &#9881;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d; text-align: center;">
+                            Odoo Implementation</h4>
+                        <p style="color:#777; font-size:14px; line-height:1.7; margin-bottom:16px; text-align: center;">
+                            End-to-end Odoo
+                            integration with e-commerce platforms, payment gateways, shipping carriers, and more.
+                            Robust
+                            connections for your critical systems.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -10%; margin-left: 68%; width:120px; height:120px; background-color:rgba(239, 68, 68, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -8%; margin-left: 63%; width:50px; height:50px; background-color:rgba(239, 68, 68, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="mt-sm-0 overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #3b82f6; border-radius:16px; padding:1.5rem; height:100%;margin-top: 30px;">
+                        <div
+                            style="width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin:auto;">
+                            &#128247;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d;text-align: center;">
+                            Odoo Support &amp; Maintenance</h4>
+                        <p style="color:#777; font-size:13px; line-height:1.7; margin-bottom:16px;text-align: center;">
+                            Expert technical
+                            assistance, proactive security updates, performance monitoring, and user support to keep
+                            your Odoo system reliable and effective.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -3%; margin-left: 68%; width:120px; height:120px; background-color:rgba(59, 130, 246, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-left: 62%; width:50px; height:50px; background-color:rgba(59, 130, 246, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="mt-sm-0 overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #ec4899; border-radius:16px; padding:1.5rem; height:100%;margin-top: 30px;">
+                        <div
+                            style="width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin:auto;">
+                            &#127891;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d;text-align: center;">
+                            Odoo Training</h4>
+                        <p style="color:#777; font-size:13px; line-height:1.7; margin-bottom:16px;text-align: center;">
+                            Comprehensive
+                            functional and technical Odoo training to help your teams understand, implement, and
+                            effectively use Odoo for business operations.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -3%; margin-left: 68%; width:120px; height:120px; background-color:rgba(236, 72, 153, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-left: 62%; width:50px; height:50px; background-color:rgba(236, 72, 153, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== APPS FOR YOU SECTION ===== -->
+    <section id="sh_most_demanded_apps"
+        style="background-color:#f0f3fe; padding:20px 0; font-family:'Segoe UI',sans-serif;">
+
+        <div class="container-fluid px-lg-5 px-3 mt-4">
+
+            <div class="text-center mb-3">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    From our catalog</p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#505450; margin-bottom:12px;">
+                    Apps For You</h2>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-end mb-4">
+                <!-- TITLE -->
+                <a href="https://apps.odoo.com/apps/modules/browse?author=NextFlowIT" target="_blank"
+                    style="display:inline-flex; align-items:center; border:1.5px solid #ddd; border-radius:9px; padding:10px 20px; font-size:13px; font-weight:600; color:#1a1a1a; text-decoration:none; background-color:#fff;">
+                    View All Apps
+                    <span style="font-size:11px; color:#5a35d9; margin-left:8px;">
+                        >>
+                    </span>
+                </a>
+            </div>
+
+            <!-- APP CARDS -->
+            <div class="row">
+
+                <!-- CARD 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="h-100" style="background-color:#fff;border-radius:24px;overflow:hidden;
+                                        box-shadow:0 15px 40px rgba(0,0,0,0.06);transition:0.4s;">
+
+                        <a href="https://apps.odoo.com/apps/modules/19.0/nf_cancel_stock_picking" target="_blank"
+                            style="text-decoration:none;">
+
+                            <!-- IMAGE -->
+                            <div class="d-flex flex-column">
+
+                                <!-- IMAGE -->
+                                <img src="cancle_stock.gif"
+                                    class="img-fluid" alt="Barcode App" style="width:100%;
+                                                    height:100%;
+                                                    object-fit:cover;
+                                                    transition:.4s;
+                                                    border-radius: 24px 24px 0 0;">
+
+                            </div>
+
+                            <!-- CONTENT -->
+                            <div style="padding:20px;">
+                                <h4 style="font-weight:700;color:#1a202c;margin-bottom:15px;">
+                                    Cancel Stock Picking
+                                </h4>
+
+                                <p style="color:#718096;margin-bottom:25px;">
+                                    The Cancel Stock Picking module allows users to cancel validated or done stock pickings, receipts, and delivery orders in Odoo safely and efficiently.
+                                </p>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="h-100" style="background-color:#fff;border-radius:24px;overflow:hidden;
+                                        box-shadow:0 15px 40px rgba(0,0,0,0.06);transition:0.4s;">
+
+                        <a href="https://apps.odoo.com/apps/modules/19.0/nf_pos_dashboard" target="_blank"
+                            style="text-decoration:none;">
+
+                            <!-- IMAGE -->
+                            <div class="d-flex flex-column">                                
+
+                                <!-- IMAGE -->
+                                <img src="pos_dashboard.gif"
+                                    class="img-fluid" alt="Payment Gateway App" style="width:100%;
+                                                    height:100%;
+                                                    object-fit:cover;
+                                                    transition:.4s;
+                                                    border-radius: 24px 24px 0 0;">
+
+                            </div>
+
+                            <!-- CONTENT -->
+                            <div style="padding:20px;">
+                                <h4 style="font-weight:700;color:#1a202c;margin-bottom:15px;">
+                                    Point Of Sale Dashboard | dashboard
+                                </h4>
+
+                                <p style="color:#718096;margin-bottom:25px;">
+                                    The POS (Point of Sale) Dashboard module is a crucial feature designed to provide an overview of sales and operations in real time within a retail or hospitality environment. It integrates with the Odoo POS system, offering a user-friendly interface to track and manage sales data.
+                                </p>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="h-100" style="background-color:#fff;border-radius:24px;overflow:hidden;
+                                        box-shadow:0 15px 40px rgba(0,0,0,0.06);transition:0.4s;">
+
+                        <a href="https://apps.odoo.com/apps/modules/18.0/nf_pos_order_return_restriction" target="_blank"
+                            style="text-decoration:none;">
+
+                            <!-- IMAGE -->
+                            <div class="d-flex flex-column">
+
+                                <!-- IMAGE -->
+                                <img src="roe.gif"
+                                    class="img-fluid" alt="Accounting App" style="width:100%;
+                                                    height:100%;
+                                                    object-fit:cover;
+                                                    transition:.4s;
+                                                    border-radius: 24px 24px 0 0;">
+
+                            </div>
+
+                            <!-- CONTENT -->
+                            <div style="padding:20px;">
+                                <h4 style="font-weight:700;color:#1a202c;margin-bottom:15px;">
+                                    Pos Order Return Restriction
+                                </h4>
+
+                                <p style="color:#718096;margin-bottom:25px;">
+                                    Take control of your refund processes with "Point of Sale Restrict Refund After Policy Expired" and ensure your business operates smoothly and efficiently. Download now and start optimizing your refund management today!
+                                </p>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

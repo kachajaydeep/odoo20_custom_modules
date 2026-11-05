@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<template>
+    <t t-name='nf_pos_salesperson_commission.ControlButtons' t-inherit='point_of_sale.ControlButtons'
+        t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='props.showRemainingButtons']/div" position="inside">
+            <t t-if="this.pos.getOrder().getSelectedOrderline() and this.pos.config.apply_commission">
+                <button t-att-class="buttonClass" t-on-click="() => this.salesPerson()"
+                    class="border-0 bg-secondary text-mdark fs-4">SalesPerson</button>
+            </t>
+        </xpath>
+    </t>
+</template>

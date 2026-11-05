@@ -1,0 +1,27 @@
+id,name,model_id,group_id/id,operation,domain
+access_nf_tailor_order_user,nf.tailor.order user,nf.tailor.order,nf_group_nf_tailor_user,cru
+access_nf_tailor_order_manager,nf.tailor.order manager,nf.tailor.order,nf_group_nf_tailor_manager,crud
+
+access_nf_tailor_line_user,nf.tailor.line user,nf.tailor.line,nf_group_nf_tailor_user,cru
+access_nf_tailor_line_manager,nf.tailor.line manager,nf.tailor.line,nf_group_nf_tailor_manager,crud
+
+access_nf_measurement_category_user,nf.measurement.category user,nf.measurement.category,nf_group_nf_tailor_user,r
+access_nf_measurement_category_manager,nf.measurement.category manager,nf.measurement.category,nf_group_nf_tailor_manager,crud
+
+access_nf_measurement_line_user,nf.measurement.line user,nf.measurement.line,nf_group_nf_tailor_user,cru
+access_nf_measurement_line_manager,nf.measurement.line manager,nf.measurement.line,nf_group_nf_tailor_manager,crud
+
+access_nf_measurement_type_user,nf.measurement.type user,nf.measurement.type,nf_group_nf_tailor_user,r
+access_nf_measurement_type_manager,nf.measurement.type manager,nf.measurement.type,nf_group_nf_tailor_manager,crud
+
+access_nf_measurement_user,nf.measurement user,nf.measurement,nf_group_nf_tailor_user,ru
+access_nf_measurement_manager,nf.measurement manager,nf.measurement,nf_group_nf_tailor_manager,crud
+
+access_nf_design_type_user,nf.design.type user,nf.design.type,nf_group_nf_tailor_user,r
+access_nf_design_type_manager,nf.design.type manager,nf.design.type,nf_group_nf_tailor_manager,crud
+
+access_nf_design_line_user,nf.design.line user,nf.design.line,nf_group_nf_tailor_user,ru
+access_nf_design_line_manager,nf.design.line manager,nf.design.line,nf_group_nf_tailor_manager,crud
+
+access_nf_measurement_design_user,nf.measurement.design user,nf.measurement.design,nf_group_nf_tailor_user,cru
+access_nf_measurement_design_manager,nf.measurement.design manager,nf.measurement.design,nf_group_nf_tailor_manager,crud

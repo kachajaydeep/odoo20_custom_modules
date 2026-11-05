@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_sale_report_search_view_brand" model="ir.ui.view">
+        <field name="name">sale.report.search.brand</field>
+        <field name="model">sale.report</field>
+        <field name="inherit_id" ref="sale.view_order_product_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter
+                    string="Brand"
+                    name="group_by_brand"
+                    context="{'group_by': 'nf_product_brand_id'}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

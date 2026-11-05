@@ -1,0 +1,1645 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* nf_zatca_integration
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-08 13:00+0000\n"
+"PO-Revision-Date: 2025-08-08 13:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_res_config_settings.py:0
+msgid ""
+"\n"
+"Building Number: %(building_number)s, Plot Identification: %(plot_identification)s\n"
+"Neighborhood: %(neighborhood)s"
+msgstr ""
+"\n"
+"رقم المبنى: %(building_number)s، معرف القطعة: %(plot_identification)s"
+"الحي: %(neighborhood)s"
+
+#. module: nf_zatca_integration
+#: model:ir.actions.report,print_report_name:nf_zatca_integration.account_zatca_invoice
+msgid "(object._get_report_base_filename())"
+msgstr ""
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid ""
+"- Finish the Onboarding procees for journal %s by requesting the CSIDs and "
+"completing the checks."
+msgstr ""
+"- قم بإنهاء إجراءات الإعداد لدفتر اليومية %s عن طريق طلب معرّفات CSID "
+"واستكمال عمليات التحقق."
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid "- Invoice lines should have at least one Tax applied."
+msgstr "- يجب تطبيق ضريبة واحدة على الأقل في بنود الفاتورة."
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid ""
+"- No Private Key was generated for company %s. A Private Key is mandatory in"
+" order to generate Certificate Signing Requests (CSR)."
+msgstr ""
+"- لم يتم إنشاء مفتاح خاص للشركة %s. يعد المفتاح الخاص إلزاميًا لإنشاء طلبات "
+"توقيع الشهادة (CSR)."
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid ""
+"- No Serial Number was assigned for journal %s. A Serial Number is mandatory"
+" in order to generate Certificate Signing Requests (CSR)."
+msgstr ""
+"- لم يتم تعيين رقم تسلسلي للمجلة %s. الرقم التسلسلي إلزامي لإنشاء طلبات "
+"توقيع الشهادة (CSR)."
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid ""
+"- Please, make sure either the Reversed Entry or the Reversal Reason are "
+"specified when confirming a Credit/Debit note"
+msgstr ""
+"- يُرجى التأكد من تحديد القيد المعكوس أو سبب العكس عند تأكيد إشعار "
+"الدائن/المدين "
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid ""
+"- Please, make sure the invoice date is set to either the same as or before "
+"Today."
+msgstr "- يُرجى التأكد من ضبط تاريخ الفاتورة على نفس تاريخ اليوم أو قبله."
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid "- Please, set the following fields on the Customer: %(missing_fields)s"
+msgstr "- يُرجى إعداد الحقول التالية لدى العميل: %(missing_fields)s "
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid "- Please, set the following fields on the Supplier: %(missing_fields)s"
+msgstr "- يُرجى إعداد الحقول التالية لدى المورّد: %(missing_fields)s "
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid ""
+"- The company VAT identification must contain 15 digits, with the first and "
+"last digits being '3' as per the BR-KSA-39 and BR-KSA-40 of ZATCA KSA "
+"business rule."
+msgstr ""
+"- يجب أن يحتوي معرف ضريبة القيمة المضافة للشركة على 15 رقمًا، على أن يكون "
+"الرقمان الأول والأخير \"3\" وفقًا لقواعد الأعمال BR-KSA-39 و BR-KSA-40 لهيئة"
+" الزكاة والضريبة والجمارك (زاتكا) في المملكة العربية السعودية."
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid "- You cannot post invoices where the Seller is the Buyer"
+msgstr "لا يمكنك تحرير فواتير حيث البائع هو المشتري"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "0.0 %"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__res_partner__nf_zatca_additional_identification_scheme__700
+msgid "700 Number"
+msgstr "700 رقم"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_account_journal_form_nf
+msgid ""
+"<b>\n"
+"                                In order to be able to submit Invoices to ZATCA, the following steps need to be completed:\n"
+"                            </b>"
+msgstr ""
+"<b>\n"
+"                                لكي تتمكن من إرسال الفواتير إلى ZATCA، يجب إكمال الخطوات التالية:\n"
+"                            </b>"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.res_config_settings_view_form_nf_zatca
+msgid "<i class=\"fa fa-warning me-2\"/> Warning"
+msgstr "<i class=\"fa fa-warning me-2\"/> تحذير"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.arabic_english_invoice
+msgid "<span class=\"fw-bold\">Exchange Rate</span>"
+msgstr "<span class=\"fw-bold\">سعر الصرف</span>"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.arabic_english_invoice
+msgid "<span class=\"fw-bold\">Subtotal</span>"
+msgstr "<span class=\"fw-bold\">المجموع الفرعي</span>"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.arabic_english_invoice
+msgid "<span class=\"fw-bold\">Total</span>"
+msgstr "<span class=\"fw-bold\">المجموع</span>"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.arabic_english_invoice
+msgid "<span class=\"fw-bold\">VAT Amount</span>"
+msgstr "<span class=\"fw-bold\">مبلغ ضريبة القيمة المضافة</span>"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.arabic_english_invoice
+msgid "<strong>الإجمالي الفرعي بالريال السعودي</strong>"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.arabic_english_invoice
+msgid "<strong>الإجمالي بالريال السعودي</strong>"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.arabic_english_invoice
+msgid "<strong>سعر الصرف</strong>"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.arabic_english_invoice
+msgid "<strong>مبلغ ضريبة القيمة المضافة بالريال السعودي</strong>"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.res_config_settings_view_form_nf_zatca
+msgid "API Mode"
+msgstr "وضع واجهة برمجة التطبيقات"
+
+#. module: nf_zatca_integration
+#: model:ir.model,name:nf_zatca_integration.model_account_move_reversal
+msgid "Account Move Reversal"
+msgstr "عكس حركة الحساب "
+
+#. module: nf_zatca_integration
+#: model:ir.model,name:nf_zatca_integration.model_account_move_send
+msgid "Account Move Send"
+msgstr "إرسال حركة الحساب "
+
+#. module: nf_zatca_integration
+#: model:ir.model,name:nf_zatca_integration.model_account_debit_note
+msgid "Add Debit Note wizard"
+msgstr "إضافة مُعالج إشعار مدين "
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,help:nf_zatca_integration.field_res_company__nf_zatca_additional_identification_number
+#: model:ir.model.fields,help:nf_zatca_integration.field_res_partner__nf_zatca_additional_identification_number
+#: model:ir.model.fields,help:nf_zatca_integration.field_res_users__nf_zatca_additional_identification_number
+msgid "Additional Identification Number for Seller/Buyer"
+msgstr "رقم التعريف الإضافي للبائع/المشتري"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid "Additional Identification Number is required for commercial partners"
+msgstr "رقم التعريف الإضافي مطلوب للشركاء التجاريين"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid ""
+"Additional Identification Scheme is required for the Buyer if tax exemption "
+"reason is either VATEX-SA-HEA or VATEX-SA-EDU, and its value must be NAT"
+msgstr ""
+"خطة التعريف الإضافي مطلوب للمشتري إذا كان سبب الإعفاء الضريبي إما VATEX-SA-"
+"HEA أو VATEX-SA-EDU، ويجب أن تكون قيمته NAT"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid ""
+"Additional Identification Scheme is required for the Seller, and must be one"
+" of CRN, MOM, MLS, SAG or OTH"
+msgstr ""
+"خطة التعريف الإضافي مطلوب للبائع، ويج أن يكون إما CRN، MOM، MLS، SAG، أو OTH"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,help:nf_zatca_integration.field_res_company__nf_zatca_additional_identification_scheme
+#: model:ir.model.fields,help:nf_zatca_integration.field_res_partner__nf_zatca_additional_identification_scheme
+#: model:ir.model.fields,help:nf_zatca_integration.field_res_users__nf_zatca_additional_identification_scheme
+msgid "Additional Identification scheme for Seller/Buyer"
+msgstr "خطة التعريف الإضافي للبائع/المشتري"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "Address"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "Amount Due"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_res_company__arabic_name
+msgid "Arabic Name"
+msgstr "الاسم العربي"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_res_company__arabic_city
+msgid "Arabic Name of City"
+msgstr "الاسم العربي للمدينة"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_account_journal_form_nf
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_company_form
+msgid "Are you sure you wish to re-onboard the Journal?"
+msgstr "هل أنت متأكد من رغبتك في إعادة إدراج المجلة؟"
+
+#. module: nf_zatca_integration
+#: model:ir.model,name:nf_zatca_integration.model_ir_attachment
+msgid "Attachment"
+msgstr "مرفق"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_res_partner__nf_zatca_building_number
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_res_users__nf_zatca_building_number
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.sa_partner_address_form
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_company_form
+msgid "Building Number"
+msgstr "رقم المبنى"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid "Building Number for the Buyer is required on Standard Invoices"
+msgstr "رقم المبنى للمشتري مطلوب في الفواتير القياسية"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_account_journal__nf_zatca_compliance_csid_json
+msgid "CCSID JSON"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_account_journal__nf_zatca_compliance_csid_certificate_id
+msgid "CCSID certificate"
+msgstr "شهادة CCSID"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.zatca_otp_wizard_view_form_nf
+msgid "Cancel"
+msgstr "يلغي"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "Cancelled Credit Note"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "Cancelled Invoice"
+msgstr ""
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid ""
+"Cannot request a Production CSID before completing the Compliance Checks"
+msgstr "لا يمكن طلب CSID الإنتاج قبل إتمام فحوصات الامتثال"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid "Cannot request a Production CSID before requesting a CCSID first"
+msgstr "لا يمكن طلب CSID الإنتاج قبل طلب CCSID أولاً"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_tax.py:0
+msgid "Cannot set a tax to Retention if the amount is greater than or equal 0"
+msgstr "لا يمكن تعيين الضريبة للاحتفاظ إذا كان المبلغ أكبر من أو يساوي 0"
+
+#. module: nf_zatca_integration
+#: model:ir.model,name:nf_zatca_integration.model_certificate_certificate
+msgid "Certificate"
+msgstr "الشهادة "
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.sa_partner_address_form
+msgid "City"
+msgstr "المدينة"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid "Clearance and reporting seem to have been mixed up. "
+msgstr "يبدو أن هناك خلطاً بين التخليص والإبلاغ. "
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__res_partner__nf_zatca_additional_identification_scheme__crn
+msgid "Commercial Registration Number"
+msgstr "رقم التسجيل التجاري"
+
+#. module: nf_zatca_integration
+#: model:ir.model,name:nf_zatca_integration.model_res_company
+msgid "Companies"
+msgstr "الشركات"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.external_layout_standard_zatca
+msgid "Company ID:"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_account_journal_form_nf
+msgid ""
+"Complete the Compliance Checks\n"
+"                                    <i class=\"fa fa-check text-success ms-1\" invisible=\"not nf_zatca_compliance_checks_passed\"/>"
+msgstr ""
+"أكمل عمليات التحقق من الامتثال\n"
+"                                    <i class=\"fa fa-check text-success ms-1\" invisible=\"not nf_zatca_compliance_checks_passed\"/>"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,help:nf_zatca_integration.field_account_journal__nf_zatca_compliance_csid_json
+msgid ""
+"Compliance CSID data received from the Compliance CSID API in dumped json "
+"format"
+msgstr ""
+"بيانات CSID للامتثال التي تم استلامها من الواجهة البرمجية لـ CSID الامتثال "
+"بصيغة json"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_company_form
+msgid "Compliance Checks"
+msgstr "فحوصات الامتثال"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_account_journal__nf_zatca_compliance_checks_passed
+msgid "Compliance Checks Done"
+msgstr "فحوصات الامتثال المنجزة"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid "Compliance checks can only be run for companies operating from KSA"
+msgstr ""
+"يمكن إجراء فحوصات الامتثال فقط للشركات التي تعمل في المملكة العربية السعودية"
+
+#. module: nf_zatca_integration
+#: model:ir.model,name:nf_zatca_integration.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات "
+
+#. module: nf_zatca_integration
+#: model:ir.model,name:nf_zatca_integration.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid "Could not complete Compliance Checks for the following file:"
+msgstr "تعذر إجراء فحوصات الامتثال للملف التالي:"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid "Could not generate Invoice UBL content: %s"
+msgstr "تعذر إنشاء محتوى فاتورة UBL: %s"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid ""
+"Could not generate PCSID values:\n"
+"%(error)s"
+msgstr ""
+"تعذر إنشاء قيم PCSID:\n"
+"%(error)s"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid ""
+"Could not generate signed XML values:\n"
+"%(error)s"
+msgstr ""
+"تعذر إنشاء قيم XML موقّعة:\n"
+"%(error)s"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid "Could not obtain Compliance CSID: %s"
+msgstr "تعذر الحصول على CSID للامتثال: %s"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid "Could not obtain Production CSID: %s"
+msgstr "تعذر الحصول على CSID للإنتاج: %s"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.sa_partner_address_form
+msgid "Country"
+msgstr "الدولة"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_zatca_otp_wizard__create_uid
+msgid "Created by"
+msgstr "تم إنشاؤها بواسطة"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_zatca_otp_wizard__create_date
+msgid "Created on"
+msgstr "تم الإنشاء بتاريخ"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "Credit Note"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "Customer Name"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "Date"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,help:nf_zatca_integration.field_account_tax__nf_zatca_is_retention
+msgid "Determines whether or not a tax counts as a Withholding Tax"
+msgstr "يحدد ما إذا كانت الضريبة تُحسب كضريبة احتجاز أم لا"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid ""
+"Discount Price\n"
+"                                    <br/>\n"
+"                                    <span class=\"discount\">خصومات</span>"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_zatca_otp_wizard__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_account_bank_statement_line__nf_zatca_uuid
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_account_move__nf_zatca_uuid
+msgid "Document UUID (SA)"
+msgstr "UUID الخاص بالمستند (المملكة العربية السعودية)"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "Draft Credit Note"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "Draft Invoice"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model:ir.model,name:nf_zatca_integration.model_account_edi_format
+msgid "EDI format"
+msgstr "صيغة EDI "
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid "Errors:"
+msgstr "الأخطاء:"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_account_tax__nf_zatca_exemption_reason_code
+msgid "Exemption Reason Code"
+msgstr "كود سبب الإعفاء"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_account_journal__nf_zatca_production_csid_validity
+msgid "Expiration date"
+msgstr "تاريخ انتهاء الصلاحية"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/wizard/nf_account_move_reversal.py:0
+msgid ""
+"For Credit/Debit notes issued in Saudi Arabia, you need to specify a Reason"
+msgstr ""
+"للإشعارات الدائنة/المدينة المصدرة في المملكة العربية السعودية، تحتاج إلى "
+"تحديد السبب"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/wizard/nf_account_debit_note.py:0
+msgid "For debit notes issued in Saudi Arabia, you need to specify a Reason"
+msgstr ""
+"للإشعارات المدينة المصدرة في المملكة العربية السعودية، تحتاج إلى تحديد السبب"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__res_partner__nf_zatca_additional_identification_scheme__gcc
+msgid "GCC ID"
+msgstr "معرّف مجلس التعاون الخليجي"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,help:nf_zatca_integration.field_account_journal__nf_zatca_latest_submission_hash
+msgid ""
+"Hash of the latest submitted invoice to be used as the Previous Invoice Hash"
+" (KSA-13)"
+msgstr "تشفير آخر فاتورة مرسلة ليتم إرساله كتشفير الفاتورة السابقة (KSA-13)"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.ubl_21_CreditNoteType_zatca
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.ubl_21_DebitNoteType_zatca
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.ubl_21_InvoiceType_zatca
+msgid "ICV"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_zatca_otp_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_res_company__nf_zatca_additional_identification_number
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_res_partner__nf_zatca_additional_identification_number
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_res_users__nf_zatca_additional_identification_number
+msgid "Identification Number (SA)"
+msgstr "رقم التعريف (المملكة العربية السعودية)"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_res_company__nf_zatca_additional_identification_scheme
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_res_partner__nf_zatca_additional_identification_scheme
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_res_users__nf_zatca_additional_identification_scheme
+msgid "Identification Scheme"
+msgstr "خطة التعريف"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_move.py:0
+msgid "Invoice Successfully Submitted to ZATCA"
+msgstr "تم إرسال الفاتورة بنجاح إلى زاتكا"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid ""
+"Invoice could not be cleared:\n"
+"%s"
+msgstr ""
+"تعذر مسح الفاتورة:\n"
+"%s"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid ""
+"Invoice could not be reported:\n"
+"%s"
+msgstr ""
+"لم يتم الإبلاغ عن الفاتورة:\n"
+"%s"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,help:nf_zatca_integration.field_account_bank_statement_line__nf_zatca_chain_index
+#: model:ir.model.fields,help:nf_zatca_integration.field_account_move__nf_zatca_chain_index
+msgid ""
+"Invoice index in chain, set if and only if an in-chain XML was submitted and"
+" did not error"
+msgstr ""
+"مؤشر الفاتورة في السلسلة. يتم إعداده فقط إذا تم إرسال ملف XML في سلسلة ولم "
+"يحدث أي خطأ"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid "Invoice submission to ZATCA returned errors"
+msgstr "حدثت أخطاء عند إرسال الفواتير إلى زاتكا"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_move.py:0
+msgid "Invoice was Accepted by ZATCA (with Warnings)"
+msgstr "تم قبول الفاتورة من قِبَل زاتكا (مع تحذيرات)"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_move.py:0
+msgid "Invoice was rejected by ZATCA"
+msgstr "تم رفض الفاتورة من قِبَل زاتكا"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__res_partner__nf_zatca_additional_identification_scheme__iqa
+msgid "Iqama Number"
+msgstr "رقم إقامة "
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_account_tax__nf_zatca_is_retention
+msgid "Is Retention"
+msgstr "احتفاظ"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid "JSON response from ZATCA could not be decoded"
+msgstr "تعذر فك تشفير رد JSON من زاتكا"
+
+#. module: nf_zatca_integration
+#: model:ir.model,name:nf_zatca_integration.model_account_journal
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_zatca_otp_wizard__journal_id
+msgid "Journal"
+msgstr "دفتر اليومية"
+
+#. module: nf_zatca_integration
+#: model:ir.model,name:nf_zatca_integration.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: nf_zatca_integration
+#: model:ir.model,name:nf_zatca_integration.model_account_move_line
+msgid "Journal Item"
+msgstr "عنصر اليومية"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid "Journal could not be onboarded"
+msgstr "تعذر تجهيز دفتر اليومية"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_account_journal_form_nf
+msgid ""
+"Journal could not be onboarded. Please make sure the Company "
+"VAT/Identification Number are correct."
+msgstr ""
+"تعذّر إدخال الدفتر. يُرجى التأكد من صحة رقم ضريبة القيمة المضافة/رقم تعريف الشركة."
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid "Journal onboarded with ZATCA successfully"
+msgstr "تم دمج المجلة مع ZATKA بنجاح"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid "Journal re-onboarded with ZATCA successfully"
+msgstr "تم إعادة دمج المجلة مع ZATKA بنجاح"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_zatca_otp_wizard__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_zatca_otp_wizard__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث بتاريخ"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_account_journal__nf_zatca_latest_submission_hash
+msgid "Latest Submission Hash"
+msgstr "تشفير آخر عملية إرسال"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.external_layout_standard_zatca
+msgid "Logo"
+msgstr "الشعار"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__res_partner__nf_zatca_additional_identification_scheme__mls
+msgid "MLSD License"
+msgstr "رخصة وزارة الموارد البشرية و التنمية الاجتماعية"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__res_partner__nf_zatca_additional_identification_scheme__mom
+msgid "Momra License"
+msgstr "رخصة وزارة الشؤون البلدية و القروية والإسكان"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.ubl_21_CreditNoteType_zatca
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.ubl_21_DebitNoteType_zatca
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.ubl_21_InvoiceType_zatca
+msgid "N/A"
+msgstr "غير منطبق"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__res_partner__nf_zatca_additional_identification_scheme__nat
+msgid "National ID"
+msgstr "الهوية الوطنية"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.sa_partner_address_form
+msgid "Neighborhood"
+msgstr "الحي"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid "Neighborhood for the Buyer is required on Standard Invoices"
+msgstr "الحي الخاص بالمشتري مطلوب في الفواتير القياسية"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid "Neighborhood for the Seller is required on Standard Invoices"
+msgstr "الحي الخاص بالبائع مطلوب في الفواتير القياسية"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_res_company__nf_zatca_api_mode
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_res_config_settings__nf_zatca_api_mode
+msgid "Nf Zatca Api Mode"
+msgstr "وضع واجهة برمجة تطبيقات Zatka"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_res_company__nf_zatca_building_number
+msgid "Nf Zatca Building Number"
+msgstr "رقم مبنى زاتكا"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_account_journal__nf_zatca_csr
+msgid "Nf Zatca Csr"
+msgstr "Zatka CSR"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_res_company__nf_zatca_plot_identification
+msgid "Nf Zatca Plot Identification"
+msgstr "تحديد قطعة أرض زاتكا"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_zatca_otp_wizard__nf_zatca_otp
+msgid "OTP"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model:ir.actions.act_window,name:nf_zatca_integration.zatca_otp_wizard_act_window
+msgid "OTP request for CSID"
+msgstr "طلب OTP لـ CSID"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,help:nf_zatca_integration.field_zatca_otp_wizard__nf_zatca_otp
+msgid ""
+"OTP required to get a CCSID. Can only be acquired through the Fatoora "
+"portal."
+msgstr ""
+"مطلوب رمز OTP للحصول على CCSID. يمكن الحصول عليه فقط من خلال بوابة Fatoora."
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_account_journal_form_nf
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_company_form
+msgid "Onboard Journal"
+msgstr "مجلة على متن الطائرة"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_account_journal_form_nf
+msgid "Onboard the Journal by completing each step"
+msgstr "انضم إلى المجلة من خلال إكمال كل خطوة"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_account_journal__nf_zatca_csr_errors
+msgid "Onboarding Errors"
+msgstr "أخطاء التجهيز"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.res_config_settings_view_form_nf_zatca
+msgid ""
+"Once you change the submission mode to <strong>Production</strong>, you cannot change it anymore.\n"
+"                            Be very careful, as any invoice submitted to ZATCA in Production mode will be accounted for\n"
+"                            and might lead to <strong>Fines &amp; Penalties</strong>."
+msgstr ""
+"بمجرد تغيير وضع الإرسال إلى <strong>الإنتاج</strong>، لن تتمكن من تغييره بعد الآن.\n كن حذرًا للغاية، حيث سيتم احتساب أي فاتورة يتم إرسالها إلى ZATCA في وضع الإنتاج\n وقد تؤدي إلى غرامات وعقوبات."
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_ir_attachment.py:0
+msgid ""
+"Oops! The invoice PDF(s) are linked to a validated EDI document and cannot "
+"be deleted according to ZATCA rules: %s"
+msgstr ""
+"عفواً! ملفات PDF الخاصة بالفواتير مرتبطة بوثيقة EDI مُعتمدة، ولا يُمكن حذفها وفقًا لقواعد ZATKA: %s"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid ""
+"Oops! The journal is stuck. Please submit the pending invoices to ZATCA and "
+"try again."
+msgstr ""
+"عفواً! السجلّ مُعطّل. يُرجى إرسال الفواتير المُعلّقة إلى ZATKA والمحاولة مُجدّداً."
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__res_partner__nf_zatca_additional_identification_scheme__oth
+msgid "Other ID"
+msgstr "معرف آخر"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_account_journal__nf_zatca_production_csid_certificate_id
+msgid "PCSID Certificate"
+msgstr "PCSID شهادة"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_account_journal__nf_zatca_production_csid_json
+msgid "PCSID JSON"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_zatca_otp_wizard__nf_zatca_renewal
+msgid "PCSID Renewal"
+msgstr "تجديد PCSID"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.ubl_21_CreditNoteType_zatca
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.ubl_21_DebitNoteType_zatca
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.ubl_21_InvoiceType_zatca
+msgid "PIH"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.external_layout_standard_zatca
+msgid ""
+"Page:\n"
+"                    <span class=\"page\"/>\n"
+"                    of\n"
+"                    <span class=\"topage\"/>"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__res_partner__nf_zatca_additional_identification_scheme__pas
+msgid "Passport ID"
+msgstr "معرف جواز السفر"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "Phone"
+msgstr ""
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_move.py:0
+msgid ""
+"Please make sure that the invoice company matches the journal company on all"
+" invoices you wish to confirm"
+msgstr ""
+"يرجى التأكد من أن الشركة المرتبطة بالفاتورة تطابق الشركة المرتبطة بالدفتر "
+"المحاسبي في جميع الفواتير التي ترغب في تأكيدها."
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid "Please, generate a CSR before requesting a CCSID"
+msgstr "يرجى إنشاء CSR قبل طلب CCSID"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid ""
+"Please, make a request to obtain the Compliance CSID and Production CSID "
+"before sending documents to ZATCA"
+msgstr ""
+"يرجى إنشاء طلب للحصول على CSID للامتثال وCSID للإنتاج قبل إرسال المستندات "
+"إلى زاتكا"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid ""
+"Please, make sure all the following fields have been correctly set on the "
+"Company:%(fields)s"
+msgstr ""
+"يُرجى التأكد من أن الحقول التالية قد تم إعدادها بشكل صحيح في "
+"الشركة:%(fields)s "
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid "Please, set a valid OTP to be used for Onboarding"
+msgstr "يرجى إعداد كلمة سر لمرة واحدة صالحة ليتم استخدامها للتجهيز"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.zatca_otp_wizard_view_form_nf
+msgid ""
+"Please, set the OTP you received from ZATCA in the input below then "
+"validate."
+msgstr ""
+"من فضلك، قم بتعيين OTP الذي تلقيته من ZATKA في الإدخال أدناه ثم قم بالتحقق منه."
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_res_partner__nf_zatca_plot_identification
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_res_users__nf_zatca_plot_identification
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.sa_partner_address_form
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_company_form
+msgid "Plot Identification"
+msgstr "معرّف قطعة الأرض"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid ""
+"Product Name\n"
+"                                    <br/>\n"
+"                                    <span class=\"product\">تفاصيل السلع أو\n"
+"                                        الخدمات\n"
+"                                    </span>"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__res_company__nf_zatca_api_mode__prod
+msgid "Production"
+msgstr "الإنتاج"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,help:nf_zatca_integration.field_account_journal__nf_zatca_production_csid_json
+msgid ""
+"Production CSID data received from the Production CSID API in dumped json "
+"format"
+msgstr ""
+"بيانات CSID للإنتاج التي تم استلامها من الواجهة البرمجية لـCSID الإنتاج "
+"بصيغة json"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid ""
+"Production certificate has expired, please renew the PCSID before proceeding"
+msgstr "لقد انتهت مدة صلاحية شهادة الإنتاج. يرجى تجديد PCSID قبل الاستمرار"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.ubl_21_CreditNoteType_zatca
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.ubl_21_DebitNoteType_zatca
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.ubl_21_InvoiceType_zatca
+msgid "QR"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid ""
+"Quantity\n"
+"                                    <br/>\n"
+"                                    <span class=\"qty\">الكمية</span>"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_account_journal_form_nf
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_company_form
+msgid "Re-Onboard"
+msgstr "إعادة الصعود على متن الطائرة"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_account_move_reversal_inherit_nf_zatca
+msgid "Reason"
+msgstr "سبب"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_account_journal_form_nf
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_company_form
+msgid "Renew Production CSID"
+msgstr "تجديد إنتاج CSID"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.zatca_otp_wizard_view_form_nf
+msgid "Request"
+msgstr "طلب"
+
+#. module: nf_zatca_integration
+#: model:ir.model,name:nf_zatca_integration.model_zatca_otp_wizard
+msgid "Request ZATCA OTP"
+msgstr "طلب ZATKA OTP"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_account_journal_form_nf
+msgid ""
+"Request a Compliance Certificate (CCSID)\n"
+"                                    <i class=\"fa fa-check text-success ms-1\" invisible=\"not nf_zatca_compliance_csid_json\" groups=\"base.group_system\"/>"
+msgstr ""
+"طلب شهادة الامتثال (CCSID)\n"
+"                                    <i class=\"fa fa-check text-success ms-1\" invisible=\"not nf_zatca_compliance_csid_json\" groups=\"base.group_system\"/>"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_account_journal_form_nf
+msgid ""
+"Request a Production Certificate (PCSID)\n"
+"                                    <i class=\"fa fa-check text-success ms-1\" invisible=\"not nf_zatca_production_csid_json\" groups=\"base.group_system\"/>"
+msgstr ""
+"طلب شهادة الإنتاج (PCSID)\n"
+"                                    <i class=\"fa fa-check text-success ms-1\" invisible=\"not nf_zatca_production_csid_json\" groups=\"base.group_system\"/>"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_company_form
+msgid "Request for CCSID"
+msgstr "طلب CCSID"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_company_form
+msgid "Request for PCSID"
+msgstr "طلب الحصول على PCSID"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__res_partner__nf_zatca_additional_identification_scheme__sag
+msgid "Sagia License"
+msgstr "رخصة وزارة الاستثمار"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__res_company__nf_zatca_api_mode__sandbox
+msgid "Sandbox"
+msgstr ""
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_move_send.py:0
+msgid "Send to Zatca"
+msgstr "إرسال إلى زاتكا"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_account_journal__nf_zatca_serial_number
+msgid "Serial Number"
+msgstr "الرقم التسلسلي"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid "Server returned an unexpected error: %(error)s"
+msgstr "حدث خطأ غير متوقع في الخادم: %(error)s "
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.res_config_settings_view_form_nf_zatca
+msgid "Set whether the system should use the Production API"
+msgstr "قم بذلك ما إذا كان يجب استخدام واجهة برمجة التطبيقات تمامًا."
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.arabic_english_invoice
+msgid "Simplified Tax Invoice"
+msgstr "الفاتورة الضريبية المبسطة"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__res_company__nf_zatca_api_mode__preprod
+msgid "Simulation (Pre-Production)"
+msgstr "المحاكاة (قبل الإنتاج)"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,help:nf_zatca_integration.field_account_journal__nf_zatca_compliance_checks_passed
+msgid "Specifies if the Compliance Checks have been completed successfully"
+msgstr "يحدد ما إذا كان قد تم إكمال فحوصات الامتثال بنجاح أم لا"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,help:nf_zatca_integration.field_res_company__nf_zatca_api_mode
+#: model:ir.model.fields,help:nf_zatca_integration.field_res_config_settings__nf_zatca_api_mode
+msgid "Specifies which API the system should use"
+msgstr "يحدد نظام الواجهة البرمجية الذي يجب استخدامه"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid "State / Country subdivision"
+msgstr "المحافظة / التقسيمات الدولية"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.sa_partner_address_form
+msgid "State..."
+msgstr "المحافظة..."
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.sa_partner_address_form
+msgid "Street"
+msgstr "الشارع"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid ""
+"Subtotal (Excl.vat)\n"
+"                                    <br/>\n"
+"                                    <span class=\"sub_total\">المجموع (شامل ضريبة\n"
+"                                        القيمة المضافة)\n"
+"                                    </span>"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model:ir.model,name:nf_zatca_integration.model_account_tax
+msgid "Tax"
+msgstr "الضريبة"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid ""
+"Tax Amount\n"
+"                                    <br/>\n"
+"                                    <span class=\"amount\">مبلغ الضريبة</span>"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid ""
+"Tax Amount\n"
+"                                    <br/>\n"
+"                                    <span class=\"tax\">المبلغ الخاضع للضريبة\n"
+"                                    </span>"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,help:nf_zatca_integration.field_account_tax__nf_zatca_exemption_reason_code
+msgid "Tax Exemption Reason Code (ZATCA)"
+msgstr "كود سبب الإعفاء (زاتكا)"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__res_partner__nf_zatca_additional_identification_scheme__tin
+msgid "Tax Identification Number"
+msgstr "رقم التعريف الضريبي"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.arabic_english_invoice
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "Tax Invoice"
+msgstr "فاتورة الضريبة"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid ""
+"Tax Rate\n"
+"                                    <br/>\n"
+"                                    <span class=\"tax_rate\">نسبة الضريبة</span>"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.external_layout_standard_zatca
+msgid "Tel:"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,help:nf_zatca_integration.field_account_journal__nf_zatca_csr
+msgid ""
+"The Certificate Signing Request that is submitted to the Compliance API"
+msgstr "طلب توقيع الشهادة المرسل إلى الواجهة البرمجية للامتثال"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid ""
+"The Production CSID is still valid. You can only renew it once it has "
+"expired."
+msgstr ""
+"لا يزال CSID الإنتاج صالحاً. يمكنك تجديده مرة واحدة فقط بمجرد انتهاء تاريخ "
+"صلاحيته."
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_account_journal_form_nf
+msgid "The Production certificate is valid until"
+msgstr "شهادة الإنتاج صالحة حتى"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,help:nf_zatca_integration.field_account_journal__nf_zatca_production_csid_validity
+msgid "The date on which the certificate expires (UTC)"
+msgstr "تاريخ انتهاء صلاحية الشهادة (UTC)"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_move.py:0
+msgid ""
+"The invoice was accepted by ZATCA, but returned warnings. Please, check the "
+"response below:"
+msgstr ""
+"تم قبول الفاتورة من قِبَل زاتكا، ولكن ظهرت تحذيرات. يرجى إلقاء نظرة على الرد"
+" أدناه:"
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_move.py:0
+msgid "The invoice was rejected by ZATCA. Please, check the response below:"
+msgstr "تم رفض الفاتورة من قِبَل زاتكا. يرجى التحقق من الرد أدناه:"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,help:nf_zatca_integration.field_res_company__nf_zatca_private_key_id
+msgid "The private key used to generate the CSR and obtain certificates"
+msgstr "المفتاح الخاص المستخدَم لإنشاء CSR والحصول على الشهادات"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "Total Taxable Amount (Excl. VAT)"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "Total VAT"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model:ir.model,name:nf_zatca_integration.model_account_edi_xml_ubl_21_zatca
+msgid "UBL 2.1 (ZATCA)"
+msgstr "UBL 2.1 (زاتكا)"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,help:nf_zatca_integration.field_account_journal__nf_zatca_serial_number
+msgid ""
+"Unique Serial Number automatically filled when the journal is onboarded"
+msgstr "الرقم التسلسلي الفريد يتم تعبئته تلقائيًا عند إعداد دفتر اليومية"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid ""
+"Unit Price\n"
+"                                    <br/>\n"
+"                                    <span class=\"price\">سعر الوحدة</span>"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,help:nf_zatca_integration.field_account_bank_statement_line__nf_zatca_uuid
+#: model:ir.model.fields,help:nf_zatca_integration.field_account_move__nf_zatca_uuid
+msgid "Universally unique identifier of the Invoice"
+msgstr "المعرف الفريد عالمياً للفاتورة"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_account_bank_statement_line__nf_zatca_invoice_signature
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_account_move__nf_zatca_invoice_signature
+msgid "Unsigned XML Signature"
+msgstr "توقيع XML غير مسند"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.zatca_otp_wizard_view_form_nf
+msgid "Use an OTP to request for a CSID"
+msgstr "استخدم OTP لطلب CSID"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,help:nf_zatca_integration.field_zatca_otp_wizard__nf_zatca_renewal
+msgid ""
+"Used to decide whether we should call the PCSID renewal API or the CCSID API"
+msgstr ""
+"يتم استخدامه لتحديد ما إذا كان يجب علينا استدعاء واجهة برمجة تطبيقات تجديد PCSID أو واجهة برمجة تطبيقات CCSID"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "VAT Number"
+msgstr ""
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_edi_format.py:0
+msgid ""
+"VAT is required when Identification Scheme is set to Tax Identification "
+"Number"
+msgstr ""
+"ضريبة القيمة المضافة مطلوبة عندما يتم إعداد خطة التعريف كرقم التعريف الضريبي"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__account_tax__nf_zatca_exemption_reason_code__vatex-sa-29
+msgid ""
+"VATEX-SA-29 Financial services mentioned in Article 29 of the VAT "
+"Regulations."
+msgstr ""
+"VATEX-SA-29 الخدمات المالية المذكورة في القانون 29 في لوائح ضريبة القيمة "
+"المضافة."
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__account_tax__nf_zatca_exemption_reason_code__vatex-sa-29-7
+msgid ""
+"VATEX-SA-29-7 Life insurance services mentioned in Article 29 of the VAT."
+msgstr ""
+"VATEX-SA-29-7 خدمات التأمين على الحياة المذكورة في القانون 29 لضريبة القيمة "
+"المضافة."
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__account_tax__nf_zatca_exemption_reason_code__vatex-sa-30
+msgid ""
+"VATEX-SA-30 Real estate transactions mentioned in Article 30 of the VAT "
+"Regulations."
+msgstr ""
+"VATEX-SA-30 المعاملات العقارية المذكورة في القانون 30 في لوائح ضريبة القيمة "
+"المضافة."
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__account_tax__nf_zatca_exemption_reason_code__vatex-sa-32
+msgid "VATEX-SA-32 Export of goods."
+msgstr "VATEX-SA-32 تصدير البضائع."
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__account_tax__nf_zatca_exemption_reason_code__vatex-sa-33
+msgid "VATEX-SA-33 Export of Services."
+msgstr "VATEX-SA-33 تصدير الخدمات."
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__account_tax__nf_zatca_exemption_reason_code__vatex-sa-34-1
+msgid "VATEX-SA-34-1 The international transport of Goods."
+msgstr "VATEX-SA-34-1 الشحن الدولي للبضائع."
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__account_tax__nf_zatca_exemption_reason_code__vatex-sa-34-2
+msgid "VATEX-SA-34-2 The international transport of Passengers."
+msgstr "VATEX-SA-34-2 المواصلات الدولية للركاب."
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__account_tax__nf_zatca_exemption_reason_code__vatex-sa-34-3
+msgid ""
+"VATEX-SA-34-3 Services directly connected and incidental to a Supply of "
+"international passenger transport."
+msgstr ""
+"VATEX-SA-34-3 الخدمات المتصلة مباشرة وعرضاً بوسيلة مواصلات الركاب الدولية."
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__account_tax__nf_zatca_exemption_reason_code__vatex-sa-34-4
+msgid "VATEX-SA-34-4 Supply of a qualifying means of transport."
+msgstr "VATEX-SA-34-4 التزويد بوسائل نقل مؤهلة."
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__account_tax__nf_zatca_exemption_reason_code__vatex-sa-34-5
+msgid ""
+"VATEX-SA-34-5 Any services relating to Goods or passenger transportation, as"
+" defined in article twenty five of these Regulations."
+msgstr ""
+"VATEX-SA-34-5 أي خدمة متعلقة بنقل الركاب أو البضائع، كما هو محدد في القانون "
+"خمسة وعشرين في تلك اللوائح."
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__account_tax__nf_zatca_exemption_reason_code__vatex-sa-35
+msgid "VATEX-SA-35 Medicines and medical equipment."
+msgstr "VATEX-SA-35 الأدوية والمعدات الطبية."
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__account_tax__nf_zatca_exemption_reason_code__vatex-sa-36
+msgid "VATEX-SA-36 Qualifying metals."
+msgstr "VATEX-SA-36 المعادن المؤهلة."
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__account_tax__nf_zatca_exemption_reason_code__vatex-sa-edu
+msgid "VATEX-SA-EDU Private education to citizen."
+msgstr "VATEX-SA-EDU تعليم خاص للمواطن."
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__account_tax__nf_zatca_exemption_reason_code__vatex-sa-hea
+msgid "VATEX-SA-HEA Private healthcare to citizen."
+msgstr "VATEX-SA-HEA رعاية صحية خاصة للمواطن."
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields.selection,name:nf_zatca_integration.selection__account_tax__nf_zatca_exemption_reason_code__vatex-sa-oos
+msgid "VATEX-SA-OOS Not subject to VAT."
+msgstr "VATEX-SA-OOS غير خاضعة لضريبة القيمة المضافة. "
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.external_layout_standard_zatca
+msgid "Vat Number:"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "Vendor Bill"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "Vendor Credit Note"
+msgstr ""
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid "Warnings:"
+msgstr "التحذيرات:"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.res_config_settings_view_form_nf_zatca
+msgid ""
+"You can select the API used for submissions down below. There are three modes available: Sandbox, Pre-Production and Production.\n"
+"                            Once you have selected the correct API, you can start the Onboarding process by going to the Journals and checking the options under the ZATCA tab."
+msgstr ""
+"يمكنك اختيار واجهة برمجة التطبيقات (API) المُستخدمة لإرسال الأبحاث أدناه. تتوفر ثلاثة أوضاع: بيئة الاختبار، ومرحلة ما قبل الإنتاج، ومرحلة الإنتاج. بعد اختيار واجهة برمجة التطبيقات المناسبة، يمكنك بدء عملية التسجيل بالذهاب إلى "المجلات" وتحديد الخيارات ضمن علامة تبويب "ZATKA"."
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_ir_attachment.py:0
+msgid ""
+"You can't unlink an attachment being an EDI document refused by the "
+"government."
+msgstr ""
+"لا يمكنك إلغاء ربط المرفق باعتباره مستند EDI تم رفضه من قبل الحكومة."
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_res_company.py:0
+msgid ""
+"You cannot change the ZATCA Submission Mode once it has been set to "
+"Production"
+msgstr "لا يمكنك تغيير وضع تسليم زاتكا بمجرد أن يتم تعيينه إلى الإنتاج "
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/wizard/nf_zatca_otp_wizard.py:0
+msgid "You need to provide an OTP to be able to request a CCSID"
+msgstr "عليك تقديم كلمة مرور لمرة واحدة قبل طلب CCSID "
+
+#. module: nf_zatca_integration
+#. odoo-python
+#: code:addons/nf_zatca_integration/models/nf_account_journal.py:0
+msgid "You need to request the CCSID first before you can proceed"
+msgstr "عليك طلب CCSID أولاً قبل الاستمرار"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_account_journal_form_nf
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_company_form
+msgid "ZATCA"
+msgstr "زاتكا"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.res_config_settings_view_form_nf_zatca
+msgid "ZATCA E-Invoicing Settings"
+msgstr "إعدادات الفوترة الإلكترونية لـ ZATKA"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_res_company__nf_zatca_private_key_id
+msgid "ZATCA Private key"
+msgstr "المفتاح الخاص لزاتكا"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_account_journal__nf_zatca_chain_sequence_id
+msgid "ZATCA account.move chain sequence"
+msgstr "تسلسل سلسلة account.move لزاتكا"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_account_bank_statement_line__nf_zatca_chain_index
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_account_move__nf_zatca_chain_index
+msgid "ZATCA chain index"
+msgstr "مؤشر سلسلة زاتكا"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.res_config_settings_view_form_nf_zatca
+msgid "ZATCA specific settings for Saudi eInvoicing"
+msgstr "إعدادات خاصة بـ ZATCA للفوترة الإلكترونية في السعودية"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.sa_partner_address_form
+msgid "ZIP"
+msgstr "الرمز البريدي"
+
+#. module: nf_zatca_integration
+#: model:ir.model.fields,field_description:nf_zatca_integration.field_res_company__journal_ids
+msgid "Zatca Onboarding Journals"
+msgstr "مذكرات التوجيه في زاتكا"
+
+#. module: nf_zatca_integration
+#: model:ir.actions.report,name:nf_zatca_integration.account_zatca_invoice
+msgid "Zatca VAT Invoice"
+msgstr "فاتورة ضريبة القيمة المضافة زاتكا"
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_company_form
+msgid "e.g. شركتي"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.view_company_form
+msgid "e.g. مدينة"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.export_sa_zatca_ubl_extensions
+msgid "not(//ancestor-or-self::cac:AdditionalDocumentReference[cbc:ID='QR'])"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.export_sa_zatca_ubl_extensions
+msgid "not(//ancestor-or-self::cac:Signature)"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.export_sa_zatca_ubl_extensions
+msgid "not(//ancestor-or-self::ext:UBLExtensions)"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.export_sa_zatca_ubl_extensions
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.ubl_21_CreditNoteType_zatca
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.ubl_21_DebitNoteType_zatca
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.ubl_21_InvoiceType_zatca
+msgid "urn:oasis:names:specification:ubl:dsig:enveloped:xades"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.export_sa_zatca_ubl_extensions
+msgid "urn:oasis:names:specification:ubl:signature:1"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.export_sa_zatca_ubl_extensions
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.ubl_21_CreditNoteType_zatca
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.ubl_21_DebitNoteType_zatca
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.ubl_21_InvoiceType_zatca
+msgid "urn:oasis:names:specification:ubl:signature:Invoice"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid ""
+"إجمالي\n"
+"                                    المبلغ\n"
+"                                    الخاضع للضريبة (غير شامل ضريبة القيمة\n"
+"                                    المضافة)"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "إشعار خصم المسودة"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "إشعار خصم ملغاة"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "إشعار دائن"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "إشعار مدين"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid ""
+"اجمالي\n"
+"                                    المبلغ المستحق"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "اسم العميل"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "التاريخ"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "الرقم الضريبي"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.external_layout_standard_zatca
+msgid "الرقم الضريبي:"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "العنوان"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "رقم التواصل"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "فاتورة المورد"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.arabic_english_invoice
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "فاتورة ضريبية"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.arabic_english_invoice
+msgid "فاتورة ضريبية مبسطة"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "فاتورة ملغاة"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid ""
+"مجموع\n"
+"                                    ضريبة القيمة المضافة"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.report_zatca_invoice_template
+msgid "مسودة فاتورة"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.external_layout_standard_zatca
+msgid "معرف الشركة:"
+msgstr ""
+
+#. module: nf_zatca_integration
+#: model_terms:ir.ui.view,arch_db:nf_zatca_integration.external_layout_standard_zatca
+msgid "هاتف:"
+msgstr ""

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_pos_weight_volume_view_pos_order_line" model="ir.ui.view">
+        <field name="name">pos.order.line.list</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" ></field>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='products']//list//field[@name='discount']" position="after" >
+                <field name="nf_weight" ></field>
+                <field name="nf_total_weight" ></field>
+                <field name="nf_volume" ></field>
+                <field name="nf_total_volume"></field>
+            </xpath>
+            <xpath expr="//page[@name='products']//group[hasclass('oe_subtotal_footer')]//field[@name='amount_total']" position="after">
+                <field name="nf_order_total_volume" readonly="1"></field>
+                <field name="nf_order_total_weight" readonly="1"></field>
+            </xpath>
+        </field>
+    </record>
+</odoo>

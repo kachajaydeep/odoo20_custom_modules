@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem
+        id = "nf_brand_product"
+        name = "Product Brand"
+        action = "nf_product_brands.nf_product_brand_action"
+        parent = "sale.product_menu_catalog"
+        sequence = "20"
+    />
+</odoo>

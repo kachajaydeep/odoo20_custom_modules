@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id='template' xml:space='preserve'>
+    <t t-name="nf_pos_toppings.ToppingsPopup" >
+        <t t-if="this.state.toppings.length">
+            <Dialog class='modal-dialog' contentClass="'nf-combo-toppings-popup'">
+                <t t-set-slot="header">
+                    <h4 class="modal-title title" t-out="this.props.product_obj.display_name" />
+                    <button type="button" class="btn-close" t-on-click="() => this.closePopup()" aria-label="Close"></button>
+                </t>
+                <div t-foreach="this.state.toppings" t-as="topping" t-key="topping.id">
+                    <h3 class="me-auto mb-3" t-out="topping.name"></h3>
+    
+                    <div class="product-list d-grid gap-1">
+                        <div t-foreach="topping.product_topping_ids" t-as="product" t-key="product.id" class="m-2" >
+                        <t t-set="product_id" t-value="product.id"></t>
+                        <t t-set="model_product" t-value="this.pos.models['product.product'].get(product_id)"></t>
+                            <input type="radio" class="position-absolute"
+                                t-attf-name="product_id-{{product.id}}"
+                                t-attf-id="product_id-{{product.id}}"
+                                t-attf-value="{{product.id}}"
+                                t-model.proxy="this.state.toppings_obj[product.id]"
+                                t-att-class="{ 'selected': this.state.products_obj[product.id] != 0}"/>
+    
+                            <label t-attf-for="product_id-{{product.id}}"  class="combo-item d-block h-100 w-100 rounded cursor-pointer transition-base">
+                                <ProductCard name="product.display_name"
+                                    class="'flex-column h-100 border'"
+                                    productId="model_product.id"
+                                    product="product"
+                                    color="product.color || product.pos_categ_ids?.at(-1)?.color"
+                                    imageUrl="this.pos.config.show_product_images and this.getProductImage(model_product)"
+                                    onClick="(ev) => this.onClickProduct({ model_product, product }, ev)"
+                                 />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+    
+                <t t-set-slot="footer">
+                    <button class="button highlight confirm btn btn-lg btn-primary"
+                        t-on-click="() => this.confirm(this.state.products_obj)">
+                            Add to order
+                    </button>
+                    <button class="button cancel btn btn-lg btn-secondary" t-on-click="() => this.closePopup()">
+                            Discard
+                    </button>
+                </t>
+            </Dialog>
+        </t>
+    </t>
+
+</templates> 

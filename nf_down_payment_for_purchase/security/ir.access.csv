@@ -1,0 +1,2 @@
+id,name,model_id,group_id/id,operation,domain
+nf_down_payment_for_purchase.access_purchase_advance_payment_bill,access_purchase_advance_payment_bill,purchase.advance.payment.bill,base.group_user,cru

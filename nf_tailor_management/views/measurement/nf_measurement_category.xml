@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_nf_measurement_category_form" model="ir.ui.view">
+        <field name="name">nf.measurement.category.form</field>
+        <field name="model">nf.measurement.category</field>
+        <field name="arch" type="xml">
+            <form string="Measurement Category">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="active" invisible='1' />
+                        <field name="gender" widget="radio" />
+                    </group>
+                    <notebook>
+                        <page name="Measurement lines" string="Measurement Information">
+                            <field name="measurement_line_ids" editable="bottom">
+                                <list editable="bottom" >
+                                    <field name="measurement_type_id"></field>
+                                    <field name="size" ></field>
+                                    <field name="note"></field>
+                                </list>
+                            </field>
+                        </page>
+                        <page name="Designs" string="Designs" >
+                            <field name="measurement_design_ids" >
+                                <list editable="bottom" >
+                                    <field name="design_type"></field>
+                                    <field name="design_image" domain="[('design_id', '=', design_type)]" ></field>
+                                    <field name="image_1920" widget="image" class="oe_avatar"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+     <record id="nf_measurement_category_search_view" model="ir.ui.view">
+        <field name="name">measurement.search.category</field>
+        <field name="model">nf.measurement.category</field>
+        <field name="arch" type="xml">
+            <search string="Search Measurement Category">
+                <field name="name" string="Name" filter_domain="[('name', 'ilike', self)]"/>
+                <filter string="Male" domain="[('gender', '=', 'male')]" name="gender"/>
+                <filter string="Female" domain="[('gender', '=', 'female')]" name="gender"/>
+                <filter string="Other" domain="[('gender', '=', 'other')]" name="gender"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_nf_measurement_category_tree" model="ir.ui.view">
+        <field name="name">nf.measurement.category.tree</field>
+        <field name="model">nf.measurement.category</field>
+        <field name="arch" type="xml">
+            <list string="Measurement Categories">
+                <field name="name" />
+                <field name="gender" />
+            </list>
+        </field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="pos_orderline_receipt_inherit" inherit_id="point_of_sale.pos_orderline_receipt">
+            <xpath expr="//td[contains(@class, 'price-incl')]" position="after">
+                <td class="text-end w-10 top">
+                    <t t-if="line.pricelist_id != 2">
+                        <span style="font-size:24px" class="price-incl text-muted ms-2 mt-3 font-monospace">
+                            <del>
+                                <t t-out="line.nf_line_total"/>
+                            </del>
+                        </span>
+                    </t>
+                </td>
+            </xpath>
+        </template>
+
+        <template id="nf_pos_orderline_pricelist.pos_orderline_receipt_information" inherit_id="point_of_sale.pos_orderline_receipt_information">
+            <xpath expr="//div[contains(@class, 'no-discount-price')]" position="before">
+                <t t-if="line.pricelist_id != 2 and !line.combo_parent_id">
+                    <div class="ms-2" style="font-style:italic;">
+                        - <t t-out="line.pricelist_name"/>
+                    </div>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>

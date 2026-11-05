@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="fleet_rent_advance_payment_form_invoice" model="ir.ui.view">
+        <field name="name">Fleet Rent Advance Patment Invoice .form</field>
+        <field name="model">fleet.rent.advance.payment</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="journal_id" />
+                            <field name="today_date"/>
+                        </group>
+                        <group>
+                            <field name="amount_total"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Create Payment" type="object" name="create_fleet_rent_advance_payment" class="btn btn-primary" ></button>
+                    <button string="Cancel" special="cancel"></button>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_fleet_rent_wizard_advacne_payment"  model="ir.actions.act_window">  
+        <field name="name">Advance Patment View</field>
+        <field name="res_model">fleet.rent.advance.payment</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_hide_cost_price_group" model="res.groups">
+        <field name="name">Hide Cost Price</field>
+    </record>
+
+    <record id="nf_hide_sale_price_group" model="res.groups">
+        <field name="name">Hide Sale Price</field>
+    </record>
+</odoo>

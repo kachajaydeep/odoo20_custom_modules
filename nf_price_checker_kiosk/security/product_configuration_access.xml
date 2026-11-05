@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.module.category" id="module_category_nf_price_checker_kiosk">
+           <field name="name">Price Checker</field>
+           <field name="sequence">5</field>
+       </record>
+       <record id="nf_price_checker_kiosk_privilege" model="res.groups.privilege">
+           <field name="name">Price Checker Kiosk</field>
+           <field name="category_id" ref="base.module_category_master_data"></field>
+        </record>
+        
+        <record id="nf_checker_user" model="res.groups">
+            <field name="name">Price Checker Employee</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="privilege_id" ref="nf_price_checker_kiosk_privilege"/>
+        </record>
+        
+        <record id="nf_checker_manager" model="res.groups">
+            <field name="name">Price Checker Manager</field>
+            <field name="privilege_id" ref="nf_price_checker_kiosk_privilege"></field>
+            <field name="implied_ids" eval="[(4,ref('nf_checker_user'))]"/>
+            <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+        </record>
+    </data>
+</odoo>

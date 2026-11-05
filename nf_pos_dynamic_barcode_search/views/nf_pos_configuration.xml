@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id='nf_dynamic_barcode_config_view_inherit' model='ir.ui.view'>
+        <field name='name'>nf.pos.dynamic.barcode.config.view.inherit</field>
+        <field name='model'>pos.config</field>
+        <field name='inherit_id' ref='point_of_sale.pos_config_view_form' />
+        <field name='arch' type='xml'>
+            <xpath expr="//field[@name='barcode_nomenclature_id']" position='after'>
+                <div class='col-12 col-lg-6 col-md-6 col-xl-6 o_setting_box'>
+                    <!-- <h2>Discounted Price Configuration</h2> -->
+                    
+                    <div class=''>
+                        <label for='_nf_enable_dynamic_barcode_search' />
+                        <field name='_nf_enable_dynamic_barcode_search' />
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <template id="nf_price_checker_kiosk_template" name="Price Checker Kiosk">
+        &lt;!DOCTYPE html&gt;
+        <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+            <head>
+                <meta charset="UTF-8"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+                <title>Price Checker Kiosk</title>
+                <t t-call-assets="web.assets_frontend" t-js="false"/>
+                <t t-call-assets="web.assets_frontend" t-css="false"/>
+                <t t-call-assets="nf_price_checker_kiosk.assets_kiosk" t-js="false"/>
+                <t t-call-assets="nf_price_checker_kiosk.assets_kiosk" t-css="false"/>
+                <script>
+                    odoo.__session_info__ = <t t-out="json.dumps(request.env['ir.http'].get_frontend_session_info())" />
+                </script>
+            </head>
+            <body class="o_price_checker_kiosk">
+            </body>
+        </html>
+   </template>
+</odoo>

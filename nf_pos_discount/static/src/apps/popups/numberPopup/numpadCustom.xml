@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name='nf_pos_discount.NumberPopup' t-inherit='point_of_sale.NumberPopup' t-inherit-mode='extension'>
+        <xpath expr="//div[hasclass('justify-content-center')]" position="attributes">
+            <attribute name="t-attf-class"> {{ this.props.is_custom_discount ? 'nf_discount_popup' : '' }}</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('popup-input')]" position="before">
+            <div class="get-discount-type d-flex justify-content-evenly mb-2 p-2" t-if="this.customProps.is_custom_discount">
+                <div class="contenet d-flex">
+                    <label for="nf-price-discount">
+                        Price
+                    </label>
+
+                    <input
+                        id="nf-price-discount"
+                        type="radio"
+                        name="nf-discount"
+                        t-on-change="() => this.setType()"
+                        class="nf-price-discount ms-1"
+                    />
+                </div>
+                <div class="contenet d-flex">
+                    <label for="nf-percentage-discount">
+                        Percentage
+                    </label>
+
+                    <input
+                        id="nf-percentage-discount"
+                        type="radio"
+                        name="nf-discount"
+                        class="nf-price-discount ms-1"
+                        checked="checked"
+                    />
+                </div>
+            </div>
+        </xpath>
+    </t>
+</templates>

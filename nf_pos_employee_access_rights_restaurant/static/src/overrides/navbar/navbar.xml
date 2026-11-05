@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="nf_pos_employee_access_rights_restaurant.Navbar" t-inherit="point_of_sale.Navbar"
+       t-inherit-mode="extension">
+        <xpath expr="//DropdownItem[@onSelected='() => this.pos.editProduct()']" position="attributes">
+            <attribute name="t-if">this.pos.getCashier() and !this.pos.getCashier().nf_hide_create_product</attribute>
+        </xpath>
+        <xpath expr="//DropdownItem[@t-if = 'this.showEditPlanButton and this.pos.config.floor_ids.length']" position="attributes">
+            <attribute name="t-if">this.pos.getCashier() and !this.pos.getCashier().nf_hide_edit_plan</attribute>
+        </xpath>
+        <xpath expr="//DropdownItem[@onSelected='() => this.onSwitchButtonClick()']" position="attributes">
+            <attribute name="t-if">this.pos.router.currentScreen() == 'FloorScreen' and this.pos.getCashier() and !this.pos.getCashier().nf_hide_switch_floor_view</attribute>
+        </xpath>
+    </t>
+
+    <t t-name="nf_pos_employee_access_rights_restaurant.FloorScreen" t-inherit="pos_restaurant.FloorScreen" t-inherit-mode="extension">
+        <!-- this.pos.showEditPlanButton and !this.ui.isSmall -->
+
+        <xpath expr="//button[@t-if='this.pos.showEditPlanButton and !this.ui.isSmall']" position="attributes">
+            <attribute name="t-if">this.pos.getCashier() and !this.pos.getCashier().nf_hide_edit_plan</attribute>
+        </xpath>
+    </t>
+    
+</templates>

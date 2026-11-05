@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id='template' xml:space='preserve'>
+
+    <t t-name="nf_pos_theme_app.ProductScreen" t-inherit="point_of_sale.ProductScreen" t-inherit-mode="extension">
+        <xpath expr="//CategorySelector" position="after">
+            <div class="nf-list-view status-buttons d-flex flex-grow-1 align-items-center justify-content-start gap-2 flex-column flex-sm-row">
+                <div t-attf-class="{{ nf_state.nf_views == 'grid' ? 'nf-highlight-view' : '' }}" t-on-click="() => this.gridView()">
+                    <i class="fa fa-th-large" aria-hidden="true"></i>
+                </div>
+                <div t-attf-class="{{ nf_state.nf_views == 'list' ? 'nf-highlight-view' : '' }}" t-on-click="() => this.listView()">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                </div>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[hasclass('product-screen')]" position="inside">
+            <div t-attf-class="nf-control-buttons control-buttons py-2" style="order: 1;">
+                <ControlButtons showRemainingButtons="true" onClickMore.bind="displayAllControlPopup" close.bind="() => {}"/>
+            </div>
+        </xpath>
+
+        <xpath expr="//ProductCard/.." position="attributes">
+            <attribute name="t-att-class">{ 'nf-product-list': nf_state.nf_views == 'list' }</attribute>
+        </xpath>
+
+        <xpath expr="//ProductCard" position="replace">
+            <t t-if="nf_state.nf_views == 'list'">
+                <table class="w-100">
+                    <tbody>
+                        <tr style="font-size: 17px;font-weight: bold;">
+                            <th> Counter </th>
+                            <th> Product Image </th>
+                            <th> Product Name </th>
+                            <th> Product Internal Ref. </th>
+                            <th> Sale Price </th>
+                        </tr>
+                        <ProductListView t-foreach="this.pos.productsToDisplay" t-as="product" t-key="product.id" productId="product.id" product="product" class="pos.nfproductViewMode" name="getProductName(product)" color="product.pos_categ_ids?.at(-1)?.color" price="product.getPrice(this.pos.getOrder().pricelist,1)" imageUrl="pos.config.show_product_images and this.getProductImage(product)" onClick.bind="() => this.addProductToOrder(product)" default_code="product.default_code" productCartQty="this.state.quantityByProductTmplId[product.id]" onProductInfoClick.bind="() => this.onProductInfoClick(product)" />
+                    </tbody>
+                </table>
+            </t>
+            <t t-else="">
+                <ProductCard t-foreach="this.pos.productsToDisplay" t-as="product" t-key="product.id" productId="product.id" product="product" class="pos.productViewMode" name="getProductName(product)" color="product.pos_categ_ids?.at(-1)?.color" imageUrl="pos.config.show_product_images and this.getProductImage(product)" onClick.bind="() => this.addProductToOrder(product)" productCartQty="this.state.quantityByProductTmplId[product.id]" onProductInfoClick.bind="() => this.onProductInfoClick(product)" />
+            </t>
+        </xpath>
+    </t>
+</templates>

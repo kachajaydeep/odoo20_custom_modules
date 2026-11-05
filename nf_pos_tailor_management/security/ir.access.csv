@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain,
+nf_pos_tailor_management.access_pos_order_line,nf_pos_tailor_management_pos_order_line,pos.order.line,base.group_user,crud,
+nf_pos_tailor_management.access_nf_bom_component,nf_pos_tailor_management_nf_bom_component,nf.bom.component,base.group_user,crud,
+nf_pos_tailor_management.access_nf_mrp_bom,access_nf_mrp_bom,nf.mrp.bom,base.group_user,crud,

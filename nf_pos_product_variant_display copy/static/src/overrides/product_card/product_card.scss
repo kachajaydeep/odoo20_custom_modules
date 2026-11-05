@@ -1,0 +1,22 @@
+.product {
+    .product-content {
+        flex-direction: column;
+    }
+
+    .nf-product-category-name {
+        font-size: 0.72rem;
+        font-weight: 500;
+        line-height: 1.2;
+        margin-top: 2px;
+        padding: 1px 6px;
+        border-radius: 20px;
+        background-color: rgba(var(--bs-primary-rgb, 13, 110, 253), 0.12);
+        color: var(--bs-primary, #0d6efd);
+        display: inline-block;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        align-self: flex-start;
+    }
+}

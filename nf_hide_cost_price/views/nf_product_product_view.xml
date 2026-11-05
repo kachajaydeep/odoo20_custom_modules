@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_product_product_hide_price_form_view" model="ir.ui.view">
+        <field name="name">Hide Product Product Price</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lst_price']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+            <xpath expr="//field[@name='standard_price']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_cost_price_group</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="nf_product_kanban_view" model="ir.ui.view">
+        <field name="name">Hide Product Product Price</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_kanban_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lst_price']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="nf_product_product_hide_price_tree_view" model="ir.ui.view">
+        <field name="name">Hide Product Product Price List View </field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_product_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lst_price']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+            <xpath expr="//field[@name='standard_price']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_cost_price_group</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="nf_product_product_stock_tree" model="ir.ui.view">
+        <field name="name">Hide Product Product Price List View </field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="stock.product_product_stock_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='avg_cost']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+            <xpath expr="//field[@name='total_value']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_cost_price_group</attribute>
+            </xpath>      
+        </field>
+    </record>
+
+    <record id="nf_product_combo_view_tree" model="ir.ui.view">
+        <field name="name">Hide Product Combo Price List View </field>
+        <field name="model">product.combo</field>
+        <field name="inherit_id" ref="product.product_combo_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='base_price']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

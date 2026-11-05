@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Point of Sale product search by vendor</title>
+
+        <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+
+        <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+
+    <body>
+        <section id='nf_header'>
+            <div class="container p-1 ">
+                <div class="nf-text-center text-center" style='margin: 2rem 0;'>
+                    <div class="row" style="align-items: center;">
+                        <div
+                            class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+                            <div>
+                                <img class="img-fluid" src="name_logo.png" />
+                            </div>
+                        </div>
+                        <div
+                            class="col-xl-8 mr-auto col-lg-8 col-md-8 col-sm-12 col-12">
+                            <div class="mt-4 d-flex flex-row-reverse">
+                                <div style="display:flex">
+                                    <div class="btn btn-lg btn-info"
+                                        style="padding: 10px 30px; background-color: #4c84ff; color: #fff; border-top-left-radius: 25px; border-bottom-right-radius: 25px; margin-right: 10px; text-transform: capitalize;">
+                                        Community
+                                    </div>
+                                    <div class="btn btn-lg btn-info"
+                                        style="padding: 10px 30px; background-color: #4c84ff; color: #fff; border-top-left-radius: 25px; border-bottom-right-radius: 25px; margin-right: 10px; text-transform: capitalize;">
+                                        Enterprise
+                                    </div>
+                                    <div class="btn btn-lg btn-info"
+                                        style="padding: 10px 30px; background-color: #4c84ff; color: #fff; border-top-left-radius: 25px; border-bottom-right-radius: 25px; margin-right: 10px; text-transform: capitalize;">
+                                        Odoo.Sh
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <hr />
+            </div>
+        </section>
+        <!-- heading  -->
+        <section id='nf_description'>
+            <div class="container">
+                <div class=" nf-description text-center"
+                    style="margin-top:100px; margin-bottom: 50px;">
+                    <div class="text-center"
+                        style="font-size: 40px; font-weight: 600; border-bottom: 6px double #222; width: fit-content; margin: 0px auto;">
+                        Point of sale product search by vendor </div>
+                    <div class="mt-5 mb-5">
+                        <p class="text-center"
+                            style="font-weight: 500; line-height: 30px; font-size: 18px; color: #333; margin: 10px 72px !important;">
+                            This feature allows POS users to filter and search
+                            products by vendor (supplier) directly within the
+                            POS interface, making it faster and easier to locate
+                            specific products sourced from particular vendors.
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id='nf_video'>
+                <div class="container">
+                    <div class="nf-video"
+                        style="margin-top:100px; margin-bottom: 50px;">
+                        <div class="text-center"
+                            style="font-size: 40px; font-weight: 600; border-bottom: 6px double #222; width: fit-content; margin: 0px auto; margin-bottom: 70px;">
+                            Related Video</div>
+                        <div class="row">
+                            <div class='col-md-3'></div>
+                            <div class="col-md-6 col-12 " style='left: 40px;'>
+                                <div class='text-center'>
+                                    <div
+                                        style="padding: 20px 30px; background-color: #ff4c54; border-radius: 20px;">
+                                        <a href="https://youtu.be/qe6no_CEues"
+                                            target="_blank"
+                                            style="text-decoration: none;">
+                                            <span class="fa fa-youtube-play"
+                                                style="color: #fff; vertical-align: middle; margin-right: 20px; font-size: 50px;"></span>
+                                            <span
+                                                style="color: #fff; font-weight: 500; vertical-align: middle; font-size: 23px;">
+                                                Click Here To Watch Video</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-3'></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id='nf_hot_feature'>
+                <div class="container">
+                    <div class="nf-hot-feature"
+                        style="margin-top:100px; margin-bottom: 50px;">
+                        <div class="text-center"
+                            style="font-size: 40px; font-weight: 600; border-bottom: 6px double #222; width: fit-content; margin: 0px auto; margin-bottom: 50px;">
+                            Hot Features</div>
+                        <div class="shadow-lg">
+                            <div class="row">
+                                <div class="col-md-6 mt-2 mb-2 col-12">
+                                    <div style="line-height: 50px;"
+                                        class="pl-3 pb-2 border-bottom">
+                                        <span class="fa fa-location-arrow"
+                                            style="color: #4c84ff; transform: rotate(50deg); font-size: 50px; vertical-align: middle; margin-right: 30px; border-radius: 100%;"></span>
+                                        <span
+                                            style="font-size: 20px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">
+                                            Filter product list based on
+                                            supplier name </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mt-2 mb-2 col-12">
+                                    <div style="line-height: 50px;"
+                                        class="pl-3 pb-2 border-bottom">
+                                        <span class="fa fa-location-arrow"
+                                            style="color: #4c84ff; transform: rotate(50deg); font-size: 50px; vertical-align: middle; margin-right: 30px; border-radius: 100%;"></span>
+                                        <span
+                                            style="font-size: 20px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">
+                                            Useful for businesses with multiple
+                                            suppliers</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mt-2 mb-2 col-12">
+                                    <div style="line-height: 50px;"
+                                        class="pl-3 pb-2 border-bottom">
+                                        <span class="fa fa-location-arrow"
+                                            style="color: #4c84ff; transform: rotate(50deg); font-size: 50px; vertical-align: middle; margin-right: 30px; border-radius: 100%;"></span>
+                                        <span
+                                            style="font-size: 20px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">
+                                            Easy handling of multi-vendor
+                                            products </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mt-2 mb-2 col-12">
+                                    <div style="line-height: 50px;"
+                                        class="pl-3 pb-2 border-bottom">
+                                        <span class="fa fa-location-arrow"
+                                            style="color: #4c84ff; transform: rotate(50deg); font-size: 50px; vertical-align: middle; margin-right: 30px; border-radius: 100%;"></span>
+                                        <span
+                                            style="font-size: 20px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">
+                                            Vendor filter in POS product screen
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section style="margin-top: 80px;">
+                <!-- Nav pills -->
+                <div class='container'>
+                    <ul class="nav nav-tabs justify-content-center"
+                        data-tabs="tabs" role="tablist"
+                        style="background-color: #fff;">
+                        <li class="nav-item" style="margin: 0px 10px;">
+                            <a class="nav-link active" data-bs-toggle="tab"
+                                href="#Features"
+                                style="padding: 10px 25px; border: 2px solid #4c84ff; border-top-right-radius: 25px; border-bottom-left-radius: 25px; font-size: 18px;">
+                                Features
+                            </a>
+                        </li>
+                        <li class="nav-item" style="margin: 0px 10px;">
+                            <a class="nav-link"
+                                style="padding: 10px 25px; border: 2px solid #4c84ff; border-top-right-radius: 25px; border-bottom-left-radius: 25px; font-size: 18px;"
+                                data-bs-toggle="tab" href="#Setup">Setup</a>
+                        </li>
+
+                        <li class="nav-item" style="margin: 0px 10px;">
+                            <a class="nav-link"
+                                style="padding: 10px 25px; border: 2px solid #4c84ff; border-top-right-radius: 25px; border-bottom-left-radius: 25px; font-size: 18px;"
+                                data-bs-toggle="tab"
+                                href="#Releases">Releases</a>
+                        </li>
+                        <!-- <li class="nav-item" style="margin: 0px 10px;">
+                    <a class="nav-link"
+                        style="padding: 10px 25px; border: 2px solid #4c84ff; border-top-right-radius: 25px; border-bottom-left-radius: 25px; font-size: 18px;"
+                        data-bs-toggle="tab" href="#faq">FAQ'S</a>
+                </li> -->
+                        <li class="nav-item" style="margin: 0px 10px;">
+                            <a class="nav-link"
+                                style="padding: 10px 25px; border: 2px solid #4c84ff; border-top-right-radius: 25px; border-bottom-left-radius: 25px; font-size: 18px;"
+                                data-bs-toggle="tab" href="#support">Support</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="Features" class="container tab-pane active">
+                            <br />
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="mt-3 mb-3 shadow-lg"
+                                        style="background: rgba(56, 132, 255, 0.2); padding: 15px 30px; border-radius: 10px;">
+                                        <span class="fa fa-location-arrow"
+                                            style="color: #4c84ff; transform: rotate(50deg); font-size: 35px; vertical-align: middle; margin-right: 20px; border-radius: 100%;"></span>
+                                        <span
+                                            style="font-size: 20px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">
+                                            Adds a vendor dropdown or filter in
+                                            the POS product view, allowing users
+                                            to narrow down product selection
+                                            quickly by supplier</span>
+                                    </div>
+                                    <div class="mt-3 mb-3 shadow-lg"
+                                        style="background: rgba(56, 132, 255, 0.2); padding: 15px 30px; border-radius: 10px;">
+                                        <span class="fa fa-location-arrow"
+                                            style="color: #4c84ff; transform: rotate(50deg); font-size: 35px; vertical-align: middle; margin-right: 20px; border-radius: 100%;"></span>
+                                        <span
+                                            style="font-size: 20px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">
+                                            Easily search and filter products in
+                                            the POS screen based on the selected
+                                            vendor/supplier, improving accuracy
+                                            and efficiency during sales
+                                            operations</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="Setup" class="container tab-pane fade">
+                            <section class="nft_setup">
+                                <div class="container">
+                                    <div clas="row">
+                                        <div
+                                            class="col-12 col-sm-12 col-lg-12 col-md-12 col-xl-12">
+                                            <div
+                                                style="margin: 40px; text-align: center;">
+                                                <p
+                                                    style="box-shadow: 4px 5px 33px 2px #8a7bc7; font-size: 20px;">
+
+                                                </p>
+                                                <div>
+                                                    <img
+                                                        style="box-shadow: 4px 5px 33px 2px grey;"
+                                                        src="ss/1.png"
+                                                        width="100%" />
+                                                </div>
+                                            </div>
+                                            <div
+                                                style="margin: 50px; text-align: center;">
+                                                <p
+                                                    style="box-shadow: 4px 5px 33px 2px #8a7bc7; font-size: 20px;">
+
+                                                </p>
+                                                <div>
+                                                    <img
+                                                        style="box-shadow: 4px 5px 33px 2px grey;"
+                                                        src="ss/2.png"
+                                                        width="100%" />
+                                                </div>
+                                            </div>
+                                            <div
+                                                style="margin: 50px; text-align: center;">
+                                                <p
+                                                    style="box-shadow: 4px 5px 33px 2px #8a7bc7; font-size: 20px;">
+
+                                                </p>
+                                                <div>
+                                                    <img
+                                                        style="box-shadow: 4px 5px 33px 2px grey;"
+                                                        src="ss/3.png"
+                                                        width="100%" />
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                style="margin: 50px; text-align: center;">
+                                                <p
+                                                    style="box-shadow: 4px 5px 33px 2px #8a7bc7; font-size: 20px;">
+
+                                                </p>
+                                                <div>
+                                                    <img
+                                                        style="box-shadow: 4px 5px 33px 2px grey;"
+                                                        src="ss/4.png"
+                                                        width="100%" />
+                                                </div>
+                                            </div>
+                                            <div
+                                                style="margin: 50px; text-align: center;">
+                                                <p
+                                                    style="box-shadow: 4px 5px 33px 2px #8a7bc7; font-size: 20px;">
+
+                                                </p>
+                                                <div>
+                                                    <img
+                                                        style="box-shadow: 4px 5px 33px 2px grey;"
+                                                        src="ss/5.png"
+                                                        width="100%" />
+                                                </div>
+                                            </div>
+                                            <div
+                                                style="margin: 50px; text-align: center;">
+                                                <p
+                                                    style="box-shadow: 4px 5px 33px 2px #8a7bc7; font-size: 20px;">
+
+                                                </p>
+                                                <div>
+                                                    <img
+                                                        style="box-shadow: 4px 5px 33px 2px grey;"
+                                                        src="ss/6.png"
+                                                        width="100%" />
+                                                </div>
+                                            </div>
+                                            <div
+                                                style="margin: 50px; text-align: center;">
+                                                <p
+                                                    style="box-shadow: 4px 5px 33px 2px #8a7bc7; font-size: 20px;">
+
+                                                </p>
+                                                <div>
+                                                    <img
+                                                        style="box-shadow: 4px 5px 33px 2px grey;"
+                                                        src="ss/7.png"
+                                                        width="100%" />
+                                                </div>
+                                            </div>
+                                            <div
+                                                style="margin: 50px; text-align: center;">
+                                                <p
+                                                    style="box-shadow: 4px 5px 33px 2px #8a7bc7; font-size: 20px;">
+
+                                                </p>
+                                                <div>
+                                                    <img
+                                                        style="box-shadow: 4px 5px 33px 2px grey;"
+                                                        src="ss/8.png"
+                                                        width="100%" />
+                                                </div>
+                                            </div>
+                                            <div
+                                                style="margin: 50px; text-align: center;">
+                                                <p
+                                                    style="box-shadow: 4px 5px 33px 2px #8a7bc7; font-size: 20px;">
+
+                                                </p>
+                                                <div>
+                                                    <img
+                                                        style="box-shadow: 4px 5px 33px 2px grey;"
+                                                        src="ss/9.png"
+                                                        width="100%" />
+                                                </div>
+                                            </div>
+                                            <div
+                                                style="margin: 50px; text-align: center;">
+                                                <p
+                                                    style="box-shadow: 4px 5px 33px 2px #8a7bc7; font-size: 20px;">
+
+                                                </p>
+                                                <div>
+                                                    <img
+                                                        style="box-shadow: 4px 5px 33px 2px grey;"
+                                                        src="ss/10.png"
+                                                        width="100%" />
+                                                </div>
+                                            </div>
+                                            <div
+                                                style="margin: 50px; text-align: center;">
+                                                <p
+                                                    style="box-shadow: 4px 5px 33px 2px #8a7bc7; font-size: 20px;">
+
+                                                </p>
+                                                <div>
+                                                    <img
+                                                        style="box-shadow: 4px 5px 33px 2px grey;"
+                                                        src="ss/11.png"
+                                                        width="100%" />
+                                                </div>
+                                            </div>
+                                            <div
+                                                style="margin: 50px; text-align: center;">
+                                                <p
+                                                    style="box-shadow: 4px 5px 33px 2px #8a7bc7; font-size: 20px;">
+
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div id="Releases" class="container tab-pane fade">
+                            <br />
+                            <div class="row">
+                                <div class="col-12">
+                                    <div
+                                        class="mt-3 mb-3 sh_content shadow rounded bg-white"
+                                        style="padding: 20px;">
+                                        <span class="fa fa-hand-o-right"
+                                            style="color: #4c84ff; font-size: 35px; vertical-align: middle; margin-right: 20px; border-radius: 100%;"></span>
+
+                                        <span
+                                            style="font-size: 20px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">Releases
+                                            on 16 Jun 2025</span>
+                                        <br />
+                                        <p
+                                            style="padding: 20px; padding-bottom: 0px;">
+                                            <span class="fa fa-arrow-right"
+                                                style="color: #4c84ff; font-size: 25px; vertical-align: middle; margin-right: 20px; border-radius: 100%;"></span>
+                                            <span class="badge mr-2"
+                                                style="background-color: #4c84ff !important; padding: 5px 15px; border-radius: 3px; color: #fff; font-size: 9px; text-transform: uppercase; font-weight: bold;">
+                                                Initial
+                                            </span>
+                                            <span
+                                                style="font-size: 17px; text-decoration: capitalize; font-weight: 500; vertical-align: middle;">
+                                                Version 18.0.1 | Initial
+                                                Realeased.</span>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="support" class="container tab-pane fade">
+                            <br />
+                            <div class="row shadow-lg"
+                                style="border-radius: 20px;">
+                                <div class="col-md-6 col-12 mt-3 mb-3">
+                                    <div
+                                        style="border: 2px solid #4c84ff; text-align: center; background: rgb(76 132 255 / 30%); padding: 20px 30px; border-radius: 15px;">
+                                        <a href="#"
+                                            style="text-decoration: none;"
+                                            target="_blank">
+                                            <span class="fa fa-envelope"
+                                                style="color: #4c84ff; font-size: 50px; vertical-align: middle; margin-right: 20px;"></span>
+                                            <span
+                                                style="font-size: 25px; vertical-align: middle; color: #4c84ff; font-weight: 600;">support@nextflow.in</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12 mt-3 mb-3">
+                                    <div
+                                        style="border: 2px solid #4c84ff; text-align: center; background: rgb(76 132 255 / 30%); padding: 20px 30px; border-radius: 15px;">
+                                        <a href="#"
+                                            style="text-decoration: none;"
+                                            target="_blank">
+                                            <span class="fa fa-phone"
+                                                style="color: #4c84ff; font-size: 50px; vertical-align: middle; margin-right: 20px;"></span>
+                                            <span
+                                                style="font-size: 25px; vertical-align: middle; color: #4c84ff; font-weight: 600;">
+                                                +91 7383203034</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <section id='nf_services'>
+                            <div class="container">
+                                <div class="nf-services"
+                                    style="margin-top:100px; margin-bottom: 50px;">
+                                    <div class="text-center"
+                                        style="font-size: 40px; font-weight: 600; border-bottom: 6px double #222; width: fit-content; margin: 0px auto; margin-bottom: 50px;">
+                                        Our Services</div>
+                                    <div class="row"
+                                        style="margin-top: 50px;">
+                                        <div
+                                            class="col-md-4 col-12 text-center">
+                                            <div>
+                                                <a href="#"
+                                                    style="text-decoration: none;"
+                                                    target="_blank">
+                                                    <img src="odoo-cust.png"
+                                                        class="img-fluid"
+                                                        style="height: 150px;" />
+                                                    <h3 class="mt-3"
+                                                        style="color: #4c84ff;">Odoo
+                                                        Customization</h3>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-md-4 col-12 text-center">
+                                            <div>
+                                                <a href="#"
+                                                    style="text-decoration: none;"
+                                                    target="_blank">
+                                                    <img src="support.jpg"
+                                                        class="img-fluid"
+                                                        style="height: 150px;" />
+                                                    <h3 class="mt-3"
+                                                        style="color: #4c84ff;">Help
+                                                        & Support</h3>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-md-4 col-12 text-center">
+                                            <div>
+                                                <a href="#"
+                                                    style="text-decoration: none;"
+                                                    target="_blank">
+                                                    <img
+                                                        src="maintanance.png"
+                                                        class="img-fluid"
+                                                        style="height: 150px;" />
+                                                    <h3 class="mt-3"
+                                                        style="color: #4c84ff;">Maintanance</h3>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section id='nf_multi-language'>
+                            <div class="container">
+                                <div class=" nf-multi-language text-center"
+                                    style="margin-top:100px; margin-bottom:50px;">
+                                    <div class="text-center"
+                                        style="font-size: 40px; font-weight: 600; border-bottom: 6px double #222; width: fit-content; margin: 0px auto; margin-bottom: 50px;">
+                                        Multi Language</div>
+                                    <div class="row"
+                                        class="margin-top:50px;">
+                                        <div
+                                            class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <div class="img"
+                                                style="text-align: center;">
+                                                <img class="rounded"
+                                                    src="eng.png"
+                                                    title="English"
+                                                    alt="english"
+                                                    style="margin: 10px 10px; border-radius: 0.25rem !important; height: 90px; margin-right: 20px; width: 90px;" />
+                                                <img class="rounded"
+                                                    src="ger.png"
+                                                    title="Germany"
+                                                    alt="germany"
+                                                    style="margin: 10px 10px; border-radius: 0.25rem !important; height: 90px; margin-right: 20px; width: 90px;" />
+                                                <img class="rounded"
+                                                    src="arb.png"
+                                                    title="Arab" alt="arab"
+                                                    style="margin: 10px 10px; border-radius: 0.25rem !important; height: 90px; margin-right: 20px; width: 90px;" />
+                                                <img class="rounded"
+                                                    src="chi.png"
+                                                    title="Chinese"
+                                                    alt="Chinese"
+                                                    style="margin: 10px 10px; margin-left: -10px; border-radius: 0.25rem !important; height: 110px; width: 115px;" />
+                                                <img class="rounded"
+                                                    src="fre.png"
+                                                    title="French"
+                                                    alt="French"
+                                                    style="margin: 10px 10px; margin-left: -20px; border-radius: 0.25rem !important; height: 110px; width: 115px;" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section id='nf_related'>
+                            <div class="container">
+                                <div class=" nf-related text-center"
+                                    style="margin-top:100px; margin-bottom: 100px;">
+                                    <div class="text-center"
+                                        style="font-size: 40px; font-weight: 600; border-bottom: 6px double #222; width: fit-content; margin: 0px auto; margin-bottom: 50px;">
+                                        Suggested Apps</div>
+                                    <div class="row"
+                                        style="margin-top: 50px;">
+                                        <div
+                                            class="col-md-4 col-12 text-center">
+                                            <div>
+                                                <a
+                                                    href="https://apps.odoo.com/apps/modules/15.0/POSCustomerCreationOffline/"
+                                                    style="text-decoration: none;"
+                                                    target="_blank">
+                                                    <img
+                                                        src="pos_create_customer.png"
+                                                        class="img-fluid"
+                                                        style="object-fit: cover;" />
+                                                    <h3 class="mt-3"
+                                                        style="font-variant: small-caps; color: #4c84ff;">
+                                                        POS Customer
+                                                        Creation </h3>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-md-4 col-12 text-center">
+                                            <div>
+                                                <a
+                                                    href="https://apps.odoo.com/apps/modules/15.0/nf_pos_receipt_a4_size/"
+                                                    style="text-decoration: none;"
+                                                    target="_blank">
+                                                    <img
+                                                        src="pos_a4_size_receipt.png"
+                                                        class="img-fluid"
+                                                        style=" object-fit: cover;" />
+                                                    <h3 class="mt-3"
+                                                        style="font-variant: small-caps; color: #4c84ff;">
+                                                        POS A4 size Receipt
+                                                    </h3>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-md-4 col-12 text-center">
+                                            <div>
+                                                <a
+                                                    href="https://apps.odoo.com/apps/modules/14.0/nf_pos_price_to_weight/"
+                                                    style="text-decoration: none;"
+                                                    target="_blank">
+                                                    <img
+                                                        src="pos_price_to_weight.png"
+                                                        class="img-fluid"
+                                                        style="object-fit: cover;" />
+                                                    <h3 class="mt-3"
+                                                        style="font-variant: small-caps; color: #4c84ff;">
+                                                        Pos Price to Weight
+                                                    </h3>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </body>
+
+                </html>

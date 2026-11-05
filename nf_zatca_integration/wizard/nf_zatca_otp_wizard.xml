@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="zatca_otp_wizard_view_form_nf" model="ir.ui.view">
+        <field name="name">zatca.otp.wizard.form.nf</field>
+        <field name="model">zatca.otp.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Use an OTP to request for a CSID">
+                Please, set the OTP you received from ZATCA in the input below then validate.
+                <group>
+                    <field name="journal_id" invisible="1"/>
+                    <field name="nf_zatca_renewal" invisible="1"/>
+                    <field name="nf_zatca_otp"/>
+                </group>
+                <footer>
+                    <button string="Request" type="object" name="validate" class="btn btn-primary" data-hotkey="q"/>
+                    <button string="Cancel" special="cancel" data-hotkey="x" class="btn btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="zatca_otp_wizard_act_window" model="ir.actions.act_window">
+        <field name="name">OTP request for CSID</field>
+        <field name="res_model">zatca.otp.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

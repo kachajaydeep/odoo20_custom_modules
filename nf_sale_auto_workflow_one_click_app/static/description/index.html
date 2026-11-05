@@ -1,0 +1,2337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sale Auto Workflow</title>
+    <meta name="description" content="Automate the entire Odoo sales process with the Sale Auto Workflow module. Use the One Click Sale button to automatically confirm sale orders, validate deliveries, create invoices, and register payments with configurable workflow settings.">
+    <meta name="keywords" content="odoo sale auto workflow one click sale odoo  odoo sales automation  auto confirm sale order odoo auto validate delivery odoo  auto create invoice odoo  auto register payment odoo  odoo automatic sales process  odoo sales workflow automation  sale order automation odoo  automatic invoicing odoo  odoo sales process automation  odoo one click workflow odoo sales order automation odoo auto payment invoice validate payment create invoice create sale order one click create button sale order create">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap 5 Bundle JS (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+</head>
+
+<body style="margin:0; background-color:#ffffff; font-family:'Segoe UI',sans-serif; color:#2d3748;">
+
+    <!-- HERO -->
+    <section style="margin-top: 40px;">
+        <div class="container-fluid" style="max-width:1400px; margin:auto;">
+            <div class="row align-items-center gx-5 gy-5" style="background-color:#ffffff; border-radius:30px;">
+
+                <!-- LEFT CONTENT -->
+                <div class="col-lg-6">
+
+                    <!-- TOP BADGE -->
+                    <div class="d-inline-flex align-items-center"
+                        style="background-color:#f3f0ff; color:#5a35d9; padding:8px 16px; border-radius:30px; font-size:14px; font-weight:700;">
+                        <div
+                            style="width:8px; height:8px; background-color:#6c47ff; border-radius:50%; margin-right:10px;">
+                        </div>
+                        Odoo Module · Sale Auto Workflow | One Click Sale
+                    </div>
+
+                    <!-- MAIN HEADING -->
+                    <h1
+                        style="font-size:clamp(38px,5vw,45px); font-weight:800; line-height:1.1; color:#4b5563; margin-top:28px; margin-bottom:24px; letter-spacing:-1px;">
+                        Sale Auto Workflow | One Click Sale
+                    </h1>
+
+                    <!-- DESCRIPTION -->
+                    <p
+                        style="font-size:17px; color:#8a94a6; line-height:1.9; font-weight:600; max-width:620px; margin-bottom:35px;">
+                        <b>Sale Auto Workflow </b>helps automate the complete sales process in Odoo with a single click. This module introduces a <b>One Click Sale</b> button in the Sale Order that automatically performs the configured workflow such as confirming the sale order, validating delivery, creating invoices, and registering payments.
+                    </p>
+
+                    <!-- FEATURE BOXES -->
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="position-relative shadow overflow-hidden"
+                                style="background-color:#ffffff; border-radius:20px; padding:24px;">
+                                <div class="position-absolute top-0 start-0 bottom-0"
+                                    style="background-color: #5a35d9; width: 0.40rem;">
+                                </div>
+                                <h6 style="color:#5a35d9; font-size:15px; font-weight:800; margin-bottom:12px;">
+                                    ✔ One Click Sale Processing
+                                </h6>
+
+                                <p style="margin:0; color:#8a94a6; font-size:14px; font-weight:600; line-height:1.7;">
+                                    Process the entire sales workflow with a single click using the “One Click Sale” button directly from the Sale Order.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="position-relative shadow overflow-hidden"
+                                style="background-color:#ffffff; border-radius:20px; padding:24px;">
+                                <div class=" position-absolute top-0 start-0 bottom-0"
+                                    style="background-color: #5a35d9; height: 100%; width: 0.40rem;"></div>
+                                <h6 style="color:#5a35d9; font-size:15px; font-weight:800; margin-bottom:12px;">
+                                    ✔ Automatic Sale Order Confirmation
+                                </h6>
+
+                                <p style="margin:0; color:#8a94a6; font-size:14px; font-weight:600; line-height:1.7;">
+                                    Automatically confirms the Sale Order without manual intervention when the workflow is triggered.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAGS -->
+                    <div style="margin-top:35px;">
+                        <p
+                            style="font-size:12px; color:#9aa3b2; font-weight:700; text-transform:uppercase; letter-spacing:.12em; margin-bottom:14px;">
+                            Available for
+                        </p>
+
+                        <div class="d-flex flex-wrap">
+                            <span
+                                style="background-color:#f3f0ff; color:#5a35d9; border:1px solid #d9d0ff; padding:10px 18px; border-radius:30px; font-size:12px; font-weight:700;">
+                                Community
+                            </span>
+
+                            <span
+                                style="background-color:#fff7ed; color:#b45309; border:1px solid #fed7aa; padding:10px 18px; border-radius:30px; font-size:12px; font-weight:700;">
+                                Enterprise
+                            </span>
+
+                            <span
+                                style="background-color:#f0fdf4; color:#166534; border:1px solid #bbf7d0; padding:10px 18px; border-radius:30px; font-size:12px; font-weight:700;">
+                                Odoo.sh
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT IMAGE -->
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="shadow overflow-hidden" style="position:relative; border-radius:30px;">
+
+                        <img src="partner_img.png" alt="Business Team" class="img-fluid w-100"
+                            style="height:520px; object-fit:contain; display:block; border-radius: 24px; background-color: #dce0e9;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO SECTION -->
+    <section>
+        <div class="mt-5" style="padding: 30px 15px;background-color:#f0f3fe;">
+            <div class="text-center mb-3 mb-md-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    See it in action
+                </p>
+
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#50545d;text-transform: capitalize;">
+                    Watch the full walkthrough
+                </h2>
+            </div>
+
+            <div class="row mt-5 d-flex justify-content-center">
+                <div class="col-lg-5 mb-4">
+                    <div
+                        style="background-color:#ffffff;border-radius:24px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.06);">
+                        <div style="border-radius:24px; overflow:hidden; width:100%; height:320px;">
+                            <div class="media_iframe_video"
+                                style="width:100%; height:100%; border-radius: 24px 24px 0 0;"
+                                data-oe-expression="//www.youtube.com/embed/c_snf96FBFA?rel=0&amp;autoplay=0">
+                                <div class="css_editable_mode_display"></div>
+                                <div class="media_iframe_video_size"></div>
+                                <iframe frameborder="0" allowfullscreen="allowfullscreen"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    src="https://www.youtube.com/embed/c_snf96FBFA?rel=0&autoplay=0"
+                                    aria-label="Media video" style="width:100%; height:100%; border:0; display:block;">
+                                </iframe>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center p-2 mb-2 align-items-center">
+                            <div class="d-flex flex-wrap">
+                                <span class="mb-2"
+                                    style="background-color:#f0eeff; color:#5a35d9; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600;margin:0px 5px;">&#127916;
+                                    HD Quality
+                                </span>
+
+                                <span class="mb-2"
+                                    style="background-color:#f0eeff; color:#5a35d9; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600;margin:0px 5px;">&#128266;
+                                    With Narration
+                                </span>
+
+                                <span class="mb-2"
+                                    style="background-color:#f0eeff; color:#5a35d9; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600;margin:0px 5px;">&#128247;
+                                    Step-by-step
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DESCRIPTION -->
+                <div class="col-12 col-lg-6 p-3">
+                    <h3
+                        style="font-family:'Sora',sans-serif; font-size:clamp(1.1rem,4vw,1.4rem); font-weight:700; color:#0d0d0d; margin-bottom:1rem;text-transform: capitalize;color: #50545d;">
+                        Everything you need to know in one video
+                    </h3>
+
+                    <p
+                        style="color:#666; font-size:clamp(13px,3vw,14px); line-height:1.8; margin-bottom:1rem;font-size: 16px;color: #a6aeb9;margin-top: 11px;font-weight: 600;">
+                        This automation significantly reduces manual work and speeds up the order processing cycle.
+                        The module also provides configuration options to enable or disable specific workflow steps based on business requirements.
+                    </p>
+
+                    <a href="https://youtu.be/c_snf96FBFA" target="_blank" class="mb-lg-0"
+                        style="background-color:white;display:inline-flex; align-items:center;border:1.5px solid #ddd; border-radius:9px; padding:10px 20px; font-size:13px; font-weight:600; color:#1a1a1a; text-decoration:none; margin-bottom: 10px;">
+                        <img src="youtube.png" alt="Youtube Image" style="margin-right: 10px;font-size: 20px;"
+                            height="20" width="20">
+                        Watch On YouTube
+                    </a>
+
+                    <a href="https://www.youtube.com/@nextflowit" target="_blank" class="ms-lg-2 mb-lg-0"
+                        style="background-color:white;display:inline-flex; align-items:center;border:1.5px solid #ddd; border-radius:9px; padding:10px 20px; font-size:13px; font-weight:600; color:#1a1a1a; text-decoration:none; margin-bottom: 10px;">
+                        <img src="youtube.png" alt="Youtube Image" style="margin-right: 10px;font-size: 20px;"
+                            height="20" width="20">
+                        Explore Our Channel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support -->
+    <section>
+        <div class="container-fluid" style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #f5f4f0;">
+            <div class="text-center mb-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    For Help</p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#50545d;">
+                    Contact Us</h2>
+            </div>
+            <div class="row mt-5">
+
+                <!-- SUPPORT CARD -->
+                <div class="col-lg-4 mb-4">
+                    <div class="shadow" style="background-color:#ffffff; border-radius:22px; padding:30px;">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h3
+                                            style="font-size:20px; font-weight:700; margin-bottom:20px; color: #505450;">
+                                            Quick Support
+                                        </h3>
+                                        <p
+                                            style="line-height:1.8; margin-bottom:20px; color:#8a94a6; line-height:1.9; font-weight:600;">
+                                            Contact us directly on WhatsApp for quick support.
+                                        </p>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <img src="./support/whatsapp.png" alt="Whatsapp Image" class="img-fluid">
+                                    </div>
+                                </div>
+                                <h5 class="text-center" style="color:#25D366; font-weight:700;">
+                                    &#128172;
+                                    +91 73832 03034
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EMAIL CARD -->
+                <div class="col-lg-4 mb-4">
+                    <div class="shadow" style="background-color:#ffffff; border-radius:22px; padding:30px;">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h3
+                                            style="font-size:20px; font-weight:700; margin-bottom:20px; color: #505450;">
+                                            Electronic Support
+                                        </h3>
+
+                                        <p
+                                            style="line-height:1.8; margin-bottom:20px; color:#8a94a6; line-height:1.9; font-weight:600;">
+                                            Raise ticket for a demo on below given email addres.
+                                        </p>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <img src="./support/email.png" alt="Email Image" class="img-fluid">
+                                    </div>
+                                </div>
+
+                                <h6 class="text-center" style="color:#4c51bf; font-weight:600;">
+                                    &#128232;
+                                    <a href="mailto:support@nextflow.in" style="color:#4c51bf; text-decoration:underline;">support@nextflow.in</a>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CENTER CARD -->
+                <div class="col-lg-4 mb-4">
+                    <div class="shadow" style="background-color:#ffffff; border-radius:22px; padding:30px;">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h3
+                                            style="font-size:20px; font-weight:700; margin-bottom:20px; color: #505450;">
+                                            Support Center
+                                        </h3>
+
+                                        <p
+                                            style="line-height:1.8; margin-bottom:20px; color:#8a94a6; line-height:1.9; font-weight:600;">
+                                            Our support team is ready to assist you anytime.
+                                        </p>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <img src="./support/contact.png" alt="Contact Image" class="img-fluid">
+                                    </div>
+                                </div>
+
+                                <h5 class="text-center" style="color:#3182ce; font-weight:700;">
+                                    &#128241;
+                                    +91 73832 03034
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOT FEATURE -->
+    <section id="hot_feature" style="padding:3rem 0; border-top:2px solid #eae9e4;">
+        <div class="container-fluid">
+            <div class="text-center mb-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    What&apos;s inside</p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#50545d; margin-bottom:12px;">
+                    Hot Features</h2>
+            </div>
+            <div class="row g-2 g-md-3 mb-2 mb-md-3">
+                <div class="col-12 col-md-8">
+                    <div
+                        style="background-color:#ffffff; border-radius:18px; border:1px solid #e8e8e4; border-top: 3px solid #5a35d9; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:16px;">
+                            <div>
+                                &#128230;
+                            </div>
+                        </div>
+                        <h3
+                            style="font-family:'Sora',sans-serif; font-size:23px; font-weight:700; margin-bottom:8px; color:#50545d;">
+                            Auto Delivery Validation
+                        </h3>
+                        <p
+                            style="color:#777; font-size:16px; line-height:1.7; margin-bottom:16px;color: #a6aeb9; margin-top: 11px; font-weight: 600; padding-right: 40px;">
+                            Automatically validates the Delivery Order and handles backorders when products are partially available.
+                        </p>
+                        <div class="d-flex flex-wrap">
+                            <span class="mb-2 me-2"
+                                style="background-color:#f5f4f0; color:#555; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Delivery Validation
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div
+                        style="background-color:#ffffff; border-radius:18px; border:1px solid #e8e8e4; border-top: 3px solid #3b82f6; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:16px;">
+                            &#129534;
+                        </div>
+                        <h3
+                            style="font-family:'Sora',sans-serif; font-size:23px; font-weight:700; margin-bottom:8px; color:#505450;">
+                            Automatic Invoice Creation
+                        </h3>
+                        <p
+                            style="color:#a6aeb9; font-size:16px; line-height:1.7; margin-bottom:16px;margin-top: 11px; font-weight: 600; padding-right: 40px;">
+                            Automatically generates and posts the customer invoice after delivery validation.
+                        </p>
+                        <div class="d-flex flex-wrap">
+                            <span class="mb-2 me-2"
+                                style="background-color:#f0fdf4; color:#166534; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Invoice Creation
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-2 g-md-3 mb-2 mb-md-3">
+                <div class="col-12 col-md-4">
+                    <div
+                        style="background-color:#ffffff; border-radius:18px; border:1px solid #e8e8e4; border-top: 3px solid #58fb63; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:16px;">
+                            &#128179;
+                        </div>
+                        <h3
+                            style="font-family:'Sora',sans-serif; font-size:23px; font-weight:700; margin-bottom:8px; color:#505450;">
+                            Automatic Payment Create
+                        </h3>
+                        <p
+                            style="color:#a6aeb9; font-size:16px; line-height:1.7; margin-bottom:16px;margin-top: 11px; font-weight: 600; padding-right: 40px;">
+                            Create payments automatically using configured payment methods like Cash or Bank directly from the Sale Order.
+                        </p>
+                        <div class="d-flex flex-wrap">
+                            <span class="mb-2 me-2"
+                                style="background-color:#f0fdf4; color:#166534; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Payment Create
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8">
+                    <div
+                        style="background-color:#ffffff; border-radius:18px; border:1px solid #e8e8e4; border-top: 3px solid #e75dab; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:16px;">
+                            <div>
+                                &#128073;
+                            </div>
+                        </div>
+                        <h3
+                            style="font-family:'Sora',sans-serif; font-size:23px; font-weight:700; margin-bottom:8px; color:#50545d;">
+                            One Click Sale Button
+                        </h3>
+                        <p
+                            style="color:#777; font-size:16px; line-height:1.7; margin-bottom:16px;color: #a6aeb9; margin-top: 11px; font-weight: 600; padding-right: 40px;">
+                            Adds a "One Click Sale" button in the Sale Order to process the entire sales workflow instantly.
+                        </p>
+                        <div class="d-flex flex-wrap">
+                            <span class="mb-2 me-2"
+                                style="background-color:#f5f4f0; color:#555; font-size:11px; padding:4px 10px; border-radius:20px; font-weight: 600;">
+                                Sale Button
+                            </span>
+                        </div>
+                    </div>
+                </div>                
+            </div>                   
+        </div>
+    </section>
+
+    <!-- FOOTER BUTTONS -->
+    <section style="top:0px; opacity: 0.8;">
+        <div class="main-div">
+            <div class="d-flex justify-content-center px-3 py-3 mb-3  position-sticky top-0" style="z-index: 100;">
+                <div id="navScroll" class="d-flex justify-content-around flex-nowrap overflow-auto shadow"
+                    style="border-radius:50px; scrollbar-width:thin; -webkit-overflow-scrolling: touch;">
+
+                    <ul class="nav nav-pills d-inline-flex align-items-center p-lg-3 p-sm-0"
+                        style="background-color:#ffffff; margin:0; list-style:none; flex-wrap:nowrap; min-width:max-content;">
+
+                        <li class="nav-item p-sm-0"
+                            style="border-radius:40px; padding:5px 10px; cursor:pointer; margin-right:6px; white-space:nowrap;">
+                            <a class="nav-link active" href="#DetailedFeature" data-bs-toggle="tab"
+                                style="text-decoration:none; border: none; font-size:14px; font-weight:600; font-family:'DM Sans',sans-serif;">
+                                Features
+                            </a>
+                        </li>
+
+                        <li class="nav-item p-sm-0"
+                            style="border-radius:40px; padding:5px 10px; cursor:pointer; margin-right:6px; white-space:nowrap; flex-shrink:0;">
+                            <a class="nav-link" href="#Screenshots" data-bs-toggle="tab"
+                                style="text-decoration:none;border: none; font-size:14px; font-weight:600; font-family:'DM Sans',sans-serif;">
+                                Screenshots
+                            </a>
+                        </li>
+
+                        <li class="nav-item p-sm-0"
+                            style="border-radius:40px; padding:5px 10px; cursor:pointer; margin-right:6px; white-space:nowrap; flex-shrink:0;">
+                            <a class="nav-link" href="#Changelog" data-bs-toggle="tab"
+                                style="text-decoration:none; border: none; font-size:14px; font-weight:600; font-family:'DM Sans',sans-serif;">
+                                Changelog
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-content">
+
+                <!-- DETAILE FEATURE TAB -->
+                <div id="DetailedFeature" class="mb-5 tab-pane active">
+                    <div class="container-fluid"
+                        style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #f5f4f0;">
+                        <div class="text-center mb-5">
+                            <p
+                                style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                                Deep dive</p>
+                            <h2
+                                style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:700; color:#0d0d0d;">
+                                Features in detail</h2>
+                        </div>
+
+                        <div class="row g-4">
+                            <!-- Card 1 -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#9989;
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Automatic Sale Order Confirmation
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">                                        
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#16a34a; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                                Automatically confirms the sale order when the One Click Sale button is triggered.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#9881;
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Configurable Workflow Settings
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        Users can enable or disable workflow steps from configuration:
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#808eb6; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                                Enable One Click Sale
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#808eb6; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                                Validate Delivery
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#808eb6; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                                Create Invoice
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#808eb6; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                                Register Payment
+                                        </li>                                            
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 3 -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#128230;
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Automatic Delivery Validation
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">                                        
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#66ba61; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                                Automatically validates the delivery order and processes stock transfers.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#128260;
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Automatic Backorder Creation
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">                                        
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#cd9461; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                                If products are partially available, the system automatically creates a backorder.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 5 -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#129534;
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Automatic Invoice Creation
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">                                        
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#ff58cd; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                                Creates a customer invoice automatically after delivery validation.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 6 -->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#128221;
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Automatic Invoice Posting
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">                                        
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#fc506a; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                                Generated invoices are automatically validated (posted).
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 7-->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#128176;
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Payment Method Selection in Sale Order
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        Users can select payment method directly from Sale Order:                                      
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#2f17e5; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                                Bank
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#2f17e5; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                                Cash
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 8-->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#128202;
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Payment Amount Tracking
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        Sale Order includes fields to track:
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#e18433; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                                Total Amount
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#e18433; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                                Remaining Amount
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 9-->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#128200;
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Automatic Invoice Payment Status Update
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        Invoice status updates automatically:
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:rgb(209, 221, 80); font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                                Paid
+                                        </li>
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:rgb(209, 221, 80); font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                                Partially Paid
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Card 10-->
+                            <div class="col-12 col-md-6">
+                                <div class="shadow"
+                                    style="background-color:#ffffff; border-radius:16px; padding:1.5rem; height:100%;">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3"
+                                            style="font-size: 30px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                            &#9889;
+                                        </div>
+                                        <div>
+                                            <h3
+                                                style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#0d0d0d; margin:0;">
+                                                Improves Sales Process Efficiency
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="d-flex flex-column p-0 m-0" style="list-style:none;">
+                                        <li class="d-flex align-items-start"
+                                            style="font-size:14px; color:#555; line-height:1.7;">
+                                            <span class="me-3"
+                                                style="color:#6616a3; font-size:20px; flex-shrink:0; margin-top:1px;">&#10003;</span>
+                                                Reduces manual work and speeds up the entire sales workflow.
+                                        </li>                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCREENSHOTS -->
+                <div id="Screenshots" class="tab-pane fade">
+                    <div class="container-fluid"
+                        style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #f5f4f0;">
+                        <div class="text-center mb-5">
+                            <p
+                                style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                                Visual walkthrough</p>
+                            <h2
+                                style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:700; color:#0d0d0d;">
+                                Screenshots</h2>
+                        </div>
+
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-lg-10 col-md-12" style="background-color: #f0eeff; border-radius: 10px;">
+                                <div class="tab-content">
+
+                                    <div id="ss-pos_seesion_close" class="tab-pane active">
+                                        <div class="mb-5">
+                                            <h4 class="pt-4"
+                                                style="font-family:'Sora',sans-serif; font-size:1.1rem; font-weight:700; color:#6c47ff; margin-bottom:20px; display:flex; align-items:center;">
+                                                <span
+                                                    style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:8px; font-size:16px; margin-right: 10px;">
+                                                    &#128073;
+                                                </span>
+                                                Sale Auto Workflow | One Click Sale
+                                            </h4>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="mb-4" style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <div class="text-center"><h1>It shows the One Click Sale configuration </h1></div>
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Go to Main Menu &rarr; Click "Sales"
+                                                        </p>
+                                                        <img src="ScreenShot/img.png" class="img-fluid rounded"
+                                                            alt="sale menu"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Sale order list view / Sales &rarr; Configuration &rarr; Click "Settings"
+                                                        </p>
+                                                        <img src="ScreenShot/img_1.png" class="img-fluid rounded"
+                                                            alt="sale list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Open Setting view / show Sale One Click Settings tab / "Enable One Click Sale" Boolean disable
+                                                        </p>
+                                                        <img src="ScreenShot/img_2.png" class="img-fluid rounded"
+                                                            alt="setting view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Sale order form view in "One Click Sale" button Invisible
+                                                        </p>
+                                                        <img src="ScreenShot/img_3.png" class="img-fluid rounded"
+                                                            alt="sale order view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            "Enable One Click Sale" Boolean Enable
+                                                        </p>
+                                                        <img src="ScreenShot/img_4.png" class="img-fluid rounded"
+                                                            alt="enable one click sale"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Sale order form view in "One Click Sale" button Visible / sale order status is "Sales Order"
+                                                        </p>
+                                                        <img src="ScreenShot/img_5.png" class="img-fluid rounded"
+                                                            alt="sale form view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <div class="text-center"><h1>One Click Sale : Validate Delivery workflow </h1></div>
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Configuration &rarr; Click "Settings"
+                                                        </p>
+                                                        <img src="ScreenShot/img_11.png" class="img-fluid rounded"
+                                                            alt="configuration"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Sale One Click Settings tab : Enable "Validate Delivery"
+                                                        </p>
+                                                        <img src="ScreenShot/img_8.png" class="img-fluid rounded"
+                                                            alt="configuration"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Create sale order form view open / sale order status is "Question" / and Button Click "One Click Sale"
+                                                        </p>
+                                                        <img src="ScreenShot/img_12.png" class="img-fluid rounded"
+                                                            alt="sale form view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Button Click "One Click Sale" / create Delivery / and Click "Delivery"
+                                                        </p>
+                                                        <img src="ScreenShot/img_13.png" class="img-fluid rounded"
+                                                            alt="sale form view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Delivery : open delivery list view open
+                                                        </p>
+                                                        <img src="ScreenShot/img_14.png" class="img-fluid rounded"
+                                                            alt="delivery view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Delivery : open delivery form view open / status is "Waiting" / product in quantity not available
+                                                        </p>
+                                                        <img src="ScreenShot/img_15.png" class="img-fluid rounded"
+                                                            alt="delivery view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Delivery : open delivery form view open / status is "Done" / product in quantity available
+                                                        </p>
+                                                        <img src="ScreenShot/img_16.png" class="img-fluid rounded"
+                                                            alt="delivery view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <div class="text-center"><h1>One Click Sale : Create Invoice workflow </h1></div>
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Configuration &rarr; Click "Settings"
+                                                        </p>
+                                                        <img src="ScreenShot/img_11.png" class="img-fluid rounded"
+                                                            alt="configuration"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Sale One Click Settings tab : Enable "Create Invoice"
+                                                        </p>
+                                                        <img src="ScreenShot/img_9.png" class="img-fluid rounded"
+                                                            alt="configuration"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Create sale order form view open / sale order status is "Question" / and Button Click "One Click Sale"
+                                                        </p>
+                                                        <img src="ScreenShot/img_17.png" class="img-fluid rounded"
+                                                            alt="sale order form view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Button Click "One Click Sale" / create "Delivery" and "Invoice"
+                                                        </p>
+                                                        <img src="ScreenShot/img_18.png" class="img-fluid rounded"
+                                                            alt="sale order form view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Delivery : delivery list view
+                                                        </p>
+                                                        <img src="ScreenShot/img_19.png" class="img-fluid rounded"
+                                                            alt="delivery list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Invoice : create invoice form view  / invoice status is "posted"
+                                                        </p>
+                                                        <img src="ScreenShot/img_20.png" class="img-fluid rounded"
+                                                            alt="invocie form view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <div class="text-center"><h1>One Click Sale : Pay Invoice workflow </h1></div>
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Configuration &rarr; Click "Settings"
+                                                        </p>
+                                                        <img src="ScreenShot/img_11.png" class="img-fluid rounded"
+                                                            alt="configuration"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Sale One Click Settings tab : Enable "Pay Invoice"
+                                                        </p>
+                                                        <img src="ScreenShot/img_10.png" class="img-fluid rounded"
+                                                            alt="configuration"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Create sale order form view open / sale order status is "Question" / and Button Click "One Click Sale"
+                                                        </p>
+                                                        <img src="ScreenShot/img_21.png" class="img-fluid rounded"
+                                                            alt="sale form view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Sale order in payment method view amount total, remaining amount show
+                                                        </p>
+                                                        <img src="ScreenShot/img_22.png" class="img-fluid rounded"
+                                                            alt="sale form view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Button Click "One Click Sale" / create "Delivery" and "Invoice"
+                                                        </p>
+                                                        <img src="ScreenShot/img_23.png" class="img-fluid rounded"
+                                                            alt="sale form view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Delivery : delivery list view
+                                                        </p>
+                                                        <img src="ScreenShot/img_24.png" class="img-fluid rounded"
+                                                            alt="delivery list view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Invoice : create invoice form view  / invoice status is "posted" payment is "Paid"
+                                                        </p>
+                                                        <img src="ScreenShot/img_25.png" class="img-fluid rounded"
+                                                            alt="invoice form view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/img_26.png" class="img-fluid rounded"
+                                                            alt="invoice form view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Invoice : Click "Payments"
+                                                        </p>
+                                                        <img src="ScreenShot/img_27.png" class="img-fluid rounded"
+                                                            alt="invoice view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Payments : Payment form view / payment status is paid
+                                                        </p>
+                                                        <img src="ScreenShot/img_28.png" class="img-fluid rounded"
+                                                            alt="payment view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <div class="text-center"><h1>Sale Order workflow</h1></div>
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Create sale order form view open / sale order status is "Question" / and Button Click "confirm"
+                                                        </p>
+                                                        <img src="ScreenShot/img_29.png" class="img-fluid rounded"
+                                                            alt="sale order view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/img_30.png" class="img-fluid rounded"
+                                                            alt="sale order view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Sale Order : status is "Sales Order" / create "Delivery" / Click "Delivery"
+                                                        </p>
+                                                        <img src="ScreenShot/img_31.png" class="img-fluid rounded"
+                                                            alt="sale view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Delivery : delivery form view / two product available and one product not available
+                                                        </p>
+                                                        <img src="ScreenShot/img_32.png" class="img-fluid rounded"
+                                                            alt="sale view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Click "One Click Sale" / two delivery show / two product available and one product not available (create backorder)
+                                                        </p>
+                                                        <img src="ScreenShot/img_43.png" class="img-fluid rounded"
+                                                            alt="sale view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/img_33.png" class="img-fluid rounded"
+                                                            alt="sale view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Create invoice / tow delivery show
+                                                        </p>
+                                                        <img src="ScreenShot/img_36.png" class="img-fluid rounded"
+                                                            alt="invoice view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Delivery : delivery list view
+                                                        </p>
+                                                        <img src="ScreenShot/img_37.png" class="img-fluid rounded"
+                                                            alt="delivery view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Delivery : create backorder and one product not available / status is "Waiting"
+                                                        </p>
+                                                        <img src="ScreenShot/img_38.png" class="img-fluid rounded"
+                                                            alt="delivery view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Delivery : two product available / status is "Done"
+                                                        </p>
+                                                        <img src="ScreenShot/img_39.png" class="img-fluid rounded"
+                                                            alt="delivery view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Invoice : create invoice  / status is "posted" / payment status is "Partial"
+                                                        </p>
+                                                        <img src="ScreenShot/img_40.png" class="img-fluid rounded"
+                                                            alt="invocie view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Sale order Remaining amount show / invoice Amount Due
+                                                        </p>
+                                                        <img src="ScreenShot/img_41.png" class="img-fluid rounded"
+                                                            alt="sale order view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/img_33.png" class="img-fluid rounded"
+                                                            alt="sale order view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Click "Payments"
+                                                        </p>
+                                                        <img src="ScreenShot/img_44.png" class="img-fluid rounded"
+                                                            alt="invocie view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Payment : payment form view open / payment status is "In Process"
+                                                        </p>
+                                                        <img src="ScreenShot/img_42.png" class="img-fluid rounded"
+                                                            alt="payment form view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Click "Pay" (open payment view add details)
+                                                        </p>
+                                                        <img src="ScreenShot/img_45.png" class="img-fluid rounded"
+                                                            alt="invocie form view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Open payment view add details / Click "Create Payment"
+                                                        </p>
+                                                        <img src="ScreenShot/img_46.png" class="img-fluid rounded"
+                                                            alt="payment form view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Invoice : payment is Paid / two payment show / Click "Payments"
+                                                        </p>
+                                                        <img src="ScreenShot/img_47.png" class="img-fluid rounded"
+                                                            alt="invocie form view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Payment : payment list view / payment is Paid
+                                                        </p>
+                                                        <img src="ScreenShot/img_50.png" class="img-fluid rounded"
+                                                            alt="payment view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <p
+                                                            style="font-size:15px; color:#7c3aed; font-weight:600; margin-bottom:10px;">
+                                                            Sale order Remaining amount is 0.0 / invoice Amount Due is 0.0
+                                                        </p>
+                                                        <img src="ScreenShot/img_48.png" class="img-fluid rounded"
+                                                            alt="sale view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                        <img src="ScreenShot/img_49.png" class="img-fluid rounded"
+                                                            alt="sale view"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <div class="text-center"><h1>Invalid Operations</h1></div>                                                    
+                                                        <img src="ScreenShot/img_6.png" class="img-fluid rounded"
+                                                            alt="validation"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <img src="ScreenShot/img_34.png" class="img-fluid rounded"
+                                                            alt="validation"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="mb-4"
+                                                        style="background-color:#f8f7ff; border:1px solid #ede9fe; border-radius:14px; padding:16px;">
+                                                        <img src="ScreenShot/img_35.png" class="img-fluid rounded"
+                                                            alt="validation"
+                                                            style="border-radius:8px; border:1px solid #ede9fe;"
+                                                            onerror="this.parentElement.style.minHeight='120px'; this.style.display='none';">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHANGELOG -->
+                <div id="Changelog" class="tab-pane fade show">
+                    <div class="container-fluid"
+                        style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #f5f4f0;">
+                        <div class="text-center mb-5">
+                            <p
+                                style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                                What&apos;s new</p>
+                            <h2
+                                style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:700; color:#0d0d0d;">
+                                Changelog</h2>
+                        </div>
+                        <div class="position-relative ps-4"
+                            style="max-width:680px; margin:0 auto; border-left:2px solid #e8e8e4;">
+                            <div class="position-absolute top-0 start-0 bottom-0"
+                                style="background-color: #e8e8e4; width: 0.20rem;">
+                                <div
+                                    style="position:absolute; margin-left:-11px; width:24px; height:24px; background-color:#6c47ff; border-radius:50%; display:flex; align-items:center; justify-content:center;">
+                                    <div
+                                        style="width:18px; height:18px; margin:auto; background-color:#6c47ff; border-radius:50%; border:3px solid #ffffff;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-relative mb-4 pl-4">
+                                <div class="d-flex flex-wrap align-items-center mb-3">
+                                    <span
+                                        style="font-family:'Sora',sans-serif; font-size:17px; font-weight:700; color:#0d0d0d;margin-right:10px;">Version
+                                        20.0.1</span>
+                                    <span
+                                        style="background-color:#f0eeff; color:#5a35d9; border:1px solid #d0c4ff; padding:3px 10px; border-radius:6px; font-size:11px; font-weight:700;margin-right:10px;">Odoo
+                                        20</span>
+                                    <span
+                                        style="background-color:#dcfce7; color:#166534; padding:3px 10px; border-radius:6px; font-size:11px; font-weight:700;">Initial
+                                        Release</span>
+                                    <span style="color:#666; font-size:12px; margin-left:4px;margin-right:10px;">
+                                        19<sup>th</sup> September 2026
+                                    </span>
+                                </div>
+                                <div class="d-flex flex-column"
+                                    style="background-color:#f8f8f6; border:1px solid #e8e8e4; border-radius:12px; padding:18px 20px;">
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added One Click Sale button to Sale Orders.
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added automated Sale Order confirmation.
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added automatic Delivery Order validation.
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added automatic Customer Invoice creation.
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added automatic Payment registration.
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added configuration options to enable or disable individual workflow steps.
+                                        </span>
+                                    </div>
+                                    <div style="display:flex; align-items:flex-start; margin-bottom: 10px;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#6c47ff; border-radius:50%; flex-shrink:0; margin:6px 10px 0 0;">
+                                        </div>
+                                        <span style="font-size:13px; color:#444;">
+                                            Added support for executing the configured sales workflow from a single action.
+                                        </span>
+                                    </div>                                                                        
+                                </div>
+                            </div>                                                        
+                            <div class="position-absolute"
+                                style="margin-top:4px; margin-left:-30px; width:16px; height:16px; background-color:#d0d0c8; border-radius:50%; border:3px solid #ffffff;">
+                            </div>
+                            <div style="position:relative; opacity:.45;">
+                                <div class="d-flex flex-wrap align-items-center mb-3">
+                                    <span
+                                        style="font-family:'Sora',sans-serif; font-size:17px; font-weight:700; color:#0d0d0d;margin-right:10px;">Version
+                                        20.0.2</span>
+                                    <span
+                                        style="background-color:#f0eeff; color:#5a35d9; border:1px solid #d0c4ff; padding:3px 10px; border-radius:6px; font-size:11px; font-weight:700;">Planned</span>
+                                    <span style="color:#666; font-size:12px; margin-left:4px;">Coming soon</span>
+                                </div>
+                                <div
+                                    style="background-color:#f8f8f6; border:1px dashed #e8e8e4; border-radius:12px; padding:18px 20px;">
+                                    <div style="display:flex; align-items:center;">
+                                        <div
+                                            style="width:6px; height:6px; background-color:#ccc; border-radius:50%; margin:7px 10px 0 0;">
+                                        </div><span style="font-size:13px; color:#aaa;">More exciting features being
+                                            planned...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQS -->
+    <section>
+        <div class="container-fluid" style="background-color:#ffffff; padding:3rem 0; border-top:2px solid #eae9e4;">
+
+            <div class="text-center mb-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    Got questions?
+                </p>
+
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:700; color:#0d0d0d;">
+                    Frequently Asked Questions
+                </h2>
+            </div>
+
+            <div id="faqAccordion" class="d-flex flex-column" style="max-width:760px; margin:0 auto;">
+
+                <!-- FAQ 1 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center" href="#faq1" data-target="#faq1"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq1"
+                        style="padding:20px 24px; text-decoration:none; width:100%;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            How can I get support or request customization?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq1" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:rgb(102, 102, 102); font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                Please contact us at
+                                <a href="mailto:support@nextflow.in"
+                                    style="color:#6c47ff; text-decoration:none; font-weight:600;">
+                                    support@nextflow.in
+                                </a>
+                                for any support or customization requests.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center" href="#faq2" data-target="#faq2"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq2"
+                        style="padding:20px 24px; text-decoration:none; width:100%;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Can I get free support after purchase?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq2" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    Yes,
+                                </span>
+                                You get
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    90 days of free support
+                                </span>
+                                included with every purchase — no strings attached.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center" href="#faq3" data-target="#faq3"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq3"
+                        style="padding:20px 24px; text-decoration:none; width:100%;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            This app is working with Odoo Community and Enterprise ?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq3" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    Yes,
+                                </span>
+                                Can use with Community and Enterprise both.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- FAQ 4 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq4"
+                        data-toggle="collapse" data-target="#faq4" aria-expanded="false" data-bs-toggle="collapse"
+                        aria-controls="faq4" style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            What is Sale Auto Workflow | One Click Sale?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq4" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                Sale Auto Workflow is an Odoo module that automates the sales process using a single One Click Sale button.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq5"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq5"
+                        style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            What does the One Click Sale button do?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq5" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                It executes the workflow configured by the administrator. Depending on the configuration, it can confirm the Sale Order, validate the delivery, create an invoice, and register the payment.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq6"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq6"
+                        style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Can I choose which workflow steps are automated?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq6" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    Yes,
+                                </span>
+                                The module provides configuration options that allow you to enable or disable individual workflow steps according to your business requirements.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ 7 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq7"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq7"
+                        style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Does One Click Sale automatically confirm the Sale Order?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq7" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    Yes,
+                                </span>
+                                if Sale Order confirmation is enabled in the workflow configuration.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq8"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq8"
+                        style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Can the module validate the delivery automatically?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq8" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    Yes,
+                                </span>
+                                Delivery validation can be included in the automated workflow when the corresponding option is enabled.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 9 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq9"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq9"
+                        style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Can it create invoices automatically?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq9" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    Yes,
+                                </span>
+                                The module can automatically create customer invoices as part of the configured workflow.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 10 -->
+                <div
+                    style="background-color:#ffffff; border:1px solid #e8e8e4; border-radius:14px; overflow:hidden; margin-bottom:10px;">
+
+                    <a class="d-flex justify-content-between align-items-center collapsed" href="#faq10"
+                        data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="faq10"
+                        style="padding:20px 24px; text-decoration: none;">
+
+                        <span style="font-size:15px; font-weight:600; color:#0d0d0d;">
+                            Can it register customer payments automatically?
+                        </span>
+
+                        <span class="faq-arrow"
+                            style="color:#6c47ff; font-size:20px; font-weight:700; transition:transform .3s; flex-shrink:0; margin-left:12px;">
+                            +
+                        </span>
+                    </a>
+
+                    <div id="faq10" class="collapse" data-parent="#faqAccordion" data-bs-parent="#faqAccordion">
+                        <div style="padding:0 24px 20px; border-top:1px solid #f0f0ec;">
+                            <p style="color:#666; font-size:14px; line-height:1.7; margin:16px 0 0;">
+                                <span style="color:#6c47ff; font-weight:600;">
+                                    Yes,
+                                </span>
+                                Payment registration can be performed automatically when the payment step is enabled and the required configuration is available.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MULTI LANGUAGE -->
+    <section
+        style="background-color: #f0f3fe; padding:30px; font-family:'Segoe UI',sans-serif; overflow:hidden; margin-top: 20px;">
+        <div class="container-fluid">
+
+            <div class="container-fluid text-center mb-4">
+                <p
+                    style="font-size:11px; font-weight:600; color:rgb(153, 153, 153); text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    Available worldwide
+                </p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#50545d; margin-bottom:20px;">
+                    Multi-Language Support
+                </h2>
+            </div>
+
+            <!-- FLAGS -->
+            <div class="row justify-content-center text-center mb-5 mt-5 mb-sm-0">
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 3s ease-in-out infinite; transition:0.3s;">
+                        <img src="Flags/eng.png" class="img-fluid" alt="US Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            English
+                        </h6>
+                    </div>
+                </div>
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 4s ease-in-out infinite;">
+                        <img src="Flags/ger.png" class="img-fluid" alt="German Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            German
+                        </h6>
+                    </div>
+                </div>
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 5s ease-in-out infinite;">
+                        <img src="Flags/arb.png" class="img-fluid" alt="Arabic Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            Arabic
+                        </h6>
+                    </div>
+                </div>
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 3.5s ease-in-out infinite;">
+                        <img src="Flags/chi.png" class="img-fluid" alt="Chinese Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            Chinese
+                        </h6>
+                    </div>
+                </div>
+
+                <!-- FLAG -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <div style="animation:float 4.5s ease-in-out infinite;">
+                        <img src="Flags/fre.png" class="img-fluid" alt="French Flag Image"
+                            style="width:90px; height:90px; object-fit:cover; border-radius:50%; border:6px solid #ffffff; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+
+                        <h6 style="margin-top:15px; font-weight:700; color:#1a202c;">
+                            French
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="nf_services"
+        style="background-color:#ffffff; padding:15px 0; border-top:2px solid #f5f4f0;padding: 50px 0;">
+        <div class="container-fluid">
+            <div class="text-center mb-5">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    What we offer</p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#505450; margin-bottom:12px;">
+                    Our Services</h2>
+                <p class="mb-md-3" style="color:#888; font-size:16px; max-width:520px; margin:0 auto;">
+                    Expert Odoo services tailored to
+                    grow your business &mdash; from migration to full implementation and beyond.</p>
+            </div>
+            <div class="row g-3 g-md-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #6c47ff; border-radius:16px; padding:1.5rem; height:100%;">
+                        <div
+                            style="width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin:auto;">
+                            &#128260;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d; text-align: center;">
+                            Odoo Migration</h4>
+                        <p style="color:#777; font-size:14px; line-height:1.7; margin-bottom:16px; text-align: center;">
+                            Seamlessly migrate
+                            your Odoo database and modules from older versions to the latest. We handle the entire
+                            process &mdash; data, customizations, and configurations.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -10%; margin-left: 68%; width:120px; height:120px; background-color:rgba(108, 71, 255, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -8%; margin-left: 63%; width:50px; height:50px; background-color:rgba(108, 71, 255, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #f59e0b; border-radius:16px; padding:1.5rem; height:100%;">
+                        <div style="width:48px; height:48px; border-radius:12px; font-size:30px; margin: auto;">
+                            &#128295;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d; text-align: center;">
+                            Odoo Customization</h4>
+                        <p style="color:#777; font-size:14px; line-height:1.7; margin-bottom:16px; text-align: center;">
+                            Modify existing Odoo
+                            modules &mdash; CRM, Sales, Inventory, Accounting &mdash; to fit your operations. Add
+                            new
+                            fields, change workflows, and create custom business rules.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -10%; margin-left: 68%; width:120px; height:120px; background-color:rgba(245, 158, 11, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -8%; margin-left: 63%; width:50px; height:50px; background-color:rgba(245, 158, 11, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #10b981; border-radius:16px; padding:1.5rem; height:100%;">
+                        <div style="width:48px; height:48px; border-radius:12px; font-size:30px; margin:auto;">
+                            &#127760;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d; text-align: center;">
+                            Web Development in Odoo</h4>
+                        <p style="color:#777; font-size:14px; line-height:1.7; margin-bottom:16px; text-align: center;">
+                            We build powerful,
+                            user-friendly websites fully integrated with your Odoo system &mdash; from landing pages
+                            to
+                            full e-commerce storefronts.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -3%; margin-left: 68%; width:120px; height:120px; background-color:rgba(16, 185, 129, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-left: 62%; width:50px; height:50px; background-color:rgba(16, 185, 129, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="mt-sm-0 position-relative overflow-hidden"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #ef4444; border-radius:16px; padding:1.5rem; height:100%;margin-top: 30px;">
+                        <div
+                            style="width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin:auto;">
+                            &#9881;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d; text-align: center;">
+                            Odoo Implementation</h4>
+                        <p style="color:#777; font-size:14px; line-height:1.7; margin-bottom:16px; text-align: center;">
+                            End-to-end Odoo
+                            integration with e-commerce platforms, payment gateways, shipping carriers, and more.
+                            Robust
+                            connections for your critical systems.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -10%; margin-left: 68%; width:120px; height:120px; background-color:rgba(239, 68, 68, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -8%; margin-left: 63%; width:50px; height:50px; background-color:rgba(239, 68, 68, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="mt-sm-0 overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #3b82f6; border-radius:16px; padding:1.5rem; height:100%;margin-top: 30px;">
+                        <div
+                            style="width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin:auto;">
+                            &#128247;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d;text-align: center;">
+                            Odoo Support &amp; Maintenance</h4>
+                        <p style="color:#777; font-size:13px; line-height:1.7; margin-bottom:16px;text-align: center;">
+                            Expert technical
+                            assistance, proactive security updates, performance monitoring, and user support to keep
+                            your Odoo system reliable and effective.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -3%; margin-left: 68%; width:120px; height:120px; background-color:rgba(59, 130, 246, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-left: 62%; width:50px; height:50px; background-color:rgba(59, 130, 246, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="mt-sm-0 overflow-hidden position-relative"
+                        style="background-color:#ffffff; border:1px solid #e8e8e4; border-top:3px solid #ec4899; border-radius:16px; padding:1.5rem; height:100%;margin-top: 30px;">
+                        <div
+                            style="width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:30px; margin:auto;">
+                            &#127891;
+                        </div>
+                        <h4
+                            style="font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin:16px 0 8px; color:#0d0d0d;text-align: center;">
+                            Odoo Training</h4>
+                        <p style="color:#777; font-size:13px; line-height:1.7; margin-bottom:16px;text-align: center;">
+                            Comprehensive
+                            functional and technical Odoo training to help your teams understand, implement, and
+                            effectively use Odoo for business operations.
+                        </p>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-top: -3%; margin-left: 68%; width:120px; height:120px; background-color:rgba(236, 72, 153, 0.275); border-radius:50%;">
+                        </div>
+                        <div class="position-absolute d-none d-lg-block"
+                            style="margin-left: 62%; width:50px; height:50px; background-color:rgba(236, 72, 153, 0.275); border-radius:50%;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== APPS FOR YOU SECTION ===== -->
+    <section id="sh_most_demanded_apps"
+        style="background-color:#f0f3fe; padding:20px 0; font-family:'Segoe UI',sans-serif;">
+
+        <div class="container-fluid px-lg-5 px-3 mt-4">
+
+            <div class="text-center mb-3">
+                <p
+                    style="font-size:11px; font-weight:600; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;">
+                    From our catalog</p>
+                <h2
+                    style="font-family:'Sora',sans-serif; font-size:clamp(1.5rem,3vw,3rem); font-weight:700; color:#505450; margin-bottom:12px;">
+                    Apps For You</h2>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-end mb-4">
+                <!-- TITLE -->
+                <a href="https://apps.odoo.com/apps/modules/browse?author=NextFlowIT" target="_blank"
+                    style="display:inline-flex; align-items:center; border:1.5px solid #ddd; border-radius:9px; padding:10px 20px; font-size:13px; font-weight:600; color:#1a1a1a; text-decoration:none; background-color:#fff;">
+                    View All Apps
+                    <span style="font-size:11px; color:#5a35d9; margin-left:8px;">
+                        >>
+                    </span>
+                </a>
+            </div>
+
+            <!-- APP CARDS -->
+            <div class="row">
+
+                <!-- CARD 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="h-100" style="background-color:#fff;border-radius:24px;overflow:hidden;
+                                        box-shadow:0 15px 40px rgba(0,0,0,0.06);transition:0.4s;">
+
+                        <a href="https://apps.odoo.com/apps/modules/19.0/nf_import_sale_orders" target="_blank"
+                            style="text-decoration:none;">
+
+                            <!-- IMAGE -->
+                            <div class="d-flex flex-column">
+                                <!-- IMAGE -->
+                                <img src="Apps_Images/import_sale_order.gif" class="img-fluid" alt="Import Sale Orders"
+                                    style="width:100%;
+                                            height:100%;
+                                            object-fit:cover;
+                                            transition:.4s;
+                                            border-radius: 24px 24px 0 0;">
+
+                            </div>
+
+                            <!-- CONTENT -->
+                            <div style="padding:20px;">
+                                <h4 style="font-weight:700;color:#1a202c;margin-bottom:15px;">
+                                   Import Sale Orders
+                                </h4>
+
+                                <p style="color:#718096;margin-bottom:25px;">
+                                    Import Sale Orders is a powerful Odoo module that allows users to quickly create multiple Sale Orders by importing data from an Excel file. This module reduces manual data entry and improves efficiency when handling bulk sales orders. A dedicated Import Sale Orders menu is provided in the Sales module. When users click the menu, an import wizard opens where they can upload an Excel file and click the Submit button to process the data.
+                                </p>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="h-100" style="background-color:#fff;border-radius:24px;overflow:hidden;
+                                        box-shadow:0 15px 40px rgba(0,0,0,0.06);transition:0.4s;">
+
+                        <a href="https://apps.odoo.com/apps/modules/19.0/nf_merge_sale_order" target="_blank"
+                            style="text-decoration:none;">
+
+                            <!-- IMAGE -->
+                            <div class="d-flex flex-column">
+                                <!-- IMAGE -->
+                                <img src="Apps_Images/merge_sale_order.gif" class="img-fluid" alt="Merge Sale Order"
+                                    style="width:100%;
+                                            height:100%;
+                                            object-fit:cover;
+                                            transition:.4s;
+                                            border-radius: 24px 24px 0 0;">
+
+                            </div>
+
+                            <!-- CONTENT -->
+                            <div style="padding:20px;">
+                                <h4 style="font-weight:700;color:#1a202c;margin-bottom:15px;">
+                                    Merge Sale Order
+                                </h4>
+
+                                <p style="color:#718096;margin-bottom:25px;">
+                                    The Merge Sale Order module enables users to combine multiple sale orders from the same customer into a single consolidated sale order.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="h-100" style="background-color:#fff;border-radius:24px;overflow:hidden;
+                                        box-shadow:0 15px 40px rgba(0,0,0,0.06);transition:0.4s;">
+
+                        <a href="https://apps.odoo.com/apps/modules/19.0/nf_create_so_from_po" target="_blank"
+                            style="text-decoration:none;">
+
+                            <!-- IMAGE -->
+                            <div class="d-flex flex-column">
+                                <!-- IMAGE -->
+                                <img src="Apps_Images/create_so_from_po.gif" class="img-fluid" alt="Create Purchase Order from Sales Order"
+                                    style="width:100%;
+                                            height:100%;
+                                            object-fit:cover;
+                                            transition:.4s;
+                                            border-radius: 24px 24px 0 0;">
+
+                            </div>
+
+                            <!-- CONTENT -->
+                            <div style="padding:20px;">
+                                <h4 style="font-weight:700;color:#1a202c;margin-bottom:15px;">
+                                    Create Sale Order from Purchase Order
+                                </h4>
+
+                                <p style="color:#718096;margin-bottom:25px;">
+                                    The Create Sale Order from Purchase Order module enhances Odoo's procurement workflow by allowing users to generate Sale Orders directly from Purchase Orders (POs) with a single click.
+                                    This module is perfect for trading, dropshipping, reselling, and intermediary businesses that purchase goods from vendors and sell them to customers - all within a unified workflow.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

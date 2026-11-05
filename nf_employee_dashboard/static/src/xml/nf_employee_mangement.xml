@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<template id="employee_management_design_template">
+
+    <t t-name="nf_employee_dashboard.EmployeeManagement">
+        <div class="nf_checkin_checkout_container">
+            <div class="card nf-card">
+                <div class="nf-card-header">
+                    <img t-att-src="this.state.use_img" t-att-class="this.state.attendance_state === 'checked_in'? 'border-green': ''" class="nf-img-card-container" alt="User Avatar"/>
+                </div>
+                <div class="card-body">
+                    <div class="greeting-section mb-3">
+                        <div class="user-name">
+                            <strong>
+                                <span t-out="this.state.username"></span>
+                            </strong>
+                        </div>
+                    </div>
+
+                    <div class="nf-current-time text-center fw-bolder fs-5 my-3" id="currentTime">
+                        <div class="nf-break-timer" t-if="this.state.break">
+                            <t t-out="display_BreakTime"></t>
+                        </div>
+                        <div class="nf-reason-input" t-if="this.state.late_check_in">
+                            <input type="text" t-ref="input_reson" t-model.proxy="this.state.late_check_in_readon" class="nf-reason nf-required-input form form-control" placeholder="Reason" />
+                        </div>
+                    </div>
+
+                    <div class="status-section" t-att-class="(this.state.attendance_state == 'checked_out' and this.state.break == false) ? 'd-none' : 'd-block'">
+                        <div class="status-item">
+                            <div class="status-label">
+                                <i class="fa fa-cutlery" aria-hidden="true"></i>
+                            </div>
+                            <div class="status-label">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="breakstart" t-on-click="(event)=> this.timerStart(event)" t-att-checked="this.state.break" />
+                                    <label class="form-check-label ps-3" for="breakstart">Break</label>
+                                </div>
+                            </div>
+
+                            <div class="status-label">
+                                <i class="fa fa-cutlery" aria-hidden="true"></i>
+                            </div>
+                        </div>
+
+                        <div class="status-item" t-att-class="(this.state.attendance_state == 'checked_out' and this.state.break == true) ? 'd-none' : 'd-flex'">
+                            <div class="status-label nf-waving-hand-svg-container">
+                                <img src="/nf_employee_dashboard/static/src/img/waving-hand.svg" alt="" class="nf-waving-hand-svg" />
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="breakend" t-on-click="(event)=> this.bye(event)" t-att-checked="this.state.bye"/>
+                                <label class="form-check-label" style="padding-left:22px;" for="breakend">Bye</label>
+                            </div>
+                            <div class="status-label nf-waving-hand-svg-container">
+                                <img src="/nf_employee_dashboard/static/src/img/waving-hand.svg" alt="" class="nf-waving-hand-svg" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons m-auto">
+                        <button class="btn-action btn-checkin" t-on-click="() => this.checkInOut()" t-att-class="(this.state.attendance_state == 'checked_out' and this.state.break == true) ? 'd-none' : 'd-block'">
+                            <t t-if="this.state.attendance_state == 'checked_out'">
+                                <i class="fa fa-sign-in" aria-hidden="true" style="font-size: 50px;"></i>
+                            </t>
+                            <t t-else="">
+                                <i class="fa fa-sign-out" aria-hidden="true" style="font-size: 50px;"></i>
+                            </t>
+
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</template>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve">
+    <t t-name="nf_pos_item_counter.OrderDisplay" t-inherit="point_of_sale.OrderDisplay" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('tax-info')]" position="before">
+            <div t-if="this.order.config_id.nf_enable_line_count" class="subentry d-flex justify-content-between w-100 fs-6 text-muted">
+                <span>Total Lines</span>
+                <t t-out="this.order.orderlineCount"/>
+            </div>
+            <div t-if="this.order.config_id.nf_enable_product_count" class="subentry d-flex justify-content-between w-100 fs-6 text-muted">
+                <span>Total Quantity</span>
+                <t t-out="this.order.quantityForOrderline"/>
+            </div>
+        </xpath>
+    </t>
+</template>

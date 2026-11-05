@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="nf_pos_theme_config_inherit" model="ir.ui.view">
+        <field name="name">pos.config.form.view.inherit</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+             <xpath expr="//setting[@id='other_devices']" position="after">
+                <setting id="nf_theme_settings" help="Select Them for point of sale view">          
+                    <field name="nf_theme_setting_id" />
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

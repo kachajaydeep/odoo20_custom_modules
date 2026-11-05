@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+    <t t-name="point_of_sale.Navbar" t-inherit="point_of_sale.Navbar" t-inherit-mode="extension">
+         <xpath expr="//div[hasclass('oe_status')]" position="before">
+               <t t-if="!this.pos.getOrder().finalized">
+                    <div class="nf-partner-dropdown-container">
+                         <div class="nf-input-wrapper">
+                              <img src="/nf_pos_customer_advance_search/static/src/img/users-people-svgrepo-com.svg" id="nf_partner_mobile_search_icon" class="nf_partner_mobile" alt="search-svgrepo-com" t-on-click="() => this.searchButton()"/>
+                              <input 
+                              class="nf-partner-contact" 
+                              autocomplete="off" 
+                              role="combobox" 
+                              list="" 
+                              id="nf-contactInput" 
+                              placeholder="Select Customer..."  
+                              t-on-input="(event) => this.nfonInputChange(event)"
+                              t-on-focus="(event) => this.nfonInputFocus(event)"
+                              t-on-blur="(event) => this.nfonInputBlur(event)"
+                              t-on-keydown="(ev) => this.nfonKeyDown(ev)"
+                              t-on-click="(ev) => this.nfonClick(ev)" 
+                              t-model.proxy="this.state.inputValue"
+                              />
+                              <!-- 
+                                   t-ref="nf-contactInput"
+                              -->
+                              
+                              <datalist id="nf-partnerContact" t-ref="this.datalistRef" role="listbox">
+                                   <t t-foreach="this.state.partner" t-as="contact" t-key="contact.id">
+                                   <option 
+                                        t-att-value="this.getContactString(contact.phone)" 
+                                        t-att-data-name="contact.name"
+                                        t-att-data-id="contact.id" class="nf_partner_option" t-on-click="(event) => this.setInput(event)">
+                                             <t t-out="contact.name + ' | ' + (contact.phone ? contact.phone : '-' ) "/>
+                                        </option>
+                                   </t>
+                                   <button class="btn btn-primary position-sticky bottom-0 text-center w-100" style="background-color:purple;color:white" t-on-click="() => this.createCustomer(this.state.inputValue)">Create New Customer</button>
+                              </datalist>
+                         </div>
+                    </div>
+               </t>
+          </xpath>
+    </t>
+</templates>

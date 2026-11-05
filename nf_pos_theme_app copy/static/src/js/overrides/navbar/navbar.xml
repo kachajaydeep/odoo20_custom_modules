@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id='template' xml:space='preserve'>
+    <t t-name="nf_pos_theme_app.Navbar" t-inherit="point_of_sale.Navbar" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('register-label')]" position="before">
+            <t t-if="this.pos.config.nf_theme_setting_id and this.pos.config.nf_theme_setting_id.logo" >
+                <img class="pos-logo pos-logo mw-100 mt-1 me-4" height="42"  t-att-src="'data:image/png;base64,' + this.pos.config.nf_theme_setting_id.logo" alt="Logo" />
+            </t>
+        </xpath>
+    </t>
+</templates>

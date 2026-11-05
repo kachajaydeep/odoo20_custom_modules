@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_tailor_management_settings" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.tailor.management</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="inside">
+                    <app data-string="Tailor" string="Tailor" name="nf_tailor">
+                        <block title="Inventory" name="nf_stock_manage">
+                            <setting help="Stock Management for Tailor orders" >
+                                <field name="nf_picking_id"/>
+                            </setting>
+                            <setting help="Source location" string="Source Location" >
+                                <field name="nf_tailor_location_id"/>
+                            </setting>
+                            <setting help="Destination location" string="Destination Location">
+                                <field name="nf_tailor_location_dest_id"/>
+                            </setting>
+                        </block>
+                    </app>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+                

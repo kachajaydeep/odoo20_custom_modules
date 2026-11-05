@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="nf_po_from_pos_res_config_settings_view_form_menu" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.po.from.pos.view</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <block id="restaurant_section" position="after">
+                <block title="Purchase Order" id="self_ordering_section">
+                    <setting id="res_allow_purchase_order" string="Purchase Order" help="Allow to Create Purchase Order">
+                        <field name="create_po"/>
+                        <div class="content-group row mb-2">
+                            <label for="po_status" class="col-lg-4" invisible="not create_po"/>
+                            <field name="po_status" invisible="not create_po"/>
+                        </div>
+                        <field name="validate_po_receipt" invisible="po_status != 'purchase'"/>
+                        <label for="validate_po_receipt" class="col-lg-4" invisible="po_status != 'purchase'"/>
+
+                        <field name="create_bill" invisible="po_status != 'purchase'"/>
+                        <label for="create_bill" class="col-lg-4" invisible="po_status != 'purchase'"/>
+                    </setting>
+                </block>
+            </block>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.nf_zatca_integration.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('o_address_format')]"  position="after">
+                    <field name="nf_zatca_additional_identification_scheme" invisible="country_code != 'SA'"/>
+                    <field name="nf_zatca_additional_identification_number" invisible="country_code != 'SA' or nf_zatca_additional_identification_scheme == 'TIN'"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

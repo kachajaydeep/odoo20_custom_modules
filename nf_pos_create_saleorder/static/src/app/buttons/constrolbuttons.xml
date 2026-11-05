@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve">
+    <t t-name="pos_discount.ControlButtons" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='this.props.showRemainingButtons']/div" position="inside">
+            <button t-if="this.pos.config.nf_enable_create_saleorder and this.pos.getOrder().lines.length > 0" class='nf-sale-order-create-btn control-button btn btn-lg o_pricelist_button btn-secondary d-inline-flex flex-md-column justify-content-md-center gap-1 overflow-hidden' t-on-click="() => this.saleOrderBtnClicked()">
+                <i role="img" aria-hidden="true" class="fa fa-line-chart oi undefined oi-2x oi-fw align-self-center opacity-50" data-icon="view_list"></i>
+                <span> Create Sale Order </span>
+            </button>
+            <button t-if="this.pos.config.nf_enable_create_saleorder" 
+            class='nf-add-section-btn control-button btn btn-lg o_pricelist_button btn-secondary d-inline-flex flex-md-column justify-content-md-center gap-1 overflow-hidden' t-on-click="() => this.nfAddSectionClicked()">
+                <i role="img" aria-hidden="true" class="fa fa-edit oi undefined oi-2x oi-fw align-self-center opacity-50" data-icon="view_list"></i>
+                <span> Add Section </span>
+            </button>
+        </xpath>
+    </t>
+</template>

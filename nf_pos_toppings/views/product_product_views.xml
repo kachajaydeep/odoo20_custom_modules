@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="nf_product_normal_form_view" model="ir.ui.view">
+        <field name="name">product.template.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <div name="options" position='inside'>
+                <field name="nf_is_topping"/>
+                <label for="nf_is_topping" string="Toppings"/>
+            </div>
+
+            <notebook position='inside'>
+                <page name="nf_toppings" string="Toppings" invisible="nf_is_topping">
+                    <field name="topping_group_ids" widget="one2many">
+                        <list string="Toppings" editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="name"/>
+                            <field name="product_topping_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                        </list>
+                        <form>
+                            <group>
+                                <group>
+                                    <field name="name"/>
+                                    <field name="product_topping_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                                </group>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

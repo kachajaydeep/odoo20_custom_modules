@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_sale_hide_price_form_view" model="ir.ui.view">
+        <field name="name">Hide Sale Price</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/notebook/page[@name='order_lines']/field[@name='order_line']/form/group/group/field[@name='price_unit']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+
+            <!-- <xpath expr="//list/field[@name='price_unit']" position="attributes">
+            </xpath> -->
+            <xpath expr="//page[@name='order_lines']//list[@name='sol_list']//field[@name='price_subtotal']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+            <xpath expr="//page[@name='order_lines']//list[@name='sol_list']//field[@name='price_total']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+            <xpath expr="//page[@name='order_lines']//list[@name='sol_list']//field[@name='price_total'][@optional='hide']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+            <xpath expr="//notebook//group[@name='note_group']//group[@name='sale_total']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+        </field> 
+    </record>
+
+    <record id="nf_sale_hide_price_tree_view" model="ir.ui.view">
+        <field name="name">Hide Sale Price</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+            <xpath expr="//field[@name='amount_untaxed']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+        </field> 
+    </record>
+
+    <record id="nf_sale_hide_price_kanban_view" model="ir.ui.view">
+        <field name="name">Hide Sale Price</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_kanban_with_onboarding"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+        </field> 
+    </record>
+
+    <record id="nf_sale_hide_price_calendar_view" model="ir.ui.view">
+        <field name="name">Hide Sale Price</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sale_order_calendar"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+        </field> 
+    </record>
+
+    <record id="nf_sale_hide_price_pivot_view" model="ir.ui.view">
+        <field name="name">Hide Sale Price</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sale_order_pivot"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+        </field> 
+    </record>
+
+    <record id="nf_sale_hide_price_graph_view" model="ir.ui.view">
+        <field name="name">Hide Sale Price</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sale_order_graph"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+        </field> 
+    </record>
+
+    <record id="nf_sale_hide_price_activity_view" model="ir.ui.view">
+        <field name="name">Hide Sale Price</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_activity"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+        </field> 
+    </record>
+    
+    <record id="nf_sale_order_list_upload" model="ir.ui.view">
+        <field name="name">Hide Sale Price</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_list_upload"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+            <xpath expr="//field[@name='amount_untaxed']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+            <xpath expr="//field[@name='amount_tax']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+        </field> 
+    </record>
+
+    <record id="nf_sale_hide_price_kanban_upload_view" model="ir.ui.view">
+        <field name="name">Hide Sale Price</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_kanban_upload"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+        </field> 
+    </record>
+
+    <record id="nf_sale_hide_price_order_tree_view" model="ir.ui.view">
+        <field name="name">Hide Sale Price</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+            <xpath expr="//field[@name='amount_untaxed']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+            <xpath expr="//field[@name='amount_tax']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+        </field> 
+    </record>
+
+    <record id="nf_sale_hide_price_order_kanban_view" model="ir.ui.view">
+        <field name="name">Hide Sale Price</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sale_order_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+        </field> 
+    </record>
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_tailor_order_sequence" model="ir.sequence">
+        <field name="name">Tailor Order Reference</field>
+        <field name="code">nf.tailor.order.sequence</field>
+        <field name="prefix">TO-</field>
+        <field name="padding">4</field>
+        <field name="number_increment">1</field>
+        <field name="implementation">no_gap</field>
+        <field name="active" eval="True" />
+    </record>
+    <record id="nf_tailor_line_sequence" model="ir.sequence">
+        <field name="name">Tailor Line Reference</field>
+        <field name="code">nf.tailor.line.sequence</field>
+        <field name="prefix">TL-</field>
+        <field name="padding">4</field>
+        <field name="number_increment">1</field>
+        <field name="implementation">no_gap</field>
+        <field name="active" eval="True" />
+    </record>
+
+    <record id="seq_nf_design_type" model="ir.sequence">
+        <field name="name">NF Design Type</field>
+        <field name="code">nf.design.type</field>  <!-- Code used to identify this sequence -->
+        <field name="prefix">DT-</field>  <!-- Prefix for the sequence -->
+        <field name="padding">4</field>  <!-- Number of digits to pad -->
+        <field name="number_increment">1</field>  <!-- Increment by 1 -->
+        <field name="use_date_range">False</field>  <!-- Do not use date ranges for the sequence -->
+    </record>
+
+</odoo>

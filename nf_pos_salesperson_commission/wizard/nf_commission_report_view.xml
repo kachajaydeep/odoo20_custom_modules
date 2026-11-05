@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_commission_report_form_view" model="ir.ui.view">
+        <field name="name">nf.commission.report.form.view</field>
+        <field name="model">nf.commission.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="start_datetime"></field>
+                        <field name="end_datetime"></field>
+                        <field name="employee_id" widget="many2one_avatar_user"></field>
+                    </group>
+                </sheet>
+
+                <footer>
+                    <button string="Generate Report" type="object" name="generate_commission_report" class="btn-primary"/>
+                    <button string="Cancel" special="cancel"></button>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_nf_commission_report_wizard" model="ir.actions.act_window">
+        <field name="name">Commission Report</field>
+        <field name="res_model">nf.commission.report</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="nf_commission_report_menu" name="Commission Report" parent="point_of_sale.menu_point_rep" sequence="6" action="nf_pos_salesperson_commission.action_nf_commission_report_wizard" groups="nf_pos_salesperson_commission.nf_commission_manager"/>
+</odoo>

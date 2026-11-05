@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="nf_employee_dashboard.NfTimerDisplay">
+        <span class="nf_timer p-1" style="color: white;">
+            <t t-esc="displayTime"/>
+        </span>
+    </t>
+</templates>

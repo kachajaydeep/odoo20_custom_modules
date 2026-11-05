@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Product Catalog Generator</title>
+        <meta name="description" content="Create professional product catalogs directly in Odoo with the Product Catalog Generator module. Generate product or category-based catalogs with multiple styles, customizable layouts, pricing options, images, Excel export, PDF reports, and email sharing. Perfect for businesses needing dynamic product brochures and sales catalogs.">
+        <meta name="keywords" content="product catalog create odoo product catalog generator product catalog odoo odoo catalog report product catalog pdf odoo product catalog excel export odoo odoo product brochure generator dynamic product catalog odoo odoo product catalog printing odoo catalog report module product listing catalog odoo odoo catalog wizard odoo catalog styles odoo sales catalog generator odoo product catalog email send odoo catalog management module generate product catalog odoo automated product catalog odoo odoo product marketing catalog odoo report catalog module odoo printable product catalog product catalog product catalog generator catalog module erp catalog solution product catalog software catalog generator apps catalog module product catalog tool sales catalog generator product brochure generator Product Product Catalog Generator product catalog generator productcatalog catalog product">
+
+    <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+        <link rel="stylesheet" href="nf_pos_index_test_app/static/description/index.html"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    </head>
+
+    <body>
+        <section class="nf_m_header">
+            <div class="container-fluid px-5 pb-3 text-center text-md-start" style="background-color:#f8f9fa; border-radius:10px;">
+                <div class="row align-items-center">
+                    <!-- Module Info -->
+                    <div class="col-12 col-lg-6 my-4 my-lg-0 text-center">
+                        <h1 class="fw-bolder" style="font-size:calc(1.8rem + 1.5vw); color:#212529; margin-bottom:15px;">
+                            Product Catalog Generator
+                        </h1>
+
+                        <p style="font-size:17px; color:#6c757d; line-height:1.7;">
+                            <b>Product Catalog Generator </b> is a powerful Odoo module designed to create, customize, and export professional product catalogs in multiple formats and styles. It allows users to generate dynamic catalogs with products, categories, pricing options, and layouts, and export them as PDF or Excel reports or share via email.
+                        </p>
+                        <!-- Dependency Badge -->
+                        <div style="margin-top:20px;" class="text-start">
+                            <p class="fw-bold" style="font-size:16px; color:#212529; margin-bottom:10px;">Platform Support</p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span style="background-color:#714B67; color:#fff; padding:6px 14px; border-radius:20px; font-size:14px;">Community</span>
+                                <span style="background-color:#714B67; color:#fff; padding:6px 14px; border-radius:20px; font-size:14px;">Enterprise</span>
+                                <span style="background-color:#714B67; color:#fff; padding:6px 14px; border-radius:20px; font-size:14px;">Odoo.sh</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Hero Image -->
+                    <div class="col-12 col-lg-6 text-center">
+                        <img src="partner_img.png" class="img-fluid" style="max-width:65%; border-radius:8px;" alt="Pos Order Type Module" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ===== VIDEO + DESCRIPTION ===== -->
+        <section class="nft_header pb-4">
+            <div class="container-fluid px-5 pt-4 text-center text-md-start">
+                <div class="row align-items-center">
+                    <!-- Video -->
+                    <div class="col-12 col-lg-6">
+                        <div class="text-center w-100" style="position:relative;  height:auto; overflow:hidden; border-radius:8px;">
+                            <div class="position-relative" style="width:100%; height:0; padding-bottom:56.25%;">
+                                <a href="https://youtu.be/_c9-2dEjiFo" target="_blank"
+                                    class="position-absolute top-0 start-0 d-block" style="width:100%; height:100%;">
+                                    <img src="Video.gif" alt="YouTube Video Thumbnail"
+                                        style="width:78%; height:100%; object-fit:cover;" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Text -->
+                    <div class="col-12 col-lg-6 my-4 my-lg-0">
+                        <div class="p-4">
+                            <p class="text-start" style="font-size:18px; font-family:'Poppins', sans-serif; color:#6c757d; line-height:1.7; margin:0;">
+                                It allows businesses to generate visually rich product catalogs directly from Odoo using a wizard interface. Users can select products or categories, apply custom styles, configure pricing rules, and export catalogs in PDF or Excel formats or share them via email.
+                                This module is ideal for sales teams, wholesalers, and retailers who need a flexible and automated product catalog system inside Odoo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOT FEATURES ===== -->
+        <section id="nf_hot_feature">
+            <div class="container-fluid d-flex flex-column align-items-center" style="padding:60px 20px 0; background-color:#f8f9fa; border-radius:10px; font-family:Arial, sans-serif;">
+                <div class="text-center mb-3">
+                    <h2>
+                        Hot Features
+                    </h2>
+                </div>
+
+                <div class="container-fluid mt-3">
+                    <div class="row">
+                        <!-- Feature Cards -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="color:#212529;">Dynamic Product Catalog Generator</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        with simple wizard-based configuration
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="color:#212529;">5 Powerful Catalog Styles</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        Default, Box, Row, Bubble, Style 5 for professional layouts
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="color:#212529;">Advanced Box Layout Control</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        Advanced Box Layout Control (2 / 3 / 4 products per row support)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="color:#212529;">Custom Image Settings</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        Custom Image Settings with height & width control for better presentation
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="color:#212529;">Smart Pricing System</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        Smart Pricing System with currency, pricelist, and decimal precision support
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="color:#212529;">Page Break Control</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        Page Break Control for structured and clean catalog printing
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="color:#212529;">PDF & Excel (XLS)</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        PDF and Excel (XLS) to download the catalog
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="color:#212529;">One-Click Email Sharing</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        One-Click Email Sharing of generated product catalogs
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card p-4 border-0 shadow-sm text-start"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="color:#212529;">Product & Category Wise Catalog Creation</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">
+                                        Product & Category Wise Catalog Creation for flexible catalog management
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SUPPORT SECTION ===== -->
+        <section class="nft_support text-center">
+            <div class="container-fluid mt-5 px-4">
+                <div class="row">
+                    <!-- Address -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card text-start shadow-sm" style="border-radius:12px; padding:30px; height:100%;">
+                            <div class="d-flex" >
+                                <div class="w-75">
+                                    <h5 class="card-title fw-bold">Quick Support</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.6;">
+                                        <strong>WhatsApp</strong><br/>
+                                        210, Skymall, Nr. Mercedez-Benz Showroom, Gondal Road,<br />Rajkot (360004), Gujarat, India
+                                    </p>
+                                    <div>
+                                        <span class="fa fa-whatsapp text-success" ></span>
+                                        <strong> +91 73832 03034 </strong>    
+                                    </div>
+                                </div>
+                                <div class="w-25">
+                                    <img src="support/whatsapp.png" width="100%" atl="Whatsapp" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Support Center -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                       
+                        <div class="card text-start shadow-sm" style="border-radius:12px; padding:30px; height:100%;">
+                            <div class="d-flex" >
+                                <div class="w-75" >
+                                    <h5 class="card-title fw-semibold">Electronic Support</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.6;">
+                                        Please feel free to write an email to us or use our electronic ticketing system.
+                                    </p>
+                                    <p style="color:#333; font-size:14px; line-height:1.6;">
+                                        <strong>Email :</strong>
+                                        <a href="mailto:support@nextflow.in" style="color:#1D4ED8; text-decoration:none;">support@nextflow.in</a> |
+                                        <a href="mailto:nextfloit@gmail.com" style="color:#1D4ED8; text-decoration:none;">nextfloit@gmail.com</a>
+                                    </p>
+                                </div>
+                                <div class="w-25" >
+                                    <img src="support/email.png" width="100%" atl="Whatsapp" />
+                                                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Electronic Support -->
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                         <div class="card text-start shadow-sm" style="border-radius:12px; padding:30px; height:100%;">
+                            <div class="d-flex">
+                                <div class="w-75" >
+                                    <h5 class="card-title fw-semibold">Support Center</h5>
+                                    <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.6;">
+                                        Our dedicated Support team is available to assist you with any questions, concerns, or support you may need.
+                                    </p>
+                                    <p style="color:#333; font-size:14px; line-height:1.6;">
+                                        <strong>Phone :</strong>
+                                        <a href="tel:+917383203034" style="color:#1D4ED8; text-decoration:none;"> +91 73832 03034</a>
+                                    </p>
+                                </div>
+                                <div class="w-25" >  
+                                    <img src="support/contact.png" width="100%" atl="Whatsapp" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TABS: Features / Screenshots / FAQs / Releases ===== -->
+        <section id="nf-menus">
+            <div class="main-div px-4">
+                <div class="position-relative">
+                    <ul class="nav nav-pills nav-fill gap-3">
+                        <li class="nav-item" style="border:1px solid #ddd;border-radius: 10px; background-color:#DBEAFE; margin:0 3px;">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#Features"
+                                style="padding:13px 20px;border-radius: 10px;">
+                                <i class="fa fa-fw fa-gear"></i> Features
+                            </a>
+                        </li>
+                        <li class="nav-item" style="border:1px solid #ddd;border-radius: 10px; background-color:#DBEAFE; font-weight:600; font-size:14px; margin:0 3px;">
+                            <a class="nav-link" data-bs-toggle="tab" href="#Setup"
+                                style="padding:13px 20px;border-radius: 10px;">
+                                <i class="fa fa-fw fa-desktop"></i> Screenshots
+                            </a>
+                        </li>
+                        <li class="nav-item" style="border:1px solid #ddd;border-radius: 10px; background-color:#DBEAFE; font-weight:600; font-size:14px; margin:0 3px;">
+                            <a class="nav-link" data-bs-toggle="tab" href="#FAQs"
+                                style="padding:13px 20px;border-radius: 10px;">
+                                <i class="fa fa-fw fa-gear"></i> FAQs
+                            </a>
+                        </li>
+                        <li class="nav-item" style="border:1px solid #ddd;border-radius: 10px; background-color:#DBEAFE; font-weight:600; font-size:14px; margin:0 3px;">
+                            <a class="nav-link" data-bs-toggle="tab" href="#Releases"
+                                style="padding:13px 20px;border-radius: 10px;">
+                                <i class="fa fa-fw fa-send"></i> Releases
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tab Panes -->
+                <div class="tab-content">
+
+                    <!-- FEATURES TAB -->
+                    <div id="Features" class="tab-pane active">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Product Catalog Management</b></h5>
+                                    <ul>
+                                        <li>The module allows users to generate and manage product catalogs directly from Odoo. A dedicated Product Catalog menu provides easy access to create, view, and manage generated catalogs.</li>
+                                        <li>Main Menu Structure:</li>
+                                        <ul>
+                                            <li>Product Catalog</li>
+                                            <ul>
+                                                <li>Product Catalog</li>
+                                                <li>Generate Product Catalog</li>
+                                            </ul>
+                                        </ul>
+                                        <li>Users can create catalogs based on products or categories and store generated catalogs for future printing or sharing.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Email Catalog Sharing</b></h5>
+                                    <ul>
+                                        <li>The module supports sending catalogs directly via email.</li>
+                                        <li>Users can:</li>
+                                        <ul>
+                                            <li>Generate catalog email</li>
+                                            <li>Attach the catalog report and excel file</li>
+                                            <li>Send it to customers or partners</li>
+                                        </ul>
+                                        <li>This makes sharing product catalogs quick and efficient.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Catalog Generation Wizard</b></h5>
+                                    <ul>
+                                        <li>A powerful wizard form helps users configure catalog details before generating reports.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Product Image Settings</b></h5>
+                                    <ul>
+                                        <li><b>The wizard form includes the following fields to configure the product catalog:</b></li>
+                                        <li>Users can control how product images appear inside the catalog.</li>
+                                        <li>Options include: (wizard form)</li>
+                                        <ul>
+                                            <li>Enable/Disable product image</li>
+                                            <li>Image Height (in pixels)</li>
+                                            <li>Image Width (in pixels)</li>
+                                        </ul>
+                                        <li>This allows businesses to maintain consistent catalog layouts.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Products Pricing</b></h5>
+                                    <ul>
+                                        <li><b>The wizard form includes the following fields to configure the product catalog:</b></li>
+                                        <li>The module supports advanced pricing settings.</li>
+                                        <li>Features include: (wizard form)</li>
+                                        <ul>
+                                            <li>Show/Hide product price</li>
+                                            <li>Pricelist selection</li>
+                                            <li>Price decimal precision configuration</li>
+                                        </ul>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Multiple Catalog Layout Styles</b></h5>
+                                    <ul>
+                                        <li><b>The wizard form includes the following fields to configure the product catalog:</b></li>
+                                        <li>Users can choose from multiple catalog display styles depending on presentation needs.</li>
+                                        <ul>
+                                            <li>Available styles:</li>
+                                            <ul>
+                                                <li>Default Style</li>
+                                                <li>Box Style</li>
+                                                <li>Row Style</li>
+                                                <li>Bubble Style</li>
+                                                <li>Style 5</li>
+                                            </ul>
+                                        </ul>
+                                        <li>Each style provides a unique layout for printing the product catalog report.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Box Layout Customization</b></h5>
+                                    <ul>
+                                        <li><b>The wizard form includes the following fields to configure the product catalog:</b></li>
+                                        <li>When Box Style is selected, additional layout options appear.</li>
+                                        <li>Users can choose how many products appear per row:</li>
+                                        <ul>
+                                            <li>2 Boxes per Row</li>
+                                            <li>3 Boxes per Row</li>
+                                            <li>4 Boxes per Row</li>
+                                        </ul>
+                                        <li>This helps create grid-based catalog designs suitable for print or digital use.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Page Break Control</b></h5>
+                                    <ul>
+                                        <li><b>The wizard form includes the following fields to configure the product catalog:</b></li>
+                                        <li>The module supports automatic page breaking to maintain clean catalog formatting.</li>
+                                        <li>Options include:</li>
+                                        <ul>
+                                            <li>Enable/Disable page break</li>
+                                            <li>Set number of products after which a page break occurs</li>
+                                        </ul>
+                                        <li>This ensures professional catalog layouts in PDF reports.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>Print Options</b></h5>
+                                    <ul>
+                                        <li>Users can generate catalogs in different formats.</li>
+                                        <li>Available outputs:</li>
+                                        <ul>
+                                            <li>PDF Catalog Report</li>
+                                        </ul>
+                                        <li>Multiple report styles are available when printing catalogs:</li>
+                                        <ul>
+                                            <li>Catalog Style 1 Report</li>
+                                            <li>Catalog Style 2 Report</li>
+                                            <li>Catalog Style 3 Report</li>
+                                            <li>Catalog Style 4 Report</li>
+                                            <li>Catalog Style 5 Report</li>
+                                        </ul>
+                                        <li>Each report style follows the selected catalog layout.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-4 d-flex" style="width:100%;">
+                                <div class="card service-item h-100 w-100 shadow-lg border-0 p-3">
+                                    <h5><b>User Access Control</b></h5>
+                                    <ul>
+                                        <li>Role-based access ensures secure catalog management.</li>
+                                        <li>User roles include:</li>
+                                        <ul>
+                                            <li>Product Catalog User</li>
+                                            <li>Product Catalog Manager</li>
+                                        </ul>
+                                        <li>This allows organizations to control who can generate, manage, or modify catalogs.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQs TAB -->
+                    <div id="FAQs" class="tab-pane fade">
+                        <br />
+                        <div class="container-fluid" style="width: 98%;">
+                            <div class="mt-3 mb-3 shadow-lg d-flex" style="padding:15px 30px; border-radius:10px;width:98%">
+                                <span class="fa fa-hand-o-right" style="color:#4c84ff; font-size:30px; vertical-align:middle; border-radius:100%;"></span>
+                                <div style="font-size:20px; font-weight:500; vertical-align:middle;">
+                                    <div class="ps-1">
+                                        <p><b class="ps-1">How can we take support Or Customization Request?</b></p>
+                                        <p><span class="fa fa-arrow-right"></span> Please Contact us at <a href="mailto:support@nextflow.in">support@nextflow.in</a> for Support/Customization.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid" style="width: 98%;">
+                            <div class="mt-3 mb-3 shadow-lg d-flex" style="padding:15px 30px; border-radius:10px;width:98%">
+                                <span class="fa fa-hand-o-right" style="color:#4c84ff; font-size:30px; vertical-align:middle; border-radius:100%;"></span>
+                                <div style="font-size:20px; font-weight:500; vertical-align:middle;">
+                                    <div class="ps-1">
+                                        <p><b class="ps-1">Can we get Free support?</b></p>
+                                        <p><span class="fa fa-arrow-right"></span> <b>Yes</b>, You can get free support for 90 Day's.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid" style="width: 98%;">
+                            <div class="mt-3 mb-3 shadow-lg d-flex" style="padding:15px 30px; border-radius:10px;width:98%">
+                                <span class="fa fa-hand-o-right" style="color:#4c84ff; font-size:30px; vertical-align:middle; border-radius:100%;"></span>
+                                <div style="font-size:20px; font-weight:500; vertical-align:middle;">
+                                    <div class="ps-1">
+                                        <p><b class="ps-1">This app is working with Odoo Community and Enterprise?</b></p>
+                                        <p><span class="fa fa-arrow-right"></span> <b>Yes</b>, can use with Community and Enterprise both.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SCREENSHOTS TAB -->
+                    <div id="Setup" class="tab-pane fade">
+                        <div class="container my-4">
+                            <div class="row">
+                                <!-- Sidebar -->
+                                <div class="col-md-3 mb-3">
+                                    <div class="nav flex-column nav-pills bg-light p-2 rounded shadow-sm sticky-top">
+
+                                        <a class="nav-link active text-center mb-2"
+                                        data-bs-toggle="tab" href="#user_access_rights">
+                                            Users Access Rights
+                                        </a>
+
+                                        <a class="nav-link text-center mb-2"
+                                        data-bs-toggle="tab" href="#product_catalog_workflow">
+                                            Generated Product Catalog Workflow : Catalog Type = Product
+                                        </a>
+
+                                        <a class="nav-link text-center mb-2"
+                                        data-bs-toggle="tab" href="#product_catalog_workflow_category">
+                                            Generated Product Catalog Workflow : Catalog Type = Category
+                                        </a>
+
+                                        <a class="nav-link text-center mb-2"
+                                        data-bs-toggle="tab" href="#report_style">
+                                            Generated Product Catalog Workflow : Report Style 
+                                        </a>
+
+                                        <a class="nav-link text-center mb-2"
+                                        data-bs-toggle="tab" href="#report_style_catalog">
+                                            Generated Product Catalog Workflow : Catalog Style Report   
+                                        </a>
+
+                                        <a class="nav-link text-center mb-2"
+                                        data-bs-toggle="tab" href="#invalid_options">
+                                            Invalid Options
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Content -->
+                                <div class="col-md-9">
+                                    <div class="tab-content bg-white p-3 rounded shadow-sm">
+
+                                    <!-- Users Access Right -->
+                                    <div class="tab-pane fade show active" id="user_access_rights">
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <div class="text-center"><h1>It Shows The Workflow Of Users.</h1></div> 
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Settings => Users & Companies => Click " Users " Open Users list view</b></p>
+                                                <img src="ss/img.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Open the Administrator user, go to the Access Rights tab, set Product Catalog to Product Catalog Manager</b></p>
+                                                <img src="ss/img_1.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Product Catalog => Click "Product Catalog"</b></p>
+                                                <img src="ss/img_3.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog form view open</b></p>
+                                                <img src="ss/img_4.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Click "Generate Product Catalog"</b></p>
+                                                <img src="ss/img_5.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">Generate Product Catalog wizard view open</p>
+                                                <img src="ss/img_6.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Open the Marc Demo user, go to the Access Rights tab, set Product Catalog to Product Catalog User</b></p>
+                                                <img src="ss/img_2.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Product Catalog => Click "Product Catalog" (open catalog list view)</b></p>
+                                                <img src="ss/img_7.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog form view open / Actions => Click "Print" => Click "Catalog Style - 1 Report"</b></p>
+                                                <img src="ss/img_8.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Report Generation : Open Create and View Catalog Report</b></p>
+                                                <img src="ss/img_9.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Select all catalog items and click "Print" select "Catalog Style - 1 Report"</b></p>
+                                                <img src="ss/img_12.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Report Generation : Open Create and View Catalog Report</b></p>
+                                                <img src="ss/img_10.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Report Generation : Open Create and View Catalog Report</b></p>
+                                                <img src="ss/img_11.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <!-- product catalog workflow -->
+                                    <div class="tab-pane fade" id="product_catalog_workflow">
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <div class="text-center"><h2>It Shows The Generated Product Catalog workflow.</h2></div>
+                                                <div class="text-center"><h4>Catalog Type : Product </h4></div>
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Click "Generate Product Catalog"</b></p>
+                                                <img src="ss/img_5.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Open Generate Product Catalog form view / add all details</b></p>
+                                                <img src="ss/img_13.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog : form view in Click "Print XLS" and download the excel file</b></p>
+                                                <img src="ss/img_14.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Excel File : Download the product catalog excel file see the prodcut Srno, image, product name, internal reference, product type, category, UOM, price, description</b></p>
+                                                <img src="ss/img_15.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog : form view in Click "Print" and download the report. and style is "Default"</b></p>
+                                                <img src="ss/img_16.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Report File : Download the product catalog report file see the prodcut Srno, image, product name, internal reference, product type, category, UOM, price, description</b></p>
+                                                <img src="ss/img_17.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog : list view open select catalog record</b></p>
+                                                <img src="ss/img_18.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog : form view open see all information</b></p>
+                                                <img src="ss/img_19.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog : Click "Send By Email" Button </b></p>
+                                                <img src="ss/img_20.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog : product Catalog Report Mail open the form view  and click "Send" Button </b></p>
+                                                <img src="ss/img_21.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog :  send  email view show </b></p>
+                                                <img src="ss/img_22.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog : Click "Print PDF" Button </b></p>
+                                                <img src="ss/img_23.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Report PDF : Download the product catalog report file see the catalog details</b></p>
+                                                <img src="ss/img_17.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog : Click "Print XLS" Button</b></p>
+                                                <img src="ss/img_24.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Excel File : Download the product catalog excel file see the catalog details</b></p>
+                                                <img src="ss/img_15.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog : Actions => Print => click "Catalog Style - 1 Report"</b></p>
+                                                <img src="ss/img_25.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Report PDF : Download the product catalog report file see the catalog details</b></p>
+                                                <img src="ss/img_17.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- product catalog workflow Category -->
+                                    <div class="tab-pane fade" id="product_catalog_workflow_category">
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <div class="text-center"><h2>It Shows The Generated Product Catalog workflow.</h2></div>
+                                                <div class="text-center"><h4>Catalog Type : Category </h4></div>
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Click "Generate Product Catalog"</b></p>
+                                                <img src="ss/img_5.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Open Generate Product Catalog form view / add all details</b></p>
+                                                <img src="ss/img_26.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog : form view in Click "Print XLS" and download the excel file</b></p>
+                                                <img src="ss/img_27.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Excel File : Download the product catalog excel file see the prodcut Srno, image, product name, internal reference, product type, category, UOM, price, description</b></p>
+                                                <img src="ss/img_29.png" class="img-fluid mt-3 mb-3" />
+                                                <img src="ss/img_30.png" class="img-fluid mt-3 mb-3" />
+                                                <img src="ss/img_31.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog : form view in Click "Print" and download the report. and style is "Box" / 3 Box Per Row</b></p>
+                                                <img src="ss/img_28.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Report File : Download the product catalog report file see the prodcut Srno, image, product name, internal reference, product type, category, UOM, price, description</b></p>
+                                                <img src="ss/img_32.png" class="img-fluid mt-3 mb-3" />
+                                                <img src="ss/img_33.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog : list view open select catalog record</b></p>
+                                                <img src="ss/img_34.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog : form view open see all information</b></p>
+                                                <img src="ss/img_35.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog : Click "Send By Email" Button </b></p>
+                                                <img src="ss/img_36.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog : product Catalog Report Mail open the form view  and click "Send" Button </b></p>
+                                                <img src="ss/img_38.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog :  send  email view show </b></p>
+                                                <img src="ss/img_39.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog : Click "Print PDF" Button </b></p>
+                                                <img src="ss/img_40.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Report PDF : Download the product catalog report file see the catalog details</b></p>
+                                                <img src="ss/img_32.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog : Click "Print XLS" Button</b></p>
+                                                <img src="ss/img_41.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Excel File : Download the product catalog excel file see the catalog details</b></p>
+                                                <img src="ss/img_29.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog : Actions => Print => click "Catalog Style - 4 Report"</b></p>
+                                                <img src="ss/img_37.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Report PDF : Download the product catalog report file see the catalog details</b></p>
+                                                <img src="ss/img_42.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                        <!-- Report Style Style view -->
+                                        <div class="tab-pane fade" id="report_style">
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <div class="text-center"><h2>It Shows The Generated Product Catalog Workflow : Report Style</h2></div>
+                                                    <div class="text-center"><h4>Wizard from view in "Style" workflow</h4></div>
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generated Product Catalog : form view in Style selecte "Default" and Click "Print"</b></p>
+                                                    <img src="ss/img_16.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Report : Default report see</b></p>
+                                                    <img src="ss/img_17.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generated Product Catalog : form view in Style selecte "Box" and visible Print Box Per Row select "2 box per row" and Click "Print"</b></p>
+                                                    <img src="ss/img_44.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Report : Box report see "2 box per row"</b></p>
+                                                    <img src="ss/img_45.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generated Product Catalog : form view in Style selecte "Box" and visible Print Box Per Row select "3 box per row" and Click "Print"</b></p>
+                                                    <img src="ss/img_43.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Report : Box report see "3 box per row"</b></p>
+                                                    <img src="ss/img_42.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generated Product Catalog : form view in Style selecte "Box" and visible Print Box Per Row select "4 box per row" and Click "Print"</b></p>
+                                                    <img src="ss/img_46.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Report : Box report see "4 box per row"</b></p>
+                                                    <img src="ss/img_47.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generated Product Catalog : form view in Style selecte "Row" and Click "Print"</b></p>
+                                                    <img src="ss/img_48.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Report : Row report see</b></p>
+                                                    <img src="ss/img_49.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generated Product Catalog : form view in Style selecte "Bubble" and Click "Print"</b></p>
+                                                    <img src="ss/img_50.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Report : Bubble report see</b></p>
+                                                    <img src="ss/img_51.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generated Product Catalog : form view in Style selecte "Style 5" and Click "Print"</b></p>
+                                                    <img src="ss/img_52.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Report : Style 5 report see</b></p>
+                                                    <img src="ss/img_53.png" class="img-fluid mt-3 mb-3" />
+                                                    <img src="ss/img_54.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- Report Style Catalog -->
+                                        <div class="tab-pane fade" id="report_style_catalog">
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <div class="text-center"><h2>It Shows The Generated Product Catalog Workflow : Catalog Style Report</h2></div>
+                                                    <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;"><b>Generate Product Catalog form view : Actions => Print => click "Catalog Style - 1 Report"</b></p>
+                                                    <img src="ss/img_55.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">Report (Catalog Style - 1 Report) : Download the product catalog report file see the catalog details</p>
+                                                <img src="ss/img_56.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">Generate Product Catalog form view : Actions => Print => click "Catalog Style - 2 Report"</p>
+                                                <img src="ss/img_57.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">Report (Catalog Style - 2 Report) : Download the product catalog report file see the catalog details</p>
+                                                <img src="ss/img_58.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">Generate Product Catalog form view : Actions => Print => click "Catalog Style - 3 Report"</p>
+                                                <img src="ss/img_59.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">Report (Catalog Style - 3 Report) : Download the product catalog report file see the catalog details</p>
+                                                <img src="ss/img_60.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">Generate Product Catalog form view : Actions => Print => click "Catalog Style - 4 Report"</p>
+                                                <img src="ss/img_61.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+
+                                             <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">Report (Catalog Style - 4 Report) : Download the product catalog report file see the catalog details</p>
+                                                <img src="ss/img_62.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">Generate Product Catalog form view : Actions => Print => click "Catalog Style - 5 Report"</p>
+                                                <img src="ss/img_63.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+
+                                             <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">Report (Catalog Style - 5 Report) : Download the product catalog report file see the catalog details</p>
+                                                <img src="ss/img_64.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <p class="fw-bold text-center" style="border-radius:10px; font-size:18px; font-weight:400; font-family:'Times New Roman', Times, serif;">Select all record and Click "Print" and select "Catalog Style vise Report print"</p>
+                                                <img src="ss/img_65.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+
+                                        <!-- Invalid Options -->
+                                        <div class="tab-pane fade" id="invalid_options">
+                                            <div class="container-fluid">
+                                                <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                    <div class="text-center"><h2>It Shows The Invalid Options</h2></div>
+                                                    <img src="ss/img_66.png" class="img-fluid mt-3 mb-3" />
+                                                </div>
+                                            </div>
+
+                                            <div class="mt-3 pt-4 mb-3 text-center shadow-lg">
+                                                <img src="ss/img_67.png" class="img-fluid mt-3 mb-3" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RELEASES TAB -->
+                    <div id="Releases" class="tab-pane fade">
+                        <br />
+                        <div class="mt-3 mb-3 sh_content shadow rounded bg-white" style="padding:20px; width:98%;">
+                            <span class="fa fa-hand-o-right" style="color:#4c84ff; font-size:35px; vertical-align:middle; margin-right:20px;"></span>
+                            <span style="font-size:20px; font-weight:500; vertical-align:middle;">Releases on 18<sup>th</sup> April 2026</span>
+                            <br />
+                            <p style="padding:20px; padding-bottom:0;">
+                                <span class="badge bg-success fw-bold me-2" style="padding:5px 15px; border-radius:3px; color:#fff; font-size:9px; text-transform:uppercase;">Initial</span>
+                                <span style="font-size:17px; font-weight:500; vertical-align:middle;">Version 20.0.1 | Initial Released.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                </div><!-- /tab-content -->
+            </div>
+        </section>
+
+        <!-- ===== MULTI LANGUAGE ===== -->
+        <section class="nf-multi-language text-center pt-5">
+            <h3 class="mb-4">Multi Language</h3>
+            <div class="row justify-content-evenly align-items-center gx-0 text-center">
+                <img class="rounded col-auto" src="eng.png" title="English" alt="english" style="border-radius:0.25rem !important; height:90px; width:90px;" />
+                <img class="rounded col-auto" src="ger.png" title="Germany" alt="germany" style="border-radius:0.25rem !important; height:90px; width:90px;" />
+                <img class="rounded col-auto" src="arb.png" title="Arab" alt="arab" style="border-radius:0.25rem !important; height:90px; width:90px;" />
+                <img class="rounded col-auto" src="chi.png" title="Chinese" alt="Chinese" style="border-radius:0.25rem !important; height:110px; width:115px;" />
+                <img class="rounded col-auto" src="fre.png" title="French" alt="French" style="border-radius:0.25rem !important; height:110px; width:115px;" />
+            </div>
+        </section>
+
+        <!-- ===== OUR SERVICES ===== -->
+        <section id="nf_services" class="mt-5">
+            <div class="container-fluid d-flex flex-column align-items-center" style="padding:60px 20px 0; border-radius:10px; font-family:Arial, sans-serif; background-color:#f8f9fa;">
+                <div class="text-center mb-3">
+                    <h4 class="mb-1" style="color:#f74780;">Our Service</h4>
+                    <h1 class="display-5 mb-4">What We Can Do For You</h1>
+                </div>
+
+                <div class="container-fluid py-3">
+                    <div class="row justify-content-center">
+
+                        <!-- Service Card 1 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card text-center p-4 border-0 shadow-sm"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <div class="d-flex justify-content-center align-items-center" style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                        <i class="fa fa-2x fa-refresh" ></i>
+                                    </div>
+                                </div>
+                                <h5 class="card-title fw-bold" style="color:#212529;">Odoo Migration</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">Odoo Database migration and module migraion. migrating a odoo setup version older to new. </p>
+                            </div>
+                        </div>
+
+                        <!-- Service Card 2 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card text-center p-4 border-0 shadow-sm"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <div class="d-flex justify-content-center align-items-center" style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                        <i class="fa fa-2x fa-wrench" ></i>
+                                    </div>
+                                </div>
+                                <h5 class="card-title fw-bold" style="color:#212529;">Odoo Customization</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">We can modify existing Odoo modules, such as CRM, Sales, Inventory, and Accounting, to better fit your company's operations. This includes adding new fields, changing workflows, and creating custom business rules. </p>
+                                
+                            </div>
+                        </div>
+
+                        <!-- Service Card 3 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card text-center p-4 border-0 shadow-sm"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <div class="d-flex justify-content-center align-items-center" style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                        <i class="fa fa-2x fa-user" ></i>
+                                     </div>
+                                </div>
+                                <h5 class="card-title fw-bold" style="color:#212529;">Web Development in Odoo</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">We build more than just beautiful websites; we build powerful business tools. Our web development services create professional, user-friendly sites that are fully integrated with your Odoo system.</p>
+                                
+                            </div>
+                        </div>
+
+                        <!-- Service Card 4 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card text-center p-4 border-0 shadow-sm"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <div class="d-flex justify-content-center align-items-center" style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                        <i class="fa fa-2x fa-cogs" ></i>
+                                     </div>
+                                </div>
+                                <h5 class="card-title fw-bold" style="color:#212529;">Odoo Implementation</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">We specialize in Odoo Integration Services, creating robust connections between Odoo and your other critical software systems, e-commerce platforms, payment gateways, shipping carriers, and more.</p>
+                            </div>
+                        </div>
+
+                        <!-- Service Card 5 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card text-center p-4 border-0 shadow-sm"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <div class="d-flex justify-content-center align-items-center" style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                        <i class="fa fa-2x fa-globe" ></i>
+                                     </div>
+                                </div>
+                                <h5 class="card-title fw-bold" style="color:#212529;">Odoo Support and Maintenance</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">Odoo Support and Maintenance Our Odoo Support and Maintenance plans provide you with expert technical assistance, proactive security updates, performance monitoring, and help with user questions to ensure your system remains a reliable and effective asset.</p>
+                            </div>
+                        </div>
+
+                        <!-- Service Card 6 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card text-center p-4 border-0 shadow-sm"
+                                style="border-radius:15px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <div class="d-flex justify-content-center align-items-center" style="width:100px; height:100px; border-radius:8px; background-color:#f6f6fa;">
+                                        <i class="fa fa-2x fa-users" ></i>
+                                     </div>
+                                </div>
+                                <h5 class="card-title fw-bold" style="color:#212529;">Odoo Training</h5>
+                                <p class="card-text" style="color:#6c757d; font-size:14px; line-height:1.5;">We provide comprehensive functional and technical Odoo training to help teams understand, implement, and effectively use Odoo for their business operations.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== RELATED APPS ===== -->
+        <section id="sh_most_demanded_apps" style="background-color:transparent;">
+            <div class="container-fluid px-4">
+                <div class="nf-related text-center">
+                    <h3 class="display-5" style="font-family:Verdana, Geneva, Tahoma, sans-serif; text-transform:capitalize; font-weight:500;">Apps for you</h3>
+                </div>
+                <div class="row" style="margin-top:1rem;">
+                    <div class="col-md-4 mb-3">
+                        <div class="sh_content shadow rounded text-center" style="height: 90%;">
+                            <div class="sh_img" style="height: 100%;">
+                                <a href="https://apps.odoo.com/apps/modules/19.0/nf_product_expiry_report" target="_blank">
+                                    <img class="rounded" src="product_expiry_report.gif" width="100%" style="height: 100%;" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="sh_content shadow rounded text-center">
+                            <div class="sh_img">
+                                <a href="https://apps.odoo.com/apps/modules/19.0/nf_restrict_create_product_from_so_po" target="_blank">
+                                    <img class="rounded" src="pos_restrict.gif" width="100%" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="sh_content shadow rounded text-center">
+                            <div class="sh_img">
+                                <a href="https://apps.odoo.com/apps/modules/19.0/nf_pos_dashboard/" target="_blank">
+                                    <img class="rounded" src="dashboard.gif" width="100%" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="service-item shadow rounded py-3 px-4 mb-2 text-center btn d-flex justify-content-center align-items-center fw-bold"
+                    target="_blank"
+                    style="text-decoration:none; font-size:20px; width:100%; border-radius:0.25rem !important; border:1px solid black;color: #000;"
+                    href="https://apps.odoo.com/apps/modules/browse?author=NextFlowIT">
+                    Explore Our Leading Apps List
+                </a>
+            </div>
+        </section>
+    </body>
+</html>

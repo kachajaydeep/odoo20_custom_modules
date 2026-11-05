@@ -1,0 +1,2 @@
+id,name,model_id,group_id/id,operation,domain
+nf_pos_dashboard.access_nf_pos_dashboard,access_nf_pos_dashboard,nf.pos.dashboard,base.group_user,crud

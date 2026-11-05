@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="nf_pos_receipt_barcode.OrderReceipt" inherit_id="point_of_sale.pos_order_receipt_footer">
+            <xpath expr="//div[@name='footer']/parent::div" position="before">
+                <t t-if="config['nf_enable_receipt_barcode']">
+                    <t t-if="!order['is_refund'] and !order['is_exchange']">
+                        <div class="w-100 text-center m-auto mt-3">
+                            <div>
+                                <img t-att-src="'/report/barcode/Code128/' + order['nf_barcode_id']" style="width:300px; height:80px;" alt="Barcode"/>
+                            </div>
+                            <p class="text-muted badge font-sm d-flex justify-content-center mt-2">To get order reference, scan me!</p>
+                        </div>
+                    </t>
+                    <t t-else="">
+                    </t>
+                </t>
+                <t t-else="">
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>

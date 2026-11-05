@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="nf_res_config_settings_bag_selection_inherit_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.bag.selection.view.form.inherit.base</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="0"/>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+             <block id="pos_accounting_section" position="after">
+                <block title="POS Service Management" id="nf_service_management">
+                    <setting>
+                        <field name="nf_enable_bag_charges"></field>
+                        <field name="nf_carry_bag_category_id" invisible="not nf_enable_bag_charges" required="nf_enable_bag_charges == True" domain="[('id', 'in', pos_iface_available_categ_ids)]" options="{'no_open': True, 'no_create': True}"></field>
+                    </setting>
+                </block>
+            </block>
+        </field>
+    </record>
+</odoo>

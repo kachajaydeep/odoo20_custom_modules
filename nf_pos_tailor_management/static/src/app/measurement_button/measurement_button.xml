@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<template>
+    <t t-name='nf_pos_salesperson_commission.ControlButtons' t-inherit='point_of_sale.ControlButtons'
+        t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='this.props.showRemainingButtons']/div" position="inside">
+            <t t-if="this.pos.getOrder().getSelectedOrderline()">
+                <t t-if="this.pos.getOrder().getPartner() and this.pos.getOrder().getSelectedOrderline().nf_bom_component_ids.length">
+                    <button t-att-class="buttonClass" t-on-click="() => this.measurement()"
+                        class="border-0 bg-secondary text-mdark fs-4">Measurement</button>
+                </t>
+                 <t t-if="this.pos.getOrder().getSelectedOrderline().nf_bom_component_ids.length">
+                     <button t-att-class="buttonClass" t-on-click="() => this.deliveryDate()"
+                             class="border-0 bg-secondary text-dark fs-4">Delivery Date</button>
+                 </t>
+                <t t-if="this.pos.getOrder().getSelectedOrderline().nf_bom_component_ids.length">    
+                    <button t-att-class="buttonClass" t-on-click="() => this.UpdateBillOfMaterial()"
+                    class="border-0 bg-secondary text-mdark fs-4">Update Bill Of Material</button>
+                </t>
+            </t>
+        </xpath>
+    </t>
+</template>

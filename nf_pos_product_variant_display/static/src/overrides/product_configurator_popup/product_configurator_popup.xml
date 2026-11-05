@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_pos_product_variant_display.ProductConfiguratorPopup" t-inherit="point_of_sale.ProductConfiguratorPopup" t-inherit-mode="extension">
+        <xpath expr="//Dialog[@title='this.title']//div" position="attributes">
+            <attribute name="t-if">
+                !this.pos.config.nf_enable_custom_variant
+            </attribute>
+        </xpath>
+        
+        <!-- 2. Inject your custom UI AFTER original node -->
+        <xpath expr="//Dialog[@title='this.title']//div" position="after">
+            <div t-if="this.pos.config.nf_enable_custom_variant" class="p-2">
+                <div t-if="this.isArchivedCombination()" class="alert alert-warning mt-3">
+                    <span>This option or combination of options is not available</span>
+                </div>
+
+                <div class="d-flex flex-wrap gap-3">
+
+                    <t t-foreach="this.validAttributeLineIds"
+                       t-as="attribute"
+                       t-key="attribute.id">
+                        <t t-log="'attribute.values()',attribute.values()"></t>
+                        <t t-log="'attribute',attribute"></t>
+                        <t t-foreach="attribute.values()"
+                           t-as="value"
+                           t-key="value.id">
+
+                            <div class="card cursor-pointer"
+                                 t-on-click="() => this.setSelected(attribute)(value)"
+                                 t-att-class="{
+                                    'border-primary border-3':
+                                        this.state.attributes[attribute.attribute_id.id].selected?.id === value.id,
+                                    'opacity-50':
+                                        this.pos.doHaveConflictWith(value, this.selectedValues)
+                                 }"
+                                 style="width: 150px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+
+                                <!-- image / color -->
+                                <t t-set="has_color" t-value="value.html_color"/>
+                                <t t-set="variant_id"
+                                   t-value="this.props.productTemplate?.product_variant_ids?.find(
+                                        v => v.product_template_attribute_value_ids?.some(
+                                            ptav => ptav.id === value.id ||
+                                            ptav.product_attribute_value_id === value.product_attribute_value_id
+                                        )
+                                   )?.id"/>
+
+                                <t t-set="final_id" t-value="variant_id || this.props.productTemplate?.id"/>
+                                <t t-set="res_model"
+                                   t-value="variant_id ? 'product.product' : 'product.template'"/>
+
+                                <div class="card-img-top bg-light position-relative"
+                                     t-attf-style="
+                                        height:120px;
+                                        background-size:cover;
+                                        background-position:center;
+                                        #{has_color ? 'background-color:' + value.html_color + ';' : ''}
+                                     ">
+
+                                    <img t-att-src="`/web/image/${res_model}/${final_id}/image_1920`"
+                                         class="w-100 h-100 img-fluid"
+                                         style="object-fit: cover;"
+                                         onerror="this.style.display='none';"/>
+                                </div>
+
+                                <!-- body -->
+                                <div class="card-body d-flex flex-column row-gap-2 bg-white">
+
+                                    <h4 class="card-title m-0 fw-bold"
+                                        t-esc="this.props?.productTemplate?.display_name"/>
+
+                                    <span class="badge rounded-pill text-bg-success"
+                                          t-esc="value.name"
+                                          t-att-title="value.name"
+                                          style="padding:5px 10px;"/>
+
+                                    <small class="text-muted"
+                                           t-esc="attribute.attribute_id.name"
+                                           t-att-title="attribute.attribute_id.name"/>
+
+                                    <div t-if="value.price_extra" class="mt-2">
+                                        <span class="badge rounded-pill text-bg-info w-100">
+                                            <t t-esc="this.env.utils.formatCurrency(value.price_extra)"/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+
+        <xpath expr="//Dialog" position="inside">
+            <t t-set-slot="header">
+                <div class="d-flex align-items-center justify-content-between" style="width:100%;">
+                    <h4 class="nf-product-title">
+                        <t t-out="this.title"></t>
+                    </h4>
+                    <div class="d-flex column-gap-2 align-items-center">
+                        <input class="nf-vendor-search" t-on-input="this.nfProductCategory" placeholder="Search Categories..." t-if="this.pos.config.nf_enable_custom_variant"/>
+                        <button type="button" class="btn-close" t-on-click="() => this.close()" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>

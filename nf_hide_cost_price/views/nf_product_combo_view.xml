@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_product_combo_hide_price_form_view" model="ir.ui.view">
+        <field name="name">Hide Product Combo Price</field>
+        <field name="model">product.combo</field>
+        <field name="inherit_id" ref="product.product_combo_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list/field[@name='lst_price']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+            <xpath expr="//list/field[@name='extra_price']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

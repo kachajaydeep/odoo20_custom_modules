@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="nf_website_custom_view_delivery_price_rule_form" model="ir.ui.view">
+        <field name="name">nf.delivery.rule.website.form.view.inherit</field>
+        <field name="model">delivery.price.rule</field>
+        <field name="inherit_id" ref="delivery.view_delivery_price_rule_form"/>
+        <field name="arch" type="xml">
+            <field name="max_value" position="attributes" >
+                <attribute name="invisible"> variable == 'city' </attribute>
+            </field>
+            <field name="max_value" position="after" >
+                <field name="nf_city_id" />
+            </field>
+        </field>
+    </record>
+
+</odoo>

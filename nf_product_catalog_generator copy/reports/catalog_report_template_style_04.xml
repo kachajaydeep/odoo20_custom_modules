@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_product_catalog_style4_document">
+        <t t-call="web.external_layout">
+            <t t-set="o" t-value="o.with_context()"/>
+            <div class="page" id="style4_design">
+                <style>
+                #style4_design {
+                    background-color: #f5f5f5;
+                    font-family: Arial, sans-serif;
+                }
+                #style4_design h3 {
+                    text-align: center;
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #2d2d2d;
+                    margin-bottom: 20px;
+                }
+                #style4_design .grid-table {
+                    width: 100%;
+                    border-collapse: separate;
+                    border-spacing: 12px;
+                    table-layout: fixed;
+                }
+                #style4_design .card-td {
+                    background: #ffffff;
+                    padding: 16px;
+                    vertical-align: top;
+                    width: 50%;
+                    border: none;
+                }               
+                #style4_design .card-inner-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    height: 100%;
+                    border: none;
+                }
+                #style4_design .card-inner-table tr td {
+                    border: none;
+                    border-right: none;
+                    border-bottom: none;
+                }
+                #style4_design .card-img-cell {
+                    width: 42%;
+                    vertical-align: middle;
+                    padding: 0;
+                    overflow: hidden;
+                    border-right: 1px solid #eeeeee;
+                    border-top: none;
+                    border-bottom: none;
+                    border-left: none;
+                    border-radius: 10px 0 0 10px;
+                    background: #f5f5f5;
+                    text-align: center;
+                }
+                #style4_design .card-img-cell span {
+                    display: block;
+                    width: 100% !important;
+                    object-fit: cover;
+                }
+                #style4_design .card-no-image {
+                    background: #f0f0f0;
+                    color: #bbb;
+                    font-size: 10px;
+                    text-align: center;
+                    vertical-align: middle;
+                    display: table-cell;
+                }
+                #style4_design .card-content-cell {
+                    width: 58%;
+                    vertical-align: top;
+                    padding: 12px 14px;
+                }
+                #style4_design .card-ref {
+                    font-size: 11px;
+                    color: #888;
+                    margin-bottom: 3px;
+                }
+                #style4_design .card-name {
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: #1a1a1a;
+                    line-height: 1.4;
+                }
+                #style4_design .card-tags {
+                    margin: 8px 0;
+                }
+                #style4_design .tag {
+                    display: inline-block;
+                    background: #3b3474;
+                    color: #ffffff;
+                    font-size: 10px;
+                    font-weight: bold;
+                    padding: 3px 10px;
+                    border-radius: 20px;
+                    margin-right: 4px;
+                    margin-bottom: 4px;
+                }
+                #style4_design .card-description {
+                    font-size: 11px;
+                    color: #555;
+                    margin-bottom: 8px;
+                    line-height: 1.5;
+                }
+                #style4_design .card-price {
+                    font-size: 13px;
+                    color: #2d2d2d;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+                #style4_design .btn-read-more {
+                    display: inline-block;
+                    background: #5c55a0;
+                    color: #ffffff;
+                    font-size: 11px;
+                    font-weight: bold;
+                    padding: 6px 16px;
+                    border-radius: 20px;
+                    text-decoration: none;
+                }
+                #style4_design .empty-td {
+                    background: transparent;
+                    border: none;
+                    width: 50%;
+                }
+                </style>
+
+                <h2>
+                    <span t-field="o.catalog_name"/>
+                </h2>
+
+                <t t-set="cols" t-value="2 if o.printbox_per_row == '2_box' else 3 if o.printbox_per_row == '3_box' else 4"/>
+                <t t-set="products" t-value="o.product_id"/>
+                <t t-set="total" t-value="len(products)"/>
+
+                <table class="grid-table table-borderless">
+                    <t t-foreach="range(0, total, cols)" t-as="chunk_start">
+
+                        <!-- Page break -->
+                        <t t-if="o.break_page and o.break_after_product and o.break_after_product > 0 and chunk_start > 0 and (chunk_start % o.break_after_product) == 0">
+                            <tr>
+                                <td t-attf-colspan="{{ cols }}" style="page-break-after: always; border:none; background:transparent;"/>
+                            </tr>
+                        </t>
+
+                        <tr style="vertical-align: top;">
+                            <t t-foreach="range(chunk_start, min(chunk_start + cols, total))" t-as="idx">
+                                <t t-set="line" t-value="products[idx]"/>
+                                
+                                <td class="card-td" style="padding:0; overflow:hidden;">
+
+                                    <table class="card-inner-table table-borderless">
+                                        <tr>
+                                            <!-- ✅ Image LEFT — full card height -->
+                                            <td class="card-img-cell">
+                                                <t t-if="o.image and line.image_1920">
+                                                    <span t-field="line.image_1920" t-attf-style="width:100%; height:{{ o.image_height or 180 }}px; object-fit:cover; display:block;" t-options="{'widget':'image'}"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <div class="card-no-image" t-attf-style="height:{{ o.image_height or 180 }}px; width:100%; display:table;">
+                                                        <span style="display:table-cell; vertical-align:middle;">
+                                                            No Image
+                                                        </span>
+                                                    </div>
+                                                </t>
+                                            </td>
+
+                                            <!-- ✅ Content RIGHT -->
+                                            <td class="card-content-cell">
+
+                                                <!-- Internal Ref -->
+                                                <t t-if="o.inter_ref and line.default_code">
+                                                    <div class="card-ref">
+                                                        <span t-out="line.default_code or ''"/>
+                                                    </div>
+                                                </t>
+
+                                                <!-- Product Name -->
+                                                <div class="card-name">
+                                                    <t t-if="o.product_link">
+                                                        <a t-attf-href="/web#id={{ line.id }}&amp;model=product.product&amp;view_type=form" style="color:#1a1a1a; text-decoration:none;">
+                                                            <span t-out="line.display_name"/>
+                                                        </a>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span t-out="line.display_name"/>
+                                                    </t>
+                                                </div>
+
+                                                <!-- Tags: Category + UOM -->
+                                                <div class="card-tags">
+                                                    <t t-if="o.print_category">
+                                                        <span class="tag" t-out="line.categ_id.name or ''"/>
+                                                    </t>
+                                                    <t t-if="o.print_uom and line.uom_id">
+                                                        <span class="tag" t-out="line.uom_id.name or ''"/>
+                                                    </t>
+                                                </div>
+
+                                                <!-- Description -->
+                                                <t t-if="o.description">
+                                                    <div class="card-description">
+                                                        <span t-out="line.description or ''"/>
+                                                    </div>
+                                                </t>
+
+                                                <!-- Price -->
+                                                <t t-if="o.price">
+                                                    <div class="card-price">
+                                                        <span t-field="line.lst_price" t-options="{'widget':'monetary','display_currency':o.currency_id}"/>
+                                                    </div>
+                                                </t>
+
+                                                <!-- Read More -->
+                                                <a t-attf-href="/web#id={{ line.id }}&amp;model=product.product&amp;view_type=form" class="btn-read-more">
+                                                    Read More
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </t>
+
+                            <!-- Fill empty cells in last row -->
+                            <t t-if="(total - chunk_start) &lt; cols">
+                                <t t-foreach="range(cols - (total - chunk_start))" t-as="empty">
+                                    <td class="empty-td" style="border:none;"/>
+                                </t>
+                            </t>
+                        </tr>
+                    </t>
+                </table>
+
+            </div>
+        </t>
+    </template>
+
+    <!-- Main wrapper -->
+    <template id="report_product_catalog_style4">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="nf_product_catalog_generator.report_product_catalog_style4_document"/>
+            </t>
+        </t>
+    </template>
+</odoo>

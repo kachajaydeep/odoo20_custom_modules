@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="nf_res_config_settings_pos_weight_and_volume_inherit_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.bag.selection.view.form.inherit.base</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="0"/>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_accounting_section']" position="after">
+                    <block title="POS Service Management" id="nf_service_management">
+                        <setting string="Display Weight in POS">
+                            <field name="nf_pos_display_weight"/>
+                        </setting>
+
+                        <setting string="Display Volume in POS">
+                            <field name="nf_pos_display_volume"/>
+                        </setting>
+
+                        <setting string="Display Weight in Receipt">
+                            <field name="nf_display_weight_in_Receipt"/>
+                        </setting>
+
+                        <setting string="Display Volume in Receipt">
+                            <field name="nf_pos_display_volume_in_receipt"/>
+                        </setting>
+                    </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

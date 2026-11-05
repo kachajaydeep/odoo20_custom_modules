@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_stock_production_lot_hide_price_form_view" model="ir.ui.view">
+        <field name="name">Hide Stock Production Lot Price</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock.view_production_lot_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='total_value']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='avg_cost']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_cost_price_group</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='standard_price']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_cost_price_group</attribute>
+            </xpath>
+            
+        </field>
+    </record>
+</odoo>

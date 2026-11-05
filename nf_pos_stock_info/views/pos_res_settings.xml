@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id='nf_pos_stock_info_config_view_inherit' model='ir.ui.view'>
+        <field name='name'>nf.pos.stock.info.config.view.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name='arch' type='xml'>
+            <block id='pos_inventory_section' position='inside'>
+                <setting id="nf_stock_info_config" help="Show Stock quantity in Pos Product Screen">
+                    <field name='nf_pos_enable_stock_info' />
+                </setting>
+            </block>
+        </field>
+    </record>
+
+</odoo>

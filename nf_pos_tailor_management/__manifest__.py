@@ -1,0 +1,51 @@
+# -*- coding: utf-8 -*-
+# Copyright (C) 2021-Today: Part of NextFlowIT. 
+# @author:  Part of NextFlowIT.
+{
+    "name":"Tailor Order Point of sale",
+    'summary': """tailor pos tailor management odoo tailor pos customization measurement design manufacturing delivery tailor order from pos tailor order tailor management tailor from pos bom bill of materials product materials design product design designs product designs tailor order from pointofsale tailor order from point of sale tailor from point of sale tailor from pointofsale pos tailor order pos tailor pointofsale tailor point of sale tailor""",
+    'post_init_hook': 'post_init_hook',
+    'description': """Advanced POS Tailor Management for Odoo. Tailor measurements, custom orders, POS integration, order tracking, multi-size support, customer tailoring profiles,Manage tailor orders from POS with measurement entry, design selection, BoM integration, manufacturing workflow, and delivery tracking in Odoo.""",
+    "depends":['mrp','point_of_sale','stock','nf_tailor_management'],
+    'author': 'NextFlowIT',
+    'license': "OPL-1",
+    'company': 'NextFlow Technology',
+    'maintainer': 'NextFlow Technology',
+    'website': 'nextflow.in',
+    "version":"20.0.1",
+    'license': "OPL-1",
+    "data":[
+        "views/stock_picking_inherited_action_view.xml",
+        'security/ir.access.csv',
+        "views/nf_pos_mrp_bom_view.xml",
+        "views/nf_meaurement_inherited_view.xml",
+        "views/nf_backend_mrp_bom_view.xml",
+        "views/pos_order_action_inherited_view.xml",
+        "views/account_move_inherited_action_view.xml",
+        "views/tailor_order_inherited_view.xml",
+        "data/ir_sequence_data.xml",
+    ],
+    'assets':{
+      'point_of_sale._assets_pos': [
+            "nf_pos_tailor_management/static/src/overrides/product_screen/product_screen.js",
+            "nf_pos_tailor_management/static/src/app/bill_material/mrp_bom_popup.js",
+            "nf_pos_tailor_management/static/src/app/bill_material/mrp_bom_popup.xml",
+            "nf_pos_tailor_management/static/src/overrides/pos_order_line/pos_order_line.js",
+            "nf_pos_tailor_management/static/src/app/measurement_button/measurement_button.js",
+            "nf_pos_tailor_management/static/src/app/measurement_button/measurement_button.xml",
+            "nf_pos_tailor_management/static/src/app/measurement_popup/measurement_popup.js",
+            "nf_pos_tailor_management/static/src/app/measurement_popup/measurement_popup.xml",
+            "nf_pos_tailor_management/static/src/overrides/payment_screen/payment_screen.js",
+            "nf_pos_tailor_management/static/src/app/delivery_date_popup/delivery_date_popup.js",
+            "nf_pos_tailor_management/static/src/app/delivery_date_popup/delivery_date_popup.xml",
+            "nf_pos_tailor_management/static/src/overrides/data_service_options/data_service_options.js",
+            "nf_pos_tailor_management/static/src/app/pos_scss/pos_scss.scss",
+      ],  
+    },
+    "images": ["static/description/background.gif"],
+    'application': False,
+    'installable': True,
+    'auto_install': False,
+    "price": 79.99,
+    "currency": "USD"
+}

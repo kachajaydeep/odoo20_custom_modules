@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve">
+    <t t-name="nf_pos_direct_login.LoginScreen" t-inherit="point_of_sale.LoginScreen" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('select-logout')]" position="replace">
+            <button t-if="this.pos.session.user_id.pos_only_user" class="select-logout btn btn-dark btn-lg" t-on-click="() => pos.logOutUser()">
+                <span class="d-flex flex-grow-1 align-items-center" t-out="'Log out'"/>
+            </button>
+            <button t-else="" class="select-logout btn btn-dark btn-lg" t-on-click="() => this.clickBack()">
+                <span class="d-flex flex-grow-1 align-items-center" t-out="this.backBtnName"/>
+            </button>
+        </xpath>
+    </t>
+</template>

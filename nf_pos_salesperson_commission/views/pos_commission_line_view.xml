@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="pos_commission_line_tree_view" model="ir.ui.view">
+        <field name="name">pos.commission.line.list</field>
+        <field name="model">pos.commission.line</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name" />
+                <field name="commission_rule_id"></field>
+                <field name="order_line_id"></field>
+                <field name="employee_id"></field>
+                <field name="product_id"></field>
+                <field name="commission_amount"></field>
+                <field name="company_id" column_invisible="1" />
+                <field name="currency_id" column_invisible="1" />
+                <field name="state"></field>
+            </list>
+        </field>
+    </record>
+
+    <record id="pos_commission_line_form_view" model="ir.ui.view">
+        <field name="name">pos.commission.line.tree</field>
+        <field name="model">pos.commission.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="commission_confirm" invisible="state!='draft'" type="object" string="Confirm"></button>
+                    <button name="commission_create_expense" invisible="state!='confirm'" type="object" string="Create Expense"></button>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,paid"></field>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box" invisible="expense_id == False">
+                        <button name="nf_view_expense_order" type="object" class="oe_stat_button" icon="fa-money">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="count_expence" nolabel="1" widget="statinfo"></field>
+                                </span>
+                                <span>Expence</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="oe_title mb-4">
+                        <h1>
+                            <field name="name" options="{'line_breaks':False}"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="commission_rule_id" readonly="state != 'draft'"></field>
+                            <field name="company_id" invisible="1" />
+                            <field name="currency_id" invisible="1" />
+                            <field name="order_line_id" readonly="state != 'draft'"></field>
+                        </group>
+                        <group>
+                            <field name="employee_id" readonly="state != 'draft'"></field>
+                            <field name="product_id" readonly="state != 'draft'"></field>
+                            <field name="commission_amount" readonly="state != 'draft'"></field>
+                            <field name="expense_id" invisible="1"></field>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="pos_commission_line_action" model="ir.actions.act_window">
+        <field name="name">Commissions</field>
+        <field name="res_model">pos.commission.line</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="nf_pos_salesperson_commission_main_menu" name="Commissions" parent="point_of_sale.menu_point_root" sequence="85" groups="nf_pos_salesperson_commission.nf_commission_user"/>
+
+    <menuitem id="pos_commission_line_menu" action="nf_pos_salesperson_commission.pos_commission_line_action" parent="nf_pos_salesperson_commission_main_menu" sequence="1" />
+</odoo>

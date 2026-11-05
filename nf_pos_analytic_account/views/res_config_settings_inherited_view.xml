@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id='nf_pos_analytic_account' model='ir.ui.view'>
+        <field name='name'>nf.pos.stock.info.config.view.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name='arch' type='xml'>
+            <block id="pos_accounting_section" position='inside'>
+                <setting id="nf_pos_analytic_settings" help="Set Analytic Account in POS" groups="analytic.group_analytic_accounting">
+                    <field name='nf_analytic_account_id' />
+                </setting>
+            </block>
+        </field>
+    </record>
+</odoo>

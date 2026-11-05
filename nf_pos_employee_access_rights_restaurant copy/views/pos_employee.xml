@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_employee_form_inherit_pos__restaurant_access" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit.pos.restaurant.access</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <page name="pos_navigation_controls" position="inside">
+                <group>
+                    <group string="Restaurant">
+                        <field name="nf_hide_cancel_order_button"/>
+                        <field name="nf_hide_split_button"/>
+                        <field name="nf_hide_merge_button"/>
+                        <field name="nf_hide_create_product"/>
+                        <field name="nf_hide_edit_plan"/>
+                        <field name="nf_hide_switch_floor_view"/>
+                        <field name="nf_hide_bill"/>
+                        <field name="nf_hide_guest_btn"/>
+                    </group>
+                </group>
+            </page>
+        </field>
+    </record>
+</odoo>

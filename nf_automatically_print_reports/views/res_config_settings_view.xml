@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="nf_res_config_settings_inherit_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.base</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="0"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <block name="users_setting_container" position="after">
+                <block title="Automatically Print Pdf Reports">
+                    <setting>
+                        <field name="nf_automatically_print_pdf_report"></field>
+                    </setting>
+                </block>
+            </block>
+        </field>
+    </record>
+</odoo>

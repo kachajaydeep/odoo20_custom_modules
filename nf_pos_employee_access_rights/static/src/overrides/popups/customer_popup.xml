@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="nf_pos_employee_access_rights.PartnerList" t-inherit="point_of_sale.PartnerList" t-inherit-mode="extension">
+        <xpath expr="//button[@aria-label='Add a customer']" position="attributes">
+            <attribute name="t-if">this.pos.getCashier() and !this.pos.getCashier().nf_hide_create_customer_button</attribute>
+        </xpath>
+    </t>
+    <t t-name="nf_pos_employee_access_rights.ControlButtons" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('control-buttons-modal')]//NoteButton" position="attributes">
+            <attribute name="t-if">this.pos.getCashier() and !this.pos.getCashier().nf_hide_customer_note_button</attribute>
+        </xpath>
+        <!-- <xpath expr="//button[@t-on-click='() => this.clickRefund()']" position="attributes">
+            <attribute name="t-if">this.pos.getCashier() and (!this.pos.getCashier().nf_hide_refund_button)</attribute>
+        </xpath> -->
+        <xpath expr="//t[@t-if=&quot;this.pos.config.fiscal_position_ids.length and this.pos.cashier._role != 'minimal'&quot; and @icon= &quot;'book'&quot;]" position="attributes">
+            <attribute name="t-if">this.pos.getCashier() and !this.pos.getCashier().nf_hide_fiscal_button</attribute>
+        </xpath>
+        <xpath expr="//t[@t-if=&quot;this.pos.cashier._role != 'minimal'&quot; and @icon= &quot;'view_list'&quot;]" position="attributes">
+            <attribute name="t-if">this.pos.getCashier() and !this.pos.getCashier().nf_hide_pricelist_button</attribute>
+        </xpath>
+        <xpath expr="//t[@t-if=&quot;this.pos.cashier._role != 'minimal'&quot; and @icon= &quot;'link'&quot;]" position="attributes">
+            <attribute name="t-if">this.pos.getCashier() and !this.pos.getCashier().nf_hide_quotation_button</attribute>
+        </xpath>
+        <xpath expr="//t[@t-if='this.displayProductInfoBtn()' and @icon= &quot;'info'&quot;]" position="attributes">
+            <attribute name="t-if">this.pos.getCashier() and !this.pos.getCashier().nf_hide_info_button</attribute>
+        </xpath>
+        <xpath expr="//t[@t-if=&quot;this.pos.cashier._role != 'minimal'&quot; and @icon=&quot;'delete'&quot;]"
+           position="attributes">
+        <attribute name="t-if">
+            this.pos.getCashier() and !this.pos.getCashier().nf_hide_cancel_order_button
+        </attribute>
+    </xpath>
+    </t>
+</templates>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="fleet_vehicle_form_view" model="ir.ui.view">
+        <field name="name">Fleet Vehicle Form View inherit</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='next_assignation_date'] " position="after">
+                <field name="is_rental_vehicle"/>
+            </xpath>
+            <xpath expr="//page[@name='description']" position="after">
+                <page string="Rent Information" name="rent_information" invisible="is_rental_vehicle == False">
+                    <group>
+                        <group>
+                            <field name="default_rate_hourly"/>
+                            <field name="default_rate_daily"/>
+                            <field name="default_rate_mothly"/>
+                        </group>
+                        <group>
+                            <field name="location_id"/>
+                            <field name="vehicle_product_id" domain ="[('type','=','service')]" required ="is_rental_vehicle == True"/>
+                            <field name="status"/>
+                        </group>
+                    </group>       
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

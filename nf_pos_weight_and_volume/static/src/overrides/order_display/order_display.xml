@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_pos_weight_and_volume.OrderDisplay" t-inherit="point_of_sale.OrderDisplay" t-inherit-mode="extension">
+        <xpath expr="//div[@id='order-widget-taxes']/.." position="after">
+           <div class="border-top pt-2 text-muted small">
+                <t t-if="this.pos.config.nf_pos_display_weight">
+                    <span class="d-flex justify-content-between">
+                        <b>Total Weight:</b>
+                        <t t-out="this.totalWeight"/>
+                    </span>
+                </t>
+                <t t-if="this.pos.config.nf_pos_display_volume">
+                    <span class="d-flex justify-content-between">
+                        <b>Total Volume:</b>
+                        <t t-out="this.totalVolume"/>
+                    </span>
+                </t>
+            </div>
+        </xpath>
+    </t>
+</templates>

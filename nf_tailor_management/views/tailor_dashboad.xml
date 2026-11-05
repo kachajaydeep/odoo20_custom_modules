@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Action for Project Dashboard-->
+    <record id="nf_tailor_dashboard_Action" model="ir.actions.client">
+        <field name="name">Dashboard</field>
+        <field name="path">tailor_dashboard</field>
+        <field name="tag">nf_tailor_dashboard_dashboard</field>
+    </record>
+
+</odoo>

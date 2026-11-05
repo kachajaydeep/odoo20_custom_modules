@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="payment_provider_hesabe" model="payment.provider">
+        <field name="code">hesabe</field>
+        <field name="name">Hesabe</field>
+        <field name="redirect_form_view_id" ref="nf_payment_hesabe.redirect_form"/>
+        <field name="image_128" type="bytes" file="nf_payment_hesabe/static/img/hesabe.png"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="pre_msg">
+            &lt;p&gt;You will be redirected to the Hesabe Knet website after clicking on the payment button.&lt;/p&gt;
+        </field>
+        <field name="sandbox_url">https://sandbox.hesabe.com</field>
+        <field name="production_url">https://api.hesabe.com</field>
+        <field name="merchant_code">842217</field>
+        <field name="access_code">c333729b-d060-4b74-a49d-7686a8353481</field>
+        <field name="secret_key">PkW64zMe5NVdrlPVNnjo2Jy9nOb7v1Xg</field>
+        <field name="iv_key">5NVdrlPVNnjo2Jy9</field>
+        <field name="api_version">2.0</field>
+    </record>
+</odoo>

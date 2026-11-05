@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="view_inherit_pos_config_form" model="ir.ui.view">
+            <field name="name">view.inherit.pos.config.form</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/div[4]/div" position="before">
+                    <setting id="allow_purchase_order" string="Purchase Order" help="Allow to Create Purchase Order">
+                        <field name="create_po"/>
+                        <group invisible="not create_po">
+                            <field name="po_status"/>
+                            <field name="validate_po_receipt" invisible="po_status != 'purchase'"/>
+                            <field name="create_bill" invisible="po_status != 'purchase'"/>
+                        </group>
+                    </setting>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

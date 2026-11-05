@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="nf_webclient_bootstrap_fonts" inherit_id="web.webclient_bootstrap">
+        <xpath expr="//t[@t-set='head']" position="inside">
+            <link rel="stylesheet" href="/nf_custom_font_family/dynamic_css"/>
+        </xpath>
+    </template>
+</odoo>

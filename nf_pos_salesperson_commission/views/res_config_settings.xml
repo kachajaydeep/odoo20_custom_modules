@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="res_config_settings_inherit_view" model="ir.ui.view">
+        <field name="name">res.config.settings.inherit.view</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"></field>
+        <field name="arch" type="xml">
+            <block id="pos_accounting_section" position="after">
+                <block title="SalesPerson Commission" id="pos_commission_apply_restriction">
+                    <setting>
+                        <field name="apply_commission"></field>
+                    </setting>
+                    <setting invisible="not apply_commission">
+                        <field name="commission_employee_ids" id="pos_commission_restriction_employee" widget="many2many_tags"></field>
+                    </setting>
+                </block>
+            </block>
+        </field>
+    </record>
+</odoo>

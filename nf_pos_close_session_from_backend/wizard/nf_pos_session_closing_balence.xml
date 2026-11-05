@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="nf_pos_session_closing_balence_form_view" model="ir.ui.view">
+            <field name="name">pos.session.closing.balence.form.view</field>
+            <field name="model">pos.session.closing.balence</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title mb-4">
+                            <h1>
+                                <field name="nf_pos_config" options="{'line_breaks':False}" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="nf_starting_balence" string="Starting Balance" readonly="1"></field>
+                                <field name="nf_total_orders" string="Total Orders" readonly="1"></field>
+                            </group>
+                            <group>
+                                <field name="nf_expected_balence" string="Expected Balance" readonly="1"></field>
+                                <field name="nf_cash_register_balance_end_real" string="Ending Balance"></field>
+                            </group>
+                        </group>
+                    </sheet>
+
+                    <footer>
+                        <button string="Close session" type="object" name="nf_save_ending_balence" class="btn-primary"/>
+                        <button string="Cancel" special="cancel"></button>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_nf_pos_session_closing_balence_wizard" model="ir.actions.act_window">
+            <field name="name">Pos Session Ending Balance</field>
+            <field name="res_model">pos.session.closing.balence</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

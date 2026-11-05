@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="nf_pos_item_counter.OrderReceipt" inherit_id="point_of_sale.pos_order_receipt">
+            <xpath expr="//td[@name='subtotal']/parent::tr" position="before">
+                <tr t-if="config['nf_enable_line_count']">
+                    <td class="d-flex justify-content-between" name="lineCount">Total Orderlines:</td>
+                    <td class="text-end w-30">
+                        <t t-out="order['nf_line_count']" />
+                    </td>
+                </tr>
+                <tr t-if="config['nf_enable_product_count']">
+                    <td class="d-flex justify-content-between" name="totalWeight">Total Quantity:</td>
+                    <td class="text-end w-30">
+                        <t t-out="order['nf_product_count']" />
+                    </td>
+                </tr>
+            </xpath>
+        </template>
+    </data>
+
+</odoo>

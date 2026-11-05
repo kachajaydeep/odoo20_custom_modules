@@ -1,0 +1,676 @@
+// =============================================
+//   NF Employee Dashboard — Enterprise Design
+//   Pure 1:1 CSS → SCSS (no view changes)
+// =============================================
+
+// ---- Variables ----
+$nf-primary:        #7c6af7;
+$nf-primary-light:  #a78bfa;
+$nf-primary-bg:     #f0eeff;
+$nf-primary-hover:  #e4daff;
+
+$nf-blue:           #0ea5e9;
+$nf-blue-light:     #38bdf8;
+$nf-amber:          #f59e0b;
+$nf-amber-light:    #fcd34d;
+$nf-green:          #10b981;
+$nf-green-light:    #34d399;
+
+$nf-dark:           #1a1d2e;
+$nf-text:           #374151;
+$nf-muted:          #9ca3af;
+$nf-border:         #e2e5ef;
+$nf-bg:             #f0f2f7;
+$nf-section-border: #f0f2f7;
+$nf-row-sep:        #f5f6fa;
+
+$nf-radius-xl:      14px;
+$nf-radius-lg:      12px;
+$nf-radius-md:      10px;
+$nf-radius-sm:      8px;
+$nf-radius-pill:    20px;
+
+$nf-topbar-h:       56px;
+$nf-topbar-h-mob:   46px;
+
+// =============================================
+//   PAGE WRAPPER
+// =============================================
+.nf-main-content {
+    font-family: 'DM Sans', 'Roboto', sans-serif;
+    background: $nf-bg;
+    height: calc(100vh - #{$nf-topbar-h});
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar       { width: 6px; }
+    &::-webkit-scrollbar-track { background: transparent; }
+    &::-webkit-scrollbar-thumb {
+        background: #c1c7d0;
+        border-radius: 10px;
+        &:hover { background: #a0a8b4; }
+    }
+}
+
+// =============================================
+//   TOP BAR (hidden — Odoo provides its own)
+// =============================================
+.nf-topbar { display: none; }
+
+.nf-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nf-logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.3px;
+
+    span { color: $nf-primary; }
+}
+
+.nf-nav-links {
+    display: flex;
+    gap: 4px;
+    margin-left: 20px;
+}
+
+.nf-nav-link {
+    font-size: 13px;
+    color: rgba(#fff, 0.55);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+
+    &:hover  { color: #fff; background: rgba(#fff, 0.08); }
+    &.active { color: #fff; background: rgba($nf-primary, 0.3); }
+}
+
+.nf-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nf-tb-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: $nf-radius-sm;
+    background: rgba(#fff, 0.07);
+    border: none;
+    color: rgba(#fff, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all 0.2s;
+
+    &:hover { background: rgba(#fff, 0.12); color: #fff; }
+}
+
+.nf-user-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: $nf-radius-sm;
+    background: linear-gradient(135deg, $nf-primary, $nf-primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+// =============================================
+//   PAGE BODY
+// =============================================
+.nf-page-body {
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+// =============================================
+//   WELCOME BAR
+// =============================================
+.nf-welcome-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nf-welcome-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: $nf-dark;
+    margin: 0;
+}
+
+.nf-accent { color: $nf-primary; }
+
+.nf-date-badge {
+    font-size: 13px;
+    color: #6b7280;
+    background: #fff;
+    border: 0.5px solid $nf-border;
+    border-radius: $nf-radius-sm;
+    padding: 6px 14px;
+}
+
+// =============================================
+//   KPI CARDS
+// =============================================
+.nf-kpi-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.nf-kpi {
+    border-radius: $nf-radius-xl;
+    padding: 20px 20px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    min-height: 110px;
+    box-sizing: border-box;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 32px rgba(#000, 0.13);
+        text-decoration: none;
+    }
+
+    &-1 { background: linear-gradient(135deg, $nf-primary,  $nf-primary-light); }
+    &-2 { background: linear-gradient(135deg, $nf-blue,     $nf-blue-light);    }
+    &-3 { background: linear-gradient(135deg, $nf-amber,    $nf-amber-light);   }
+    &-4 { background: linear-gradient(135deg, $nf-green,    $nf-green-light);   }
+}
+
+.nf-kpi-info {
+    span {
+        font-size: 11px;
+        font-weight: 600;
+        opacity: 0.82;
+        text-transform: uppercase;
+        letter-spacing: 0.7px;
+        display: block;
+        margin-bottom: 6px;
+        color: #fff;
+    }
+
+    strong {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 1;
+        color: #fff;
+    }
+
+    p {
+        font-size: 11px;
+        opacity: 0.72;
+        margin-top: 6px;
+        margin-bottom: 0;
+        color: #fff;
+    }
+}
+
+.nf-kpi-icon {
+    font-size: 36px;
+    opacity: 0.22;
+    position: absolute;
+    bottom: 14px;
+    right: 16px;
+    color: #fff;
+    font-family: FontAwesome !important;
+    display: block;
+    line-height: 1;
+}
+
+// =============================================
+//   LAYOUT GRIDS
+// =============================================
+.nf-mid-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.nf-table-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+// =============================================
+//   CARD BASE
+// =============================================
+.nf-card {
+    background: #fff;
+    border-radius: $nf-radius-xl;
+    border: 0.5px solid $nf-border;
+    overflow: hidden;
+
+    &-full { width: 100%; }
+}
+
+.nf-card-head {
+    padding: 14px 20px;
+    border-bottom: 0.5px solid $nf-section-border;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h3 {
+        font-size: 14px;
+        font-weight: 600;
+        color: $nf-dark;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0;
+    }
+}
+
+.nf-badge-count {
+    background: $nf-primary-bg;
+    color: $nf-primary;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: $nf-radius-pill;
+    padding: 2px 8px;
+}
+
+.nf-card-body { padding: 12px 20px 14px; }
+
+.nf-scroll {
+    max-height: 230px;
+    overflow-y: auto;
+    padding-right: 4px;
+
+    &::-webkit-scrollbar       { width: 4px; }
+    &::-webkit-scrollbar-thumb { background: $nf-border; border-radius: 10px; }
+}
+
+// =============================================
+//   PERSON ROW (Birthday / Anniversary)
+// =============================================
+.nf-person-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 0.5px solid $nf-row-sep;
+    position: relative;
+    transition: background 0.2s;
+
+    &:last-child { border-bottom: none; }
+
+    // Today: Birthday
+    &.nf-today-bday {
+        background: linear-gradient(135deg, #fff8f0, #fff3e0);
+        border: 1.5px solid #fbbf24 !important;
+        border-radius: $nf-radius-lg;
+        padding: 8px 10px;
+        margin: 4px 0;
+        position: relative;
+
+        .nf-person-img,
+        .nf-person-av {
+            box-shadow: 0 0 0 3px #fbbf24, 0 0 0 5px #fff8f0;
+        }
+    }
+
+    // Today: Anniversary
+    &.nf-today-anniv {
+        background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+        border: 1.5px solid $nf-primary !important;
+        border-radius: $nf-radius-lg;
+        padding: 8px 10px;
+        margin: 4px 0;
+        position: relative;
+
+        .nf-person-img,
+        .nf-person-av {
+            box-shadow: 0 0 0 3px $nf-primary, 0 0 0 5px #f5f3ff;
+        }
+    }
+}
+
+.nf-person-img {
+    width: 36px;
+    height: 36px;
+    border-radius: $nf-radius-md;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: none !important;
+    outline: none !important;
+    display: block;
+}
+
+.nf-person-av {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: $nf-radius-md;
+    background: $nf-primary-bg;
+    color: $nf-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.nf-person-name {
+    font-weight: 600;
+    color: $nf-dark;
+    align-items: center;
+    gap: 2px;
+}
+
+.nf-person-sub {
+    font-size: 11px;
+    color: $nf-muted;
+    margin-top: 2px;
+}
+
+.nf-today-tag {
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: $nf-radius-pill;
+    padding: 2px 8px;
+    border: none !important;
+    outline: none !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    white-space: nowrap;
+
+    &-bday  { background: #fef3c7; color: #92400e; font-weight: 700; }
+    &-anniv { background: #ede9fe; color: #4c1d95; font-weight: 700; }
+}
+
+.nf-today-glow {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.18;
+    font-size: 28px;
+    color: $nf-amber;
+    pointer-events: none;
+
+    &.nf-today-glow-anniv { color: $nf-primary; }
+}
+
+.nf-today-icon     { font-size: 28px; }
+.nf-today-icon-img { width: 20px; height: 20px; object-fit: contain; }
+
+// =============================================
+//   ANNOUNCEMENT ROW
+// =============================================
+.nf-ann-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 0.5px solid $nf-row-sep;
+
+    &:last-child { border-bottom: none; }
+}
+
+.nf-ann-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: $nf-primary;
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+.nf-ann-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: $nf-dark;
+}
+
+.nf-ann-date {
+    font-size: 11px;
+    color: $nf-muted;
+    margin-top: 2px;
+}
+
+// =============================================
+//   TABLES
+// =============================================
+.nf-table-wrap { overflow-x: auto; }
+
+.nf-tbl {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+
+    thead th {
+        font-size: 11px;
+        font-weight: 600;
+        color: $nf-muted;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 0 0 10px;
+        text-align: left;
+        border-bottom: 0.5px solid $nf-section-border;
+        white-space: nowrap;
+    }
+
+    tbody {
+        td {
+            padding: 10px 0;
+            border-bottom: 0.5px solid $nf-row-sep;
+            color: $nf-text;
+            vertical-align: middle;
+        }
+
+        tr {
+            &:last-child td { border-bottom: none; }
+            &:hover td      { background: #fafbff; }
+        }
+    }
+}
+
+.nf-emp-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nf-emp-av {
+    width: 28px;
+    height: 28px;
+    border-radius: $nf-radius-sm;
+    background: $nf-primary-bg;
+    color: $nf-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    text-transform: uppercase;
+}
+
+.nf-hours-cell  { font-weight: 600; color: #059669; }
+.nf-amount-cell { font-weight: 600; color: $nf-dark; }
+
+// =============================================
+//   STATUS BADGES
+// =============================================
+.nf-status {
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: $nf-radius-pill;
+    padding: 3px 10px;
+    display: inline-block;
+    text-transform: capitalize;
+
+    &.nf-s-validate,
+    &.nf-s-validate1,
+    &.nf-s-done    { background: #d1fae5; color: #065f46; }
+
+    &.nf-s-draft   { background: #f3f4f6; color: #6b7280; }
+
+    &.nf-s-refuse,
+    &.nf-s-refused { background: #fee2e2; color: #991b1b; }
+
+    &.nf-s-confirm { background: #dbeafe; color: #1e40af; }
+
+    &.nf-s-posted  { background: #ede9fe; color: #5b21b6; }
+}
+
+// =============================================
+//   NEW BUTTON
+// =============================================
+.nf-new-btn {
+    font-size: 12px;
+    font-weight: 600;
+    color: $nf-primary;
+    background: $nf-primary-bg;
+    border: none;
+    border-radius: $nf-radius-sm;
+    padding: 5px 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+
+    &:hover {
+        background: $nf-primary-hover;
+        text-decoration: none;
+        color: $nf-primary;
+    }
+}
+
+// =============================================
+//   ANIMATIONS
+// =============================================
+@keyframes pop {
+    from { transform: scale(1);    }
+    to   { transform: scale(1.15); }
+}
+
+// =============================================
+//   RESPONSIVE
+// =============================================
+
+// Tablet landscape
+@media (max-width: 1200px) {
+    .nf-kpi-row { grid-template-columns: repeat(2, 1fr); }
+}
+
+// Tablet portrait
+@media (max-width: 992px) {
+    .nf-kpi-row   { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .nf-mid-row   { grid-template-columns: 1fr; }
+    .nf-table-row { grid-template-columns: 1fr; }
+}
+
+// Mobile
+@media (max-width: 768px) {
+    .nf-main-content {
+        height: calc(100vh - #{$nf-topbar-h-mob});
+    }
+
+    .nf-page-body {
+        padding: 12px;
+        gap: 14px;
+    }
+
+    .nf-welcome-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .nf-welcome-title {
+        font-size: 17px;
+        line-height: 1.4;
+    }
+
+    .nf-date-badge {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+
+    .nf-kpi-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .nf-kpi {
+        min-height: 95px;
+        padding: 14px 14px 12px;
+        border-radius: $nf-radius-lg;
+    }
+
+    .nf-kpi-info {
+        span   { font-size: 10px; letter-spacing: 0.4px; margin-bottom: 4px; }
+        strong { font-size: 28px; }
+        p      { font-size: 10px; margin-top: 4px; }
+    }
+
+    .nf-kpi-icon {
+        font-size: 30px;
+        bottom: 10px;
+        right: 12px;
+        opacity: 0.18;
+        display: block !important;
+        font-family: FontAwesome !important;
+    }
+
+    .nf-mid-row   { grid-template-columns: 1fr; gap: 12px; }
+    .nf-table-row { grid-template-columns: 1fr; gap: 12px; }
+
+    .nf-card      { border-radius: $nf-radius-lg; }
+
+    .nf-card-head {
+        padding: 12px 14px;
+        h3 { font-size: 13px; }
+    }
+
+    .nf-card-body { padding: 10px 14px 12px; }
+
+    .nf-tbl {
+        thead th { font-size: 10px; padding: 0 0 8px; }
+        tbody td { font-size: 12px; padding: 8px 0;   }
+    }
+
+    .nf-emp-cell { gap: 6px; }
+    .nf-emp-av   { width: 24px; height: 24px; font-size: 10px; }
+}
+
+// Small mobile
+@media (max-width: 400px) {
+    .nf-page-body    { padding: 10px; gap: 10px; }
+
+    .nf-kpi {
+        min-height: 85px;
+        padding: 12px;
+
+        &-info strong { font-size: 24px; }
+    }
+}

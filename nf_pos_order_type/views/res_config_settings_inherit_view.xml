@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="res_config_settings_inherit_view" model="ir.ui.view">
+        <field name="name">res.config.settings.inherit.view</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"></field>
+        <field name="arch" type="xml">
+            <block id="pos_accounting_section" position="after">
+                <block title="Pos Order Types" id="pos_order_types">
+                    <setting>
+                        <field name="nf_pos_order_type_ids" widget="many2many_tags"></field>
+                    </setting>
+                </block>
+            </block>
+        </field>
+    </record>
+</odoo>

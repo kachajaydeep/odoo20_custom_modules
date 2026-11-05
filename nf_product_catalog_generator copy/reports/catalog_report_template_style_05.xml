@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_product_catalog_style5_document">
+        <t t-call="web.external_layout">
+            <t t-set="o" t-value="o.with_context()"/>
+            <div class="page" id="style6_design">
+                <style>
+
+                #style6_design {
+                    background: #fafaf7;
+                    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+                    padding: 30px 36px;
+                }
+
+                #style6_design .catalog-title {
+                    font-family: Georgia, 'Times New Roman', serif;
+                    font-size: 13px;
+                    font-weight: 400;
+                    color: #8a8a7a;
+                    letter-spacing: 3px;
+                    text-transform: uppercase;
+                    margin-bottom: 6px;
+                }
+
+                #style6_design .catalog-name {
+                    font-family: Georgia, 'Times New Roman', serif;
+                    font-size: 28px;
+                    font-weight: 700;
+                    color: #2c2c24;
+                    margin-bottom: 8px;
+                    line-height: 1.2;
+                }
+
+                /* ── Product row: a full-width table row ── */
+                #style6_design .product-row-table {
+                    width: 100%;
+                    border-collapse: separate;
+                    border-spacing: 0;
+                    page-break-inside: avoid;
+                    background: #ffffff;
+                    border: 1.5px solid #e0d5c5;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    table-layout: fixed;
+                }
+
+                #style6_design .product-row-table td {
+                    padding: 0;
+                    vertical-align: middle;
+                }
+
+                /* ── Image cell ── */
+                #style6_design .img-cell {
+                    width: 42%;
+                    padding: 16px;
+                    vertical-align: middle;
+                    text-align: center;
+                    background: #f5f2ec;
+                }
+
+                #style6_design .img-wrapper-circle {
+                    border-radius: 50%;
+                    overflow: hidden;
+                    box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+                    display: block;
+                    margin: 0 auto;
+                }
+
+                #style6_design .img-wrapper-squircle {
+                    border-radius: 38% 62% 55% 45% / 48% 42% 58% 52%;
+                    overflow: hidden;
+                    box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+                    display: block;
+                    margin: 0 auto;
+                }
+
+                #style6_design .img-wrapper-leaf {
+                    border-radius: 70% 30% 70% 30% / 30% 70% 30% 70%;
+                    overflow: hidden;
+                    box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+                    display: block;
+                    margin: 0 auto;
+                }
+
+                #style6_design .img-wrapper-circle span,
+                #style6_design .img-wrapper-squircle span,
+                #style6_design .img-wrapper-leaf span {
+                    display: block;
+                    object-fit: cover;
+                }
+
+                #style6_design .no-image-shape {
+                    background: #ece9e0;
+                    display: table-cell;
+                    vertical-align: middle;
+                    text-align: center;
+                    color: #bbb;
+                    font-size: 11px;
+                    font-family: Georgia, serif;
+                    letter-spacing: 1px;
+                }
+
+                /* ── Content cell ── */
+                #style6_design .content-cell {
+                    width: 58%;
+                    padding: 22px 28px 18px 28px;
+                    vertical-align: middle;
+                    background: #ffffff;
+                }
+
+                #style6_design .product-number {
+                    font-family: Georgia, 'Times New Roman', serif;
+                    font-size: 36px;
+                    font-weight: 700;
+                    color: #d4c5a0;
+                    line-height: 1;
+                    margin-bottom: 2px;
+                }
+
+                #style6_design .product-ref {
+                    font-size: 10px;
+                    color: #aaa;
+                    letter-spacing: 2px;
+                    text-transform: uppercase;
+                    margin-bottom: 4px;
+                }
+
+                #style6_design .product-name {
+                    font-family: Georgia, 'Times New Roman', serif;
+                    font-size: 17px;
+                    font-weight: 700;
+                    color: #2c2c24;
+                    margin-bottom: 6px;
+                    line-height: 1.35;
+                }
+
+                #style6_design .product-name a {
+                    color: #2c2c24;
+                    text-decoration: none;
+                }
+
+                #style6_design .dot-row {
+                    margin-bottom: 8px;
+                }
+
+                #style6_design .dot {
+                    display: inline-block;
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    margin-right: 4px;
+                    vertical-align: middle;
+                }
+
+                #style6_design .dot-filled { background: #c0975a; }
+                #style6_design .dot-outline {
+                    background: transparent;
+                    border: 2px solid #c0975a;
+                }
+
+                #style6_design .meta-line {
+                    font-size: 10px;
+                    color: #9a9a8a;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    margin-bottom: 8px;
+                }
+
+                #style6_design .product-desc {
+                    font-size: 11px;
+                    color: #6a6a5a;
+                    line-height: 1.7;
+                    margin-bottom: 10px;
+                }
+
+                #style6_design .price-line {
+                    font-family: Georgia, 'Times New Roman', serif;
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: #5a6e4a;
+                    margin-bottom: 8px;
+                }
+
+                #style6_design .tag-pill {
+                    display: inline-block;
+                    background: #2c2c24;
+                    color: #fafaf7;
+                    font-size: 9px;
+                    letter-spacing: 1.5px;
+                    text-transform: uppercase;
+                    padding: 3px 12px;
+                    border-radius: 20px;
+                    margin-right: 5px;
+                }
+
+                #style6_design .tag-pill-outline {
+                    display: inline-block;
+                    border: 1px solid #c0975a;
+                    color: #c0975a;
+                    font-size: 9px;
+                    letter-spacing: 1.5px;
+                    text-transform: uppercase;
+                    padding: 3px 12px;
+                    border-radius: 20px;
+                    margin-right: 5px;
+                }
+
+                /* ── Divider between products ── */
+                #style6_design .product-divider {
+                    border: none;
+                    border-top: 1px solid #e8e4d8;
+                    margin: 4px 0;
+                }
+
+                </style>
+
+                <!-- ══ Page header ══ -->
+                <div class="catalog-title">Our Collection</div>
+                <div class="catalog-name">
+                    <span t-field="o.catalog_name"/>
+                </div>
+
+                <!-- Decorative accent blobs (wkhtmltopdf compatible) -->
+                <table class="table-borderless" style="width:100%; border-collapse:collapse; margin-bottom:0;">
+                    <tr>
+                        <td style="text-align:right; padding:0 0 4px 0;">
+                            <span style="display:inline-block; width:18px; height:18px; border-radius:50%; background:#c0975a; margin-right:6px;"/>
+                            <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#8a9e6a; margin-right:6px;"/>
+                            <span style="display:inline-block; width:14px; height:14px; border-radius:50%; background:#d4c5a0;"/>
+                        </td>
+                    </tr>
+                </table>
+
+                <t t-set="products" t-value="o.product_id"/>
+                <t t-set="total" t-value="len(products)"/>
+                <t t-set="img_w" t-value="o.image_width or 160"/>
+                <t t-set="img_h" t-value="o.image_height or 160"/>
+
+                <!-- Shape cycle: 0=circle, 1=squircle, 2=leaf -->
+                <t t-foreach="range(total)" t-as="idx">
+                    <t t-set="line" t-value="products[idx]"/>
+
+                    <!-- Page break before this product if enabled -->
+                    <t t-if="o.break_page and o.break_after_product and o.break_after_product > 0 and idx > 0 and (idx % o.break_after_product) == 0">
+                        <div style="page-break-before: always;"/>
+                    </t>
+
+                    <!-- Pick shape class based on index cycle -->
+                    <t t-set="shape_class" t-value="'img-wrapper-circle' if (idx % 3) == 0 else 'img-wrapper-squircle' if (idx % 3) == 1 else 'img-wrapper-leaf'"/>
+
+                    <!-- Alternate: even = image left, odd = image right -->
+                    <table class="product-row-table">
+                        <tr t-attf-style="height:{{ img_h }}px;">
+                            <t t-if="idx % 2 == 0">
+                                <!-- Image LEFT -->
+                                <td class="img-cell" t-attf-style="min-width:{{ img_w }}px; width:42%;">
+                                    <t t-if="o.image and line.image_1920">
+                                        <div t-attf-class="{{ shape_class }}" t-attf-style="width:{{ img_w }}px; height:{{ img_h }}px;">
+                                            <span t-field="line.image_1920" t-attf-style="width:{{ img_w }}px; height:{{ img_h }}px; object-fit:cover;" t-options="{'widget':'image'}"/>
+                                        </div>
+                                    </t>
+                                    <t t-else="">
+                                        <div t-attf-class="{{ shape_class }}" t-attf-style="width:{{ img_w }}px; height:{{ img_h }}px;">
+                                            <div class="no-image-shape" t-attf-style="width:{{ img_w }}px; height:{{ img_h }}px;">
+                                            No Image
+                                            </div>
+                                        </div>
+                                    </t>
+                                </td>
+                                <!-- Content RIGHT -->
+                                <td class="content-cell">
+                                    <t t-call="nf_product_catalog_generator.style6_product_content">
+                                        <t t-set="product_index" t-value="idx"/>
+                                    </t>
+                                </td>
+                            </t>
+                            <t t-else="">
+                                <!-- Content LEFT -->
+                                <td class="content-cell">
+                                    <t t-call="nf_product_catalog_generator.style6_product_content">
+                                        <t t-set="product_index" t-value="idx"/>
+                                    </t>
+                                </td>
+                                <!-- Image RIGHT -->
+                                <td class="img-cell" t-attf-style="min-width:{{ img_w }}px; width:42%;">
+                                    <t t-if="o.image and line.image_1920">
+                                        <div t-attf-class="{{ shape_class }}" t-attf-style="width:{{ img_w }}px; height:{{ img_h }}px;">
+                                            <span t-field="line.image_1920" t-attf-style="width:{{ img_w }}px; height:{{ img_h }}px; object-fit:cover;" t-options="{'widget':'image'}"/>
+                                        </div>
+                                    </t>
+                                    <t t-else="">
+                                        <div t-attf-class="{{ shape_class }}" t-attf-style="width:{{ img_w }}px; height:{{ img_h }}px;">
+                                            <div class="no-image-shape" t-attf-style="width:{{ img_w }}px; height:{{ img_h }}px;">
+                                            No Image
+                                            </div>
+                                        </div>
+                                    </t>
+                                </td>
+                            </t>
+                        </tr>
+                    </table>
+
+                    <!-- Divider between products (not after last) -->
+                    <t t-if="idx &lt; total - 1">
+                        <hr class="product-divider"/>
+                    </t>
+
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <!-- ══ Reusable content block ══ -->
+    <template id="style6_product_content">
+        <!-- Decorative product number -->
+        <div class="product-number">
+            <!-- <t t-out="('0' + str(product_index + 1)) if (product_index + 1) &lt; 10 else str(product_index + 1)"/> -->
+            <t t-out="(product_index or 0) + 1"/>
+        </div>
+
+        <!-- Internal Reference -->
+        <t t-if="o.inter_ref and line.default_code">
+            <div class="product-ref">
+                <span t-out="line.default_code"/>
+            </div>
+        </t>
+
+        <!-- Product Name -->
+        <div class="product-name">
+            <t t-if="o.product_link">
+                <a t-attf-href="/web#id={{ line.id }}&amp;model=product.product&amp;view_type=form">
+                    <span t-out="line.display_name"/>
+                </a>
+            </t>
+            <t t-else="">
+                <span t-out="line.display_name"/>
+            </t>
+        </div>
+
+        <!-- Decorative dot row -->
+        <div class="dot-row">
+            <span class="dot dot-filled"/>
+            <span class="dot dot-filled"/>
+            <span class="dot dot-outline"/>
+        </div>
+
+        <!-- Category + UOM -->
+        <div class="meta-line">
+            <t t-if="o.print_category">
+                <span t-out="line.categ_id.name or ''"/>
+            </t>
+            <t t-if="o.print_uom and line.uom_id">
+            &amp;nbsp;·&amp;nbsp;<span t-out="line.uom_id.name or ''"/>
+            </t>
+        </div>
+
+        <!-- Description -->
+        <t t-if="o.description">
+            <div class="product-desc">
+                <span t-out="line.description or ''"/>
+            </div>
+        </t>
+
+        <!-- Price -->
+        <t t-if="o.price">
+            <div class="price-line">
+                <span t-field="line.lst_price" t-options="{'widget':'monetary','display_currency':o.currency_id}"/>
+            </div>
+        </t>
+
+        <!-- Tags: Category pill + UOM pill -->
+        <div>
+            <span class="tag-pill" t-out="line.categ_id.name or ''"/>
+            <t t-if="o.print_uom and line.uom_id">
+                <span class="tag-pill-outline" t-out="line.uom_id.name or ''"/>
+            </t>
+        </div>
+    </template>
+
+    <!-- ══ Main wrapper ══ -->
+    <template id="report_product_catalog_style5">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="nf_product_catalog_generator.report_product_catalog_style5_document"/>
+            </t>
+        </t>
+    </template>
+</odoo>

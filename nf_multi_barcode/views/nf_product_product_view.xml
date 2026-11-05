@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_product_product_form_view_inherit" model="ir.ui.view">
+        <field name="name">product.product.form.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="nf_multi_barcode_unique" invisible="1"/>
+            </field>
+            <xpath expr="//notebook" position="inside" >
+                <page string="Barcodes" name="barcodes">
+                    <field name="barcode_ids" editable="bottom">
+                        <list editable="bottom">
+                            <field name="name"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

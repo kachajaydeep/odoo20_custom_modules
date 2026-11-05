@@ -1,0 +1,68 @@
+<odoo>
+    <!-- Tree View for nf.design.line -->
+    <record id="view_nf_design_line_tree" model="ir.ui.view">
+        <field name="name">nf.design.line.tree</field>
+        <field name="model">nf.design.line</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name" />
+                <field name="active" invisible="1" />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_nf_design_line_kanban" model="ir.ui.view">
+        <field name="name">nf.design.line.kanban</field>
+        <field name="model">nf.design.line</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="image_1920"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_content d-flex">
+                                <div class="oe_kanban_image">
+                                    <!-- <img t-if="record.image_1920" t-att-src="'data:image/png;base64,' + record.image_1920.raw_value" alt="test"/> -->
+                                   <aside>
+                                        <field name="image_1920" widget="image" width="50" height="50" options="{'img_class': 'object-fit-contain'}"/>
+                                    </aside>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong><field name="name"/></strong>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Form View for nf.design.line -->
+    <record id="view_nf_design_line_form" model="ir.ui.view">
+        <field name="name">nf.design.line.form</field>
+        <field name="model">nf.design.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="image_1920" widget="image" class="oe_avatar" options="{'convert_to_webp': True, 'preview_image': 'image_1920', 'img_class': 'object-fit-contain'}" />
+                    <h1>
+                        <div class="d-flex">
+                            <field class="text-break" name="name"
+                                options="{'line_breaks': False}" widget="text"
+                                placeholder="e.g. Sleeves" />
+                        </div>
+                    </h1>
+                    <field name="active" invisible="1" />
+                    <group name="design" string="Design">
+                        <group >
+                            <field name="design_id" ></field>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

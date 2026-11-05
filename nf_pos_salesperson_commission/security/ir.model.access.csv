@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_nf_commission_report,nf_commission_report,model_nf_commission_report,base.group_user,1,1,1,1
+access_pos_commission_rules,pos_commission_rules,model_pos_commission_rules,base.group_user,1,1,1,1
+access_pos_commission_line,pos_commission_line,model_pos_commission_line,base.group_user,1,1,1,1

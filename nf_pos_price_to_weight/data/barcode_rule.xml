@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <record id="nft_price_rules" model="barcode.rule">
+        <field name="name">Price Barcodes (Computed Weight) 2 Decimals</field>
+        <field name="barcode_nomenclature_id" ref="barcodes.default_barcode_nomenclature"/>
+        <field name="sequence">15</field>
+        <field name="type">price_to_weight</field>
+        <field name="encoding">ean13</field>
+        <field name="pattern">02.....{NNNDD}</field>
+    </record>
+</odoo>

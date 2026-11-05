@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_sale.Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <xpath expr='//li' position='attributes'>
+            <attribute name="t-attf-class" separator=" " add="{{ this.line.nf_section ? 'd-none': '' }}"></attribute>
+        </xpath>
+        <xpath expr="//li[hasclass('orderline')]" position="after">
+            <t t-if="this.line.nf_section">
+                <li class="orderline " t-attf-class="{{this.line.nf_section ? 'nf-sale-order-section-line' : ''}}">
+                    <span t-out="this.line.nf_section" class="nf-section"></span>
+                    <t t-if="this.pos.getOrder().finalized == false">
+                        <i class="fa fa-trash-o float-end pe-1 cursor-pointer" aria-hidden="true" t-on-click="() => this.deleteItem()"></i>
+                    </t>
+                </li>
+            </t>
+        </xpath>
+    </t>
+</templates>

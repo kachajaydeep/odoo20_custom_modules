@@ -1,0 +1,265 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* nf_pos_dashboard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-08 03:03+0000\n"
+"PO-Revision-Date: 2025-03-08 03:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Active POS Session"
+msgstr "מושב POS פעיל"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Amount"
+msgstr "סְכוּם"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Average Selling Price"
+msgstr "מחיר מכירה ממוצע"
+
+#. module: nf_pos_dashboard
+#: model:ir.model.fields,field_description:nf_pos_dashboard.field_nf_pos_dashboard__create_uid
+msgid "Created by"
+msgstr "נוצר על ידי"
+
+#. module: nf_pos_dashboard
+#: model:ir.model.fields,field_description:nf_pos_dashboard.field_nf_pos_dashboard__create_date
+msgid "Created on"
+msgstr "נוצר ב"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Customer Name"
+msgstr "שם הלקוח"
+
+#. module: nf_pos_dashboard
+#: model:ir.actions.client,name:nf_pos_dashboard.nf_pos_fantastic_dashboard_action_1
+msgid "Dashboard"
+msgstr "לוּחַ מַחווָנִים"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Day"
+msgstr "יְוֹם"
+
+#. module: nf_pos_dashboard
+#: model:ir.model.fields,field_description:nf_pos_dashboard.field_nf_pos_dashboard__display_name
+msgid "Display Name"
+msgstr "שם תצוגה"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "End Date"
+msgstr "תאריך סיום"
+
+#. module: nf_pos_dashboard
+#: model:ir.model.fields,field_description:nf_pos_dashboard.field_nf_pos_dashboard__id
+msgid "ID"
+msgstr "תְעוּדַת זֶהוּת"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Lanst 30 Days"
+msgstr "לאסט 30 ימים"
+
+#. module: nf_pos_dashboard
+#: model:ir.model.fields,field_description:nf_pos_dashboard.field_nf_pos_dashboard__write_uid
+msgid "Last Updated by"
+msgstr "עודכן לאחרונה על ידי"
+
+#. module: nf_pos_dashboard
+#: model:ir.model.fields,field_description:nf_pos_dashboard.field_nf_pos_dashboard__write_date
+msgid "Last Updated on"
+msgstr "עודכן לאחרונה ב"
+
+#. module: nf_pos_dashboard
+#: model:ir.model,name:nf_pos_dashboard.model_nf_pos_dashboard
+msgid "Model is use for design"
+msgstr "הדגם משמש לעיצוב"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Month"
+msgstr "חוֹדֶשׁ"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Month Highest Sale"
+msgstr "המכירה הגבוהה ביותר בחודש"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Month Sales"
+msgstr "חודש מכירות"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Month Total Sale"
+msgstr "חודש סהכ מכירה"
+
+#. module: nf_pos_dashboard
+#: model:ir.model.fields,field_description:nf_pos_dashboard.field_nf_pos_dashboard__name
+msgid "Name"
+msgstr "שֵׁם"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+#: model:ir.actions.act_window,name:nf_pos_dashboard.nf_pos_dashboard_design_action
+#: model_terms:ir.ui.view,arch_db:nf_pos_dashboard.nf_view_nf_pos_dashboard_form
+msgid "POS Dashboard"
+msgstr "לוח מחוונים POS"
+
+#. module: nf_pos_dashboard
+#: model_terms:ir.ui.view,arch_db:nf_pos_dashboard.nf_view_nf_pos_dashboard_tree
+msgid "POS Dashboards"
+msgstr "לוחות מחוונים POS"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Payments"
+msgstr "תשלומים"
+
+#. module: nf_pos_dashboard
+#: model:ir.ui.menu,name:nf_pos_dashboard.main_dashboard1
+msgid "Pos Dashboard"
+msgstr "לוח מחוונים של Pos"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Product Name"
+msgstr "שם המוצר"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Product Sales"
+msgstr "מכירת מוצרים"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Products"
+msgstr "מוצרים"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Quantity"
+msgstr "כַּמוּת"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Sale Qty"
+msgstr "כמות מכירה"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Start Date"
+msgstr "תאריך התחלה"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "This Month"
+msgstr "החודש הזה"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "This Year"
+msgstr "השנה"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Today"
+msgstr "הַיוֹם"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Today Top Sale"
+msgstr "היום מכירה מובילה"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Toggle Search Panel"
+msgstr "החלף את חלונית החיפוש"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Top Customer"
+msgstr "לקוח מוביל"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Top Products"
+msgstr "מוצרים מובילים"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Total"
+msgstr "סַך הַכֹּל"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Total Order"
+msgstr "סהכ סדר"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Total Product Sold"
+msgstr "סך המוצר שנמכר"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Total Sales"
+msgstr "סך המכירות"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "User"
+msgstr "מִשׁתַמֵשׁ"
+
+#. module: nf_pos_dashboard
+#. odoo-javascript
+#: code:addons/nf_pos_dashboard/static/src/xml/nf_pos_dashboard.xml:0
+msgid "Year"
+msgstr "שָׁנָה"

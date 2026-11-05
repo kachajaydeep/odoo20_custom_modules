@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_Measurement_action" model="ir.actions.act_window">
+        <field name="name">Measurement</field>
+        <field name="res_model">nf.measurement</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="nf_tailor_management.view_measurement_form"/>
+    </record>
+</odoo>

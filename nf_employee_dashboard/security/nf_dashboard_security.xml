@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="nf_employee_dashboard_category" model="ir.module.category">
+            <field name="name">Employee Dashboard</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="nf_employee_dashboard.nf_employee_dashboard_access_groups" model="res.groups.privilege">
+            <field name="name">Employee Dashboard</field>
+            <field name="description">Allow access Employee Dashboard type according to the position</field>
+            <field name="category_id" ref="nf_employee_dashboard.nf_employee_dashboard_category"/>
+
+        </record>
+
+        <!-- Dashboard Manager Group -->
+        <record id="group_nf_dashboard_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="privilege_id" ref="nf_employee_dashboard.nf_employee_dashboard_access_groups" />
+            <field name="user_ids" eval="[(4, ref('base.user_admin'))]"/>
+        </record>
+
+    </data>
+</odoo>

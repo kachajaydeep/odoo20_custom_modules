@@ -1,0 +1,227 @@
+$primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$grey-gradient: linear-gradient(135deg, #f2f4f7 0%, #dfe3e8 100%);
+
+$primary-color: #667eea;
+$secondary-color: #764ba2;
+$text-dark: #333;
+$text-muted: #666;
+$text-light: #999;
+$border-light: #e0e0e0;
+$bg-light: #f8f9fa;
+
+
+body:has(.nf-timesheet-component) {
+.o_menu_systray > button.o-dropdown.dropdown-toggle.dropdown:first-of-type {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+    .nf-timesheet-component{
+        .nf-start-button{
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50px;
+            text-align: center
+        }
+    }
+}
+body:has(.nf_checkin_checkout_container) {
+    background: $grey-gradient;
+    // .o_main_navbar{
+    //   .o-dropdown{
+    //     .fa.fa-circle{
+    //       display: none;
+    //     }
+    //   }
+    // }
+    
+    .nf_checkin_checkout_container {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+
+        .nf-card {
+            width: 100%;
+            max-width: 420px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: white;
+            border: none;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+            &-header {
+                position: relative;
+                width: 100%;
+                height: 120px;
+                background: $primary-gradient;
+            }
+        }
+
+        // Profile Image
+        .nf-img-card-container {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 5px solid white;
+            background: #e0e0e0;
+            object-fit: cover;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+        .nf-img-card-container.border-green{
+            border-color: #28a745;
+        }
+
+        // Card Body
+        .card-body {
+            padding: 80px 30px 40px;
+        }
+
+        // Greeting Section
+        .greeting-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 10px;
+
+            .greeting-text {
+                font-size: 16px;
+                color: $text-muted;
+                // margin-bottom: 8px;
+            }
+
+            .user-name {
+                font-size: 20px;
+                font-weight: 600;
+                color: $text-dark;
+                // margin-bottom: 5px;
+            }
+
+          }
+          .nf-current-time {
+              font-size: 14px;
+              color: $text-light;
+              margin-top: 5px;
+              .nf-reason-input {
+                border: 1px solid red !important;
+                border-radius: 5px !important;
+                .nf-required-input{
+                }
+              }
+          }
+
+        // Status Section
+        .status-section {
+            //   background: $bg-light;
+            //   border-radius: 12px;
+            padding: 20px;
+            //   margin-bottom: 20px;
+
+            .status-item {
+                display: flex;
+                justify-content: space-evenly;
+                // column-gap: 40px;
+                align-items: center;
+                padding: 15px 0;
+                // border-bottom: 1px solid $border-light;
+
+                &:first-child {
+                    padding-top: 0;
+                }
+
+                &:last-child {
+                    border-bottom: none;
+                    padding-bottom: 0;
+                }
+
+                .status-label {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    font-size: 15px;
+                    font-weight: 500;
+                    color: $text-dark;
+
+                    .nf-waving-hand-svg {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+                .nf-waving-hand-svg-container:hover {
+                    transition: transform 0.3s ease;
+                }
+                .nf-waving-hand-svg-container:hover {
+                    transform: rotate(30deg);
+                }
+
+                .status-icon {
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 16px;
+
+                    &.break-icon {
+                        background: #fff3cd;
+                        color: #856404;
+                    }
+
+                    &.meal-icon {
+                        background: #d1ecf1;
+                        color: #0c5460;
+                    }
+                }
+            }
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            //   text-align: center;
+            //   width: 200px;
+            //   height: 120px;
+
+            .btn-action {
+                flex: 1;
+                padding: 14px;
+                border-radius: 12px;
+                border: none;
+                font-weight: 600;
+                font-size: 15px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+
+                &.btn-checkin {
+                    background: $primary-gradient;
+                    color: white;
+
+                    &:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Card
+
+// Responsive
+@media (max-width: 480px) {
+    .nf_checkin_checkout_container {
+        max-width: 100%;
+    }
+
+    .user-name {
+        font-size: 20px;
+    }
+
+    .card-body {
+        padding: 70px 20px 30px;
+    }
+}

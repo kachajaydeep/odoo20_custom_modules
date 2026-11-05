@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- 
+        Root menu for the Tailor Management application.
+        Visible to all users of this module (Users and Managers).
+    -->
+    <menuitem 
+        id="nf_menu_tailor_root" 
+        name="Tailor" 
+        sequence="1" 
+        groups="nf_tailor_management.nf_group_nf_tailor_user"
+        web_icon="nf_tailor_management,static/description/icon.png"
+    />
+
+    <!-- Dashboard menu item -->
+    <menuitem id="nf_tailor_menu_open_dshboard" name="Dashboard" action="nf_tailor_management.nf_tailor_dashboard_Action" parent="nf_menu_tailor_root" sequence="1"/>
+
+    <!-- 
+        Operational Menus for Users and Managers 
+    -->
+    <menuitem 
+        id="nf_main_menu_tailor_orders_main" 
+        name="Orders" 
+        parent="nf_menu_tailor_root"
+        sequence="2" />
+    <menuitem 
+        id="nf_menu_nf_tailor_orders" 
+        name="Tailor Orders"
+        sequence="3"
+        parent="nf_main_menu_tailor_orders_main"
+        action="nf_tailor_management.action_nf_tailor_order" />
+    <menuitem 
+        id="nf_menu_nf_tailor_customers" 
+        name="Customers"
+        sequence="4"
+        parent="nf_main_menu_tailor_orders_main"
+        action="nf_tailor_management.nf_tailor_partner_action_customer" />
+
+    <menuitem 
+        id="nf_menu_measurement_main" 
+        name="Measurements" 
+        parent="nf_menu_tailor_root"
+        sequence="5" />
+    <menuitem 
+        id="nf_menu_measurement" 
+        name="Measurements" 
+        parent="nf_menu_measurement_main"
+        action="nf_tailor_management.nf_action_measurement" 
+        sequence="6" />
+    
+    <!-- 
+        Configuration and Reporting Menus for Managers ONLY 
+    -->
+    <menuitem 
+        id="nf_main_menu_tailor_config_main" 
+        name="Configuration" 
+        parent="nf_menu_tailor_root"  
+        sequence="13" 
+        
+        groups="nf_tailor_management.nf_group_nf_tailor_manager" />
+        
+    <!-- Measurement Configuration (Manager only) -->
+    <menuitem 
+        id="menu_nf_measurement_types" 
+        name="Measurement Types"
+        parent="nf_main_menu_tailor_config_main" 
+        action="nf_tailor_management.action_nf_measurement_type" 
+        sequence="7" />
+    <menuitem 
+        id="menu_nf_measurement_categories" 
+        name="Measurement Categories"
+        parent="nf_main_menu_tailor_config_main"
+        action="nf_tailor_management.action_nf_measurement_category" 
+        sequence="8" />
+    
+    <!-- Design Configuration (Manager only) -->
+    <menuitem 
+        id="nf_menu_design_main" 
+        name="Designs" 
+        parent="nf_main_menu_tailor_config_main" 
+        sequence="9" />
+    <menuitem 
+        id="menu_design_type" 
+        name="Manage Design Types" 
+        sequence="10"
+        parent="nf_menu_design_main" 
+        action="action_design_type" />
+    <menuitem 
+        id="menu_design_type_lines" 
+        name="Manage Design Lines" 
+        sequence="11"
+        parent="nf_menu_design_main" 
+        action="action_nf_design_line" />
+
+    <!-- Reporting (Manager only) -->
+    <menuitem 
+        id="nf_main_menu_tailor_report_main" 
+        name="Reporting" 
+        parent="nf_menu_tailor_root"
+        sequence="12" 
+        groups="nf_tailor_management.nf_group_nf_tailor_manager" />
+    <!-- Example reporting menuitem (uncomment when your action exists) -->
+    <!-- 
+    <menuitem 
+        id="menu_tailor_order_reports" 
+        name="Tailor Order Reports" 
+        parent="nf_main_menu_tailor_report_main" 
+        action="nf_tailor_management.action_report_tailor_order"/> 
+    -->
+
+</odoo>

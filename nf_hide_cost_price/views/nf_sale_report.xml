@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="nf_sale_report_view_tree" model="ir.ui.view">
+        <field name="name">Hide Sale Price</field>
+        <field name="model">sale.report</field>
+        <field name="inherit_id" ref="sale.sale_report_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='price_unit']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+            <xpath expr="//field[@name='price_total']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+            <xpath expr="//field[@name='price_subtotal']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+        </field> 
+    </record>
+
+</odoo>

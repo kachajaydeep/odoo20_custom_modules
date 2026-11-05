@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_pos_theme_app.ProductCard" t-inherit="point_of_sale.ProductCard" t-inherit-mode="extension">
+        <xpath expr="//article" position="attributes">
+            <attribute name="t-attf-class">#{props.color ? 'o_colorlist_item_wo_border_color_' + props.color : ''} #{props.class} #{props.color ? 'o_colorlist_item_color_transparent_' + props.color : ''} product position-relative btn btn-light d-flex align-items-stretch p-0 rounded-3 text-start cursor-pointer #{ props.imgUrl ? 'd-flex align-items-stretch' : ''}</attribute>
+        </xpath>
+    </t>
+</templates>

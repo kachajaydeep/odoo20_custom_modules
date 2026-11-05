@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.module.category" id="module_category_nf_pos_salesperson_commission">
+            <field name="name">SalesPerson Commission</field>
+            <field name="sequence">5</field>
+        </record>
+        <record id="nf_pos_salesperson_commission_privilege" model="res.groups.privilege">
+            <field name="name">Pos Commission Management Rights</field>
+            <field name="category_id" ref="nf_pos_salesperson_commission.module_category_nf_pos_salesperson_commission"></field>
+        </record>
+
+        <record id="nf_commission_user" model="res.groups">
+            <field name="name">Commission User</field>
+            <field name="privilege_id" ref="nf_pos_salesperson_commission_privilege"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="nf_commission_manager" model="res.groups">
+            <field name="name">Commission Manager</field>
+            <field name="privilege_id" ref="nf_pos_salesperson_commission_privilege"></field>
+            <field name="implied_ids" eval="[(4,ref('nf_commission_user'))]"/>
+            <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+        </record>
+    </data>
+</odoo>

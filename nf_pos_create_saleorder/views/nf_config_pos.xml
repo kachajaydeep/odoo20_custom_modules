@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id='nf_create_sale_order_configuration' model='ir.ui.view'>
+        <field name='name'>nf.create.sale.order.config.view</field>
+        <field name='model'>pos.config</field>
+        <field name='inherit_id' ref='point_of_sale.pos_config_view_form' />
+        <field name='arch' type='xml'>
+            <xpath expr="//div[4]" position="after">
+                <div class='row mt15 o_settings_container nf_create_saleorder_config'>
+                    <div class='col-12 col-lg-6 col-md-6 col-xl-6 o_setting_box'>
+                        <h2>Sale Order Configuration</h2>
+                        <div class='o_setting_left_pane'>
+                            <field name='nf_enable_create_saleorder' />
+                        </div>
+                        <div class='o_setting_right_pane'>
+                            <label for='nf_enable_create_saleorder' />
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record id='nf_create_sale_order_line_view_inherit' model='ir.ui.view'>
+        <field name='name'>nf.create.saleorder.line.form.view.inheri</field>
+        <field name='model'>pos.order</field>
+        <field name='priority' eval='5000' />
+        <field name='inherit_id' ref='point_of_sale.view_pos_pos_form' />
+        <field name='arch' type='xml'>
+            <field name='full_product_name' position='replace'>
+                <field name='nf_section' attrs="{'invisible': [('nf_section', '=', False)]}"></field>
+                <field name='full_product_name' attrs="{'invisible': [('nf_section', '!=', False)]}"></field>
+            </field>
+            <field name='qty' position='replace'>
+                <field name='qty' attrs="{'invisible': [('nf_section', '!=', False)]}"></field>
+            </field>
+            <field name='price_unit' position='replace'>
+                <field name='price_unit' attrs="{'invisible': [('nf_section', '!=', False)]}"></field>
+            </field>
+            <field name='discount' position='replace'>
+                <field name='discount' attrs="{'invisible': [('nf_section', '!=', False)]}"></field>
+            </field>
+            <field name='price_subtotal' position='replace'>
+                <field name='price_subtotal' attrs="{'invisible': [('nf_section', '!=', False)]}"></field>
+            </field>
+            <field name='price_subtotal_incl' position='replace'>
+                <field name='price_subtotal_incl' attrs="{'invisible': [('nf_section', '!=', False)]}"></field>
+            </field>
+        </field>
+    </record>
+</odoo>

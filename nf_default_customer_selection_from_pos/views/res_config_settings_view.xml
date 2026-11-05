@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="nf_res_config_settings_inherit_view_for_default_customer" model="ir.ui.view">
+        <field name="name">nf.res.config.settings.inherit.view.for.default.customer</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"></field>
+        <field name="arch" type="xml">
+            <block id="pos_accounting_section" position="after">
+                <block title="Default Customer Selection" id="nf_selection_default_customer">
+                    <setting help="Allow to set Default Customer for Pos Store.">
+                        <field name="nf_is_default_selection_customer" />
+                        <lable for="nf_default_customer_id" invisible="not nf_default_customer_id" />
+                        <field name="nf_default_customer_id" invisible="not nf_is_default_selection_customer" required="nf_is_default_selection_customer" />
+                    </setting>
+                </block>
+            </block>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_partners_form_tailor_management" model="ir.ui.view">
+        <field name="name">view.res.partner.form.tailor.inherited1</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <page name="internal_notes" position="after">
+                <page string="Measurement" >
+                    <field name="measurement_ids" />
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>

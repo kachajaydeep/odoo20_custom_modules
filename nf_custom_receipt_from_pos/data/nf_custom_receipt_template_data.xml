@@ -1,0 +1,2007 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="nf_receipt_design_template_1" model="nf.receipt.template">
+            <field name="nf_receipt_name">Receipt Design 1 - Classic</field>
+            <field name="nf_receipt_xml"><![CDATA[
+<t t-name="nf_custom_receipt_from_pos.Receipt1">
+
+<div class="pos-receipt" style="font-family:Arial,Helvetica,sans-serif; font-size:13px; color:#333; padding:10px; max-width:380px; margin:0 auto;">
+
+    <!-- ================= HEADER ================= -->
+    <div style="text-align:center; padding-bottom:10px; margin-bottom:14px;">
+
+        <img t-att-src="receipt.company.companyLogo"
+             alt="Logo"
+             style="max-width:160px; max-height:90px; margin-bottom:10px;"/>
+
+        <div style="font-size:18px; font-weight:700; margin:4px 0;">
+            <t t-esc="receipt.company.name"/>
+            <t t-if="receipt.company.city">
+                (<t t-esc="receipt.company.city"/>)
+            </t>
+        </div>
+
+        <div t-if="receipt.company.phone" style="margin:4px 0; color:#666;">
+            📞 <t t-esc="receipt.company.phone"/>
+        </div>
+
+        <div t-if="receipt.company.email" style="margin:4px 0; color:#999;">
+            ✉ <t t-esc="receipt.company.email"/>
+        </div>
+
+        <div t-if="receipt.company.website" style="margin:4px 0; color:#999;">
+            🌐 <t t-esc="receipt.company.website"/>
+        </div>
+
+    </div>
+    <h4 style="text-align:center; padding-bottom:10px; margin-bottom:14px;">
+            <div t-if="receipt.receipt_header"
+             style="white-space:pre-line"
+             t-esc="receipt.receipt_header"/>
+    </h4>
+
+    <!-- ================= ORDER RECEIPT / REF ================= -->
+    <div style="text-align:center; margin-bottom:14px;">
+
+        <div style="font-size:18px; font-weight:700;">Order Receipt</div>
+
+        <div style="color:#999; margin-top:4px;">
+            <span class="pos-receipt-vat">
+                <span class="ticket-name-prefix">
+                    <t t-if="receipt._IS_VAT"> VAT </t>
+                    Ref
+                </span>
+                : <t t-out="receipt.pos_reference"/>
+            </span>
+        </div>
+
+        <div t-if="receipt.presetDateTime" style="margin-top:4px;">
+            <t t-out="receipt.preset_name"/>: <t t-out="receipt.presetDateTime"/>
+        </div>
+
+    </div>
+
+    <!-- ================= CASHIER ================= -->
+    <div t-if="receipt.getCashierName" style="margin-bottom:10px;">
+        👤 Cashier: Served by <t t-esc="receipt.getCashierName"/>
+    </div>
+
+    <!-- ================= CUSTOMER INFO ================= -->
+    <div class="pos-receipt-contact" style="margin-bottom:10px;">
+        <div t-if="receipt.tracking_number and receipt.config_tracking_number and !receipt.config_displayBigTrackingNumber">
+            <span style="font-weight:bold;">
+                <t t-esc="receipt.tracking_number"/>
+            </span>
+        </div>
+
+    </div>
+
+    <div t-if="receipt.partner_id" style="margin-bottom:10px;">
+        <div t-if="receipt.partner_id.name">
+            <t t-if="receipt.partner_id.parent_name">
+                <span t-esc="receipt.partner_id.parent_name"/>,
+            </t>
+            <span t-esc="receipt.partner_id.name"/>
+        </div>
+
+        <div t-if="receipt.partner_id.pos_contact_address">
+            <span t-esc="receipt.partner_id.pos_contact_address"/>
+        </div>
+
+        <div t-if="receipt.partner_id.vat">
+            <span t-esc="receipt.partner_id.vat"/>
+        </div>
+
+    </div>
+
+    <!-- ================= ITEMS ================= -->
+    <div style="font-size:15px; margin-bottom:6px; border-bottom:1px solid #e0e0e0; padding-bottom:6px;">
+        📋 Items
+    </div>
+
+    <t t-foreach="receipt.orderlines" t-as="line" t-key="line.id">
+
+        <div style="margin-bottom:10px;">
+
+            <div style="display:flex; justify-content:space-between; font-weight:700;">
+                <span><t t-esc="line.product_name_wrapped[0]"/></span>
+                <span><t t-esc="env.utils.formatCurrency(line.price_display)"/></span>
+            </div>
+
+            <div style="color:#999;">
+                <t t-esc="line.qty"/> × <t t-esc="env.utils.formatCurrency(line.price)"/> per Units
+            </div>
+
+        </div>
+
+    </t>
+
+   
+
+    <t t-if="!receipt.company.basic_receipt">
+     <!-- ================= TOTALS ================= -->
+        <div style="font-size:15px; margin-bottom:6px;">
+            💰 Totals
+        </div>
+
+        <div style="border-top:1px solid #e0e0e0; margin-bottom:8px;"/>
+
+        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+            <span>Total</span>
+            <span t-esc="receipt.company.currencyDisplayPriceIncl"/>
+        </div>
+
+        <!-- TAXES -->
+
+        <t t-set="taxTotals" t-value="receipt.company.taxDetails"/>
+        <div t-if="taxTotals and taxTotals.has_tax_groups">
+            <div style="color:#999; margin-bottom:4px;">Tax Breakdown:</div>
+            <t t-foreach="taxTotals.subtotals" t-as="subtotal" t-key="subtotal.name">
+                <div style="margin-bottom:6px;">
+                    <b>Untaxed Amount</b>: <span t-out="env.utils.formatCurrency(receipt.company.priceExcl)"/>
+                </div>
+
+                <div t-foreach="subtotal.tax_groups"
+                     t-as="tax_group" t-key="tax_group.group_name"
+                     style="display:flex; justify-content:space-between;">
+
+                    <span t-esc="tax_group.group_name"/>
+                    <span t-out="env.utils.formatCurrency(tax_group.tax_amount_currency)"/>
+
+                </div>
+
+            </t>
+
+        </div>
+
+    </t>
+
+    <!-- ROUNDING -->
+    <t t-if="receipt.company.appliedRounding">
+
+        <div style="display:flex; justify-content:space-between;">
+            <span>Rounding</span>
+            <span t-out="env.utils.formatCurrency(receipt.company.appliedRounding)"/>
+        </div>
+
+        <div style="display:flex; justify-content:space-between;">
+            <span>To Pay</span>
+            <span t-out="env.utils.formatCurrency(receipt.company.totalDue)"/>
+        </div>
+
+    </t>
+
+    <!-- DISCOUNT -->
+    <t t-set="totalDiscount" t-value="receipt.company.getTotalDiscount"/>
+    <t t-if="totalDiscount">
+        <div style="display:flex; justify-content:space-between;">
+            <span>Discounts</span>
+            <span t-out="env.utils.formatCurrency(totalDiscount)"/>
+        </div>
+    </t>
+
+
+    <!-- ================= PAYMENTS ================= -->
+    <div style="font-size:15px; margin-top:14px; margin-bottom:6px;">
+        💳 Payments
+    </div>
+
+    <div style="border-top:1px solid #e0e0e0; margin-bottom:8px;"/>
+
+    <t t-foreach="receipt.company.paymentLines" t-as="line" t-key="line_index">
+        <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+            <span t-esc="line.payment_method_id.name"/>
+            <span t-out="env.utils.formatCurrency(line.getAmount())"/>
+        </div>
+    </t>
+
+    <!-- CHANGE -->
+    <div t-if="receipt.company.showChange"
+         style="display:flex; justify-content:space-between; margin-top:5px;">
+        <span>Change</span>
+        <span t-out="env.utils.formatCurrency(receipt.company.change)"/>
+    </div>
+
+    <!-- Qr code -->
+    <div t-if="receipt.point_of_sale_use_ticket_qr_code and receipt.finalized" class="pos-receipt-qr gap-2 d-flex flex-row pt-3" style="font-size: 75%;">
+        <div t-if="['qr_code', 'qr_code_and_url'].includes(header.company.point_of_sale_ticket_portal_url_display_mode)" class="pt-1">
+            <img id="posqrcode" t-att-src="this.qrCode" class="m-0"/>
+        </div>
+        <div class="w-100 ms-1">
+            <div class="fw-bolder">
+                Need an invoice?
+            </div>
+            <div t-if="['url', 'qr_code_and_url'].includes(header.company.point_of_sale_ticket_portal_url_display_mode)" class="portal-url text-break">
+                <t t-out="getPortalURL()"/>
+            </div>
+            <div class="unique-code">
+                Code: <t t-out="receipt.ticket_code"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- barcode -->
+    <t t-if="receipt.new_coupon_info and receipt.new_coupon_info.length !== 0">
+        <div class="pos-coupon-rewards pt-3">
+            <t t-foreach="receipt.new_coupon_info" t-as="coupon_info" t-key="coupon_info.code">
+                <div class="coupon-container">
+                    <div class="row g-2">
+                        <div class="col-4">
+                            <t t-out="coupon_info['program_name']"/>
+                        </div>
+                        <div class="col-8">
+                            <img style="transform: translateX(13%);" t-att-src="'/report/barcode/Code128/'+coupon_info['code']" class="img-fluid" alt="Barcode"/>
+                        </div>
+                        <div class="col-6">
+                            <span>Until: </span>
+                            <t t-if="coupon_info['expiration_date']">
+                                <t t-out="coupon_info['expiration_date']"/>
+                            </t>
+                            <t t-else="">
+                                no expiration
+                            </t>
+                        </div>
+                        <div class="col-6 text-end">
+                            <t t-out="coupon_info['code']"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+
+    <!-- SHIPPING -->
+    <t t-if="receipt.order_shipping_date">
+        <div style="text-align:center; margin-top:10px;">
+            Expected delivery:
+            <t t-out="receipt.order_shipping"/>
+        </div>
+    </t>
+
+    <!-- ================= FOOTER ================= -->
+    <div t-if="receipt.receipt_footer" class="pos-receipt-center-align pt-3 text-center margin-top:6px;color:black;" style="white-space:pre-line;color:#999;">
+        <t t-esc="receipt.receipt_footer" />
+    </div>
+
+    <div style="text-align:center; color:#999; margin-top:18px;">
+
+        Receipt #: <t t-out="'Order ' + receipt.name"/><br/>
+
+        <div t-if="receipt.date_order" t-out="receipt.date_order_formate"/>
+
+       
+
+        <!-- <div style=";">====Footer====</div> -->
+
+      
+
+        <div t-if="receipt.company.street" t-out="receipt.company.street"/>
+        <div t-if="receipt.company.zip or receipt.company.city or receipt.company.state_id?.code">
+            <t t-if="receipt.company.city" t-out="receipt.company.city"/>
+            <t t-if="receipt.company.state_id?.code" t-out="', ' + receipt.company.state_id.code"/>
+            <t t-if="receipt.company.zip" t-out="', ' + receipt.company.zip"/>
+        </div>
+        <div t-if="receipt.company.vat" t-out="receipt.company.vat"/>
+
+         <div style="margin-top:12px;">
+            Powered by <b>Odoo</b>
+        </div>
+    </div>
+
+</div>
+
+</t>
+    ]]></field>
+        </record>
+
+        <record id="nf_receipt_design_template_2" model="nf.receipt.template">
+            <field name="nf_receipt_name">Receipt Design 2 - Modern</field>
+            <field name="nf_receipt_xml"><![CDATA[
+        <t t-name="nf_custom_receipt_from_pos.Receipt2">
+            <div class="pos-receipt" style="font-family:'Courier New',monospace; font-size:13px; color:#444; padding:10px; max-width:380px; margin:0 auto;">
+
+                <!-- ================= HEADER ================= -->
+                <div style="text-align:center; padding-bottom:10px; margin-bottom:10px;">
+
+                    <img t-att-src="receipt.company.companyLogo"
+                        alt="Logo"
+                        style="max-width:160px; max-height:90px; margin-bottom:10px;"/>
+
+                    <div style="font-weight:700; font-size:14px; margin:4px 0;">
+                        <t t-esc="receipt.company.name"/>
+                        <t t-if="receipt.company.city">
+                            (<t t-esc="receipt.company.city"/>)
+                        </t>
+                    </div>
+
+                    <div t-if="receipt.company.phone" style="margin:2px 0;">
+                        Phone: <t t-esc="receipt.company.phone"/>
+                    </div>
+
+                    <div t-if="receipt.company.email" style="margin:2px 0;">
+                        Email: <t t-esc="receipt.company.email"/>
+                    </div>
+
+                    <div t-if="receipt.company.website" style="margin:2px 0;">
+                        Website: <t t-esc="receipt.company.website"/>
+                    </div>
+
+                    <div t-if="receipt.getCashierName" style="margin:2px 0;">
+                        Cashier: Served by <t t-esc="receipt.getCashierName"/>
+                    </div>
+
+                    <!-- header -->
+                    <h4 t-if="receipt.receipt_header"
+                    style="white-space:pre-line" class="fw-bold"
+                    t-esc="receipt.receipt_header"/>
+                </div>
+
+                <!-- ================= REFERENCE ================= -->
+                <div style="text-align:center; margin-bottom:8px;">
+                    <span class="pos-receipt-vat">
+                        <span class="ticket-name-prefix">
+                            <t t-if="receipt._IS_VAT"> VAT </t>
+                            Ref
+                        </span>
+                        : <t t-out="receipt.pos_reference"/>
+                    </span>
+                </div>
+
+                 <div style="text-align:center; margin-bottom:8px;">
+                    <span class="pos-receipt-vat">
+                        <t t-out="receipt.order_name"/>
+                    </span>
+                </div>
+
+                <!-- ================= PRESET ================= -->
+                <div t-if="receipt.presetDateTime" style="text-align:center; margin-bottom:8px;">
+                    <t t-out="receipt.preset_name"/>: <t t-out="receipt.presetDateTime"/>
+                </div>
+
+                <!-- ================= CUSTOMER INFO ================= -->
+                <div class="pos-receipt-contact" style="text-align:center; margin-bottom:8px;">
+                    <h3 t-if="receipt.tracking_number and receipt.config_tracking_number and !receipt.config_displayBigTrackingNumber">
+                        <span style="font-weight:bold;">
+                            <t t-esc="receipt.tracking_number"/>
+                        </span>
+                    </h3>
+
+                </div>
+
+                <div t-if="receipt.partner_id" style="text-align:center; margin-bottom:8px;">
+
+                    <div t-if="receipt.partner_id.name">
+                        <t t-if="receipt.partner_id.parent_name">
+                            <span t-esc="receipt.partner_id.parent_name"/>,
+                        </t>
+                        <span t-esc="receipt.partner_id.name"/>
+                    </div>
+
+                    <div t-if="receipt.partner_id.pos_contact_address">
+                        <span t-esc="receipt.partner_id.pos_contact_address"/>
+                    </div>
+
+                    <div t-if="receipt.partner_id.vat">
+                        <span t-esc="receipt.partner_id.vat"/>
+                    </div>
+
+                </div>
+
+                <div style="border-top:1px solid #999; margin:10px 0;"/>
+
+                <!-- ================= ORDER ITEMS ================= -->
+                <div style="font-weight:700; margin-bottom:6px;">Order Items</div>
+
+                <t t-foreach="receipt.orderlines" t-as="line" t-key="line.id">
+
+                    <div style="margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #ccc;">
+
+                        <div>
+                            <t t-esc="line.product_name_wrapped[0]"/>
+                        </div>
+
+                        <div>
+                            Qty: <t t-esc="line.qty"/> ×
+                            <t t-esc="env.utils.formatCurrency(line.price)"/> =
+                            <t t-esc="env.utils.formatCurrency(line.price_display)"/>
+                        </div>
+
+                    </div>
+
+                </t>
+
+                <div style="border-top:1px solid #999; margin:10px 0;"/>
+
+                <!-- ================= TOTALS ================= -->
+                <div style="font-weight:700; margin-bottom:6px;">💰 Totals</div>
+
+                <div style="display:flex; justify-content:space-between; font-weight:700;">
+                    <span>Total:</span>
+                    <span t-esc="receipt.company.currencyDisplayPriceIncl"/>
+                </div>
+
+                <t t-if="!receipt.company.basic_receipt">
+                <!-- TAXES -->
+                    <t t-set="taxTotals" t-value="receipt.company.taxDetails"/>
+
+                    <div t-if="taxTotals and taxTotals.has_tax_groups" style="margin-top:6px;">
+
+                        <div style="font-weight:700; margin-bottom:4px;">Tax Details</div>
+
+                        <t t-foreach="taxTotals.subtotals" t-as="subtotal" t-key="subtotal.name">
+
+                            <div style="display:flex; justify-content:space-between;">
+                                <span>Untaxed Amount:</span>
+                                <span t-out="env.utils.formatCurrency(receipt.company.priceExcl)"/>
+                            </div>
+
+                            <div t-foreach="subtotal.tax_groups"
+                                t-as="tax_group" t-key="tax_group.group_name"
+                                style="display:flex; justify-content:space-between;">
+
+                                <span t-esc="tax_group.group_name"/>
+                                <span t-out="env.utils.formatCurrency(tax_group.tax_amount_currency)"/>
+
+                            </div>
+
+                        </t>
+
+                    </div>
+
+                </t>
+
+                <!-- ROUNDING -->
+                <t t-if="receipt.company.appliedRounding">
+
+                    <div style="display:flex; justify-content:space-between;">
+                        <span>Rounding</span>
+                        <span t-out="env.utils.formatCurrency(receipt.company.appliedRounding)"/>
+                    </div>
+
+                    <div style="display:flex; justify-content:space-between;">
+                        <span>To Pay</span>
+                        <span t-out="env.utils.formatCurrency(receipt.company.totalDue)"/>
+                    </div>
+
+                </t>
+
+                <!-- DISCOUNT -->
+                <t t-set="totalDiscount" t-value="receipt.company.getTotalDiscount"/>
+                <t t-if="totalDiscount">
+                    <div style="display:flex; justify-content:space-between;">
+                        <span>Discounts</span>
+                        <span t-out="env.utils.formatCurrency(totalDiscount)"/>
+                    </div>
+                </t>
+
+                <div style="border-top:1px solid #999; margin:10px 0;"/>
+
+                <!-- <t t-if="receipt.new_coupon_info and receipt.new_coupon_info.length !== 0">
+                    <div class="pos-coupon-rewards pt-3">
+                        <t t-foreach="receipt.new_coupon_info" t-as="coupon_info" t-key="coupon_info.code">
+                            <div class="coupon-container">
+                                <div class="row g-2">
+                                    <div class="col-4">
+                                        <t t-out="coupon_info['program_name']"/>
+                                    </div>
+                                    <div class="col-8">
+                                        <img style="transform: translateX(13%);" t-att-src="'/report/barcode/Code128/'+coupon_info['code']" class="img-fluid" alt="Barcode"/>
+                                    </div>
+                                    <div class="col-6">
+                                        <span>Until: </span>
+                                        <t t-if="coupon_info['expiration_date']">
+                                            <t t-out="coupon_info['expiration_date']"/>
+                                        </t>
+                                        <t t-else="">
+                                            no expiration
+                                        </t>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <t t-out="coupon_info['code']"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </t> -->
+
+                <div style="border-top:1px solid #999; margin:10px 0;"/>
+
+                <!-- ================= PAYMENTS ================= -->
+                <div style="font-weight:700; margin-bottom:6px;">💳 Payments</div>
+
+                <t t-foreach="receipt.company.paymentLines" t-as="line" t-key="line_index">
+                    <div style="display:flex; justify-content:space-between;">
+                        <span t-esc="line.payment_method_id.name"/>
+                        <span t-out="env.utils.formatCurrency(line.getAmount())"/>
+                    </div>
+                </t>
+
+                <!-- CHANGE -->
+                <div t-if="receipt.company.showChange"
+                    style="display:flex; justify-content:space-between; margin-top:5px;">
+                    <span>Change</span>
+                    <span t-out="env.utils.formatCurrency(receipt.company.change)"/>
+                </div>
+
+                  <!-- Qr code -->
+                <div t-if="receipt.point_of_sale_use_ticket_qr_code and receipt.finalized" class="pos-receipt-qr gap-2 d-flex flex-row pt-3" style="font-size: 75%;">
+                    <div t-if="['qr_code', 'qr_code_and_url'].includes(header.company.point_of_sale_ticket_portal_url_display_mode)" class="pt-1">
+                        <img id="posqrcode" t-att-src="this.qrCode" class="m-0"/>
+                    </div>
+                    <div class="w-100 ms-1">
+                        <div class="fw-bolder">
+                            Need an invoice?
+                        </div>
+                        <div t-if="['url', 'qr_code_and_url'].includes(header.company.point_of_sale_ticket_portal_url_display_mode)" class="portal-url text-break">
+                            <t t-out="getPortalURL()"/>
+                        </div>
+                        <div class="unique-code">
+                            Code: <t t-out="receipt.ticket_code"/>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- barcode -->
+                <t t-if="receipt.new_coupon_info and receipt.new_coupon_info.length !== 0">
+                    <div class="pos-coupon-rewards pt-3">
+                        <t t-foreach="receipt.new_coupon_info" t-as="coupon_info" t-key="coupon_info.code">
+                            <div class="coupon-container">
+                                <div class="row g-2">
+                                    <div class="col-4">
+                                        <t t-out="coupon_info['program_name']"/>
+                                    </div>
+                                    <div class="col-8">
+                                        <img style="transform: translateX(13%);" t-att-src="'/report/barcode/Code128/'+coupon_info['code']" class="img-fluid" alt="Barcode"/>
+                                    </div>
+                                    <div class="col-6">
+                                        <span>Until: </span>
+                                        <t t-if="coupon_info['expiration_date']">
+                                            <t t-out="coupon_info['expiration_date']"/>
+                                        </t>
+                                        <t t-else="">
+                                            no expiration
+                                        </t>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <t t-out="coupon_info['code']"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+
+                <!-- SHIPPING -->
+                <t t-if="receipt.order_shipping_date">
+                    <div style="text-align:center; margin-top:10px;">
+                        Expected delivery:
+                        <t t-out="receipt.order_shipping"/>
+                    </div>
+                </t>
+
+                <div style="border-top:1px solid #999; margin:10px 0;"/>
+
+                <!-- ================= FOOTER ================= -->
+                <div style="text-align:center; color:#999;">
+                    <!-- ================= FOOTER ================= -->
+                    <div t-if="receipt.receipt_footer" class="pos-receipt-center-align pt-3 text-center margin-top:6px;color:black;" style="white-space:pre-line;color:#999;">
+                        <t t-esc="receipt.receipt_footer" />
+                    </div>
+
+                    Receipt #: <t t-out="receipt.config_name"/>
+                    <t t-out="' Order ' + receipt.name"/><br/>
+
+                    <div t-if="receipt.date_order" t-out="receipt.date_order_formate"/>
+
+                    <div t-if="receipt.company.street" t-out="receipt.company.street"/>
+                    <div t-if="receipt.company.zip or receipt.company.city or receipt.company.state_id?.code">
+                        <t t-if="receipt.company.city" t-out="receipt.company.city"/>
+                        <t t-if="receipt.company.state_id?.code" t-out="', ' + receipt.company.state_id.code"/>
+                        <t t-if="receipt.company.zip" t-out="', ' + receipt.company.zip"/>
+                    </div>
+                    <div t-if="receipt.company.vat" t-out="receipt.company.vat"/>
+
+                    <div style="margin-top:10px;">
+                        Powered by <b>Odoo</b>
+                    </div>
+
+                </div>
+
+            </div>
+        </t>
+]]></field>
+        </record>
+
+        <record id="nf_receipt_design_template_3" model="nf.receipt.template">
+            <field name="nf_receipt_name">Receipt Design 3 - Minimalist</field>
+            <field name="nf_receipt_xml"><![CDATA[
+<t t-name="nf_custom_receipt_from_pos.Receipt3">
+    <div class="pos-receipt" style="font-family:Arial,Helvetica,sans-serif; font-size:13px; color:#444; padding:14px; max-width:380px; margin:0 auto;">
+
+    <!-- ================= HEADER ================= -->
+    <div style="text-align:center; padding-bottom:10px; margin-bottom:10px;">
+
+        <img t-att-src="receipt.company.companyLogo"
+             alt="Logo"
+             style="max-width:160px; max-height:90px; margin-bottom:10px;"/>
+
+        <div style="font-size:17px; margin:4px 0;">
+            <t t-esc="receipt.company.name"/>
+            <t t-if="receipt.company.city">
+                (<t t-esc="receipt.company.city"/>)
+            </t>
+        </div>
+
+        <div t-if="receipt.company.phone" style="margin:4px 0;">
+            Tel: <t t-esc="receipt.company.phone"/>
+        </div>
+
+        <div t-if="receipt.company.email" style="margin:4px 0;">
+            <t t-esc="receipt.company.email"/>
+        </div>
+
+        <div t-if="receipt.company.website" style="margin:4px 0;">
+            <t t-esc="receipt.company.website"/>
+        </div>
+
+        <h4 t-if="receipt.receipt_header" style="white-space:pre-line; margin-top:4px;text-align:center;" t-esc="receipt.receipt_header"/>
+
+    </div>
+
+    <!-- ================= SERVED BY / DATE ================= -->
+    <div style="margin-bottom:8px;">
+
+        <div t-if="receipt.getCashierName">
+            <b>Served By:</b> <t t-esc="receipt.getCashierName"/>
+        </div>
+
+        <div t-if="receipt.date_order">
+            <b>Date:</b> <t t-out="receipt.date_order_formate"/>
+        </div>
+
+        <div>
+            <span class="pos-receipt-vat">
+                <b>
+                    <span class="ticket-name-prefix">
+                        <t t-if="receipt._IS_VAT"> VAT </t>
+                        Ref #
+                    </span>
+                </b>: <t t-out="receipt.pos_reference"/>
+            </span>
+        </div>
+
+        <div t-if="receipt.presetDateTime">
+            <b><t t-out="receipt.preset_name"/>:</b> <t t-out="receipt.presetDateTime"/>
+        </div>
+
+    </div>
+
+    <!-- ================= PARTNER ================= -->
+    <div t-if="receipt.partner_id" style="margin-bottom:8px;">
+
+        <div t-if="receipt.partner_id.name">
+            <t t-if="receipt.partner_id.parent_name">
+                <span t-esc="receipt.partner_id.parent_name"/>,
+            </t>
+            <span t-esc="receipt.partner_id.name"/>
+        </div>
+
+        <div t-if="receipt.partner_id.pos_contact_address">
+            <span t-esc="receipt.partner_id.pos_contact_address"/>
+        </div>
+
+        <div t-if="receipt.partner_id.vat">
+            <span t-esc="receipt.partner_id.vat"/>
+        </div>
+
+    </div>
+
+    <div t-if="receipt.tracking_number and receipt.config_tracking_number and !receipt.config_displayBigTrackingNumber"
+         style="margin-bottom:8px;">
+        <span style="font-weight:bold;">
+            <t t-esc="receipt.tracking_number"/>
+        </span>
+    </div>
+
+    <div style="border-top:1px solid #ccc; margin-bottom:10px;"/>
+
+    <!-- ================= ORDER ITEMS ================= -->
+    <t t-foreach="receipt.orderlines" t-as="line" t-key="line.id">
+
+        <div style="margin-bottom:10px;">
+
+            <div style="display:flex; justify-content:space-between; font-weight:700;">
+                <span><t t-esc="line.product_name_wrapped[0]"/></span>
+                <span><t t-esc="env.utils.formatCurrency(line.price_display)"/></span>
+            </div>
+
+            <div style="color:#999;">
+                Qty: <t t-esc="line.qty"/> @ <t t-esc="env.utils.formatCurrency(line.price)"/> Units
+            </div>
+
+        </div>
+
+    </t>
+
+    <div style="border-top:1px solid #ccc; margin-bottom:10px;"/>
+
+    <!-- ================= TAXES ================= -->
+    <t t-if="!receipt.company.basic_receipt">
+
+        <t t-set="taxTotals" t-value="receipt.company.taxDetails"/>
+
+        <div t-if="taxTotals and taxTotals.has_tax_groups" style="margin-bottom:8px;">
+
+            <t t-foreach="taxTotals.subtotals" t-as="subtotal" t-key="subtotal.name">
+
+                <div style="display:flex; justify-content:space-between;">
+                    <span>Untaxed Amount</span>
+                    <span t-out="env.utils.formatCurrency(receipt.company.priceExcl)"/>
+                </div>
+
+                <div t-foreach="subtotal.tax_groups"
+                     t-as="tax_group" t-key="tax_group.group_name"
+                     style="display:flex; justify-content:space-between;">
+
+                    <span t-esc="tax_group.group_name"/>
+                    <span t-out="env.utils.formatCurrency(tax_group.tax_amount_currency)"/>
+
+                </div>
+
+            </t>
+
+        </div>
+
+    </t>
+
+    <!-- ================= TOTAL ================= -->
+    <div style="display:flex; justify-content:space-between; font-weight:700; font-size:14px;">
+        <span>Total:</span>
+        <span t-esc="receipt.company.currencyDisplayPriceIncl"/>
+    </div>
+
+    <!-- ROUNDING -->
+    <t t-if="receipt.company.appliedRounding">
+
+        <div style="display:flex; justify-content:space-between;">
+            <span>Rounding</span>
+            <span t-out="env.utils.formatCurrency(receipt.company.appliedRounding)"/>
+        </div>
+
+        <div style="display:flex; justify-content:space-between;">
+            <span>To Pay</span>
+            <span t-out="env.utils.formatCurrency(receipt.company.totalDue)"/>
+        </div>
+
+    </t>
+
+    <!-- DISCOUNT -->
+    <t t-set="totalDiscount" t-value="receipt.company.getTotalDiscount"/>
+    <t t-if="totalDiscount">
+        <div style="display:flex; justify-content:space-between;">
+            <span>Discounts</span>
+            <span t-out="env.utils.formatCurrency(totalDiscount)"/>
+        </div>
+    </t>
+
+    <div style="border-top:1px solid #ccc; margin:10px 0;"/>
+
+    <!-- ================= PAYMENT ================= -->
+    <div style="font-weight:700; margin-bottom:4px;">Payment</div>
+
+    <t t-foreach="receipt.company.paymentLines" t-as="line" t-key="line_index">
+        <div style="display:flex; justify-content:space-between;">
+            <span t-esc="line.payment_method_id.name"/>
+            <span t-out="env.utils.formatCurrency(line.getAmount())"/>
+        </div>
+    </t>
+
+    <!-- CHANGE -->
+    <div t-if="receipt.company.showChange"
+         style="display:flex; justify-content:space-between; margin-top:5px;">
+        <span>Change</span>
+        <span t-out="env.utils.formatCurrency(receipt.company.change)"/>
+    </div>
+
+    <!-- Qr code -->
+    <div t-if="receipt.point_of_sale_use_ticket_qr_code and receipt.finalized" class="pos-receipt-qr gap-2 d-flex flex-row pt-3" style="font-size: 75%;">
+        <div t-if="['qr_code', 'qr_code_and_url'].includes(header.company.point_of_sale_ticket_portal_url_display_mode)" class="pt-1">
+            <img id="posqrcode" t-att-src="this.qrCode" class="m-0"/>
+        </div>
+        <div class="w-100 ms-1">
+            <div class="fw-bolder">
+                Need an invoice?
+            </div>
+            <div t-if="['url', 'qr_code_and_url'].includes(header.company.point_of_sale_ticket_portal_url_display_mode)" class="portal-url text-break">
+                <t t-out="getPortalURL()"/>
+            </div>
+            <div class="unique-code">
+                Code: <t t-out="receipt.ticket_code"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- barcode -->
+    <t t-if="receipt.new_coupon_info and receipt.new_coupon_info.length !== 0">
+        <div class="pos-coupon-rewards pt-3">
+            <t t-foreach="receipt.new_coupon_info" t-as="coupon_info" t-key="coupon_info.code">
+                <div class="coupon-container">
+                    <div class="row g-2">
+                        <div class="col-4">
+                            <t t-out="coupon_info['program_name']"/>
+                        </div>
+                        <div class="col-8">
+                            <img style="transform: translateX(13%);" t-att-src="'/report/barcode/Code128/'+coupon_info['code']" class="img-fluid" alt="Barcode"/>
+                        </div>
+                        <div class="col-6">
+                            <span>Until: </span>
+                            <t t-if="coupon_info['expiration_date']">
+                                <t t-out="coupon_info['expiration_date']"/>
+                            </t>
+                            <t t-else="">
+                                no expiration
+                            </t>
+                        </div>
+                        <div class="col-6 text-end">
+                            <t t-out="coupon_info['code']"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+
+    <!-- SHIPPING -->
+    <t t-if="receipt.order_shipping_date">
+        <div style="text-align:center; margin-top:10px;">
+            Expected delivery:
+            <t t-out="receipt.order_shipping"/>
+        </div>
+    </t>
+
+    <div style="border-top:1px solid #ccc; margin:10px 0;"/>
+
+    <!-- ================= FOOTER ================= -->
+    <div style="text-align:center; color:#666;">
+        <!-- ================= FOOTER ================= -->
+        <div t-if="receipt.receipt_footer" class="pos-receipt-center-align pt-3 text-center margin-top:6px;color:black;" style="white-space:pre-line;color:#999;">
+            <t t-esc="receipt.receipt_footer" />
+        </div>
+        Thank you for dining with us!
+
+        <div t-if="receipt.company.street" t-out="receipt.company.street"/>
+        <div t-if="receipt.company.zip or receipt.company.city or receipt.company.state_id?.code">
+            <t t-if="receipt.company.city" t-out="receipt.company.city"/>
+            <t t-if="receipt.company.state_id?.code" t-out="', ' + receipt.company.state_id.code"/>
+            <t t-if="receipt.company.zip" t-out="', ' + receipt.company.zip"/>
+        </div>
+        <div t-if="receipt.company.vat" t-out="receipt.company.vat"/>
+
+        <div style="margin-top:8px;">
+            Powered by <b>Odoo</b>
+        </div>
+
+    </div>
+
+</div>
+</t>
+            ]]></field>
+        </record>
+
+        <record id="nf_receipt_design_template_4" model="nf.receipt.template">
+            <field name="nf_receipt_name">Receipt Design 4 - Compact</field>
+            <field name="nf_receipt_xml"><![CDATA[
+<t t-name="nf_custom_receipt_from_pos.Receipt4">
+   <div class="pos-receipt" style="font-family:Arial,Helvetica,sans-serif; font-size:13px; color:#333; padding:10px; max-width:380px; margin:0 auto;">
+
+    <!-- ================= HEADER ================= -->
+    <div style="text-align:center; padding-bottom:10px; margin-bottom:10px; border-bottom:1px solid #e0e0e0;">
+
+        <img t-att-src="receipt.company.companyLogo"
+             alt="Logo"
+             style="max-width:160px; max-height:90px; margin-bottom:10px;"/>
+
+        <div style="font-size:17px; margin:4px 0;">
+            <t t-esc="receipt.company.name"/>
+            <t t-if="receipt.company.city">
+                (<t t-esc="receipt.company.city"/>)
+            </t>
+        </div>
+
+        <div t-if="receipt.company.phone" style="margin:4px 0; color:#666;">
+            📞 <t t-esc="receipt.company.phone"/>
+        </div>
+
+        <div t-if="receipt.company.email" style="margin:4px 0; color:#999;">
+            ✉ <t t-esc="receipt.company.email"/>
+        </div>
+
+        <div t-if="receipt.company.website" style="margin:4px 0; color:#999;">
+            🌐 <t t-esc="receipt.company.website"/>
+        </div>
+
+    </div>
+    <h4 t-if="receipt.receipt_header" style="white-space:pre-line; margin-top:4px;" t-esc="receipt.receipt_header"/>
+
+    <!-- ================= REF / CASHIER BOX ================= -->
+    <div style="background:#f5f6f8; border-radius:6px; padding:12px; margin-bottom:14px;">
+
+        <div style="margin-bottom:4px;">
+            <span class="pos-receipt-vat">
+                <b>
+                    <span class="ticket-name-prefix">
+                        <t t-if="receipt._IS_VAT"> VAT </t>
+                        Ref#
+                    </span>
+                </b>: <t t-out="receipt.pos_reference"/>
+            </span>
+        </div>
+
+        <div t-if="receipt.getCashierName">
+            <b>Cashier:</b> Served by <t t-esc="receipt.getCashierName"/>
+        </div>
+
+        <div t-if="receipt.presetDateTime">
+            <b><t t-out="receipt.preset_name"/>:</b> <t t-out="receipt.presetDateTime"/>
+        </div>
+
+
+        <div t-if="receipt.tracking_number and receipt.config_tracking_number and !receipt.config_displayBigTrackingNumber">
+            <span style="font-weight:bold;">
+                <t t-esc="receipt.tracking_number"/>
+            </span>
+        </div>
+
+    </div>
+
+    <!-- ================= PARTNER INFO ================= -->
+    <div t-if="receipt.partner_id" style="margin-bottom:14px;">
+
+        <div t-if="receipt.partner_id.name">
+            <t t-if="receipt.partner_id.parent_name">
+                <span t-esc="receipt.partner_id.parent_name"/>,
+            </t>
+            <span t-esc="receipt.partner_id.name"/>
+        </div>
+
+        <div t-if="receipt.partner_id.pos_contact_address">
+            <span t-esc="receipt.partner_id.pos_contact_address"/>
+        </div>
+
+        <div t-if="receipt.partner_id.vat">
+            <span t-esc="receipt.partner_id.vat"/>
+        </div>
+
+    </div>
+
+    <!-- ================= ORDER ITEMS ================= -->
+    <div style="font-size:15px; margin-bottom:6px; border-bottom:1px solid #e0e0e0; padding-bottom:6px;">
+        🛒 ORDER ITEMS
+    </div>
+
+    <t t-foreach="receipt.orderlines" t-as="line" t-key="line.id">
+
+        <div style="margin-bottom:10px;">
+
+            <div style="display:flex; justify-content:space-between; font-weight:700;">
+                <span><t t-esc="line.product_name_wrapped[0]"/></span>
+                <span><t t-esc="env.utils.formatCurrency(line.price_display)"/></span>
+            </div>
+
+            <div style="color:#999;">
+                Qty: <t t-esc="line.qty"/> × <t t-esc="env.utils.formatCurrency(line.price)"/> (Units)
+            </div>
+
+        </div>
+
+    </t>
+
+    <!-- ================= TOTALS BOX ================= -->
+    <div style="border:1px solid #e0e0e0; border-radius:6px; padding:12px; margin:14px 0;">
+
+        <div style="margin-bottom:6px;">💰 Totals</div>
+
+        <div style="border-top:1px solid #e0e0e0; margin-bottom:8px;"/>
+
+        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+            <span>Subtotal:</span>
+            <span t-esc="receipt.company.currencyDisplayPriceIncl"/>
+        </div>
+
+        <!-- TAXES -->
+        <t t-if="!receipt.company.basic_receipt">
+
+            <t t-set="taxTotals" t-value="receipt.company.taxDetails"/>
+
+            <div t-if="taxTotals and taxTotals.has_tax_groups">
+
+                <div style="color:#999; margin-bottom:4px;">Tax Breakdown:</div>
+
+                <t t-foreach="taxTotals.subtotals" t-as="subtotal" t-key="subtotal.name">
+
+                    <div>
+                        <b>Untaxed Amount</b>: <span t-out="env.utils.formatCurrency(receipt.company.priceExcl)"/>
+                    </div>
+
+                    <div t-foreach="subtotal.tax_groups"
+                         t-as="tax_group" t-key="tax_group.group_name"
+                         style="display:flex; justify-content:space-between;">
+
+                        <span t-esc="tax_group.group_name"/>
+                        <span t-out="env.utils.formatCurrency(tax_group.tax_amount_currency)"/>
+
+                    </div>
+
+                </t>
+
+            </div>
+
+        </t>
+
+        <!-- ROUNDING -->
+        <t t-if="receipt.company.appliedRounding">
+
+            <div style="display:flex; justify-content:space-between;">
+                <span>Rounding</span>
+                <span t-out="env.utils.formatCurrency(receipt.company.appliedRounding)"/>
+            </div>
+
+            <div style="display:flex; justify-content:space-between;">
+                <span>To Pay</span>
+                <span t-out="env.utils.formatCurrency(receipt.company.totalDue)"/>
+            </div>
+
+        </t>
+
+        <!-- DISCOUNT -->
+        <t t-set="totalDiscount" t-value="receipt.company.getTotalDiscount"/>
+        <t t-if="totalDiscount">
+            <div style="display:flex; justify-content:space-between;">
+                <span>Discounts</span>
+                <span t-out="env.utils.formatCurrency(totalDiscount)"/>
+            </div>
+        </t>
+
+    </div>
+
+    <!-- ================= PAYMENTS ================= -->
+    <div style="font-size:15px; margin-bottom:6px; border-bottom:1px solid #e0e0e0; padding-bottom:6px;">
+        💳 Payments
+    </div>
+
+    <t t-foreach="receipt.company.paymentLines" t-as="line" t-key="line_index">
+        <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+            <span t-esc="line.payment_method_id.name"/>
+            <span t-out="env.utils.formatCurrency(line.getAmount())"/>
+        </div>
+    </t>
+
+    <!-- CHANGE -->
+    <div t-if="receipt.company.showChange"
+         style="display:flex; justify-content:space-between; margin-top:5px;">
+        <span>Change</span>
+        <span t-out="env.utils.formatCurrency(receipt.company.change)"/>
+    </div>
+
+    <!-- Qr code -->
+    <div t-if="receipt.point_of_sale_use_ticket_qr_code and receipt.finalized" class="pos-receipt-qr gap-2 d-flex flex-row pt-3" style="font-size: 75%;">
+        <div t-if="['qr_code', 'qr_code_and_url'].includes(header.company.point_of_sale_ticket_portal_url_display_mode)" class="pt-1">
+            <img id="posqrcode" t-att-src="this.qrCode" class="m-0"/>
+        </div>
+        <div class="w-100 ms-1">
+            <div class="fw-bolder">
+                Need an invoice?
+            </div>
+            <div t-if="['url', 'qr_code_and_url'].includes(header.company.point_of_sale_ticket_portal_url_display_mode)" class="portal-url text-break">
+                <t t-out="getPortalURL()"/>
+            </div>
+            <div class="unique-code">
+                Code: <t t-out="receipt.ticket_code"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- barcode -->
+    <t t-if="receipt.new_coupon_info and receipt.new_coupon_info.length !== 0">
+        <div class="pos-coupon-rewards pt-3">
+            <t t-foreach="receipt.new_coupon_info" t-as="coupon_info" t-key="coupon_info.code">
+                <div class="coupon-container">
+                    <div class="row g-2">
+                        <div class="col-4">
+                            <t t-out="coupon_info['program_name']"/>
+                        </div>
+                        <div class="col-8">
+                            <img style="transform: translateX(13%);" t-att-src="'/report/barcode/Code128/'+coupon_info['code']" class="img-fluid" alt="Barcode"/>
+                        </div>
+                        <div class="col-6">
+                            <span>Until: </span>
+                            <t t-if="coupon_info['expiration_date']">
+                                <t t-out="coupon_info['expiration_date']"/>
+                            </t>
+                            <t t-else="">
+                                no expiration
+                            </t>
+                        </div>
+                        <div class="col-6 text-end">
+                            <t t-out="coupon_info['code']"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+
+    <!-- SHIPPING -->
+    <t t-if="receipt.order_shipping_date">
+        <div style="text-align:center; margin-top:10px;">
+            Expected delivery:
+            <t t-out="receipt.order_shipping"/>
+        </div>
+    </t>
+
+    <!-- ================= FOOTER ================= -->
+    <div style="text-align:center; color:#999; margin-top:14px;">
+        <!-- ================= FOOTER ================= -->
+        <div t-if="receipt.receipt_footer" class="pos-receipt-center-align pt-3 text-center margin-top:6px;color:black;" style="white-space:pre-line;color:#999;">
+            <t t-esc="receipt.receipt_footer" />
+        </div>
+        Receipt: <t t-out="'Order ' + receipt.name"/><br/>
+
+        <div t-if="receipt.date_order" t-out="receipt.date_order_formate"/>
+
+        <div style="margin-top:6px;">====Footer====</div>
+
+        <div t-if="receipt.company.street" t-out="receipt.company.street"/>
+        <div t-if="receipt.company.zip or receipt.company.city or receipt.company.state_id?.code">
+            <t t-if="receipt.company.city" t-out="receipt.company.city"/>
+            <t t-if="receipt.company.state_id?.code" t-out="', ' + receipt.company.state_id.code"/>
+            <t t-if="receipt.company.zip" t-out="', ' + receipt.company.zip"/>
+        </div>
+        <div t-if="receipt.company.vat" t-out="receipt.company.vat"/>
+
+        <div style="margin-top:8px;">
+            Powered by <b>Odoo</b>
+        </div>
+
+    </div>
+
+</div>
+</t>
+            ]]></field>
+        </record>
+
+        <record id="nf_receipt_design_template_5" model="nf.receipt.template">
+            <field name="nf_receipt_name">Receipt Design 5 - Elegant</field>
+            <field name="nf_receipt_xml"><![CDATA[
+<t t-name="nf_custom_receipt_from_pos.Receipt5">
+    <div class="pos-receipt" style="font-family:Arial,Helvetica,sans-serif; font-size:13px; color:#444; padding:14px; max-width:380px; margin:0 auto;">
+
+    <!-- ================= HEADER ================= -->
+    <div style="text-align:center; padding-bottom:10px; margin-bottom:10px; border-bottom:1px solid #ddd;">
+
+        <img t-att-src="receipt.company.companyLogo"
+             alt="Logo"
+             style="max-width:160px; max-height:90px; margin-bottom:10px;"/>
+
+        <div style="font-size:17px; margin:4px 0;">
+            <t t-esc="receipt.company.name"/>
+            <t t-if="receipt.company.city">
+                (<t t-esc="receipt.company.city"/>)
+            </t>
+        </div>
+
+        <div t-if="receipt.company.phone" style="margin:4px 0;">
+            Tel: <t t-esc="receipt.company.phone"/>
+        </div>
+        <h4 t-if="receipt.receipt_header" style="white-space:pre-line" t-esc="receipt.receipt_header"/>
+    </div>
+
+    <!-- ================= EXTRA INFO (kept, not in image but dynamic) ================= -->
+    <div style="margin-bottom:8px;">
+
+        <div t-if="receipt.getCashierName">
+            Cashier: Served by <t t-esc="receipt.getCashierName"/>
+        </div>
+
+        <div>
+            <span class="pos-receipt-vat">
+                <span class="ticket-name-prefix">
+                    <t t-if="receipt._IS_VAT"> VAT </t>
+                    Ref #
+                </span>
+                : <t t-out="receipt.pos_reference"/>
+            </span>
+        </div>
+
+        <div t-if="receipt.presetDateTime">
+            <t t-out="receipt.preset_name"/>: <t t-out="receipt.presetDateTime"/>
+        </div>
+
+
+        <div t-if="receipt.tracking_number and receipt.config_tracking_number and !receipt.config_displayBigTrackingNumber">
+            <span style="font-weight:bold;">
+                <t t-esc="receipt.tracking_number"/>
+            </span>
+        </div>
+
+    </div>
+
+    <div t-if="receipt.partner_id" style="margin-bottom:8px;">
+
+        <div t-if="receipt.partner_id.name">
+            <t t-if="receipt.partner_id.parent_name">
+                <span t-esc="receipt.partner_id.parent_name"/>,
+            </t>
+            <span t-esc="receipt.partner_id.name"/>
+        </div>
+
+        <div t-if="receipt.partner_id.pos_contact_address">
+            <span t-esc="receipt.partner_id.pos_contact_address"/>
+        </div>
+
+        <div t-if="receipt.partner_id.vat">
+            <span t-esc="receipt.partner_id.vat"/>
+        </div>
+
+    </div>
+
+    <!-- ================= ORDER ITEMS ================= -->
+    <t t-foreach="receipt.orderlines" t-as="line" t-key="line.id">
+
+        <div style="margin-bottom:8px;">
+
+            <div style="display:flex; justify-content:space-between;">
+                <span><t t-esc="line.product_name_wrapped[0]"/></span>
+                <span><t t-esc="env.utils.formatCurrency(line.price_display)"/></span>
+            </div>
+
+            <div style="color:#999;">
+                <t t-esc="line.qty"/> x <t t-esc="env.utils.formatCurrency(line.price)"/>
+            </div>
+
+        </div>
+
+    </t>
+
+    <div style="border-top:1px solid #ccc; margin:10px 0;"/>
+
+    <!-- ================= TAXES ================= -->
+    <t t-if="!receipt.company.basic_receipt">
+
+        <t t-set="taxTotals" t-value="receipt.company.taxDetails"/>
+
+        <div t-if="taxTotals and taxTotals.has_tax_groups" style="margin-bottom:8px;">
+
+            <t t-foreach="taxTotals.subtotals" t-as="subtotal" t-key="subtotal.name">
+
+                <div style="display:flex; justify-content:space-between;">
+                    <span>Untaxed Amount</span>
+                    <span t-out="env.utils.formatCurrency(receipt.company.priceExcl)"/>
+                </div>
+
+                <div t-foreach="subtotal.tax_groups"
+                     t-as="tax_group" t-key="tax_group.group_name"
+                     style="display:flex; justify-content:space-between;">
+
+                    <span t-esc="tax_group.group_name"/>
+                    <span t-out="env.utils.formatCurrency(tax_group.tax_amount_currency)"/>
+
+                </div>
+
+            </t>
+
+        </div>
+
+    </t>
+
+    <!-- ================= TOTAL ================= -->
+    <div style="display:flex; justify-content:space-between; font-weight:700; font-size:16px;">
+        <span>Total</span>
+        <span t-esc="receipt.company.currencyDisplayPriceIncl"/>
+    </div>
+
+    <!-- ROUNDING -->
+    <t t-if="receipt.company.appliedRounding">
+
+        <div style="display:flex; justify-content:space-between;">
+            <span>Rounding</span>
+            <span t-out="env.utils.formatCurrency(receipt.company.appliedRounding)"/>
+        </div>
+
+        <div style="display:flex; justify-content:space-between;">
+            <span>To Pay</span>
+            <span t-out="env.utils.formatCurrency(receipt.company.totalDue)"/>
+        </div>
+
+    </t>
+
+    <!-- DISCOUNT -->
+    <t t-set="totalDiscount" t-value="receipt.company.getTotalDiscount"/>
+    <t t-if="totalDiscount">
+        <div style="display:flex; justify-content:space-between;">
+            <span>Discounts</span>
+            <span t-out="env.utils.formatCurrency(totalDiscount)"/>
+        </div>
+    </t>
+
+    <!-- ================= PAYMENTS ================= -->
+    <t t-foreach="receipt.company.paymentLines" t-as="line" t-key="line_index">
+        <div style="display:flex; justify-content:space-between; margin-top:4px;">
+            <span t-esc="line.payment_method_id.name"/>
+            <span t-out="env.utils.formatCurrency(line.getAmount())"/>
+        </div>
+    </t>
+
+     <!-- Qr code -->
+    <div t-if="receipt.point_of_sale_use_ticket_qr_code and receipt.finalized" class="pos-receipt-qr gap-2 d-flex flex-row pt-3" style="font-size: 75%;">
+        <div t-if="['qr_code', 'qr_code_and_url'].includes(header.company.point_of_sale_ticket_portal_url_display_mode)" class="pt-1">
+            <img id="posqrcode" t-att-src="this.qrCode" class="m-0"/>
+        </div>
+        <div class="w-100 ms-1">
+            <div class="fw-bolder">
+                Need an invoice?
+            </div>
+            <div t-if="['url', 'qr_code_and_url'].includes(header.company.point_of_sale_ticket_portal_url_display_mode)" class="portal-url text-break">
+                <t t-out="getPortalURL()"/>
+            </div>
+            <div class="unique-code">
+                Code: <t t-out="receipt.ticket_code"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- barcode -->
+    <t t-if="receipt.new_coupon_info and receipt.new_coupon_info.length !== 0">
+        <div class="pos-coupon-rewards pt-3">
+            <t t-foreach="receipt.new_coupon_info" t-as="coupon_info" t-key="coupon_info.code">
+                <div class="coupon-container">
+                    <div class="row g-2">
+                        <div class="col-4">
+                            <t t-out="coupon_info['program_name']"/>
+                        </div>
+                        <div class="col-8">
+                            <img style="transform: translateX(13%);" t-att-src="'/report/barcode/Code128/'+coupon_info['code']" class="img-fluid" alt="Barcode"/>
+                        </div>
+                        <div class="col-6">
+                            <span>Until: </span>
+                            <t t-if="coupon_info['expiration_date']">
+                                <t t-out="coupon_info['expiration_date']"/>
+                            </t>
+                            <t t-else="">
+                                no expiration
+                            </t>
+                        </div>
+                        <div class="col-6 text-end">
+                            <t t-out="coupon_info['code']"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+
+    <!-- CHANGE -->
+    <div t-if="receipt.company.showChange"
+         style="display:flex; justify-content:space-between; margin-top:5px;">
+        <span>Change</span>
+        <span t-out="env.utils.formatCurrency(receipt.company.change)"/>
+    </div>
+
+    <!-- SHIPPING -->
+    <t t-if="receipt.order_shipping_date">
+        <div style="text-align:center; margin-top:10px;">
+            Expected delivery:
+            <t t-out="receipt.order_shipping"/>
+        </div>
+    </t>
+
+    <!-- ================= FOOTER ================= -->
+    <div style="text-align:center; color:#999; margin-top:14px;">
+
+    <!-- ================= FOOTER ================= -->
+    <div t-if="receipt.receipt_footer" class="pos-receipt-center-align pt-3 text-center margin-top:6px;color:black;" style="white-space:pre-line;color:#999;">
+        <t t-esc="receipt.receipt_footer" />
+    </div>
+
+        <div t-if="receipt.date_order" t-out="receipt.date_order_formate"/>
+
+        <div t-if="receipt.company.street" t-out="receipt.company.street"/>
+        <div t-if="receipt.company.zip or receipt.company.city or receipt.company.state_id?.code">
+            <t t-if="receipt.company.city" t-out="receipt.company.city"/>
+            <t t-if="receipt.company.state_id?.code" t-out="', ' + receipt.company.state_id.code"/>
+            <t t-if="receipt.company.zip" t-out="', ' + receipt.company.zip"/>
+        </div>
+        <div t-if="receipt.company.vat" t-out="receipt.company.vat"/>
+
+        <div style="margin-top:6px;">
+            Powered by <b>Odoo</b>
+        </div>
+
+    </div>
+
+</div>
+
+</t>
+            ]]></field>
+        </record>
+
+        <record id="nf_receipt_design_template_6" model="nf.receipt.template">
+            <field name="nf_receipt_name">Receipt Design 6 - Detailed</field>
+            <field name="nf_receipt_xml"><![CDATA[
+<t t-name="nf_custom_receipt_from_pos.Receipt6">
+    <div class="pos-receipt" style="font-family:Arial,Helvetica,sans-serif; font-size:13px; color:#333; padding:10px; max-width:380px; margin:0 auto;">
+
+    <!-- ================= HEADER ================= -->
+    <div style="text-align:center; padding-bottom:10px; margin-bottom:10px;">
+
+        <img t-att-src="receipt.company.companyLogo"
+             alt="Logo"
+             style="max-width:160px; max-height:90px; margin-bottom:10px;"/>
+
+        <div style="font-size:18px; font-weight:700; margin:4px 0;">
+            <t t-esc="receipt.company.name"/>
+            <t t-if="receipt.company.city">
+                (<t t-esc="receipt.company.city"/>)
+            </t>
+        </div>
+
+        <div t-if="receipt.company.phone" style="margin:4px 0; color:#666;">
+            Tel: <t t-esc="receipt.company.phone"/>
+        </div>
+
+        <div t-if="receipt.company.website" style="margin:4px 0; color:#666;">
+            <t t-esc="receipt.company.website"/>
+        </div>
+
+        <div t-if="receipt.company.email" style="margin:4px 0; color:#666;">
+            <t t-esc="receipt.company.email"/>
+        </div>
+
+        <h4 t-if="receipt.receipt_header"
+            style="white-space:pre-line"
+            t-esc="receipt.receipt_header"/>
+
+    </div>
+
+    <!-- ================= CASHIER / REF ================= -->
+    <div style="margin-bottom:10px;">
+
+        <div t-if="receipt.getCashierName">
+            Cashier: Served by <t t-esc="receipt.getCashierName"/>
+        </div>
+
+        <div>
+            <span class="pos-receipt-vat">
+                <span class="ticket-name-prefix">
+                    <t t-if="receipt._IS_VAT"> VAT </t>
+                    Ref #
+                </span>
+                : <t t-out="receipt.pos_reference"/>
+            </span>
+        </div>
+
+        <div t-if="receipt.presetDateTime">
+            <t t-out="receipt.preset_name"/>: <t t-out="receipt.presetDateTime"/>
+        </div>
+
+    </div>
+
+    <!-- ================= CUSTOMER INFO ================= -->
+    <div class="pos-receipt-contact" style="margin-bottom:8px;">
+        <div t-if="receipt.tracking_number and receipt.config_tracking_number and !receipt.config_displayBigTrackingNumber">
+            <span style="font-weight:bold;">
+                <t t-esc="receipt.tracking_number"/>
+            </span>
+        </div>
+
+    </div>
+
+    <div t-if="receipt.partner_id" style="margin-bottom:8px;">
+
+        <div t-if="receipt.partner_id.name">
+            <t t-if="receipt.partner_id.parent_name">
+                <span t-esc="receipt.partner_id.parent_name"/>,
+            </t>
+            <span t-esc="receipt.partner_id.name"/>
+        </div>
+
+        <div t-if="receipt.partner_id.pos_contact_address">
+            <span t-esc="receipt.partner_id.pos_contact_address"/>
+        </div>
+
+        <div t-if="receipt.partner_id.vat">
+            <span t-esc="receipt.partner_id.vat"/>
+        </div>
+
+    </div>
+
+    <!-- ================= ITEMS TABLE ================= -->
+    <table style="width:100%; border-collapse:collapse; margin-bottom:8px;">
+
+        <tr style="border-bottom:1px solid #ddd;">
+            <th style="text-align:left; padding:6px 0; font-weight:700;">Item</th>
+            <th style="text-align:center; padding:6px 0; font-weight:700;">Qty</th>
+            <th style="text-align:right; padding:6px 0; font-weight:700;">Total</th>
+        </tr>
+
+        <t t-foreach="receipt.orderlines" t-as="line" t-key="line.id">
+
+            <tr>
+                <td style="padding:4px 0;">
+                    <t t-esc="line.product_name_wrapped[0]"/>
+                </td>
+
+                <td style="text-align:center; padding:4px 0;">
+                    <t t-esc="line.qty.toFixed(2)"/>
+                </td>
+
+                <td style="text-align:right; padding:4px 0;">
+                    <t t-esc="env.utils.formatCurrency(line.price_display)"/>
+                </td>
+            </tr>
+
+        </t>
+
+    </table>
+
+    <div style="border-top:1px solid #ddd; margin-bottom:8px;"/>
+
+    <!-- ================= TAXES ================= -->
+    <t t-if="!receipt.company.basic_receipt">
+
+        <t t-set="taxTotals" t-value="receipt.company.taxDetails"/>
+
+        <div t-if="taxTotals and taxTotals.has_tax_groups">
+
+            <t t-foreach="taxTotals.subtotals" t-as="subtotal" t-key="subtotal.name">
+
+                <div t-foreach="subtotal.tax_groups"
+                     t-as="tax_group" t-key="tax_group.group_name"
+                     style="display:flex; justify-content:space-between;">
+
+                    <span t-esc="tax_group.group_name"/>
+                    <span t-out="env.utils.formatCurrency(tax_group.tax_amount_currency)"/>
+
+                </div>
+
+            </t>
+
+        </div>
+
+    </t>
+
+    <!-- ================= TOTAL ================= -->
+    <div style="display:flex; justify-content:space-between; font-weight:400; margin-bottom:4px;">
+        <span>Total</span>
+        <span t-esc="receipt.company.currencyDisplayPriceIncl"/>
+    </div>
+
+    <!-- ROUNDING -->
+    <t t-if="receipt.company.appliedRounding">
+
+        <div style="display:flex; justify-content:space-between;">
+            <span>Rounding</span>
+            <span t-out="env.utils.formatCurrency(receipt.company.appliedRounding)"/>
+        </div>
+
+        <div style="display:flex; justify-content:space-between;">
+            <span>To Pay</span>
+            <span t-out="env.utils.formatCurrency(receipt.company.totalDue)"/>
+        </div>
+
+    </t>
+
+    <!-- DISCOUNT -->
+    <t t-set="totalDiscount" t-value="receipt.company.getTotalDiscount"/>
+    <t t-if="totalDiscount">
+        <div style="display:flex; justify-content:space-between;">
+            <span>Discounts</span>
+            <span t-out="env.utils.formatCurrency(totalDiscount)"/>
+        </div>
+    </t>
+
+    <!-- ================= PAYMENTS ================= -->
+    <t t-foreach="receipt.company.paymentLines" t-as="line" t-key="line_index">
+        <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+            <span t-esc="line.payment_method_id.name"/>
+            <span t-out="env.utils.formatCurrency(line.getAmount())"/>
+        </div>
+    </t>
+
+    <!-- CHANGE -->
+    <div t-if="receipt.company.showChange"
+         style="display:flex; justify-content:space-between; margin-top:5px;">
+        <span>Change</span>
+        <span t-out="env.utils.formatCurrency(receipt.company.change)"/>
+    </div>
+
+     <!-- Qr code -->
+    <div t-if="receipt.point_of_sale_use_ticket_qr_code and receipt.finalized" class="pos-receipt-qr gap-2 d-flex flex-row pt-3" style="font-size: 75%;">
+        <div t-if="['qr_code', 'qr_code_and_url'].includes(header.company.point_of_sale_ticket_portal_url_display_mode)" class="pt-1">
+            <img id="posqrcode" t-att-src="this.qrCode" class="m-0"/>
+        </div>
+        <div class="w-100 ms-1">
+            <div class="fw-bolder">
+                Need an invoice?
+            </div>
+            <div t-if="['url', 'qr_code_and_url'].includes(header.company.point_of_sale_ticket_portal_url_display_mode)" class="portal-url text-break">
+                <t t-out="getPortalURL()"/>
+            </div>
+            <div class="unique-code">
+                Code: <t t-out="receipt.ticket_code"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- barcode -->
+    <t t-if="receipt.new_coupon_info and receipt.new_coupon_info.length !== 0">
+        <div class="pos-coupon-rewards pt-3">
+            <t t-foreach="receipt.new_coupon_info" t-as="coupon_info" t-key="coupon_info.code">
+                <div class="coupon-container">
+                    <div class="row g-2">
+                        <div class="col-4">
+                            <t t-out="coupon_info['program_name']"/>
+                        </div>
+                        <div class="col-8">
+                            <img style="transform: translateX(13%);" t-att-src="'/report/barcode/Code128/'+coupon_info['code']" class="img-fluid" alt="Barcode"/>
+                        </div>
+                        <div class="col-6">
+                            <span>Until: </span>
+                            <t t-if="coupon_info['expiration_date']">
+                                <t t-out="coupon_info['expiration_date']"/>
+                            </t>
+                            <t t-else="">
+                                no expiration
+                            </t>
+                        </div>
+                        <div class="col-6 text-end">
+                            <t t-out="coupon_info['code']"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+
+    <!-- SHIPPING -->
+    <t t-if="receipt.order_shipping_date">
+        <div style="text-align:center; margin-top:10px;">
+            Expected delivery:
+            <t t-out="receipt.order_shipping"/>
+        </div>
+    </t>
+
+    <!-- ================= FOOTER ================= -->
+    <div style="text-align:center; color:#999; margin-top:14px;">
+
+        <!-- ================= FOOTER ================= -->
+        <div t-if="receipt.receipt_footer" class="pos-receipt-center-align pt-3 text-center margin-top:6px;color:black;" style="white-space:pre-line;color:#999;">
+            <t t-esc="receipt.receipt_footer" />
+        </div>
+
+        <div style="margin-top:8px;">
+            Order <t t-out="receipt.name"/>
+        </div>
+
+        <div t-if="receipt.date_order" t-out="receipt.date_order_formate"/>
+
+        <div t-if="receipt.company.street" t-out="receipt.company.street"/>
+        <div t-if="receipt.company.zip or receipt.company.city or receipt.company.state_id?.code">
+            <t t-if="receipt.company.city" t-out="receipt.company.city"/>
+            <t t-if="receipt.company.state_id?.code" t-out="', ' + receipt.company.state_id.code"/>
+            <t t-if="receipt.company.zip" t-out="', ' + receipt.company.zip"/>
+        </div>
+        <div t-if="receipt.company.vat" t-out="receipt.company.vat"/>
+
+        <div style="margin-top:6px;">
+            Powered by <b>Odoo</b>
+        </div>
+
+    </div>
+
+</div>
+</t>
+            ]]></field>
+        </record>
+
+        <record id="nf_receipt_design_template_7" model="nf.receipt.template">
+            <field name="nf_receipt_name">Receipt Design 7 - Bold</field>
+            <field name="nf_receipt_xml"><![CDATA[
+<t t-name="nf_custom_receipt_from_pos.Receipt7">
+   <div class="pos-receipt" style="font-family:Arial,Helvetica,sans-serif; font-size:13px; color:#333; padding:14px; max-width:380px; margin:0 auto; border:1px solid #ddd; border-radius:8px;">
+
+    <!-- ================= HEADER ================= -->
+    <div style="text-align:center; padding-bottom:10px; margin-bottom:10px;">
+
+        <img t-att-src="receipt.company.companyLogo"
+             alt="Logo"
+             style="max-width:160px; max-height:90px; margin-bottom:10px;"/>
+
+        <div style="font-size:18px; font-weight:700; margin:4px 0;">
+            <t t-esc="receipt.company.name"/>
+            <t t-if="receipt.company.city">
+                (<t t-esc="receipt.company.city"/>)
+            </t>
+        </div>
+
+        <div t-if="receipt.company.phone" style="margin:4px 0; color:#666;">
+            Phone: <t t-esc="receipt.company.phone"/>
+        </div>
+
+        <div t-if="receipt.company.email" style="margin:4px 0; color:#666;">
+            Email: <t t-esc="receipt.company.email"/>
+        </div>
+
+        <div t-if="receipt.company.website" style="margin:4px 0; color:#666;">
+            Website: <t t-esc="receipt.company.website"/>
+        </div>
+
+        <h4 t-if="receipt.receipt_header"
+             style="white-space:pre-line"
+             t-esc="receipt.receipt_header"/>
+    </div>
+
+    <div style="border-top:1px solid #ddd; margin-bottom:10px;"/>
+
+    <!-- ================= RECEIPT / DATE / CASHIER ================= -->
+    <div style="margin-bottom:10px;">
+
+        <div>
+            <b>Receipt #:</b> Order <t t-out="receipt.name"/>
+        </div>
+
+        <div t-if="receipt.date_order">
+            <b>Date:</b> <t t-out="receipt.date_order_formate"/>
+        </div>
+
+        <div t-if="receipt.getCashierName">
+            <b>Cashier:</b> Served by <t t-esc="receipt.getCashierName"/>
+        </div>
+
+        <div>
+            <span class="pos-receipt-vat">
+                <b>
+                    <span class="ticket-name-prefix">
+                        <t t-if="receipt._IS_VAT"> VAT </t>
+                        Ref #
+                    </span>
+                </b>: <t t-out="receipt.pos_reference"/>
+            </span>
+        </div>
+
+        <div t-if="receipt.presetDateTime">
+            <b><t t-out="receipt.preset_name"/>:</b> <t t-out="receipt.presetDateTime"/>
+        </div>
+
+    </div>
+
+    <!-- ================= CUSTOMER INFO ================= -->
+    <div class="pos-receipt-contact" style="margin-bottom:8px;">
+        <div t-if="receipt.tracking_number and receipt.config_tracking_number and !receipt.config_displayBigTrackingNumber">
+            <span style="font-weight:bold;">
+                <t t-esc="receipt.tracking_number"/>
+            </span>
+        </div>
+
+    </div>
+
+    <div t-if="receipt.partner_id" style="margin-bottom:8px;">
+
+        <div t-if="receipt.partner_id.name">
+            <t t-if="receipt.partner_id.parent_name">
+                <span t-esc="receipt.partner_id.parent_name"/>,
+            </t>
+            <span t-esc="receipt.partner_id.name"/>
+        </div>
+
+        <div t-if="receipt.partner_id.pos_contact_address">
+            <span t-esc="receipt.partner_id.pos_contact_address"/>
+        </div>
+
+        <div t-if="receipt.partner_id.vat">
+            <span t-esc="receipt.partner_id.vat"/>
+        </div>
+
+    </div>
+
+    <div style="border-top:1px solid #ddd; margin-bottom:10px;"/>
+
+    <!-- ================= ITEMS TABLE ================= -->
+    <table style="width:100%; border-collapse:collapse; margin-bottom:8px;">
+
+        <tr>
+            <th style="text-align:left; padding:4px 0; font-weight:700;">Item</th>
+            <th style="text-align:center; padding:4px 0; font-weight:700;">Qty</th>
+            <th style="text-align:right; padding:4px 0; font-weight:700;">Unit Price</th>
+            <th style="text-align:right; padding:4px 0; font-weight:700;">Total</th>
+        </tr>
+
+        <t t-foreach="receipt.orderlines" t-as="line" t-key="line.id">
+
+            <tr>
+                <td style="padding:3px 0;">
+                    <t t-esc="line.product_name_wrapped[0]"/>
+                </td>
+
+                <td style="text-align:center; padding:3px 0;">
+                    <t t-esc="line.qty.toFixed(2)"/>
+                </td>
+
+                <td style="text-align:right; padding:3px 0;">
+                    <t t-esc="env.utils.formatCurrency(line.price)"/>
+                </td>
+
+                <td style="text-align:right; padding:3px 0;">
+                    <t t-esc="env.utils.formatCurrency(line.price_display)"/>
+                </td>
+            </tr>
+
+        </t>
+
+    </table>
+
+    <!-- ================= TAX BREAKDOWN ================= -->
+    <t t-if="!receipt.company.basic_receipt">
+
+        <t t-set="taxTotals" t-value="receipt.company.taxDetails"/>
+
+        <div t-if="taxTotals and taxTotals.has_tax_groups" style="margin-bottom:8px;">
+
+            <div style="font-weight:700; margin-bottom:4px;">Tax Breakdown:</div>
+
+            <t t-foreach="taxTotals.subtotals" t-as="subtotal" t-key="subtotal.name">
+
+                <div style="display:flex; justify-content:space-between;">
+                    <span>Untaxed Amount</span>
+                    <span t-out="env.utils.formatCurrency(receipt.company.priceExcl)"/>
+                </div>
+
+                <div t-foreach="subtotal.tax_groups"
+                     t-as="tax_group" t-key="tax_group.group_name"
+                     style="display:flex; justify-content:space-between; padding-left:16px;">
+
+                    <span t-esc="tax_group.group_name"/>
+                    <span t-out="env.utils.formatCurrency(tax_group.tax_amount_currency)"/>
+
+                </div>
+
+            </t>
+
+        </div>
+
+    </t>
+
+    <div style="border-top:1px solid #ddd; margin-bottom:10px;"/>
+
+    <!-- ================= TOTAL ================= -->
+    <div style="display:flex; justify-content:space-between; font-weight:700; margin-bottom:4px;">
+        <span>Total:</span>
+        <span t-esc="receipt.company.currencyDisplayPriceIncl"/>
+    </div>
+
+    <!-- ROUNDING -->
+    <t t-if="receipt.company.appliedRounding">
+
+        <div style="display:flex; justify-content:space-between;">
+            <span>Rounding</span>
+            <span t-out="env.utils.formatCurrency(receipt.company.appliedRounding)"/>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; font-weight:700;">
+            <span>Amount to Pay:</span>
+            <span t-out="env.utils.formatCurrency(receipt.company.totalDue)"/>
+        </div>
+
+    </t>
+
+    <!-- DISCOUNT -->
+    <t t-set="totalDiscount" t-value="receipt.company.getTotalDiscount"/>
+    <t t-if="totalDiscount">
+        <div style="display:flex; justify-content:space-between;">
+            <span>Discounts</span>
+            <span t-out="env.utils.formatCurrency(totalDiscount)"/>
+        </div>
+    </t>
+
+    <!-- ================= PAYMENTS ================= -->
+    <div style="font-weight:700; margin-top:8px; margin-bottom:4px;">Payments:</div>
+
+    <t t-foreach="receipt.company.paymentLines" t-as="line" t-key="line_index">
+        <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+            <span t-esc="line.payment_method_id.name"/>
+            <span t-out="env.utils.formatCurrency(line.getAmount())"/>
+        </div>
+    </t>
+
+    <!-- CHANGE -->
+    <div t-if="receipt.company.showChange"
+         style="display:flex; justify-content:space-between; margin-top:5px;">
+        <span>Change</span>
+        <span t-out="env.utils.formatCurrency(receipt.company.change)"/>
+    </div>
+
+     <!-- Qr code -->
+    <div t-if="receipt.point_of_sale_use_ticket_qr_code and receipt.finalized" class="pos-receipt-qr gap-2 d-flex flex-row pt-3" style="font-size: 75%;">
+        <div t-if="['qr_code', 'qr_code_and_url'].includes(header.company.point_of_sale_ticket_portal_url_display_mode)" class="pt-1">
+            <img id="posqrcode" t-att-src="this.qrCode" class="m-0"/>
+        </div>
+        <div class="w-100 ms-1">
+            <div class="fw-bolder">
+                Need an invoice?
+            </div>
+            <div t-if="['url', 'qr_code_and_url'].includes(header.company.point_of_sale_ticket_portal_url_display_mode)" class="portal-url text-break">
+                <t t-out="getPortalURL()"/>
+            </div>
+            <div class="unique-code">
+                Code: <t t-out="receipt.ticket_code"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- barcode -->
+    <t t-if="receipt.new_coupon_info and receipt.new_coupon_info.length !== 0">
+        <div class="pos-coupon-rewards pt-3">
+            <t t-foreach="receipt.new_coupon_info" t-as="coupon_info" t-key="coupon_info.code">
+                <div class="coupon-container">
+                    <div class="row g-2">
+                        <div class="col-4">
+                            <t t-out="coupon_info['program_name']"/>
+                        </div>
+                        <div class="col-8">
+                            <img style="transform: translateX(13%);" t-att-src="'/report/barcode/Code128/'+coupon_info['code']" class="img-fluid" alt="Barcode"/>
+                        </div>
+                        <div class="col-6">
+                            <span>Until: </span>
+                            <t t-if="coupon_info['expiration_date']">
+                                <t t-out="coupon_info['expiration_date']"/>
+                            </t>
+                            <t t-else="">
+                                no expiration
+                            </t>
+                        </div>
+                        <div class="col-6 text-end">
+                            <t t-out="coupon_info['code']"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+
+    <!-- SHIPPING -->
+    <t t-if="receipt.order_shipping_date">
+        <div style="text-align:center; margin-top:10px;">
+            Expected delivery:
+            <t t-out="receipt.order_shipping"/>
+        </div>
+    </t>
+
+    <!-- ================= FOOTER ================= -->
+    <div style="text-align:center; color:#999; margin-top:14px;">
+        <!-- ================= FOOTER ================= -->
+        <div t-if="receipt.receipt_footer" class="pos-receipt-center-align pt-3 text-center margin-top:6px;color:black;" style="white-space:pre-line;color:#999;">
+            <t t-esc="receipt.receipt_footer" />
+        </div>
+
+        <div t-if="receipt.company.street" t-out="receipt.company.street"/>
+        <div t-if="receipt.company.zip or receipt.company.city or receipt.company.state_id?.code">
+            <t t-if="receipt.company.city" t-out="receipt.company.city"/>
+            <t t-if="receipt.company.state_id?.code" t-out="', ' + receipt.company.state_id.code"/>
+            <t t-if="receipt.company.zip" t-out="', ' + receipt.company.zip"/>
+        </div>
+        <div t-if="receipt.company.vat" t-out="receipt.company.vat"/>
+
+        <div style="margin-top:6px;">
+            Powered by <b>Odoo</b>
+        </div>
+
+    </div>
+
+</div>
+</t>
+            ]]></field>
+        </record>
+    </data>
+</odoo>

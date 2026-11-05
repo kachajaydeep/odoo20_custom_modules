@@ -1,0 +1,2 @@
+id,name,model_id,group_id/id,operation,domain
+access_zatca_otp_wizard,zatca.otp.wizard,model_zatca_otp_wizard,account.group_account_invoice,cru

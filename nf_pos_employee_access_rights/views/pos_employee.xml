@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_employee_form_inherit_pos_access" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit.pos.access</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="POS Access Rights" name="pos_navigation_controls">
+                    <group>
+                        <group string="Payment Controls">
+                            <field name="nf_hide_payment_button"/>
+                            <field name="nf_restrict_payment_method"/>
+
+                            <field name="nf_pos_payment_methods" invisible="not nf_restrict_payment_method" widget="many2many_tags" />
+                            <field name="nf_hide_payment_tip_button"/>
+                            <field name="nf_hide_payment_ship_later_button"/>
+                            <field name="nf_hide_payment_validate_button"/>
+                            <field name="nf_hide_payment_invoice_button"/>
+                            <field name="nf_hide_cash_in_out_pos_button"/>
+                        </group>
+
+                        <group string="Customer Controls">
+                            <field name="nf_hide_customer_button"/>
+                            <field name="nf_hide_create_customer_button"/>
+                            <field name="nf_hide_customer_note_button"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Order &amp; Product Controls">
+                            <field name="nf_hide_delete_order_button"/>
+                            <field name="nf_disable_price_button"/>
+                            <field name="nf_disable_qty_button"/>
+                            <field name="nf_disable_discount_button"/>
+                            <field name="nf_only_show_active_order"/>
+                            <field name="nf_hide_numpad_buttons"/>
+                            <field name="nf_disable_plus_minus_button"/>
+                            <field name="nf_hide_refund_button"/>
+                        </group>
+
+                        <group string="POS Navigation Controls">
+                            <field name="nf_hide_info_button"/>
+                            <field name="nf_hide_cancel_order_button"/>
+                            <field name="nf_hide_fiscal_button"/>
+                            <field name="nf_hide_quotation_button"/>
+                            <field name="nf_hide_pricelist_button"/>
+                            <field name="nf_hide_close_pos_button"/>
+                            <field name="nf_hide_backend_pos_button"/>
+                            <field name="nf_hide_pos_categories"/>
+                            <!-- <field name="nf_hide_debug_window"/> -->
+                        </group>
+                    </group>
+
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

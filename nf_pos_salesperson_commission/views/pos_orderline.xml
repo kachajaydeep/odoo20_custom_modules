@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_view_pos_order_line" model="ir.ui.view">
+        <field name="name">pos.order.line.list</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='products']//list" position="inside">
+                <field name="nf_employee_id"></field>
+                <field name="pos_commission_line_ids"></field>
+                <field name="commission_amount"></field>
+            </xpath>
+        </field>
+    </record>
+</odoo>

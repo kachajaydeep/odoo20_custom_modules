@@ -1,0 +1,2 @@
+id,name,model_id,group_id/id,operation,domain
+nf_pos_toppings.access_product_topping_groups,nf_pos_toppings.product_topping_groups,product.topping.groups,base.group_user,crud

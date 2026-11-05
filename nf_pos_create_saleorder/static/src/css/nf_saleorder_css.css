@@ -1,0 +1,64 @@
+.pos .popup.nf-pos-saleorder-popup .nf-select-saleorder-status {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.order-container .orderline.nf-sale-order-section-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    line-height: 25px;
+    width: 100%;
+    border-radius: 5px;
+    background: #e9e7e7;
+    gap: 5px;
+}
+
+.order-container .orderline.nf-sale-order-section-line::before {
+    top: 0;
+    left: 0;
+    width: 0px;
+    height: 0%;
+    transform: translateY(0);
+}
+
+.order-container .orderline.nf-sale-order-section-line .nf-section {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 94%;
+}
+
+.order-container .orderline.nf-sale-order-section-line .nf-section::after,
+.order-container .orderline.nf-sale-order-section-line .nf-section::before {
+    position: relative;
+    content: "";
+    flex-grow: 1;
+    min-width: 20px;
+    border-top: 1px solid #000;
+}
+
+/* .pos .pos-content .leftpane .nf-sale-order-details {
+    background: #e9e7e7;
+    font-size: 14px;
+    border-radius: 10px;
+}
+
+.pos .pos-content .leftpane .nf-line-section {
+    line-height: 0.1em;
+    float: left;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    width: 100%;
+    margin: 10px 0px !important;
+} */
+
+@media only screen and (max-width: 767.98px) {
+
+    .NF-SaleOrdersectionPopupDialog .NF-SaleOrdersectionPopup,
+    .NF-SaleOrderComfirmPopupDialog .NF-SaleOrderComfirmPopup,
+    .nf-pos-saleorder-popup-dialog .nf-pos-saleorder-popup {
+        max-width: 340px !important;
+    }
+}

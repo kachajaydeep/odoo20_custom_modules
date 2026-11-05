@@ -1,0 +1,2 @@
+id,name,model_id,group_id/id,operation,domain
+nf_pos_theme_app.access_nf_pos_theme_settings,access_nf_pos_theme_settings,nf.pos.theme.settings,base.group_user,crud

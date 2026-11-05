@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="product_template_comp_rule" model="ir.rule">
+        <field name="name">Product Template multi-company (nf_product_multi_company)</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">
+            ['&amp;', ('company_id', 'in', company_ids + [False]),'|',('nf_company_ids', '=', False),('nf_company_ids', 'in', company_ids)]
+        </field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="nf_product_multi_company_visibility_rule" model="ir.rule">
+        <field name="name">Product Template multi-company restriction (nf_product_multi_company)</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="global" eval="False"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">
+            ['&amp;', ('company_id', 'in', company_ids + [False]),'|',('nf_company_ids', '=', False),('nf_company_ids', 'in', company_ids)]
+        </field>
+    </record>
+    <!-- product_variant_id -->
+    <record id="product_variant_comp_rule" model="ir.rule">
+        <field name="name">Product Variant multi-company (nf_product_multi_company)</field>
+        <field name="model_id" ref="product.model_product_product"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">
+            ['&amp;',
+                ('company_id', 'in', company_ids + [False]),
+                '|',
+                    ('product_tmpl_id.nf_company_ids', '=', False),
+                    ('product_tmpl_id.nf_company_ids', 'in', company_ids)
+            ]
+        </field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+</odoo>

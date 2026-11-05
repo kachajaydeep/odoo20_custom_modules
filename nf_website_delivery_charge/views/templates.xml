@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!--    <template id="nf_address_inherit" inherit_id="website_sale.address" >-->
+    <template id="nf_address_inherit" inherit_id="website_sale.address_form_fields" >
+        <xpath expr="//input[@name='city']/.." position="replace">
+            <div id="div_city" class="col-md-8 mb-2">
+                <input id="o_city" type="text" name="city" class="d-none form-control" t-att-value="partner_sudo.city"/>
+                <label class="col-form-label" for="o_city">City</label>
+                <select id="nf_city" name="nf_city_id"  class="form-control">
+                    <option value="">City...</option>
+                    <t t-if="nf_cities" >
+                        <t t-foreach="nf_cities" t-as="c" t-key='c.id'>
+                            <option t-att-value="c.id" t-att-selected="c.id == (partner_sudo.nf_city_id.id or -1)">
+                                <t t-out="c.name" />
+                            </option>
+                        </t>
+                    </t>
+                </select>
+            </div>
+        </xpath>
+
+    </template>
+
+</odoo>

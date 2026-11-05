@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="nf_pos_product_lot_selection.NfSelectLotPopup">
+        <Dialog size="'md'">
+            <t t-set-slot="header">
+                <h4 class="modal-title title">
+                    <span t-out="this.props.title"/> <span class="fst-italic" t-out="this.props.name"/>
+                </h4>
+            </t>
+            <t t-if="this.env.services.pos.config.nf_enable_lot_selection and this.props.productId">
+                <table class="nf-pos-edit-popup table">
+                    <thead>
+                        <tr>
+                            <th>Lot Name</th>
+                            <th>Available Qty</th>
+                            <th>Select Qty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="this.lots" t-as="lot" t-key="lot.id">
+                            <tr>
+                                <td><t t-out="lot.name"/></td>
+                                <td><t t-out="lot.product_qty"/></td>
+                                <td>
+                                    <input
+                                        type="text"
+                                        min="0"
+                                        inputmode="number"
+                                        t-att-max="lot.product_qty"
+                                        t-att-lot_name="lot.name"
+                                        t-on-change="(ev) => this.updateLotQty(ev)"
+                                        class="nf-pos-lot-input"
+                                        placeholder="0"
+                                    />
+                                </td>
+                            </tr>
+                        </t>
+                        <tr t-if="this.lots.length === 0">
+                            <td colspan="3" class="text-center text-muted">
+                                No lots available for this product.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </t>
+            <t t-set-slot="footer">
+                <button class="btn btn-primary btn-lg" t-on-click="this.confirm">Apply</button>
+                <button class="btn btn-secondary btn-lg" t-on-click="this.close">Discard</button>
+            </t>
+        </Dialog>
+    </t>
+</templates>

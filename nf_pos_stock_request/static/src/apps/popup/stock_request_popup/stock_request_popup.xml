@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_pos_stock_request.NfStockRequestPopup">
+        <Dialog title.translate="Request Quotation">
+            <div class="popup stock-request-popup">
+                <div class="modal-body overflow-auto" style="max-height: 400px;">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Location</th>
+                                <th>Available</th>
+                                <th>Request Qty</th>
+                                <th>Order</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="this.state.quants" t-as="quant" t-key="quant.id + '_' + quant_index">
+                                <tr>
+                                    <td t-out="quant.product_id[1]"></td>
+                                    <td><t t-out="quant.location_id[1]"/></td>
+                                    <td><t t-out="quant.quantity"/></td>
+                                    <td>
+                                        <input type="number" 
+                                            class="form-control form-control-sm mx-auto" 
+                                            style="max-width: 80px;"
+                                            t-model.proxy="this.state.request_quantity"/>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-success rounded-pill" t-on-click="() => this.generateInternalTransfer(quant,this.state.request_quantity)">Book</button>
+                                    </td>
+                                </tr>
+                           </t>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="footer modal-footer">
+
+                    <div class="button cancel btn btn-secondary" t-on-click="() => this.cancel()">
+                        <t t-out="this.props.cancelText" />
+                    </div>
+                </div>
+            </div>
+        </Dialog>
+    </t>
+</templates>

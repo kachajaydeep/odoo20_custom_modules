@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id='template' xml:space='preserve'>
+    <t t-name="nf_pos_theme_app.Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('product-price')]" position="inside">
+            <div t-if="line.price !== 0 and line.discount and line.discount !== '0' and !props.basic_receipt" class="nf-price-without-discount">
+                <t t-esc="nf_get_disount_price"/>
+            </div>
+        </xpath>
+        
+        <xpath expr="//li" position="after">
+            <t t-if="(this.__owl__.app.env.services.pos.router?.state.current == 'ProductScreen' and !vals.isReceipt) or (this.__owl__.app.env.services.pos.router?.state.current == 'PaymentScreen')">
+                <li class="nf-orderline orderline position-relative cursor-pointer" t-on-click="props.onClick" t-attf-class="{{ line.combo_parent_id ? 'orderline-combo ms-4 fst-italic' : '' }}{{ line.isSelected() ? 'border-blue': ''}}{{ line.order_id.finalized ? 'd-none': '' }}" t-att-class="props.class" style="font-size: 12px">
+                    <div class="d-flex align-items-left pt-3 pe-2 pb-1 lh-sm">
+                        <div style="width: 20%" class="nf-line-qty">
+                            <span class="p-1">
+                                <t t-if="nf_state.togglebutton">
+                                    <i id="toggleButton" class="nf-toggle fa fa-angle-down"></i>
+                                </t>
+                                <t t-else="">
+                                    <i id="toggleButton" class="nf-toggle fa fa-angle-right"></i>
+                                </t>
+                            </span>
+                            <span class="qty px-1 border rounded  fw-bolder me-1" t-esc="line.qty"/>
+                        </div>
+                        <div style="width: 55%">
+                            <div class="product-name d-inline-block flex-grow-1 fw-bolder pe-1 text-truncate">
+                                <span class="text-wrap" t-esc="vals.name"/>
+                                <t t-slot="product-name"/>
+                            </div>
+                        </div>
+                        <div class="justify-content-end nf-line-price" style="width: 25%; text-align: right;">
+                            <div t-if="!props.basic_receipt" class="product-price price fw-bolder">
+                                <t t-if="vals.price === 'free'">Free</t>
+                                <t t-else="" t-out="vals.price ? vals.price : ''"/>
+                            </div>
+                            <div t-if="vals.price !== 0 and vals.discount and vals.discount !== '0' and !props.basic_receipt" class="nf-price-without-discount">
+                                <t t-esc="nf_get_disount_price"/>
+                            </div>
+                        </div>
+                    </div>
+                    <li t-if="line.customer_note" class="customer-note w-100 p-2 mt-2 rounded text-break text-bg-warning bg-opacity-25 nf-warning">
+                        <i class="fa fa-sticky-note me-1" role="img" aria-label="Customer Note" title="Customer Note"/>
+                        <t t-esc="line.customer_note" />
+                    </li>
+                    <div class="internal-note-container d-flex gap-2">
+                        <t t-if="vals.internalNote">
+                            <t t-foreach="vals.internalNote" t-as="note" t-key="note_index">
+                                <li t-esc="note.text" class="internal-note badge mt-2 p-2 rounded-pill bg-info text-info bg-opacity-25" style="font-size: 0.85rem;" />
+                            </t>
+                        </t>
+                    </div>
+                    <div class="nf-edit-line d-flex justify-content-between">
+                        <div class="nf-discount">
+                            <span t-if="vals.price !== 0 and vals.discount and vals.discount !== '0' and !props.basic_receipt">
+                                <em>
+                                    <t t-esc="vals.discount" />
+     % </em> discount
+                            </span>
+                        </div>
+                        <div t-if="nf_state.togglebutton" class="ms-3 mb-1 nf-line-action-buttons" t-on-click="(ev) => this.nfEditLine(ev)">
+                            <span class="fa fa-edit"></span>
+                            <span t-on-click="(ev) => this.nfRemoveOrderLine(ev)" t-if="nf_state.togglebutton" class="ps-1 pe-1">
+                                <span class="fa fa-times-circle"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- <div class="internal-note-container d-flex gap-2">
+                        <t t-foreach="line.internalNote?.split?.('\n') or []" t-as="note" t-key="note_index">
+                            <li t-if="note.trim() !== ''" t-esc="note" class="internal-note badge mt-2 p-2 rounded-pill bg-info text-info bg-opacity-25" style="font-size: 0.85rem;" />
+                        </t>
+                    </div> -->
+                </li>
+            </t>
+        </xpath>
+    </t>
+</templates>

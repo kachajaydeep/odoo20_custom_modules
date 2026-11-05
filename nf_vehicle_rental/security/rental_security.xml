@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <record id="nf_vehicle_rental.fleet_rent_access_category" model="ir.module.category">
+        <field name="name">Vehicle Rental Management</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="nf_vehicle_rental.fleet_rent_access_groups" model="res.groups.privilege">
+      <field name="name">Vehicle Rental Management</field>
+      <field name="description">Allow access Vehicle Rental Management type according to the position</field>
+      <field name="category_id" ref="nf_vehicle_rental.fleet_rent_access_category"/>
+    </record>
+    <!-- Accounting  -->
+    <!-- <record id="vehicle_rental_accounting_access" model="res.groups">
+      <field name="name">Accounting</field>
+      <field name="privilege_id" ref="fleet_rent_access_groups" />
+    </record> -->
+
+    <!-- Fleet Maintenance  -->
+    <!-- <record id="vehicle_rental_fleet_maintenance_access" model="res.groups">
+      <field name="name">Fleet Maintenance</field>
+      <field name="privilege_id" ref="fleet_rent_access_groups" />
+    </record> -->
+    
+    <!-- Officer Access -->
+    <record id="vehicle_rental_officer_access" model="res.groups">
+      <field name="name">Rental Officer</field>
+      <field name="privilege_id" ref="nf_vehicle_rental.fleet_rent_access_groups" />
+    </record>
+    
+    <!-- Rental Manager Access -->
+    <record id="vehicle_rental_manager_access" model="res.groups">
+      <field name="name">Rental Manager</field>
+      <field name="implied_ids" eval="[(4,ref('nf_vehicle_rental.vehicle_rental_officer_access'))]"/>
+      <field name="privilege_id" ref="nf_vehicle_rental.fleet_rent_access_groups" />
+      <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+  </data>
+
+  <!-- <data>
+    <record id="vehicle_rental_multi_company" model="ir.rule">
+      <field name="name">Rent multi-company</field>
+      <field name="model_id" ref="model_fleet_rent"/>
+      <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="vehicle_rental_see_all" model="ir.rule">
+      <field name="name">Rent all</field>
+      <field name="model_id" ref="model_fleet_rent"/>
+      <field name="domain_force">[(1,'=',1)]</field>
+      <field name="groups" eval="[(4,ref('nf_vehicle_rental.vehicle_rental_manager_access'))]"/>
+    </record>
+
+    <record id="vehicle_rental_own" model="ir.rule">
+      <field name="name">Own rent</field>
+      <field name="model_id" ref="model_fleet_rent"/>
+      <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
+      <field name="groups" eval="[(4,ref('nf_vehicle_rental.vehicle_rental_officer_access'))]"/>
+    </record>
+
+  </data> -->
+  </odoo>

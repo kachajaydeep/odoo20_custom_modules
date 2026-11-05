@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_pos_discount.ControlButtons" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//t[@name='o_pricelist_button']" position="after">
+            <t t-if="this.pos.config.nf_enbale_price_discount" t-call="point_of_sale.controlButton"
+                name="o_pricelist_button"
+                icon="'percent'"
+                btnText.translate="Global Discount"
+                btnClasses="'o_pricelist_button btn-secondary '"
+                onClick="() => this.GlobalDiscount()" 
+                disabled="!this.pos.getOrder()?.getOrderlines()?.length"
+            >
+            </t>
+
+            <t t-if="this.pos.config.nf_enbale_price_discount" t-call="point_of_sale.controlButton"
+                name="o_pricelist_button"
+                icon="'cancel'"
+                btnText.translate="Remove all Discount"
+                btnClasses="'o_pricelist_button btn-secondary '"
+                onClick="() => this.removeDiscount()"
+            >
+            </t>
+        </xpath>
+    </t>
+</templates>

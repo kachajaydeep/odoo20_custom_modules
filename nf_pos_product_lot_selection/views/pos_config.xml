@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id='nf_pos_product_lot_selection_pos_settings' model='ir.ui.view'>
+        <field name='name'>nf.pos.lot.seletion.config.view.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name='arch' type='xml'>
+            <block id='product_and_category_block' position='inside'>
+                <setting id="nf_pos_lot_selection" help="Allow's you to select lot number in pos">
+                    <field name="nf_enable_lot_selection" />
+                </setting>
+            </block>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_purchase_advance_payment_bill" model="ir.ui.view">
+        <field name="name">Bill Orders</field>
+        <field name="model">purchase.advance.payment.bill</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="display_draft_bill_warning" invisible="1"/>
+                <!-- Draft Bill Warning -->
+                <div class="alert alert-warning pb-1" role="alert"
+                    invisible="not display_draft_bill_warning">
+                    <p>There are existing
+                        <a name="view_draft_bills" type="object">Draft Bills</a>
+                        for this Purchase Order.
+                    </p>
+                    <p invisible="advance_payment_method != 'delivered'">
+                        The new bill will deduct draft bills linked to this purchase order.
+                    </p>
+                </div>
+
+                <!-- Billing Method Selection -->
+                <group>
+                    <field name="advance_payment_method"
+                        class="oe_inline"
+                        widget="radio"/>
+                </group>
+
+                <!-- Down Payment Specification -->
+                <group name="down_payment_specification_bill"
+                    invisible="advance_payment_method not in ('fixed', 'percentage')">
+
+                    <field name="company_id" invisible="1"/>
+                    <field name="display_bill_amount_warning" invisible="1"/>
+
+                    <label for="fixed_amount"
+                        invisible="advance_payment_method != 'fixed'"/>
+                    <label for="amount"
+                        invisible="advance_payment_method != 'percentage'"/>
+
+                    <div id="payment_method_details">
+                        <!-- Fixed Amount -->
+                        <field name="fixed_amount"
+                            invisible="advance_payment_method != 'fixed'"
+                            required="advance_payment_method == 'fixed'"
+                            class="oe_inline"/>
+
+                        <!-- Percentage -->
+                        <field name="amount"
+                            invisible="advance_payment_method != 'percentage'"
+                            required="advance_payment_method == 'percentage'"
+                            class="oe_inline"/>
+                        <span invisible="advance_payment_method != 'percentage'"
+                            class="oe_inline">%</span>
+
+                        <!-- Warning: down payment exceeds remaining amount -->
+                        <span invisible="not display_bill_amount_warning"
+                            class="oe_inline text-warning ms-2"
+                            title="The Down Payment is greater than the amount remaining to be billed.">
+                            <i class="fa fa-warning"/> Amount exceeds remaining balance.
+                        </span>
+                    </div>
+                </group>
+
+                <!-- Already Billed / Amount to Bill Summary -->
+                <group>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="amount_bill" invisible="not amount_bill" widget="monetary" readonly="1"/>
+                    <field name="amount_to_bill" invisible="1" readonly="1"/>
+                </group>
+
+                <footer>
+                    <button name="create_bills"
+                            type="object"
+                            id="create_bill_open"
+                            string="Create Bill"
+                            class="btn-primary"
+                            data-hotkey="q"/>
+                    <button string="Cancel"
+                            class="btn-secondary"
+                            special="cancel"
+                            data-hotkey="x"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_nf_purchase_advance_payment_bill" model="ir.actions.act_window">
+        <field name="name">Create Bill(s)</field>
+        <field name="res_model">purchase.advance.payment.bill</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <!-- <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+        <field name="binding_view_types">list</field> -->
+    </record>
+</odoo>

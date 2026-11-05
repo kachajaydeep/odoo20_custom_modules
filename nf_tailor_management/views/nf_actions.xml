@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+  <record id="nf_action_measurement" model="ir.actions.act_window">
+    <field name="name">Measurements</field>
+    <field name="res_model">nf.measurement</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <record id="nf_action_nf_measurement_line" model="ir.actions.act_window">
+    <field name="name">Measurement Lines</field>
+    <field name="res_model">nf.measurement.line</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <record id="action_nf_measurement_type" model="ir.actions.act_window">
+    <field name="name">Measurement Types</field>
+    <field name="res_model">nf.measurement.type</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <record id="action_nf_measurement_category" model="ir.actions.act_window">
+    <field name="name">Measurement Categories</field>
+    <field name="res_model">nf.measurement.category</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <record id="action_nf_tailor_order" model="ir.actions.act_window">
+    <field name="name">Tailor Orders</field>
+    <field name="res_model">nf.tailor.order</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <record id="action_nf_tailor_order_pending_orders" model="ir.actions.act_window">
+    <field name="name">Tailor Orders</field>
+    <field name="res_model">nf.tailor.order</field>
+    <field name="domain">[('state','=','in_process')]</field>
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_empty_folder">
+          You don't have any order from Tailor
+      </p>
+    </field>
+  </record>
+  <record id="action_nf_tailor_new_orders" model="ir.actions.act_window">
+    <field name="name">Tailor Orders</field>
+    <field name="res_model">nf.tailor.order</field>
+    <field name="domain">[('state','=','draft')]</field>
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_empty_folder">
+          You don't have any order from Tailor
+      </p>
+    </field>
+  </record>
+  <record id="action_nf_tailor_order_confirmed_orders" model="ir.actions.act_window">
+    <field name="name">Tailor Orders</field>
+    <field name="res_model">nf.tailor.order</field>
+    <field name="domain">[('state','=','confirmed')]</field>
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_empty_folder">
+          You don't have any order from Tailor
+      </p>
+    </field>
+  </record>
+  <record id="action_nf_tailor_order_delivered_orders" model="ir.actions.act_window">
+    <field name="name">Tailor Orders</field>
+    <field name="res_model">nf.tailor.order</field>
+    <field name="domain">[('state','=','delivered')]</field>
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_empty_folder">
+          You don't have any order from Tailor
+      </p>
+    </field>
+  </record>
+  <record id="action_nf_tailor_order_cancel_orders" model="ir.actions.act_window">
+    <field name="name">Tailor Orders</field>
+    <field name="res_model">nf.tailor.order</field>
+    <field name="domain">[('state','=','cancel')]</field>
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_empty_folder">
+          You don't have any order from Tailor
+      </p>
+    </field>
+  </record>
+
+  <record id="action_design_type" model="ir.actions.act_window">
+    <field name="name">Design Types</field>
+    <field name="res_model">nf.design.type</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <record id="nf_tailor_partner_action_customer" model="ir.actions.act_window">
+    <field name="name">Customers</field>
+    <field name="res_model">res.partner</field>
+    <field name="view_mode">kanban,list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Create a new customer in your address book
+      </p>
+      <p>
+        Odoo helps you easily track all activities related to a customer.
+      </p>
+    </field>
+  </record>
+
+  <record id="action_nf_design_type" model="ir.actions.act_window">
+    <field name="name">Design Types</field>
+    <field name="res_model">nf.design.type</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <record id="action_nf_design_line" model="ir.actions.act_window">
+    <field name="name">Design Line</field>
+    <field name="res_model">nf.design.line</field>
+    <field name="view_mode">kanban,list,form</field>
+  </record>
+
+   <record id="action_report_tailor_order" model="ir.actions.report">
+        <field name="name">Tailor</field>
+        <field name="model">nf.tailor.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">nf_tailor_management.report_tailor_order</field>
+        <!-- <field name="report_file">nf_tailor_management.report_tailor_order</field> -->
+        <field name="binding_model_id" ref="model_nf_tailor_order"/>
+        <field name="print_report_name">'%s' % (object.name)</field>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

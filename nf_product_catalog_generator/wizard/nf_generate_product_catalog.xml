@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_nf_generate_product_catalog_wizard_form" model="ir.ui.view">
+        <field name="name">nf.generate.product.catalog.wizard.form</field>
+        <field name="model">nf.generate.product.catalog.wizard</field>
+        <field name="arch" type='xml'>
+            <form string='Generate Product Catalog'>
+                <group col="2">
+                    <group>
+                        <field name="catalog_name"/>
+                        <field name="catalog_type" widget="radio"/>
+                        <field name="product_id" invisible="catalog_type != 'product'" widget="many2many_tags"/>
+                        <field name="category_id" invisible="catalog_type != 'category'"/>
+                        <field name="print_category"/>
+                        <field name="image"/>
+                        <field name="image_height" invisible="image != True"/>
+                        <field name="image_width" invisible="image != True"/>
+                        <field name="currency_id"/>
+                        <field name="price"/>
+                        <field name="pricelist"/>
+                        <field name="price_decimal"/>
+                    </group>
+                    <group>
+                        <field name="style" widget="radio"/>
+                        <field name="printbox_per_row" widget="radio" invisible="style != 'style2'"/>
+                        <field name="description"/>
+                        <field name="product_link"/>
+                        <field name="inter_ref"/>
+                        <field name="print_uom"/>
+                        <field name="break_page" invisible="style == 'style1'"/>
+                        <field name="break_after_product" invisible="style == 'style1' or not break_page"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="generate_xls_report" string="Print XLS" type="object" class="btn-primary" data-hotkey="p"/>
+                    <button name="generate_pdf_report" string="Print" type="object" class="btn-primary" data-hotkey="q"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="x" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="generat_product_catalog_menu" name="Generate Product Catalog" action="action_generate_product_catalog" parent="product_catalog_menu" sequence="20" groups="nf_product_catalog_generator.nf_group_product_catalog_managers"/>
+</odoo>

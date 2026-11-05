@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- nf_tailor/views/tailor_order_views.xml -->
+<odoo>
+
+    <record id="view_nf_tailor_order_form" model="ir.ui.view">
+        <field name="name">nf.tailor.order.form</field>
+        <field name="model">nf.tailor.order</field>
+        <field name="arch" type="xml">
+            <form string="Tailor Order">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,in_process,delivered"/>
+                    <button name="action_cancel" string="Cancel" type="object"
+                        invisible="state in ('delivered', 'cancel')"
+                        groups='nf_tailor_management.nf_group_nf_tailor_manager'
+                        confirm="Are you sure you want to cancel this order? This will also cancel the linked Sale and Manufacturing Orders."/>
+
+                    <button name="nf_create_so" string="Create Sale Order" class="oe_highlight"
+                        type="object" data-hotkey="c"
+                        invisible="state != 'draft' or 0 > sale_order_count" />
+                    <button name="nf_create_mo" string="Create Manufacturing Order"
+                        class="oe_highlight" type="object" data-hotkey="m"
+                        invisible="state != 'confirmed' or manufacturing_order_count != 0" />
+                    <!-- <button name="nf_deliver_order" string="Validate Delivery"
+                        class="oe_highlight" type="object" data-hotkey="d"
+                        invisible="state != 'confirmed' and picking_count != 0" /> -->
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object"
+                            name="action_view_sales_orders"
+                            class="oe_stat_button"
+                            icon="edit_square"
+                            invisible="sale_order_count == 0">
+                            <field name="sale_order_count" string="Sale order" widget="statinfo" />
+                        </button>
+                        <button type="object"
+                            name="action_view_manufacturing_orders"
+                            class="oe_stat_button"
+                            icon="area_chart"
+                            invisible="manufacturing_order_count == 0">
+                            <field name="manufacturing_order_count" string="Manufacturing Orders"
+                                widget="statinfo" />
+                        </button>
+                        <button type="object"
+                            name="action_view_picking_orders"
+                            class="oe_stat_button"
+                            icon="local_shipping"
+                            invisible="picking_count == 0">
+                            <field name="picking_count" string="Delivery Orders" widget="statinfo" />
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" />
+                        <h1>
+                            <field name="name" class="oe_inline" readonly="1" required="1" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="customer_id" required="1" />
+                            <field name="order_date"  required="1"/>
+                            <field name="product_qty" />
+                            <field name="measurement_id" domain="[('partner_id', '=', customer_id)]"/>
+                        </group>
+                        <group>
+                            <field name="delivery_date"  required="1" />
+                            <field name="company_id"/>
+                            <field name="bom_id" required="1" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="Measurements" string="Measurement">
+                            <field name="measurement_line_ids" readonly="state != 'draft'">
+                                <list editable="bottom">
+                                    <field name="measurement_type_id"/>
+                                    <field name="size"/>
+                                    <field name="note"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page name="Designs" string="Designs">
+                            <field name="design_ids" readonly="state != 'draft'">
+                                <list editable="bottom">
+                                    <field name="design_type"/>
+                                    <field name="design_image"
+                                        domain="[('design_id', '=', design_type)]"/>
+                                    <field name="image_1920" widget="image" class="oe_avatar" />
+                                </list>
+                            </field>
+                        </page>
+                        <page name="Product_lines" string="Products">
+                            <field name="tailor_line_ids" readonly="state != 'draft'">
+                                <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="company_id" column_invisible="1"/>
+                                    <field name="quantity" />
+                                    <field name="uom_id"/>
+                                    <field name="unit_price" />
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter />
+            </form>
+        </field>
+    </record>
+
+ <record id="nf_tailor_order_search_views" model="ir.ui.view">
+    <field name="name">nf.tailor.search.view</field>
+    <field name="model">nf.tailor.order</field>
+    <field name="arch" type="xml">
+        <search string="Search Order">
+            <field name="name" string="Name" filter_domain="['|', ('name', 'ilike', self), ('customer_id', 'child_of', self)]"/>
+            <field name="order_date"/>
+            <field name="sale_order_id" string="Sale order" />
+            <filter  string="Today Delivery" name="delivery_date" domain="[('delivery_date', '=', context_today().strftime('%Y-%m-%d'))]"/>
+<!--            &lt;!&ndash; <filter string="Delivery Date" name="delivery_date" date="delivery_date"/> &ndash;&gt;-->
+            <group>
+                <filter string="State" name="state" domain="[]" context="{'group_by': 'state'}"/>
+                <filter name="sale_order_id"  domain="[]" context="{'group_by': 'sale_order_id'}" string="Sale order" />
+            </group>
+        </search>
+    </field>
+</record>
+
+    <!-- Tree View -->
+    <record id="view_nf_tailor_order_tree" model="ir.ui.view">
+        <field name="name">nf.tailor.order.tree</field>
+        <field name="model">nf.tailor.order</field>
+        <field name="arch" type="xml">
+            <list string="Tailor Orders">
+                <field name="name" />
+                <field name="customer_id" />
+                <field name="order_date" />
+                <field name="delivery_date" />
+                <field name="sale_order_id" column_invisible="1"/>
+                <field name="state"
+                    decoration-success="state == 'delivered'"
+                    decoration-info="state == 'draft'"
+                    decoration-primary="state == 'confirmed'"
+                    widget="badge" />
+            </list>
+        </field>
+    </record>
+
+
+</odoo>

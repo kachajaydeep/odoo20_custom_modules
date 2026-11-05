@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_mrp_bom_form_from_backend" model="ir.ui.view">
+        <field name="name">nf.mrp.bom.list</field>
+        <field name="model">nf.mrp.bom</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="nf_bom_component_ids">
+                        <list editable="bottom" delete="0">
+                            <field name="product_id"/>
+                            <field name="product_qty"/>
+                            <field name="bom_id" />
+                            <field name="uom_id" />
+                        </list>
+                    </field>
+                </sheet>
+
+                <footer>
+                    <button string="Confirm"
+                            class="btn-primary" type="object" name="action_confirm"/>
+                    <button string="Cancel"
+                            special="cancel"
+                            class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    
+
+    <record id="nf_bill_material_action" model="ir.actions.act_window">
+        <field name="name">Bom Component</field>
+        <field name="res_model">nf.mrp.bom</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="nf_pos_tailor_management.nf_mrp_bom_form_from_backend"/>
+    </record>
+</odoo>

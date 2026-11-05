@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_pos_stock_request.NfStockMovePopup">
+        <Dialog title="this.props.title || 'Stock Move Details'">
+            <div class="nf-main-content">
+                <div t-if="this.props.moves.length === 0" class="alert alert-info text-center">
+                    No stock moves found for this picking.
+                </div>
+                <table t-else="" class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th class="text-center">Demand</th>
+                            <th t-if="this.props.showApprove" class="text-center">Available</th>
+                            <th class="text-center">Done Quantity</th>
+                            <th class="text-center">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="this.state.moves" t-as="move" t-key="move.id">
+                            <tr class="align-middle">
+                                <td>
+                                    <div class="fw-bold" t-out="move.product_name"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-out="move.product_uom_qty"/>
+                                </td>
+                                <td t-if="this.props.showApprove" class="text-center">
+                                    <span t-out="move.availability" t-att-class="{'text-danger': move.available_qty &lt; move.product_uom_qty}"/>
+                                </td>
+                                <td class="text-center">
+                                    <input type="number" 
+                                        class="form-control form-control-sm mx-auto" 
+                                        style="max-width: 80px;"
+                                        t-model.proxy="move.quantity"
+                                        t-att-disabled="!this.props.showApprove" />
+                                </td>
+                                <td class="text-center">
+                                    <span class="badge rounded-pill text-white text-capitalize fs-5" 
+                                          t-attf-class="bg-{{ move.state === 'done' ? 'success' : move.state === 'cancel' ? 'danger' : 'info' }}"
+                                          t-out="move.state"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+            <t t-set-slot="footer">
+                  <button t-if="this.props.showApprove" class="btn btn-primary" t-on-click="() => this.approvePicking()">
+                    Approve
+                </button>
+                <button class="btn btn-secondary" t-on-click="this.closePopup">
+                    Close
+                </button>
+            </t>
+        </Dialog>
+    </t>
+</templates>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_nf_hr_employee_form">
+        <field name="name">hr.employee.form.inherit.anniversary</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='department_id']" position="after">
+                <field name="anniversary_date"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

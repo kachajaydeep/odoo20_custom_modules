@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_nf_tailor_order_inherited_form_view" model="ir.ui.view">
+        <field name="name">nf.tailor.order.form.inherited.view</field>
+        <field name="model">nf.tailor.order</field>
+        <field name="inherit_id" ref="nf_tailor_management.view_nf_tailor_order_form"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <div class="oe_button_box" name="button_box">
+                    <button type="object" name="action_view_pos_orders" class="oe_stat_button" icon="shopping_basket" invisible="pos_order_id == False">
+                        <field name="pos_order_count" string="Pos Order" widget="statinfo" />
+                    </button>
+                </div>
+
+                <div class="oe_button_box" name="button_box">
+                    <button type="object" name="action_view_delivery_order" class="oe_stat_button" icon="local_shipping" invisible="pos_order_id == False">
+                        <field name="stock_picking_count" string="Delivery" widget="statinfo" />
+                    </button>
+                </div>
+
+                <div class="oe_button_box" name="button_box">
+                    <button type="object" name="action_view_invoice" class="oe_stat_button" icon="edit" invisible="pos_order_id == False">
+                        <field name="account_move_count" string="Invoice" widget="statinfo" />
+                    </button>
+                </div>
+            </xpath>
+
+            <xpath expr="//button[@name='nf_create_so']" position="attributes">
+                <attribute name="invisible" separator="or" add="pos_order_id"></attribute>
+            </xpath>
+
+            <xpath expr="//button[@name='nf_create_mo']" position="replace">
+                <button name="nf_create_mo" string="Create Manufacturing Order" class="oe_highlight" type="object" data-hotkey="m" invisible="(pos_order_count != 0 and sale_order_count != 0) or state != 'confirmed' or manufacturing_order_count != 0"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

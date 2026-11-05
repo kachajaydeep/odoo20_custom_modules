@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="nf_pos_cash_control_receipt.CashinOutScreen">
+        <div class="nf-receipt-screen screen h-100 bg-100">
+            <div class="screen-content d-flex flex-column h-100">
+                <div class="top-content d-flex align-items-center p-2 border-bottom text-center">
+                    <div class="top-content-center flex-grow-1">
+                        <h2 class="mb-0 text-start">Cash Receipt</h2>
+                    </div>
+                    <button class="button next highlight btn btn-lg btn-outline-primary" t-on-click="() => this.confirm()">
+                        <span>Continue</span>
+                        <i class="fa fa-angle-double-right ms-2"></i>
+                    </button>
+                </div>
+                <div class="centered-content mx-auto mt-3 border-start border-end text-center overflow-x-hidden overflow-y-auto">
+                    <div class="button print btn btn-lg btn-primary" t-on-click="() => this.clickPrint()">
+                        <i class="fa fa-print me-2"></i>
+                        <span>Print</span>
+                    </div>
+                    <div class="pos-receipt-container text-center">
+                        <div class="d-inline-block m-3 p-3 border rounded bg-view text-start overflow-hidden">
+                            <t t-if="this.props.TotalCashData">
+                                <CashReceipt order="currentOrder" sigle_receipt="false" TotalCashData="this.props.TotalCashData" />
+                            </t>
+                            <t t-else="">
+                                <CashReceipt order="currentOrder" sigle_receipt="true" reason="this.props.reason" date="this.props.date" amount="this.props.amount" type="this.props.type" />
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

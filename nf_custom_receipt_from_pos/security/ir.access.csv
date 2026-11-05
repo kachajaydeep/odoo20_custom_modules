@@ -1,0 +1,2 @@
+id,name,model_id,group_id/id,operation,domain
+nf_custom_receipt_from_pos.access_nf_receipt_template,nf_custom_receipt_from_pos.nf_receipt_template,nf.receipt.template,base.group_user,crud

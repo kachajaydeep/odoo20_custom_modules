@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="nf_group_no_archive" model="res.groups">
+            <field name="name">No Archive </field>
+        </record>
+
+        <record id="nf_group_no_duplicate" model="res.groups">
+            <field name="name">No Duplicate </field>
+        </record>
+
+        <record id="nf_group_no_delete" model="res.groups">
+            <field name="name">No Delete </field>
+        </record>
+    </data>
+</odoo>

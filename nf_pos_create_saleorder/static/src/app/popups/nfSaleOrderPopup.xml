@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space='preserve'>
+    <t t-name='nf_pos_create_saleorder.NfSaleOrderPopup' >
+        <Dialog class='modal-dialog' title.translate="Sale order Status">
+            <div class='popup nf-pos-saleorder-popup-dialog popup-alert nf-pos-saleorder-popup'>
+                <div class="modal-body">
+                    <div class='nf-select-saleorder-status'>
+                        <div class='nf-select-quotation d-flex align-items-center'>
+                            <input
+                                type="radio"
+                                name="sale"
+                                class="nf-quotation p-2"
+                                id="nf-quotation"
+                                value="quotation"
+                                t-att-checked="this.state.selected_type === 'quotation'"
+                                t-on-change="(ev) => this.state.selected_type = ev.target.value"
+                            />
+                            <label for='nf-quotation' class='p-2'> Quotation</label>
+                        </div>
+                        <div class='nf-sale-order d-flex align-items-center'>
+                            <input
+                                type="radio"
+                                name="sale"
+                                class="nf-quotation p-2"
+                                id="sale-order"
+                                value="sale_order"
+                                t-att-checked="this.state.selected_type === 'sale_order'"
+                                t-on-change="(ev) => this.state.selected_type = ev.target.value"
+                            />
+                            <label for='sale-order' class='p-2'> Sale Order </label>
+                        </div>
+                    </div>
+                </div>
+                <t t-set-slot="footer">
+                    <button class="button confirm btn btn-lg lh-lg btn-primary" t-on-click="() => this.confirm()" t-att-disabled="!this.isValid()">Create</button>
+                    <button class="button cancel btn btn-lg lh-lg btn-secondary" t-on-click="() => this.close()">Cancel</button>
+                </t>
+            </div>
+        </Dialog>
+    </t>
+</templates> 

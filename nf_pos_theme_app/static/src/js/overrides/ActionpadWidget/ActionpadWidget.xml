@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id='template' xml:space='preserve'>
+    <t t-name="nf_pos_theme_app.ActionpadWidget" t-inherit="point_of_sale.ActionpadWidget" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('validation')]" position="inside">
+            <t t-if="!this.ui.isSmall and !this?.pos?.config?.module_pos_restaurant and this?.pos?.router?.state.current === 'ProductScreen'">
+                <button class="nf-hold-btn nf-hold-desktop-btn button btn btn-lg py-3 d-flex align-items-center justify-content-center flex-fill" t-on-click="() => this.nfCreateNewOrder()">
+                    <i class="fa fa-pause-circle-o" aria-hidden="true"></i> Hold Order
+                </button>
+            </t>
+        </xpath>
+
+        <xpath expr="//div[@class='actionpad d-flex flex-column gap-2']" position="inside">
+            <t t-if=" this?.pos?.config?.module_pos_restaurant and this?.pos?.router?.state.current === 'ProductScreen'">
+                <button class="nf-hold-desktop-btn nf-resto-btn button btn btn-lg py-3 d-flex align-items-baseline column-gap-1 justify-content-center flex-fill" t-on-click="() => this.nfCreateNewOrder()" style="background-color:#fc8019c7;order:3;">
+                    <i class="fa fa-pause-circle-o" aria-hidden="true"></i> Hold Order
+                </button>
+            </t>
+        </xpath>
+
+        <xpath expr="//div[hasclass('validation')]" position="inside">
+            <t t-if="this.ui.isSmall">
+                <t t-if="this?.pos?.router?.state.current === 'ProductScreen'">
+                    <button class="nf-hold-btn nf-hold-desktop-btn button btn btn-lg py-3 d-flex align-items-center justify-content-center flex-fill" t-on-click="() => this.nfCreateNewOrder()" style="order:-1 !important">
+                        <i class="fa fa-pause-circle-o" aria-hidden="true"></i> Hold Order </button>
+                </t>
+            </t>
+        </xpath>
+    </t>
+</templates>

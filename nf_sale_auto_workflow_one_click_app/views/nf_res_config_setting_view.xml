@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="nf_res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.sale</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <block name="catalog_setting_container" position="before">
+                <block title="Sale One Click Settings" name="sale_one_click_settings">
+                    <setting id="sale_enable_one_cliclk_sale" help="Configure one-click sale behavior including delivery validation and invoice management.">
+                        <field name="nf_enable_one_click_sale" help="Enable or disable the one-click sale feature."/>
+                    </setting>
+                    <setting id="validate_delivery" invisible="nf_enable_one_click_sale == False" help="Validate delivery before completing the sale.">
+                        <field name="nf_validate_delivery"/>
+                    </setting>
+
+                    <setting id="create_invoice" invisible="nf_enable_one_click_sale == False" help="Create an invoice upon sale completion.">
+                        <field name="nf_create_invoice"/>
+                    </setting>
+
+                    <setting id="pay_invoice" invisible="nf_enable_one_click_sale == False or not nf_create_invoice" help="Mark the invoice as paid.">
+                        <field name="nf_pay_invoice"/>
+                    </setting>
+                </block>
+            </block>
+        </field>
+    </record>
+</odoo>

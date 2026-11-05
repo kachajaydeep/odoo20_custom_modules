@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_product_catalog" model="ir.actions.act_window">
+        <field name="name">Generated Product Catalog</field>
+        <field name="res_model">nf.generated.product.catalog</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_generate_product_catalog" model="ir.actions.act_window">
+        <field name="name">Generate Product Catalog</field>
+        <field name="res_model">nf.generate.product.catalog.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

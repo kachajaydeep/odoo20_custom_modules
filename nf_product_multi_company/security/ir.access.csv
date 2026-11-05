@@ -1,0 +1,3 @@
+id,name,model_id,group_id/id,operation
+access_nf_website_update_wizard,nf.website.update.wizard,nf.website.update.wizard,base.group_user,crud
+access_res_company_user,res.company user,res.company,base.group_user,crud

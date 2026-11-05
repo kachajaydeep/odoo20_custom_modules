@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="fleet_rent_tree_view" model="ir.ui.view">
+        <field name="name">Fleet Rent List</field>
+        <field name="model">fleet.rent</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="rent_type"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="duration"/>
+                <field name="currency_id" column_invisible="1"/> 
+                <field name="amount_untaxed" widget="monetary"/>
+                <field name="deposit_amount" optional="hide" widget="monetary"/>
+                <field name="amount_residual" optional="hide" widget="monetary"/>
+                <field name="total_tax" optional="hide" widget="monetary"/>
+                <field name="amount_total"  widget="monetary"/>
+                <field name="status" widget="badge" decoration-info="status == 'draft'" decoration-success="status == 'booked'" decoration-danger="status == 'in_process'" decoration-warning="status == 'done'" decoration-muted="status == 'cancel'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="fleet_rent_search_view" model="ir.ui.view">
+        <field name="name">Fleet Rent Search</field>
+        <field name="model">fleet.rent</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="status"/>
+                <filter name="draft" domain="[('status','=','draft')]" string="Draft"/>
+                <filter name="booked" domain="[('status','=','booked')]" string="Booked"/>
+                <filter name="in_process" domain="[('status','=','in_process')]" string="In Process"/>
+                <filter name="done" domain="[('status','=','done')]" string="Done"/>
+                <filter name="cancel" domain="[('status','=','cancel')]" string="Cancel"/>
+
+                <group>
+                    <filter name="user_id" context="{'group_by' : 'user_id'}" string="Salesperson"></filter>
+                    <filter name="partner_id" context="{'group_by' : 'partner_id'}" string="Customer"></filter>
+                    <filter name="rent_type" context="{'group_by' : 'rent_type'}" string="Rent Type"></filter>
+                    <filter name="status" context="{'group_by' : 'status'}" string="Status"></filter>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="fleet_rent_form_view" model="ir.ui.view">
+        <field name="name">Fleet Rent Form</field>
+        <field name="model">fleet.rent</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button type="object" string="Booked" name="fleet_rent_booked" invisible="status  != 'draft'" class="btn btn-primary"></button>
+                    <button type="object" string="In Process" name="fleet_rent_inprocess" invisible="status != 'booked'" class="btn btn-primary"></button> 
+                    <button type="object" string="Done" name="fleet_rent_done" invisible="status != 'in_process'" class="btn btn-primary"></button>
+                    <button type="action" string="Payment" name="%(nf_vehicle_rental.action_fleet_rent_wizard_advacne_payment)d" invisible="status in ['draft','cancel'] or amount_residual == 0.0 " class="btn btn-primary"></button>
+                    <button type="object" string="Create Invoice" name="fleet_rent_create_invoice" invisible="status != 'done' or invoice_id" class="btn btn-primary"></button>
+                    <button type="object" string="Draft" name="fleet_rent_draft" invisible="status == 'draft'"></button>
+                    <button type="object" string="Cancel" name="fleet_rent_cancel" invisible="status == 'cancel'"></button>
+                    <field name="status" widget="statusbar" statusbar_visible="draft,booked,in_process,done" /> 
+                </header>
+                <sheet> 
+                    <div name="button_box" class="oe_button_box">
+                        <button type="object" name="action_payments_view" class="oe_stat_button" invisible="not account_payment_ids" icon="fa-bars">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value d-flex gap-1">
+                                    <span>Payments</span>
+                                </span>
+                            </div>
+                        </button>
+                        <button type="object" name="action_invoice_view" class="oe_stat_button" invisible="not invoice_id" icon="fa-pencil-square-o">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value d-flex gap-1">
+                                    <span>Invoice</span>
+                                </span>
+                            </div>
+                        </button>
+                    </div>
+                    <group>
+                        <h1>
+                            <separator string="Name"/>
+                            <field name="name" placeholder="E.g Name"/>
+                        </h1>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="id_proof_name" invisible="1"/>
+                            <field name="partner_id" readonly="status in ['in_process','done']"/>
+                            <field name="license_no" readonly="status in ['in_process','done']"/>
+                            <field name="id_proof" filename="id_proof_name"  widget="binary" readonly="status in ['in_process','done']"/>
+                            <field name="rent_type" readonly="status in ['in_process','done']"/>
+                            <field name="start_date" readonly="status in ['in_process','done']"/>
+                            <field name="end_date" readonly="status == 'done'"/>
+                            <field name="duration"/>
+                        </group>
+                        <group>
+                            <field name="company_id" readonly="status in ['in_process','done']"/>
+                            <field name="user_id" widget="many2one_avatar_user" readonly="status in ['in_process','done']"/>
+                            <field name="currency_id" invisible="1"/> 
+                        </group>
+                    </group>
+                    <group>
+                        <!-- notebook page -->
+                        <notebook>
+                            <page name="_rent_line_id" string="Details">
+                                <field name="rent_line_ids" readonly="status in ['in_process','done']">
+                                    <list editable="bottom">
+                                        <field name="vehicle_id" widget="many2one_avatar_user" domain ="[('is_rental_vehicle','=','True')]"/>
+                                        <field name="currency_id" column_invisible="1"/> 
+                                        <field name="contract_id" column_invisible="1"/>
+                                        <field name="duration_value"/>
+                                        <field name="rate"/>
+                                        <field name="taxes_id" widget="many2many_tags"/>
+                                        <field name="tax_total" widget="monetary" optional="hide"/>
+                                        <field name="subtotal" widget="monetary"/>
+                                        <field name="total_amount" widget="monetary" optional="hide"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </group>
+                        <group class="d-flex flex-column align-items-end">
+                            <div>
+                                <lable for="amount_untaxed" class="lable  me-5 o_input_30ch">Untaxed Amount:</lable>
+                                <field name="amount_untaxed" class="oe_inline me-3" widget="monetary" readonly="1" />
+                            </div>
+                            <div invisible = "not total_tax">
+                                <lable for="total_tax" class="lable  me-5 o_input_30ch">Tax :</lable>
+                                <field name="total_tax" class="oe_inline me-3" widget="monetary" readonly="1"/>
+                            </div>
+                            <div class="border-top">
+                                <lable for="amount_total" class="lable  me-5 o_input_30ch">Total :</lable>
+                                <field name="amount_total" class="oe_inline me-3" widget="monetary" readonly="1" />
+                            </div> 
+                            <div>
+                                <lable for="deposit_amount" class="lable  me-5 o_input_30ch">Amount Deposit :</lable>
+                                <field name="deposit_amount" class="oe_inline me-3" widget="monetary" readonly="1"/>
+                            </div>
+                            <div invisible = "amount_residual == 0.0">
+                                <lable for="amount_residual" class="lable  me-5 o_input_30ch">Amount Due :</lable>
+                                <field name="amount_residual" class="oe_inline me-3" widget="monetary" readonly="1" />
+                            </div>
+                        </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_fleet_rent_window_view" model="ir.actions.act_window">
+        <field name="name">Rental </field>
+        <field name="res_model">fleet.rent</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- fleet rent main menu -->
+    <menuitem id="fleet_rent_main_menu" name="Rentals" action="nf_vehicle_rental.action_fleet_rent_window_view" sequence="1"/>
+    <menuitem id="fleet_rent_main_menu_catelog" name="Rentals" parent="fleet_rent_main_menu" action="nf_vehicle_rental.action_fleet_rent_window_view" sequence="2"/>
+    <menuitem id="fleet_rent_reporting_main" name="Reporting" parent="fleet_rent_main_menu" sequence="3" groups="nf_vehicle_rental.vehicle_rental_manager_access"/>
+    <menuitem  id="fleet_rent_configuration_menu_catelog" parent="fleet_rent_main_menu" name="Configuration" sequence="4" groups="nf_vehicle_rental.vehicle_rental_manager_access"/>
+    <!-- fleet rent cusromer menu  -->
+    <menuitem id="fleet_rent_menu" name="Rentals" parent="fleet_rent_main_menu_catelog" action="nf_vehicle_rental.action_fleet_rent_window_view" sequence="1"/>
+    <menuitem id="fleet_rent_customer_main_menu" parent="fleet_rent_main_menu_catelog" name="Customers"  action="account.res_partner_action_customer" sequence="3"/>
+    <!-- fleet rent Configuration -->
+    <menuitem id="fleet_rent_vehicle_menu" parent="fleet_rent_configuration_menu_catelog" name="Vehicles" action="fleet.fleet_vehicle_action" sequence="1"/>
+    <menuitem id="fleet_rent_location_main_menu" parent="fleet_rent_configuration_menu_catelog" name="Rental Location" action="nf_vehicle_rental.action_fleet_rental_location_window_view" sequence="2"/> 
+    <menuitem id="fleet_rent_history_main" name="Rent History" parent="fleet_rent_reporting_main" action="nf_vehicle_rental.action_fleet_rent_line_window_view" sequence="1"/>
+
+
+
+</odoo>

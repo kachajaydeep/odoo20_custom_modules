@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- design_type_views.xml -->
+<odoo>
+    <data>
+
+        <!-- Tree view -->
+        <record id="view_design_type_tree" model="ir.ui.view">
+            <field name="name">nf.design.type.tree</field>
+            <field name="model">nf.design.type</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name" />
+                    <field name="active" column_invisible="True" />
+                </list>
+            </field>
+        </record>
+
+        <!-- Form view -->
+        <record id="view_design_type_form" model="ir.ui.view">
+            <field name="name">nf.design.type.form</field>
+            <field name="model">nf.design.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Design" />
+                            <h1>
+                                <div class="d-flex">
+                                    <field class="text-break" name="name"
+                                        options="{'line_breaks': False}" widget="text"
+                                        placeholder="e.g. Sleeves" />
+                                </div>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="active" invisible='True' />
+                        </group>
+                        <notebook>
+                            <page name="nf_designs" string="Designs">
+                                <field name="design_line_ids">
+                                    <list editable="bottom">
+                                        <field name="name" />
+                                        <field name="image_1920" widget="image"
+                                            options="{'size': [70, 70]}" />
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

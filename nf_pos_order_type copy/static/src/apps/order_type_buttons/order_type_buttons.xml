@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template_id" xml:space="preserve">
+<t t-name="nf_pos_order_type.SelectPartnerButton"
+   t-inherit="point_of_sale.SelectPartnerButton"
+   t-inherit-mode="extension">
+
+    <xpath expr="//button[hasclass('set-partner')]" position="after">
+        <t t-if="this.pos.config.nf_pos_order_type_ids?.length">
+            <button
+                t-on-click="() => this.onClickOrderType()"
+                t-att-class="buttonClass"
+                class="border border-secondary shadow-none rounded-2 fw-bold text-dark fs-4 text-secondary bg-secondary" >
+                <t t-if="this.pos.getOrder().nf_pos_order_type_id and this.pos.getOrder()">
+                     <span t-out="this.pos.getOrder().pos_order_type()"></span>
+                </t>
+                <t t-else="">
+                    <span>Order Type</span>
+                </t>
+            </button>
+        </t>
+    </xpath>
+</t>
+</template>

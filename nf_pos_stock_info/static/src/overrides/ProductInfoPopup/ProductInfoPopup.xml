@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id='template' xml:space='preserve'>
+    <t t-name='nfProductInfoPopup' t-inherit='point_of_sale.ProductInfoPopup' t-inherit-mode='extension'>
+        <xpath expr="//div[hasclass('section-inventory-body')]" position="inside">
+            <div class="mt-3 mb-4" t-if="props.product.type == 'consu' and props.product.is_storable and this.pos.config.nf_pos_enable_stock_info ">
+                <table class="table-borderless sh-stock-info-table" t-if="getNfStock">
+                    <thead>
+                        <th>Name</th>
+                        <th>On Hand</th>
+                        <th>Available Quantity</th>
+                    </thead>
+                    <t t-foreach="getNfStock" t-as="stock" t-key="stock.id" >
+                        <tr>
+                            <td t-att-class="'nf-location-name-'+this.get_width(stock.display_name)">
+                                <t t-out="stock.display_name" class="table-name"/>
+                            </td>
+                            <td>
+                                <span class="fw-bolder" style="padding-right: 5px;" ><t t-out="stock.quantity" class="table-name"/></span>
+                                <t t-out="stock.uom_id.name"/>
+                            </td>
+                            <td> 
+                                <span class="fw-bolder"  style="padding-right: 5px;" ><t t-out="stock.available_quantity"/></span>
+                                <t t-out="stock.uom_id.name"/>
+                            </td>
+                        </tr>
+                    </t>
+                </table>
+            </div>
+        </xpath>
+    </t>
+</templates>

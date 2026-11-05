@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="nf_product_supplierinfo_form_view" model="ir.ui.view">
+        <field name="name">Hide Sale Price</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='price']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+        </field> 
+    </record>
+
+    <record id="nf_product_supplierinfo_view_kanban" model="ir.ui.view">
+        <field name="name">Hide Sale Price</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_view_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='price']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+        </field> 
+    </record>
+
+    <record id="nf_product_supplierinfo_tree_view" model="ir.ui.view">
+        <field name="name">Hide Sale Price</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='price']" position="attributes">
+                <attribute name="groups">!nf_hide_cost_price.nf_hide_sale_price_group</attribute>
+            </xpath>
+        </field> 
+    </record>
+</odoo>

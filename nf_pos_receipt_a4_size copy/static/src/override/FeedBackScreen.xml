@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_pos_receipt_a4_size.FeedbackScreen" t-inherit="point_of_sale.FeedbackScreen" t-inherit-mode="extension">
+        <xpath expr="//button[@t-if='this.pos.canSendReceipt']" position="after">
+            <!-- <button>print</button> -->
+            <div class="buttons">
+                <t t-if='this.pos.config._nf_enable_a4_size_receipt'>
+                    <div class="button print btn btn-lg btn-secondary w-100 printA4Receipt" t-on-click.stop="() => this.printA4Receipt()">
+                        <i class="fa fa-print"></i>
+                        Print A4 Size Receipt
+                    </div>
+                </t>
+            </div>
+        </xpath>
+        <!-- <xpath expr='//div[hasclass("receipt-options")]' position='after'>
+        </xpath> -->
+    </t>
+</templates>

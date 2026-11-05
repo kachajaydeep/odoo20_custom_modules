@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id='nf_pos_default_customer_invoice_form_view' model='ir.ui.view'>
+        <field name="name">nf.po.default.customer.invoice.form.view</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name='arch' type='xml'>
+            <div name="identifiers" position="after">
+                <field name="nf_default_invoice" help="Make sure popup is not blocked !" />
+            </div>
+        </field>
+    </record>
+</odoo>

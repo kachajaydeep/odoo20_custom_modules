@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_tailor_management.TailorDashboard">
+        <div class="nf-main-content container-fluid pt-5">
+            <div class="page-content">
+                <div class="container-fluid">
+                    <div class="row ">
+                        <div class="col-lg-8 col-12 ">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="card-body d-flex flex-column row-gap-4">
+                                        <div class="d-flex column-gap-3 align-items-center">
+                                            <div class="avatar avatar-lg">
+                                                <img class="rounded-circle o_user_avatar" style="width: 50px; height: 50px" t-att-src="this.state.user_img" alt="User" />
+                                            </div>
+                                            <h4 class="card-title m-0 p-0 user fs-4">
+                                                <t t-out="this.greeting"></t>,
+                                                <t t-out='this.user.display_name'/>
+                                                <span>!</span>
+                                            </h4>
+                                        </div>
+                                        <p class="card-text fs-5">
+                                    Here's What's happening with your store today.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-12">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <fieldset>
+                                            <div class="input-group p-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Start Date</span>
+                                                </div>
+                                                <input type="date" aria-label="Start Date" t-model.proxy="this.state.start_date" class="form-control" t-on-change="() => this.onchangeStartDate()" placeholder="Start Date" />
+                                            </div>
+
+                                            <div class="input-group p-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">End Date</span>
+                                                </div>
+                                                <input type="date" t-model.proxy="this.state.end_date" t-on-change="() => this.onchangeStartDate()" aria-label="End Date" class="form-control" placeholder="End Date" />
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <section>
+                        <div class="row">
+                            <div class="col-12 col-lg-3 col-md-6 col-sm-12">
+                                <div class="card">
+                                    <div class="card-body ">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div class="stats-icon purple">
+                                                      <svg xmlns="http://www.w3.org/2000/svg"
+                                                            viewBox="0 -64 640 640"
+                                                            width="30"
+                                                            height="30"
+                                                            fill="#ffffff"
+                                                        >
+                                                            <path d="M352 288h-16v-88c0-4.42-3.58-8-8-8h-13.58c-4.74 0-9.37 1.4-13.31 4.03l-15.33 10.22a7.994 7.994 0 0 0-2.22 11.09l8.88 13.31a7.994 7.994 0 0 0 11.09 2.22l.47-.31V288h-16c-4.42 0-8 3.58-8 8v16c0 4.42 3.58 8 8 8h64c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8zM608 64H32C14.33 64 0 78.33 0 96v320c0 17.67 14.33 32 32 32h576c17.67 0 32-14.33 32-32V96c0-17.67-14.33-32-32-32zM48 400v-64c35.35 0 64 28.65 64 64H48zm0-224v-64h64c0 35.35-28.65 64-64 64zm272 192c-53.02 0-96-50.15-96-112 0-61.86 42.98-112 96-112s96 50.14 96 112c0 61.87-43 112-96 112zm272 32h-64c0-35.35 28.65-64 64-64v64zm0-224c-35.35 0-64-28.65-64-64h64v64z"/>
+                                                        </svg>
+                                                </div>
+                                            </div>
+                                            <div class="col-9">
+                                                <h6 class="text-muted font-semibold text-formated nf-desktop-mini-header-font text-wrap">
+                                                    <strong>
+                                                        <span> Total Selling Amount </span>
+                                                    </strong>
+                                                </h6>
+                                                <h6 class="font-extrabold mb-0 text-nowrap  nf-desktop-mini-header-font">
+                                                   <t t-out="this.get_selling_amount" />
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 col-md-6 col-sm-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div class="stats-icon blue">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 512 512"
+                                                        width="30"
+                                                        height="30"
+                                                        fill="#ffffff"
+                                                    >
+                                                        <path d="M0 96C0 78.3 14.3 64 32 64H48C65.7 64 80 78.3 80 96V112C80 129.7 65.7 144 48 144H32C14.3 144 0 129.7 0 112V96zM0 240C0 222.3 14.3 208 32 208H48C65.7 208 80 222.3 80 240V256C80 273.7 65.7 288 48 288H32C14.3 288 0 273.7 0 256V240zM0 384C0 366.3 14.3 352 32 352H48C65.7 352 80 366.3 80 384V400C80 417.7 65.7 432 48 432H32C14.3 432 0 417.7 0 400V384zM128 80C128 71.2 135.2 64 144 64H496C504.8 64 512 71.2 512 80V128C512 136.8 504.8 144 496 144H144C135.2 144 128 136.8 128 128V80zM128 224C128 215.2 135.2 208 144 208H496C504.8 208 512 215.2 512 224V272C512 280.8 504.8 288 496 288H144C135.2 288 128 280.8 128 272V224zM128 368C128 359.2 135.2 352 144 352H496C504.8 352 512 359.2 512 368V416C512 424.8 504.8 432 496 432H144C135.2 432 128 424.8 128 416V368z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="col-9">
+                                                <a class="text-white " href="/odoo/action-nf_tailor_management.action_nf_tailor_order/">
+                                                    <h6 class="text-muted font-semibold text-formated nf-desktop-mini-header-font text-wrap">
+                                                        <strong>
+                                                            <span> Total Order</span>
+                                                        </strong>
+                                                    </h6>
+                                                    <h6 class="font-extrabold mb-0  nf-desktop-mini-header-font">
+                                                        <t t-out="this.state.total_order_count" />
+                                                    </h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 col-md-6 col-sm-12">
+                                <div class="card">
+                                    <div class="card-body ">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div class="stats-icon green ">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 320 512"
+                                                        width="30"
+                                                        height="30"
+                                                        fill="#ffffff"
+                                                    >
+                                                        <path d="M48 64C21.5 64 0 85.5 0 112V400C0 426.5 21.5 448 48 448H80C106.5 448 128 426.5 128 400V112C128 85.5 106.5 64 80 64H48zM240 64C213.5 64 192 85.5 192 112V400C192 426.5 213.5 448 240 448H272C298.5 448 320 426.5 320 400V112C320 85.5 298.5 64 272 64H240z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="col-9">
+                                                <a class="text-white " href="/odoo/action-nf_tailor_management.action_nf_tailor_order_pending_orders/">
+                                                    <h6 class="text-muted font-semibold text-formated nf-desktop-mini-header-font text-wrap">
+                                                        <strong>
+                                                            <span>Total Pending Order</span>
+                                                        </strong>
+                                                    </h6>
+                                                    <h6 class="font-extrabold  nf-desktop-mini-header-font">
+                                                        <t t-out='this.state.inprogres_orders_count' />
+                                                    </h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 col-md-6 col-sm-12">
+                                <div class="card">
+                                    <div class="card-body ">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div class="stats-icon blue mb-2">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 512 512"
+                                                        width="30"
+                                                        height="30"
+                                                        fill="#ffffff"
+                                                    >
+                                                        <path d="M313.4 32.9c26.9 0 48.7 21.8 48.7 48.7v16.1c0 12.8-5 25.1-13.9 34.2l-17.4 17.4h119.5c35.3 0 61.8 32.3 54.6 66.9l-32 153.6C468.1 400.9 444.7 416 418.1 416H208c-17.7 0-32-14.3-32-32V192c0-17.7 14.3-32 32-32h32l48.5-97c5.4-10.8 16.4-17.6 28.5-17.6h.4zM32 192h64v224H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="col-9">
+                                                <a class="text-white " href="/odoo/action-nf_tailor_management.action_nf_tailor_order_confirmed_orders/">
+                                                    <h6 class="text-muted font-semibold text-formated nf-desktop-mini-header-font text-wrap">
+                                                        <strong>Confirmed Order</strong>
+                                                    </h6>
+                                                    <h6 class="font-extrabold  nf-desktop-mini-header-font">
+                                                        <t t-out="this.state.confirmed_orders"></t>
+                                                    </h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <div class="col-12 col-lg-3 col-md-6 col-sm-12">
+                                <div class="card">
+                                    <div class="card-body ">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div class="stats-icon red ">
+                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 576 512"
+                                                        width="30"
+                                                        height="30"
+                                                        fill="#ffffff">
+                                                        <path d="M0 24C0 10.7 10.7 0 24 0H55.7c22.1 0 41.5 14.3 48.3 35.1L112 64H552c13.3 0 24 10.7 24 24c0 2.4-.4 4.8-1.1 7.1l-64 224C506.2 337.8 490.8 352 473.1 352H176.4l-10.7 32H464c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-10.7 0-20.5-5.3-26.3-14.2s-7.2-20-3.8-30.1L134.4 320 87.7 88H24C10.7 88 0 77.3 0 64V24zM160 432a40 40 0 1 1 0 80 40 40 0 1 1 0-80zm312 40a40 40 0 1 1-80 0 40 40 0 1 1 80 0z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="col-9">
+                                                <a class="text-white " href="/odoo/action-nf_tailor_management.action_nf_tailor_new_orders/">
+                                                    <h6 class="text-muted font-semibold text-formated nf-desktop-mini-header-font text-wrap">
+                                                        <strong>
+                                                            New Orders
+                                                        </strong>  
+                                                    </h6>
+                                                    <h6 class="font-extrabold  nf-desktop-mini-header-font">
+                                                        <t t-out="this.state.new_orders_count" />
+                                                    </h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>      
+                            <div class="col-12 col-lg-3 col-md-6 col-sm-12">
+                                <div class="card">
+                                    <div class="card-body ">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div class="stats-icon blue">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 512 512"
+                                                        width="30"
+                                                        height="30"
+                                                        fill="#ffffff"
+                                                        >
+                                                        <path d="M313.4 32.9c26.9 0 48.7 21.8 48.7 48.7v16.1c0 12.8-5 25.1-13.9 34.2l-17.4 17.4h119.5c35.3 0 61.8 32.3 54.6 66.9l-32 153.6C468.1 400.9 444.7 416 418.1 416H208c-17.7 0-32-14.3-32-32V192c0-17.7 14.3-32 32-32h32l48.5-97c5.4-10.8 16.4-17.6 28.5-17.6h.4zM32 192h64v224H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="col-9">
+                                                <a class="text-white " href="/odoo/action-nf_tailor_management.action_nf_tailor_order_delivered_orders/">
+                                                    <h6 class="text-muted font-semibold text-formated nf-desktop-mini-header-font text-wrap">
+                                                        <strong>
+                                                            Completed Orders
+                                                        </strong>
+                                                    </h6>
+                                                    <h6 class="font-extrabold  nf-desktop-mini-header-font">
+                                                         <t t-out="this.state.done_orders" />
+                                                    </h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 col-md-6 col-sm-12">
+                                <div class="card">
+                                    <div class="card-body ">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div class="stats-icon green">
+                                                    <!-- <i class="fa fa-times-circle"></i> -->
+                                                     <svg xmlns="http://www.w3.org/2000/svg"
+                                                            viewBox="0 0 512 512"
+                                                            width="30"
+                                                            height="30"
+                                                            fill="#ffffff">
+                                                        <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm92.7-305.3L289.4 256l59.3 59.3c6.2 6.2 6.2 16.4 0 22.6s-16.4 6.2-22.6 0L266.7 278.6l-59.3 59.3c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l59.3-59.3-59.3-59.3c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0l59.3 59.3 59.3-59.3c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="col-9">
+                                                <a class="text-white " href="/odoo/action-nf_tailor_management.action_nf_tailor_order_cancel_orders/">
+                                                    <h6 class="text-muted font-semibold text-formated  nf-desktop-mini-header-font text-wrap">
+                                                        <strong>
+                                                            Cancelled Orders
+                                                        </strong>
+                                                    </h6>
+                                                    <h6 class="font-extrabold  nf-desktop-mini-header-font">
+                                                         <t t-out="this.state.cancel_orders" />
+                                                    </h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="nf-gender-report">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12 col-lg-5">
+                                        <div class="card-header nf-card-body">
+                                            <h4>Orders by Gender </h4>
+                                            <div style="float: right; margin-top: -25px; width: 20%;">
+                                                <select class="form-control" t-model.proxy="this.state.gender_chart" id='NFGenderOrders' t-on-change="(event) => this.onChangeGenderFilter(event)">
+                                                    <option value="day">Today</option>
+                                                    <option value="month" selected="selected">This Month</option>
+                                                    <option value="year">This Year</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="card-body nf-card-body">
+                                            <div id="nf-tailor-gender-chart"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-7">
+                                        <div class="card-header nf-card-body">
+                                            <h4>Sales</h4>
+                                            <div style="float: right; margin-top: -25px; width: 15%;">
+                                                <select class="form-control" id='NfSaleFilter' t-model.proxy="this.state.invoice_chart" t-on-change="(event) => this.onChangeInvoiceFilter(event)">
+                                                    <option value="day">Today</option>
+                                                    <option value="month" selected="selected">This Month</option>
+                                                    <option value="year">This Year</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="card-body nf-card-body">
+                                            <div id="nf-tailor-invoice-chart"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class='nf-order-lists' >
+                        <div class="d-flex justify-content-center">
+                            <div class="row justify-content-between" style="width:96vw">
+                                <div class="col-lg-6 col-12 ">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title">Running Order List</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <table class="table table-borderless table-hover">
+                                                <thead class="bg-dark">
+                                                    <tr  >
+                                                        <th class="table-header">Order Name</th>
+                                                        <th class="table-header">Customer</th>
+                                                        <th class="table-header">Date</th>
+                                                        <th class="table-header">Order Date</th>
+                                                        <th class="table-header">
+                                                            <a href="/odoo/action-nf_tailor_management.action_nf_tailor_order/">
+                                                                <span class="border-bottom border-2 border-primary text-white">View</span>
+                                                            </a>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr t-foreach="this.state.pending_order" t-as="array" t-key="array.id">
+                                                        <td class="table-data">
+                                                            <span t-out="array.name"/>
+                                                        </td>
+                                                        <td class="table-data">
+                                                            <span t-out="array.customer_id[1]"/>
+                                                        </td>
+                                                        <td class="table-data">
+                                                            <span t-out="array.order_date"/>
+                                                        </td>
+                                                        <td class="table-data">
+                                                            <span t-out="array.delivery_date"/>
+                                                        </td>
+                                                        <td class="table-data">
+                                                            <a t-att-href="'/odoo/action-nf_tailor_management.action_nf_tailor_order/'+array.id">
+                                                                <span class="border-bottom border-2 border-primary">view</span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title">Invoice Due</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <table class="table table-borderless table-hover">
+                                                <thead class="bg-dark">
+                                                    <tr>
+                                                        <th class="table-header">Invoice Number</th>
+                                                        <th class="table-header">Amount</th>
+                                                        <th class="table-header">Amount Due</th>
+                                                        <th class="table-header">
+                                                            <a href="/odoo/action-account.action_move_out_invoice/">
+                                                                <span class="text-white">View</span>
+                                                            </a>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr t-foreach="this.state.invoice_list" t-as="invoice" t-key="invoice.id">
+                                                        <td class="table-data">
+                                                            <span t-out="invoice.name"/>
+                                                        </td>
+                                                        <td class="table-data">
+                                                            <span t-out="this.convert_amount(invoice.amount_total)"/>
+                                                        </td>
+                                                        <td class="table-data">
+                                                            <span t-out="this.convert_amount(invoice.amount_residual)"/>
+                                                        </td>
+                                                        <td class="table-data">
+                                                            <a t-att-href="'/odoo/action-account.action_move_out_invoice/'+invoice.id">
+                                                                <span class="border-bottom border-2 border-primary" style="cursor: pointer;">view</span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title">Deliever Order List</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <table class="table table-borderless table-hover">
+                                                <thead class="bg-dark">
+                                                    <tr >
+                                                        <th class="table-header">Order Name</th>
+                                                        <th class="table-header">Customer</th>
+                                                        <th class="table-header">Date</th>
+                                                        <th class="table-header">Order Date</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr t-if="this.state.delievered_order_list" t-foreach="this.state.delievered_order_list" t-as="creation" t-key="creation.id">
+                                                        <td class="table-data">
+                                                            <span t-out="creation.name"></span>
+                                                        </td>
+                                                        <td class="table-data">
+                                                            <t t-if="creation.customer_id">
+                                                                <span t-out="creation.customer_id[1]"></span>
+                                                            </t>
+                                                        </td>
+                                                        <td class="table-data">
+                                                            <span t-out="creation.delivery_date"></span>
+                                                        </td>
+                                                        <td class="table-data">
+                                                            <span t-out="creation.order_date"></span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title">Recent Customer</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <table class="table table-borderless table-hover">
+                                                <thead class="bg-dark">
+                                                    <tr>
+                                                        <th class="table-header">Customer Name</th>
+                                                        <th class="table-header">Phone Number</th>
+                                                        <th class="table-header">Creation Date</th>
+                                                        <th class="table-header">
+                                                            <a href="/odoo/action-account.res_partner_action_customer">
+                                                                <span class="text-white">View</span>
+                                                            </a>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <t t-if="this.state.recent_customer_list" t-foreach="this.state.recent_customer_list" t-as="creation" t-key="creation_index">
+                                                        <tr t-if="creation.recent_customer" t-foreach="creation.recent_customer" t-as="recent" t-key="recent.id">
+                                                            <td class="table-data">
+                                                                <span t-out="recent.name"></span>
+                                                            </td>
+                                                            <td class="table-data">
+                                                                <span t-out="recent.phone"></span>
+                                                            </td>
+                                                            <td class="table-data">
+                                                                <span t-out="creation.order_creation_date"></span>
+                                                            </td>
+                                                            <td class="table-data">
+                                                                <a t-att-href="'/odoo/action-account.res_partner_action_customer/'+recent.id">
+                                                                    <span class="border-bottom border-2 border-primary">view</span>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </t>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

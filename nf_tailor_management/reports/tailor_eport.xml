@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_tailor_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <t t-set="partner" t-value="o.customer_id or False"/>
+
+                    <t t-set="address">
+                        <div name="div_outgoing_address">
+                            <div name="outgoing_delivery_address">
+                                <span>
+                                    <strong>Delivery Address:</strong>
+                                </span>
+                                <div t-field="partner.commercial_partner_id" t-options='{"widget": "contact", "fields": ["address", "name", "phone", "vat"], "no_marker": True, "phone_icons": True}'/>
+                            </div>
+                        </div>
+                    </t>
+                    <div class="page">
+                        <t t-log="doc.bom_id"></t>
+                        <h2>Tailor Order Report</h2>
+                        <div class="row mb-4" style="font-size: 17px" id="informations">
+                            <div class="col-4">
+                                <strong>Order Reference:</strong>
+                                <div t-out="doc.name"/>
+                            </div>
+                            <div class="col-4" name="informations_date">
+                                <strong>Customer:</strong>
+                                <div t-out="doc.customer_id.name"/>
+                            </div>
+                            <div class="col-4" name="expiration_date">
+                                <strong>Delivery Date:</strong>
+                                <div t-out="doc.delivery_date"/>
+                            </div>
+                        </div>
+                        <div class="row mt-3" style="font-size: 17px" id="informations">
+                            <div class="col-4">
+                                <strong>Order Date:</strong>
+                                <div t-out="doc.order_date"/>
+                            </div>
+                            <div class="col-4">
+                                <strong>Product:</strong>
+                                <div t-out="doc.bom_id.product_id.name"/>
+                            </div>
+                            <div class="col-4">
+                                <strong>Quantity:</strong>
+                                <div t-out="doc.product_qty"/>
+                            </div>
+                        </div>
+                        <div t-if="doc.measurement_line_ids" class="mt-4">
+                            <h3>Measurement Lines</h3>
+                            <table class="o_has_total_table table o_main_table table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th>Measurement Type</th>
+                                        <th>Value</th>
+                                        <th>Note</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="sale_tbody">
+                                    <t t-foreach="doc.measurement_line_ids" t-as="measurement_line">
+                                        <tr>
+                                            <td>
+                                                <span t-out="measurement_line.measurement_type_id.name"/>
+                                            </td>
+                                            <td>
+                                                <span t-out="measurement_line.size"/>
+                                            </td>
+                                            <td>
+                                                <span t-out="measurement_line.note"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div t-if="doc.design_ids" class="mt-4">
+                            <h3>Designs</h3>
+                            <div class="row">
+                                <t t-foreach="doc.design_ids" t-as="design">
+                                    <div class="col-4">
+                                        <div>
+                                            <t t-out="design.design_type.name"></t>
+                                        </div>
+                                        <div t-if="design.image_1920" >
+                                            <img t-att-src="image_data_uri(design.image_1920)" style="widdth: 100%; max-height: 4cm; max-width: 8cm;"/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                        
+                        <div t-if="doc.tailor_line_ids" class="mt-5">
+                            <h3>Product Details</h3>
+                            <table class="o_has_total_table table o_main_table table-borderless">
+                                <thead>
+                                    <tr class="font-weight-bold">
+                                        <th class="text-start">Product Name</th>
+                                        <th class="text-end text-nowrap">Quantity</th>
+                                        <th class="text-end text-nowrap">Unit Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="sale_tbody">
+                                    <t t-foreach="doc.tailor_line_ids" t-as="line">
+                                        <tr>
+                                            <td class="text-start">
+                                                <span t-out="line.product_id.name"/>
+                                            </td>
+                                            <td class="text-end text-nowrap">
+                                                <span t-out="line.quantity"/>
+                                            </td>
+                                            <td class="text-end text-nowrap">
+                                                <span t-out="line.unit_price"  t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <div class="row" >
+                                <div class="col-10 text-end" >
+                                    Untaxed Amount
+                                </div>
+                                <div class="col-2 text-end" >
+                                    <t t-out="doc.amount_untaxed" t-options='{"widget": "monetary", "display_currency": doc.currency_id}'></t>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-10  text-end" >
+                                   Tax Amount
+                                </div>
+                                <div class="col-2  text-end" >
+                                    <t  t-out="doc.amount_tax" t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-10  text-end" >
+                                    Total
+                                </div>
+                                <div class="col-2  text-end" >
+                                    <t t-out="doc.amount_total" t-options='{"widget": "monetary", "display_currency": doc.currency_id}' />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_tailor_order">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="nf_tailor_management.report_tailor_document" />
+        </t>
+    </template>
+
+</odoo>

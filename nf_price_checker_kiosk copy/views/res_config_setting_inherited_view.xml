@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="nf_action_price_checker_kiosk" model="ir.actions.act_url">
+        <field name="name">Price Checker Kiosk</field>
+        <field name="url">/price_checker_kiosk</field>
+        <field name="target">new</field>
+    </record>
+        <record id="res_config_settings_inherit_view_get_product_details" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.get.product.details</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"></field>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="inside">
+                     <app data-string="Price Checker Kiosk" string="Price Checker Kiosk" name="nf_product_details" groups="nf_price_checker_kiosk.nf_checker_manager" logo="/nf_price_checker_kiosk/static/description/icon.png">
+                        <block title="Price Checker Kiosk Settings" id="nf_price_checker_kiosk_block">
+                        <setting string="Display Company Name" help="Show the company name on the kiosk.">
+                            <field name="nf_company_name"/>
+                        </setting>
+                        <setting string="Display Company logo" help="Show the company logo on the kiosk.">
+                            <field name="nf_company_logo"/>
+                        </setting>
+                        <setting string="Display Product Name" help="Show the product name on the kiosk.">
+                            <field name="nf_show_name"/>
+                        </setting>
+                        <setting string="Display Product Image" help="Show the product image on the kiosk.">
+                            <field name="nf_show_image"/>
+                        </setting>
+                        <setting string="Display Product Code" help="Show the internal reference.">
+                            <field name="nf_show_code"/>
+                        </setting>
+                        <setting string="Display Barcode" help="Show the product barcode.">
+                            <field name="nf_show_barcode"/>
+                        </setting>
+                        <setting string="Display Sales Price" help="Show the sales price of the product.">
+                            <field name="nf_show_price"/>
+                        </setting>
+                        <setting string="Display Available Stock" help="Show the on-hand quantity.">
+                            <field name="nf_show_stock"/>
+                        </setting>
+                        <setting string="Display Specification" help="Show product description/specification.">
+                            <field name="nf_show_specification"/>
+                        </setting>
+                        <setting string="Display Category" help="Show the product category.">
+                            <field name="nf_show_category"/>
+                        </setting>
+                        <setting string="Show Keyboard" help="Show an on-screen keyboard for manual entry.">
+                            <field name="nf_show_keyboard"/>
+                        </setting>
+                        <setting string="Show Pricelist Price" help="Show price from a specific pricelist on the kiosk.">
+                            <field name="nf_show_pricelist"/>
+                        </setting>
+                        <setting string="Show Product Weight" help="Show the Product Weight.">
+                            <field name="nf_show_product_weight"/>
+                        </setting>
+                        <setting string="Sales Description" help="Show an Sales description.">
+                            <field name="nf_show_product_sales_description"/>
+                        </setting>
+                        <setting string="Show Product Tax" help="Show the Product Tax.">
+                            <field name="nf_show_product_tax"/>
+                        </setting>
+
+                        <!-- Only visible when nf_show_pricelist is ticked -->
+                        <setting string="Kiosk Pricelist"
+                                help="Select which pricelist to use for kiosk prices."
+                                invisible="not nf_show_pricelist">
+                            <field name="nf_pricelist_ids"
+                                widget="many2many_tags"
+                                domain="[('active','=',True)]"
+                                options="{'no_create': True}"/>
+                        </setting>
+
+                        <div class="mt-4">
+                            <button name="%(nf_price_checker_kiosk.nf_action_price_checker_kiosk)d" type="action" 
+                                    string="Launch Price Checker Kiosk" 
+                                    class="btn-primary" 
+                                    icon="oi-launch"/>
+                        </div>
+                        </block>
+                     </app>
+                </xpath>
+            </field>
+        </record>
+
+    <record id="nf_action_price_checker_config_settings" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+        <field name="context">{'module': 'nf_price_checker_kiosk'}</field>
+    </record>
+
+
+<menuitem id="menu_price_checker_root"
+          name="Price Checker"
+          groups="nf_price_checker_kiosk.nf_checker_user" 
+          sequence="20"/>
+
+<menuitem id="menu_price_checker_view"
+          name="Price Checker View"
+          parent="menu_price_checker_root"
+          action="nf_action_price_checker_kiosk"
+          groups="nf_price_checker_kiosk.nf_checker_user" 
+          sequence="11" />
+
+<!-- <menuitem id="menu_price_checker_config"
+          name="Configuration"
+          parent="menu_price_checker_root"
+          groups="nf_price_checker_kiosk.nf_checker_manager" 
+          sequence="10"/>
+
+<menuitem id="menu_price_checker_settings"
+          name="Settings"
+          parent="menu_price_checker_config"
+          action="nf_action_price_checker_config_settings" 
+          sequence="20"/> -->
+</odoo> 

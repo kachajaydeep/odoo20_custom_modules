@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id='nf_pos_employee_attendanceisation_config_view' model='ir.ui.view'>
+        <field name='name'>nf.attendance.custom.config.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name='arch' type='xml'>
+            <block id='pos_interface_section' position='inside'>
+                <setting id="nf_enbale_check_in_out" help="Allows you to chcek in and check out from pos directly">
+                    <field name='nf_enbale_check_in_out' />
+                </setting>
+            </block>
+        </field>
+    </record>
+
+</odoo>

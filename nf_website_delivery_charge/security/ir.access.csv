@@ -1,0 +1,2 @@
+id,name,model_id,group_id/id,operation,domain
+nf_website_delivery_charge.access_nf_cities,access_nf_cities,nf.cities,base.group_user,crud
