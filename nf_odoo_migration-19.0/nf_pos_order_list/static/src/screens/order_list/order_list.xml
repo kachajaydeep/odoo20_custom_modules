@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="nf_pos_order_list.NfOrderListScreen">
+        <div class="nf-order-list-screen screen ">
+            <div class="screen-full-width d-flex ">
+                <div class="d-flex flex-column flex-grow-1 overflow-y-auto">
+                    <div class="controls d-flex align-items-center justify-content-between mt-1 mt-md-0 p-2 bg-400">
+                        <t t-if="!ui.isSmall">
+                            <div class="buttons d-flex gap-2">
+                                <button class="discard btn btn-lg btn-light" t-on-click="() => this.closeOrderListScreen()">
+                                    <span class="search-icon">
+                                        <i class="fa fa-angle-double-left"/>
+                                    </span>
+                                    <t t-if="!ui.isSmall">
+                                        Back
+                                    </t>
+                                </button>
+                            </div>
+                        </t>
+                        <SearchBar placeholder="constructor.searchPlaceholder" config="nfGetSearchData()" onSearch.bind="onSearch" onFilterSelected.bind="onFilterSelected" />
+                    </div>
+                    <div class="orders overflow-y-auto flex-grow-1">
+                        <t t-set="_filteredOrderList" t-value="getFilteredOrderList()" />
+                        <t t-if="_filteredOrderList and _filteredOrderList.length !== 0">
+
+                            <!-- Desktop Header -->
+                            <div class="row text-bg-700 fw-bold d-none d-md-flex">
+                                <div class="col-md-2 p-2">Date</div>
+                                <div class="col-md-2 p-2">Receipt Number</div>
+                                <div class="col-md-2 p-2">Customer</div>
+                                <div class="col-md-1 p-2">Cashier</div>
+                                <div class="col-md-1 p-2 text-end">Total</div>
+                                <div class="col-md-1 p-2">Status</div>
+                                <div class="col-md-1 p-2 nf-actions">Actions</div>
+                            </div>
+
+                            <!-- Mobile View -->
+                            <t t-if="ui.isSmall">
+                                <t t-foreach="_filteredOrderList" t-as="order" t-key="order.id">
+                                    <div class="row nf-pos-order-list-data mobileOrderList order-row mb-2 p-2 border rounded"
+                                        t-att-class="{ 'highlight bg-primary text-white': isHighlighted(order) }"
+                                        t-on-click="() => this.onClickOrder(order)">
+                                        <div class="col-12 d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <t t-esc="order.name" /> / <t t-esc="order.trackingNumber" />
+                                            </div>
+                                            <div>
+                                                <t t-esc="getTotal(order)" />
+                                            </div>
+                                        </div>
+                                        <t t-if="order.get_partner()">
+                                            <div class="col-12 mt-1">
+                                                <t t-esc="order.get_partner().name" />
+                                            </div>
+                                        </t>
+                                        <div class="col-12 d-flex justify-content-between align-items-center mt-1 nf-pos-order-list-desktop-details">
+                                            <div><t t-esc="order.date_order" /></div>
+                                            <div class="orderStatus"><t t-esc="getStatus(order)" /></div>
+                                        </div>
+                                        <div class="col-12 d-flex mt-2">
+                                            <div class="me-3" t-on-click="() => this.nfDisplayLines(order)" title="Order Lines">
+                                                <span class="fa fa-bars"></span>
+                                            </div>
+                                            <div t-on-click="() => this.nfReorder(order)" title="Re-Order">
+                                                <span class="fa fa-repeat"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </t>
+
+                            <!-- Desktop View -->
+                            <t t-else="">
+                                <t t-foreach="_filteredOrderList" t-as="order" t-key="order.id">
+                                    <div class="row nf-pos-order-list-desktop-details order-row align-items-center mb-2 p-2 border rounded"
+                                        t-att-class="{ 'highlight bg-primary text-white': isHighlighted(order) }"
+                                        t-on-click="() => this.onClickOrder(order)">
+                                        <div class="col-md-2"><t t-esc="order.date_order" /></div>
+                                        <div class="col-md-2"><t t-esc="order.pos_reference" /></div>
+                                        <div class="col-md-2">
+                                            <t t-if="order.partner_id"><t t-esc="order.partner_id.name" /></t>
+                                            <t t-else="">-</t>
+                                        </div>
+                                        <div class="col-md-1 nf-employee-details">
+                                            <t t-if="order.employee_id"><t t-esc="order.employee_id.name" /></t>
+                                            <t t-else="">-</t>
+                                        </div>
+                                        <div class="col-md-1 text-end">
+                                            <t t-if="order.amount_total">
+                                                <t t-esc="env.utils.formatCurrency(order.amount_total)" />
+                                            </t>
+                                            <t t-else="">0.00</t>
+                                        </div>
+                                        <div class="col-md-1 orderStatus"><t t-esc="order.state" /></div>
+                                        <div class="col-md-1 d-flex nf-body-actions">
+                                            <div class="me-2" t-on-click="() => this.nfDisplayLines(order)" title="Order Lines">
+                                                <span class="fa fa-bars"></span>
+                                            </div>
+                                            <div t-on-click="() => this.nfReorder(order)" title="Re-Order">
+                                                <span class="fa fa-repeat"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </t>
+                        </t>
+                    </div>
+                    <div t-if="nfPagination()" class="nf-pagination">
+                        <div class="pagination justify-content-center">
+                            <div class="page-item px-2 previous" t-on-click="() => this.onPrevPage()">
+                                <i class="fa fa-fw fa-angle-double-left" role="img" aria-label="Previous Order List" title="Previous Order List"></i>
+                            </div>
+                            <div class="page-item px-2 page">
+                                <span>
+                                    <t t-esc="getPageNumber()" />
+                                </span>
+                            </div>
+                            <div class="page-item px-2 next" t-on-click="() => this.onNextPage()">
+                                <i class="fa fa-fw fa-angle-double-right" role="img" aria-label="Next Order List" title="Next Order List"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

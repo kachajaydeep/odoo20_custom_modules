@@ -1,0 +1,55 @@
+.pos .popup.nf-pos-saleorder-popup main.main {
+    height: 70px !important;
+    margin-top: 30px !important;
+}
+.pos .popup.nf-pos-saleorder-popup .nf-select-quotation,.nf-sale-order{    
+    width: 50% !important;
+}
+.pos .popup.nf-pos-saleorder-popup .nf-quotation{
+    box-shadow: none !important;
+    width: 10% !important;
+    vertical-align: middle;
+}
+.pos .popup.nf-pos-saleorder-popup .nf-select-saleorder-status{
+    display: flex;
+    width: 95%;
+    justify-content: center;
+}
+ main.body{
+    text-align: left !important;
+    margin: 10px !important;
+}
+
+.pos .popup.NF-SaleOrderComfirmPopup .sale-order-detail { 
+    padding: 10px 0px;
+    border-bottom: 1px solid ;
+}
+
+.nf-sale-order-section-line{
+    line-height: 25px;
+    float: left;
+    text-align: center;
+    margin: 6px 0px 10px 15px !important;
+    width: 95%;
+    border-radius: 5px;
+    background: #e9e7e7;
+}
+.nf-sale-order-details{
+    background: #e9e7e7;
+    font-size: 14px;
+    border-radius: 10px;
+}
+.nf-line-section{
+    line-height: 0.1em;
+    float: left;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    width: 100%;
+    margin: 10px 0px !important;
+} 
+
+@media only screen and (max-width: 767.98px) {
+    .NF-SaleOrdersectionPopupDialog .NF-SaleOrdersectionPopup,.NF-SaleOrderComfirmPopupDialog .NF-SaleOrderComfirmPopup, .nf-pos-saleorder-popup-dialog .nf-pos-saleorder-popup {
+        max-width: 340px !important;
+    }
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_discount.ControlButtons" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='props.showRemainingButtons']/div/OrderlineNoteButton" position="after">
+             <button t-if="pos.config.nf_enable_create_saleorder" class='nf-sale-order-create-btn btn btn-secondary btn-lg py-5' t-on-click="() => this.saleOrderBtnClicked()" >
+                <i class='fa fa-line-chart' />
+                <span> Create Sale Order </span>
+            </button>
+            <button t-if="pos.config.nf_enable_create_saleorder" class='nf-add-section-btn btn btn-secondary btn-lg py-5'  t-on-click="() => this.nfAddSectionClicked()">
+                <i class='fa fa-edit' />
+                <span> Add Section </span>
+            </button>
+        </xpath>
+    </t>
+</templates>

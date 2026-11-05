@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate='1'>
+        <record id='nf_demo_product_for_section' model='product.product'>
+            <field name='name'>Sale Order Section </field>
+            <field name='available_in_pos'>true</field>
+            <field name='lst_price'>0.00</field>
+            <field name='nf_demo_product_for_sale_section'>true</field>
+            <field name='list_price'>0.00</field>
+        </record>
+    </data>
+</odoo>

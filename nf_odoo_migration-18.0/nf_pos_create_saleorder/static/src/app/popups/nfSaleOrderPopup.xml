@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id='template' xml:space='preserve'>
+    <t t-name='nf_pos_create_saleorder.NfSaleOrderPopup' >
+        <Dialog class='modal-dialog' title.translate="Sale order Status">
+            <div class='popup nf-pos-saleorder-popup-dialog popup-alert nf-pos-saleorder-popup'>
+                <div class="modal-body">
+                    <div class='nf-select-saleorder-status'>
+                        <div class='nf-select-quotation'>
+                            <input type='radio' name='sale' t-model="state.selected_type" class='nf-quotation' id='nf-quotation' value="quotation" />
+                            <label for='nf-quotation' style='padding: 10px;'> Quotation</label>
+                        </div>
+                        <div class='nf-sale-order'>
+                            <input type='radio' t-model="state.selected_type" name='sale' class='nf-quotation' id='sale-order' value="sale_order" />
+                            <label for='sale-order' style='padding: 10px;'> Sale Order </label>
+                        </div>
+                    </div>
+                </div>
+                <t t-set-slot="footer">
+                    <button class="button confirm btn btn-lg lh-lg btn-primary" t-on-click="() => this.confirm()" t-att-disabled="!isValid()">Create</button>
+                    <button class="button cancel btn btn-lg lh-lg btn-secondary" t-on-click="() => this.close()">Cancel</button>
+                </t>
+            </div>
+        </Dialog>
+    </t>
+
+
+</templates> 

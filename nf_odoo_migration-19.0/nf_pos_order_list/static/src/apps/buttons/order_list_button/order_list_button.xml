@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="nf_pos_order_list.NfOrderListButton" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath  expr="//t[@t-if='props.showRemainingButtons']/div/button[hasclass('o_pricelist_button')]" position="after">
+            <button t-att-class="buttonClass" t-if="props.showRemainingButtons and !pos.getOrder()?.isRefund" t-on-click="() => this.order_list()">
+                <i class="oi oi-view-list me-1" role="img" aria-label="OrderList" title="Order List" />
+                Order List
+            </button>
+        </xpath>
+    </t>
+
+</templates>

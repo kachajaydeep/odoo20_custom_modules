@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <t t-name="Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <li position="after" >
+            <li t-if="env.services.pos.get_order_section_demo_product().display_name == line.productName" class="nf-line-section nf-sale-order-section-line">
+                <span style='background: #fff; padding: 0 10px; font-size: 14px;' class=" nf-sale-order-details"><t t-esc='line.nf_section'></t></span>
+            </li>
+        </li>
+        <xpath expr='//li' position='attributes'>
+            <attribute name="t-attf-class" add="{{ env.services.pos.get_order_section_demo_product().display_name == line.productName ? ' d-none': '' }}" ></attribute>
+        </xpath>
+    </t>
+</odoo>
